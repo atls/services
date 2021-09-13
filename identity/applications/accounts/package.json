@@ -1,0 +1,35 @@
+{
+  "name": "@identity/accounts-app",
+  "version": "0.0.0",
+  "license": "BSD 3-Clause",
+  "main": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "prepack": "yarn app service build",
+    "dev": "yarn app service dev",
+    "build": "yarn app service build",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@atls/nestjs-external-renderer": "0.0.3",
+    "@atls/nestjs-hydra": "0.0.2",
+    "@atls/nestjs-kratos": "0.0.2",
+    "@identity/accounts-idp-module": "workspace:0.0.0",
+    "@identity/accounts-sso-module": "workspace:0.0.0",
+    "@nestjs/common": "^7.6.17",
+    "@nestjs/core": "^7.6.17",
+    "@nestjs/event-emitter": "^0.0.3",
+    "@nestjs/platform-express": "^7.6.17",
+    "@types/express": "^4.17.12",
+    "express": "^4.17.1",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.6.7"
+  },
+  "dependencies": {
+    "cli-color": "*",
+    "flaschenpost": "*"
+  },
+  "externalDependencies": {
+    "fsevents": "*"
+  }
+}
