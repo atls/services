@@ -1,7 +1,7 @@
 import { DynamicModule }      from '@nestjs/common'
 import { Module }             from '@nestjs/common'
-import { ClientProxyFactory } from '@nestjs/microservices'
 import { Transport }          from '@nestjs/microservices'
+import { ClientProxyFactory } from '@nestjs/microservices'
 
 import { protobufPackage }    from './tech/atls/files/v1alpha1/files_service'
 import { FilesServiceClient } from './tech/atls/files/v1alpha1/files_service'
