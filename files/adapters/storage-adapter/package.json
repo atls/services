@@ -1,0 +1,19 @@
+{
+  "name": "@files/storage-adapter-module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "@atls/logger": "0.0.1",
+    "@google-cloud/storage": "^5.8.5"
+  },
+  "devDependencies": {
+    "@files/domain-module": "workspace:0.0.1",
+    "@nestjs/common": "^7.6.17",
+    "@nestjs/core": "^7.6.17",
+    "@typa/common": "^0.0.29",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.7"
+  }
+}

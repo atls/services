@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: files
+  namespace: services
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: files
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: files
+    spec:
+      volumes:
+        - name: credentials
+          secret:
+            secretName: files-gcs-credentials
+        - name: jwks
+          secret:
+            secretName: jwks
+      containers:
+        - name: files
+          image: eu.gcr.io/the-mesh-254617/svc-files-service:dd3cdf4-1629797246352 # {"$imagepolicy": "flux-system:services-files"}
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          volumeMounts:
+            - name: credentials
+              mountPath: /secrets/
+            - name: jwks
+              mountPath: /jwks/
+          env:
+            - name: STORAGE_HOST
+              value: db-postgresql
+            - name: STORAGE_DATABASE
+              value: services
+            - name: SERVICE_NAME
+              value: files
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/credentials.json
+            - name: FILES_BUCKETS_AVATARS_TYPE
+              value: public
+            - name: FILES_BUCKETS_AVATARS_BUCKET
+              value: services-files-public
+            - name: FILES_BUCKETS_AVATARS_PATH
+              value: 'avatars/'
+            - name: FILES_BUCKETS_AVATARS_CONDITIONS_TYPE
+              value: 'image/png'
+            - name: IDENTITY_PRIVATE_KEY
+              value: /jwks/.jwks.pem
+            - name: IDENTITY_JWKS_URI
+              value: /jwks/.jwks.json
