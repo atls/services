@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package tech.atls.files.v1alpha1;
+
+service UploadService {
+  rpc CreateUpload (CreateUploadRequest) returns (CreateUploadResponse) {}
+  rpc ConfirmUpload (ConfirmUploadRequest) returns (ConfirmUploadResponse) {}
+}
+
+message CreateUploadRequest {
+  string bucket = 1;
+  string name = 2;
+  int32 size = 3;
+}
+
+message CreateUploadResponse {
+  string id = 1;
+  string url = 2;
+}
+
+message ConfirmUploadRequest {
+  string id = 1;
+}
+
+message ConfirmUploadResponse {
+  string id = 1;
+  string url = 2;
+}

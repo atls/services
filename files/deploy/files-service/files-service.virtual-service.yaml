@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: files
+  namespace: services
+spec:
+  hosts:
+    - 'files.svc.atls.dev'
+  gateways:
+    - files
+  http:
+    - route:
+        - destination:
+            host: files
+            port:
+              number: 3000

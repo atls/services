@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: bitnami/postgresql
+    environment:
+      - POSTGRESQL_PASSWORD=password
+      - POSTGRESQL_DATABASE=db
+    ports:
+      - 5432:5432
+
+  gcs:
+    image: fsouza/fake-gcs-server
+    command: -scheme http -external-url http://localhost:8600
+    volumes:
+      - .data/gcs:/data
+    ports:
+      - 8600:4443

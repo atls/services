@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: files
+  namespace: istio-system
+spec:
+  secretName: files-service-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: 'files.svc.atls.dev'
+  dnsNames:
+    - 'files.svc.atls.dev'
