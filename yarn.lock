@@ -539,7 +539,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/services-proto-files@workspace:0.0.0, @atls/services-proto-files@workspace:protos/files":
+"@atls/services-proto-files@workspace:0.0.1, @atls/services-proto-files@workspace:protos/files":
   version: 0.0.0-use.local
   resolution: "@atls/services-proto-files@workspace:protos/files"
   dependencies:
@@ -1465,7 +1465,7 @@ __metadata:
   dependencies:
     "@atls/nestjs-grpc-errors": ^0.0.2
     "@atls/nestjs-grpc-identity": ^0.0.2
-    "@atls/services-proto-files": "workspace:0.0.0"
+    "@atls/services-proto-files": "workspace:0.0.1"
     "@files/domain-module": "workspace:0.0.1"
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
@@ -1505,7 +1505,7 @@ __metadata:
     "@atls/nestjs-grpc-playground": 0.0.2
     "@atls/nestjs-logger": ^0.2.37
     "@atls/nestjs-typeorm-seeding": ^0.0.2
-    "@atls/services-proto-files": "workspace:0.0.0"
+    "@atls/services-proto-files": "workspace:0.0.1"
     "@files/buckets-config-adapter-module": "workspace:0.0.1"
     "@files/domain-module": "workspace:0.0.1"
     "@files/files-grpc-adapter-module": "workspace:0.0.1"
@@ -1554,7 +1554,7 @@ __metadata:
   dependencies:
     "@atls/nestjs-grpc-errors": ^0.0.2
     "@atls/nestjs-grpc-identity": ^0.0.2
-    "@atls/services-proto-files": "workspace:0.0.0"
+    "@atls/services-proto-files": "workspace:0.0.1"
     "@files/domain-module": "workspace:0.0.1"
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
