@@ -14,7 +14,7 @@
     "@atls/nestjs-grpc-playground": "0.0.2",
     "@atls/nestjs-logger": "^0.2.37",
     "@atls/nestjs-typeorm-seeding": "^0.0.2",
-    "@atls/services-proto-files": "workspace:0.0.1",
+    "@atls/services-proto-files": "workspace:0.0.2",
     "@files/buckets-config-adapter-module": "workspace:0.0.1",
     "@files/domain-module": "workspace:0.0.1",
     "@files/files-grpc-adapter-module": "workspace:0.0.1",
