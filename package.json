@@ -1,34 +1,31 @@
 {
   "name": "services",
   "private": true,
-  "devDependencies": {
-    "@atls/actl-cli": "^0.4.50",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^14.17.1",
-    "@types/react": "^17.0.8",
-    "@types/source-map-support": "^0.5.3",
-    "husky": "6.0.0",
-    "source-map-support": "^0.5.19",
-    "typescript": "^4.2.4"
-  },
   "workspaces": [
-    "files/**/*",
-    "protos/*"
+    "files/**/*"
   ],
   "resolutions": {
-    "@nestjs/common": "7.6.17",
-    "@nestjs/core": "7.6.17",
-    "typescript": "4.2.4",
-    "@grpc/proto-loader": "0.6.1",
-    "@types/react": "^17.0.3",
-    "protobufjs": "6.11.2",
-    "typeorm": "0.2.29",
-    "grpc": "1.24.9",
-    "rxjs": "6.6.7"
+    "typescript": "4.3.5"
+  },
+  "devDependencies": {
+    "@atls/code-service": "^0.0.12",
+    "@atls/config-jest": "^0.0.4",
+    "@atls/schematics": "^0.0.10",
+    "@jest/core": "^27.5.1",
+    "@types/eslint": "^8",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.17",
+    "@types/source-map-support": "^0.5.4",
+    "eslint": "^8.9.0",
+    "husky": "7.0.1",
+    "source-map-support": "^0.5.19",
+    "typescript": "^4.3.5"
   },
   "dependenciesMeta": {
     "ts-proto@1.7.0": {
       "unplugged": true
     }
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
