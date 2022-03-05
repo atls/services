@@ -1,0 +1,31 @@
+{
+  "name": "@atls/services-gateawy-files-types",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.3.1",
+    "@nestjs/core": "^8.3.1",
+    "@nestjs/graphql": "^10.0.5",
+    "graphql": "^15.8.0",
+    "ts-morph": "^13.0.2"
+  },
+  "peerDependencies": {
+    "@nestjs/graphql": "^10.0.5",
+    "graphql": "^15.8.0 || ^16.0.0",
+    "ts-morph": "^13.0.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

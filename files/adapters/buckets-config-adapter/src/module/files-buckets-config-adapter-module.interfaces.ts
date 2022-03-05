@@ -1,6 +1,7 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
+import { ModuleMetadata } from '@nestjs/common/interfaces'
+import { Type }           from '@nestjs/common/interfaces'
 
-import { FilesBucket }          from '@files/domain-module'
+import { FilesBucket }    from '@files/domain-module'
 
 export interface FilesBucketsConfigAdapterModuleOptions {
   buckets: Array<FilesBucket>

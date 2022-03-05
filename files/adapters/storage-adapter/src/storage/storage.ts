@@ -1,7 +1,7 @@
+import { Storage as GcsStorage }            from '@google-cloud/storage'
+import { Logger }                           from '@atls/logger'
 import { Injectable }                       from '@nestjs/common'
 import { Inject }                           from '@nestjs/common'
-import { Logger }                           from '@atls/logger'
-import { Storage as GcsStorage }            from '@google-cloud/storage'
 
 import { StoragePort }                      from '@files/domain-module'
 

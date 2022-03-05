@@ -1,5 +1,6 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
-import { StorageOptions }       from '@google-cloud/storage'
+import { StorageOptions } from '@google-cloud/storage'
+import { ModuleMetadata } from '@nestjs/common/interfaces'
+import { Type }           from '@nestjs/common/interfaces'
 
 export type FilesStorageAdapterModuleOptions = StorageOptions
 

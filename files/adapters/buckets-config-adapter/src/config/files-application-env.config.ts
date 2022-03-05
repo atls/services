@@ -12,8 +12,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
 
   protected getAvailableBuckets(): string[] {
     const bucketKeys: string[] = Object.keys(process.env).filter((key) =>
-      key.startsWith(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX)
-    )
+      key.startsWith(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX))
 
     return bucketKeys.reduce((result: string[], key) => {
       const [scope] = key
