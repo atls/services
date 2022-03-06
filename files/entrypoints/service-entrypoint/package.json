@@ -2,7 +2,7 @@
   "name": "@files/service-entrypoint",
   "version": "0.0.1",
   "private": true,
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "scripts": {
     "build": "yarn service build",
     "dev": "yarn service dev",
@@ -20,6 +20,7 @@
     "@atls/nestjs-logger": "^0.2.38",
     "@atls/nestjs-typeorm-seeding": "^0.0.5",
     "@atls/services-proto-files": "workspace:0.0.2",
+    "@atls/services-proto-upload": "workspace:0.0.0",
     "@files/application-module": "workspace:0.0.1",
     "@files/buckets-config-adapter-module": "workspace:0.0.1",
     "@files/cqrs-adapter-module": "workspace:0.0.1",

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package tech.monstrs.files.v1alpha1;
+package tech.atls.files.v1alpha1;
 
 message File {
   string id = 1;

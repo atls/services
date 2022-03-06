@@ -2,7 +2,7 @@
   "name": "@files/grpc-adapter-module",
   "version": "0.0.1",
   "private": true,
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "dependencies": {
     "@atls/nestjs-grpc-errors": "^0.0.4",
@@ -10,6 +10,7 @@
     "@atls/nestjs-grpc-playground": "^0.0.6",
     "@atls/nestjs-grpc-reflection": "^0.0.3",
     "@atls/services-proto-files": "workspace:0.0.2",
+    "@atls/services-proto-upload": "workspace:0.0.0",
     "@files/application-module": "workspace:0.0.1",
     "@files/domain-module": "workspace:0.0.1",
     "class-transformer": "^0.4.0",

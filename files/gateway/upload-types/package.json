@@ -1,5 +1,5 @@
 {
-  "name": "@atls/services-gateway-files-types",
+  "name": "@atls/services-gateway-upload-types",
   "version": "0.0.0",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",

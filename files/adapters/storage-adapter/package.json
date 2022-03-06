@@ -2,7 +2,7 @@
   "name": "@files/storage-adapter-module",
   "version": "0.0.1",
   "private": true,
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "dependencies": {
     "@atls/logger": "0.0.1",

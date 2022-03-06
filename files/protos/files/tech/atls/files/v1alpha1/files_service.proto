@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package tech.monstrs.files.v1alpha1;
+package tech.atls.files.v1alpha1;
 
-import "tech/monstrs/files/v1alpha1/file.proto";
+import "tech/atls/files/v1alpha1/file.proto";
 
 service FilesService {
   rpc ListFiles (ListFilesRequest) returns (ListFilesResponse) {}
