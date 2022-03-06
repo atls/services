@@ -5,7 +5,7 @@ import { Args }                        from '@nestjs/graphql'
 import { Mutation }                    from '@nestjs/graphql'
 import { Resolver }                    from '@nestjs/graphql'
 
-import { Upload }                      from '@atls/services-gateawy-upload-types'
+import { Upload }                      from '@atls/services-gateway-upload-types'
 import { UPLOAD_SERVICE_CLIENT_TOKEN } from '@atls/services-proto-upload'
 import { UploadServiceClient }         from '@atls/services-proto-upload'
 

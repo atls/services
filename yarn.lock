@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -284,7 +284,7 @@ __metadata:
   dependencies:
     "@atls/services-gateway-upload-types": "workspace:0.0.0"
     "@atls/services-proto-upload": "workspace:0.0.0"
-    "@grpc/grpc-js": ^1.3.7
+    "@grpc/grpc-js": ^1.5.7
     "@nestjs/common": ^8.3.1
     "@nestjs/core": ^8.3.1
     "@nestjs/graphql": ^10.0.5
@@ -324,7 +324,7 @@ __metadata:
   resolution: "@atls/services-proto-files@workspace:files/protos/files"
   dependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.3
-    "@grpc/grpc-js": ^1.3.7
+    "@grpc/grpc-js": ^1.5.7
     "@monstrs/types-import-proto": 0.0.1
     "@nestjs/common": ^8.3.1
     "@nestjs/core": ^8.3.1
@@ -349,7 +349,7 @@ __metadata:
   resolution: "@atls/services-proto-upload@workspace:files/protos/upload"
   dependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.3
-    "@grpc/grpc-js": ^1.3.7
+    "@grpc/grpc-js": ^1.5.7
     "@monstrs/types-import-proto": 0.0.1
     "@nestjs/common": ^8.3.1
     "@nestjs/core": ^8.3.1
@@ -1515,7 +1515,7 @@ __metadata:
     "@files/grpc-adapter-module": "workspace:0.0.1"
     "@files/infrastructure-module": "workspace:0.0.1"
     "@files/storage-adapter-module": "workspace:0.0.1"
-    "@grpc/grpc-js": ^1.3.7
+    "@grpc/grpc-js": ^1.5.7
     "@grpc/proto-loader": ^0.6.4
     "@nestjs/common": ^8.3.1
     "@nestjs/core": ^8.3.1
@@ -1665,22 +1665,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grpc/grpc-js@npm:*":
+"@grpc/grpc-js@npm:1.5.7":
   version: 1.5.7
   resolution: "@grpc/grpc-js@npm:1.5.7"
   dependencies:
     "@grpc/proto-loader": ^0.6.4
     "@types/node": ">=12.12.47"
   checksum: e292cd09b8b0939d6ae9a6c66f732f23ff6f844cffa9821d13af0de55f19131aae56471838d7c961572da294b8447a27981b0c6cea8ec5ad99e23a5fde8e1ca0
-  languageName: node
-  linkType: hard
-
-"@grpc/grpc-js@npm:^1.3.4, @grpc/grpc-js@npm:^1.3.7":
-  version: 1.3.7
-  resolution: "@grpc/grpc-js@npm:1.3.7"
-  dependencies:
-    "@types/node": ">=12.12.47"
-  checksum: 8d02972968afd4c54aaa6acc47d1601c73adc03829370fe4ced6b98679ee0b8cd10bcaa3e1d4d35f4eccdbd5f3e10304a10ef0006798b560226da5979dc84899
   languageName: node
   linkType: hard
 
@@ -2800,7 +2791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/long@npm:^4.0.1":
+"@types/long@npm:*, @types/long@npm:^4.0.1":
   version: 4.0.1
   resolution: "@types/long@npm:4.0.1"
   checksum: ff9653c33f5000d0f131fd98a950a0343e2e33107dd067a97ac4a3b9678e1a2e39ea44772ad920f54ef6e8f107f76bc92c2584ba905a0dc4253282a4101166d0
@@ -11489,7 +11480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typeorm@npm:^0.2, typeorm@npm:^0.2.37":
+"typeorm@npm:*, typeorm@npm:^0.2, typeorm@npm:^0.2.37":
   version: 0.2.45
   resolution: "typeorm@npm:0.2.45"
   dependencies:
@@ -11575,7 +11566,7 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>":
   version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=bda367"
+  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=de8f8a"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
