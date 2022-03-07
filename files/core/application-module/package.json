@@ -1,0 +1,23 @@
+{
+  "name": "@files/application-module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@files/domain-module": "workspace:0.0.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.3.1",
+    "@nestjs/core": "^8.3.1",
+    "@nestjs/cqrs": "^8.0.2",
+    "@nestjs/testing": "^8.3.1",
+    "@types/node": "^16.6.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.4",
+    "@nestjs/core": "^8.0.4",
+    "@nestjs/cqrs": "^8.0.2"
+  }
+}

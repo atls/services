@@ -6,15 +6,14 @@ jobs:
   run:
     name: Run
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2-beta
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: '14.10'
+          node-version: '16.13'
 
       - name: Install
         run: yarn install
@@ -34,12 +33,14 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: TestIntegration
-        run: yarn checks test integration
+      - name: Release
+        run: yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Release
-        run: yarn checks release
+      - name: TestIntegration
+        run: |
+          yarn set resolution typescript@npm:4.3.5 beta
+          yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
