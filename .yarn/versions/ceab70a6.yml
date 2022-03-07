@@ -1,0 +1,6 @@
+releases:
+  "@atls/services-gateway-files-types": patch
+  "@atls/services-gateway-upload-mutations": patch
+  "@atls/services-gateway-upload-types": patch
+  "@atls/services-proto-files": patch
+  "@atls/services-proto-upload": patch
