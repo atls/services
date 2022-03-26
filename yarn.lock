@@ -282,8 +282,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/services-gateway-upload-mutations@workspace:files/gateway/upload-mutations"
   dependencies:
-    "@atls/services-gateway-upload-types": "workspace:0.0.0"
-    "@atls/services-proto-upload": "workspace:0.0.0"
+    "@atls/services-gateway-upload-types": "workspace:0.0.1"
+    "@atls/services-proto-upload": "workspace:0.0.1"
     "@grpc/grpc-js": ^1.5.7
     "@nestjs/common": ^8.3.1
     "@nestjs/core": ^8.3.1
@@ -303,7 +303,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-gateway-upload-types@workspace:0.0.0, @atls/services-gateway-upload-types@workspace:files/gateway/upload-types":
+"@atls/services-gateway-upload-types@workspace:0.0.1, @atls/services-gateway-upload-types@workspace:files/gateway/upload-types":
   version: 0.0.0-use.local
   resolution: "@atls/services-gateway-upload-types@workspace:files/gateway/upload-types"
   dependencies:
@@ -319,7 +319,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-proto-files@workspace:0.0.2, @atls/services-proto-files@workspace:files/protos/files":
+"@atls/services-proto-files@workspace:0.0.3, @atls/services-proto-files@workspace:files/protos/files":
   version: 0.0.0-use.local
   resolution: "@atls/services-proto-files@workspace:files/protos/files"
   dependencies:
@@ -344,7 +344,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-proto-upload@workspace:0.0.0, @atls/services-proto-upload@workspace:files/protos/upload":
+"@atls/services-proto-upload@workspace:0.0.1, @atls/services-proto-upload@workspace:files/protos/upload":
   version: 0.0.0-use.local
   resolution: "@atls/services-proto-upload@workspace:files/protos/upload"
   dependencies:
@@ -1447,8 +1447,8 @@ __metadata:
     "@atls/nestjs-grpc-identity": ^0.0.6
     "@atls/nestjs-grpc-playground": ^0.0.6
     "@atls/nestjs-grpc-reflection": ^0.0.3
-    "@atls/services-proto-files": "workspace:0.0.2"
-    "@atls/services-proto-upload": "workspace:0.0.0"
+    "@atls/services-proto-files": "workspace:0.0.3"
+    "@atls/services-proto-upload": "workspace:0.0.1"
     "@files/application-module": "workspace:0.0.1"
     "@files/domain-module": "workspace:0.0.1"
     "@nestjs/common": ^8.3.1
@@ -1506,8 +1506,8 @@ __metadata:
     "@atls/nestjs-grpc-playground": 0.0.6
     "@atls/nestjs-logger": ^0.2.38
     "@atls/nestjs-typeorm-seeding": ^0.0.5
-    "@atls/services-proto-files": "workspace:0.0.2"
-    "@atls/services-proto-upload": "workspace:0.0.0"
+    "@atls/services-proto-files": "workspace:0.0.3"
+    "@atls/services-proto-upload": "workspace:0.0.1"
     "@files/application-module": "workspace:0.0.1"
     "@files/buckets-config-adapter-module": "workspace:0.0.1"
     "@files/cqrs-adapter-module": "workspace:0.0.1"
