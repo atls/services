@@ -1,6 +1,6 @@
-import { Metadata }                            from '@grpc/grpc-js'
 import { ErrorStatus }                         from '@atls/grpc-error-status'
 import { GRPC_IDENTITY_MODULE_OPTIONS }        from '@atls/nestjs-grpc-identity'
+import { Metadata }                            from '@grpc/grpc-js'
 import { INestMicroservice }                   from '@nestjs/common'
 import { Test }                                from '@nestjs/testing'
 
@@ -16,12 +16,12 @@ import { join }                                from 'path'
 import { firstValueFrom }                      from 'rxjs'
 import { v4 as uuid }                          from 'uuid'
 
-import { FILES_BUCKETS_MODULE_OPTIONS }        from '@files/buckets-config-adapter-module'
-import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from '@files/infrastructure-module'
-import { FILES_STORAGE_MODULE_OPTIONS }        from '@files/storage-adapter-module'
 import { UploadServiceClientModule }           from '@atls/services-proto-upload'
 import { UPLOAD_SERVICE_CLIENT_TOKEN }         from '@atls/services-proto-upload'
 import { UploadServiceClient }                 from '@atls/services-proto-upload'
+import { FILES_BUCKETS_MODULE_OPTIONS }        from '@files/buckets-config-adapter-module'
+import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from '@files/infrastructure-module'
+import { FILES_STORAGE_MODULE_OPTIONS }        from '@files/storage-adapter-module'
 import { serverOptions }                       from '@files/grpc-adapter-module'
 
 import { FilesServiceEntrypointModule }        from '../src/files-service-entrypoint.module'

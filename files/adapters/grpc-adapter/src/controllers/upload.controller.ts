@@ -12,14 +12,14 @@ import { Payload }                        from '@nestjs/microservices'
 
 import { v4 as uuid }                     from 'uuid'
 
-import { CreateUploadCommand }            from '@files/application-module'
-import { ConfirmUploadCommand }           from '@files/application-module'
-import { GetUploadByIdQuery }             from '@files/application-module'
-import { GetFileByIdQuery }               from '@files/application-module'
 import { CreateUploadResponse }           from '@atls/services-proto-upload'
 import { ConfirmUploadResponse }          from '@atls/services-proto-upload'
 import { UploadServiceControllerMethods } from '@atls/services-proto-upload'
 import { UploadServiceController }        from '@atls/services-proto-upload'
+import { CreateUploadCommand }            from '@files/application-module'
+import { ConfirmUploadCommand }           from '@files/application-module'
+import { GetUploadByIdQuery }             from '@files/application-module'
+import { GetFileByIdQuery }               from '@files/application-module'
 
 import { ConfirmUploadDto }               from '../dto'
 import { CreateUploadDto }                from '../dto'

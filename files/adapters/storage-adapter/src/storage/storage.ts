@@ -1,5 +1,5 @@
-import { Storage as GcsStorage }            from '@google-cloud/storage'
 import { Logger }                           from '@atls/logger'
+import { Storage as GcsStorage }            from '@google-cloud/storage'
 import { Injectable }                       from '@nestjs/common'
 import { Inject }                           from '@nestjs/common'
 
