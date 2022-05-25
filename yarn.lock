@@ -55,23 +55,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/code-service@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "@atls/code-service@npm:0.0.12"
+"@atls/code-service@npm:^0.0.15":
+  version: 0.0.15
+  resolution: "@atls/code-service@npm:0.0.15"
   dependencies:
     "@atls/config-typescript": 0.0.1
-    "@atls/webpack-proto-imports-loader": 0.0.7
+    "@atls/webpack-proto-imports-loader": 0.0.8
     "@atls/webpack-start-server-plugin": 0.0.5
     "@yarnpkg/cli": ^3.2.0
     "@yarnpkg/core": ^3.2.0
     fast-glob: ^3.2.11
     find-up: ^5.0.0
     string-replace-loader: ^3.1.0
-    ts-loader: ^9.2.6
+    ts-loader: ^9.2.8
     typescript: ^4.6.2
     webpack: ^5.70.0
     webpack-chain: ^6.5.1
-  checksum: 17fcdf0858a1b0cfce9ff5cf51bd06e4cf677578440c05e29a425d9b0fea26bfc033b8f4ddb7eacc716789c973ee1f065b16b867c561bd7092eb81f86d4339cf
+  checksum: 9f352a50129aa04d952971fc4b43db55fa33a9353efaf55bba90c64a90b2f689c992edb230b501c2d4509870397b44d71f0fe566926c9ca4856c26560e02ac52
   languageName: node
   linkType: hard
 
@@ -388,13 +388,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/webpack-proto-imports-loader@npm:0.0.7":
-  version: 0.0.7
-  resolution: "@atls/webpack-proto-imports-loader@npm:0.0.7"
+"@atls/webpack-proto-imports-loader@npm:0.0.8":
+  version: 0.0.8
+  resolution: "@atls/webpack-proto-imports-loader@npm:0.0.8"
   dependencies:
     file-loader: ^6.2.0
     protocol-buffers-schema: ^3.6.0
-  checksum: 14985f61f2ae54393f465c3537ca0e16fdc27b1ef369123f0744342ab2731ebe8949e5d744ff3b0d5f096131c595e77e321cffec72c2e3f6bc619f127ee5ea8c
+  checksum: 9333d6156425c42d62d4d9f2bdfdea4137dca99375de2820af10957b518f3906c4910e9721b2798a5804a41c5a75fc9bfc0a21e2280f5e07ba31ceab6635488c
   languageName: node
   linkType: hard
 
@@ -7993,6 +7993,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kafkajs@npm:*":
+  version: 2.0.1
+  resolution: "kafkajs@npm:2.0.1"
+  checksum: d3299ef876d44a93143348467e38b01499035db7810a857ca443e922425c92c71f6a52feef1328ef57278b02ffebff9203d4d79ac45dd25816339f20bf70d32c
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.0.0":
   version: 4.1.1
   resolution: "keyv@npm:4.1.1"
@@ -10266,7 +10273,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "services@workspace:."
   dependencies:
-    "@atls/code-service": ^0.0.12
+    "@atls/code-service": ^0.0.15
     "@atls/config-jest": ^0.0.4
     "@atls/schematics": ^0.0.10
     "@jest/core": ^27.5.1
@@ -11258,9 +11265,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-loader@npm:^9.2.6":
-  version: 9.2.7
-  resolution: "ts-loader@npm:9.2.7"
+"ts-loader@npm:^9.2.8":
+  version: 9.3.0
+  resolution: "ts-loader@npm:9.3.0"
   dependencies:
     chalk: ^4.1.0
     enhanced-resolve: ^5.0.0
@@ -11269,7 +11276,7 @@ __metadata:
   peerDependencies:
     typescript: "*"
     webpack: ^5.0.0
-  checksum: ef2c2a8e3c2d90025dae0838d20411b961a550ee6eee7fcafc5e8dbbcd8bf814d18519bb25cf0be72f483e8f5f485be9681e6d1c02392f34c2c55af8d4e70351
+  checksum: 90755ac5850890ff433f2f8c7186d57ae4e172d389342d874b50ab233675f06c47c69043c517e2a2eeaf2251637ecfac607ac6190c89340f246ceff8c7f4af7a
   languageName: node
   linkType: hard
 

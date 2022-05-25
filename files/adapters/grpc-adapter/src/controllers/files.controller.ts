@@ -6,10 +6,10 @@ import { UsePipes }                      from '@nestjs/common'
 import { QueryBus }                      from '@nestjs/cqrs'
 import { Payload }                       from '@nestjs/microservices'
 
-import { GetFilesQuery }                 from '@files/application-module'
 import { ListFilesResponse }             from '@atls/services-proto-files'
 import { FilesServiceControllerMethods } from '@atls/services-proto-files'
 import { FilesServiceController }        from '@atls/services-proto-files'
+import { GetFilesQuery }                 from '@files/application-module'
 
 import { ListFilesDto }                  from '../dto'
 

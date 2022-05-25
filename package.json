@@ -5,11 +5,11 @@
     "files/**/*"
   ],
   "resolutions": {
-    "typescript": "4.3.5",
-    "@grpc/grpc-js": "1.5.7"
+    "@grpc/grpc-js": "1.5.7",
+    "typescript": "4.3.5"
   },
   "devDependencies": {
-    "@atls/code-service": "^0.0.12",
+    "@atls/code-service": "^0.0.15",
     "@atls/config-jest": "^0.0.4",
     "@atls/schematics": "^0.0.10",
     "@jest/core": "^27.5.1",
