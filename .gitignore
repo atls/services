@@ -44,5 +44,5 @@ node_modules
 images.json
 .next
 dist/
-.idea/workspace.xml
-.idea/vcs.xml
+.idea
+*.iml
