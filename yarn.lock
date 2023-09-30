@@ -1414,14 +1414,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/cqrs-adapter-module@workspace:files/adapters/cqrs-adapter"
   dependencies:
-    "@nestjs/common": ^8.3.1
-    "@nestjs/core": ^8.3.1
-    "@nestjs/cqrs": ^8.0.2
+    "@nestjs/common": 10.2.6
+    "@nestjs/core": 10.2.6
+    "@nestjs/cqrs": 10.2.5
     rxjs: ^7.4.0
   peerDependencies:
-    "@nestjs/common": ^8.0.4
-    "@nestjs/core": ^8.0.4
-    "@nestjs/cqrs": ^8.0.2
+    "@nestjs/common": 10.2.6
+    "@nestjs/core": 10.2.6
+    "@nestjs/cqrs": 10.2.5
   languageName: unknown
   linkType: soft
 
