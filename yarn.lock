@@ -2119,9 +2119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/cqrs@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@nestjs/cqrs@npm:8.0.2"
+"@nestjs/cqrs@npm:^8.0.2":
+  version: 8.0.5
+  resolution: "@nestjs/cqrs@npm:8.0.5"
   dependencies:
     uuid: 8.3.2
   peerDependencies:
@@ -2129,7 +2129,7 @@ __metadata:
     "@nestjs/core": ^8.0.0
     reflect-metadata: 0.1.13
     rxjs: ^7.2.0
-  checksum: e706dc735efd0a1c6a7c082008775deaa83d2c52cd85e958a0c71c3968291944a0b05c211df2a8703aac2f5b06ad5b881838dbcdb54e9f661a9a6e566726168d
+  checksum: 72df09dbbc1fed30d2ba77f5a1805ac58ddeece3f753e1500d7caf62890d167b151282544b13eddc56e4666b3f0fd422ba5ed4139852241e099ac6eb57a43c34
   languageName: node
   linkType: hard
 
