@@ -5,6 +5,8 @@
     "files/**/*"
   ],
   "resolutions": {
+    "@files/buckets-config-adapter-module/@nestjs/cqrs": "^8.0.2",
+    "@files/cqrs-adapter-module/@nestjs/cqrs": "^8.0.2",
     "@grpc/grpc-js": "1.5.7",
     "typescript": "4.3.5"
   },
