@@ -29,7 +29,10 @@ import { CreateUploadDto }                from '../dto'
 @UseGuards(GrpcJwtIdentityGuard)
 @UseFilters(new GrpcExceptionsFilter())
 export class UploadController implements UploadServiceController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus
+  ) {}
 
   @UsePipes(new GrpcValidationPipe())
   async createUpload(

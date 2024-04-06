@@ -2,7 +2,9 @@
   "name": "@atls/services-gateway-upload-types",
   "version": "0.0.1",
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "files": [
     "dist"
   ],
@@ -12,16 +14,18 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.3.1",
-    "@nestjs/core": "^8.3.1",
-    "@nestjs/graphql": "^10.0.5",
-    "graphql": "^15.8.0",
-    "ts-morph": "^13.0.2"
+    "@nestjs/common": "10.3.7",
+    "@nestjs/core": "10.3.7",
+    "@nestjs/graphql": "12.1.1",
+    "graphql": "16.8.1",
+    "reflect-metadata": "0.2.2",
+    "ts-morph": "22.0.0"
   },
   "peerDependencies": {
-    "@nestjs/graphql": "^10.0.5",
-    "graphql": "^15.8.0 || ^16.0.0",
-    "ts-morph": "^13.0.2"
+    "@nestjs/graphql": "^12.1.1",
+    "graphql": "^15.8.0 || ^16.8.1",
+    "reflect-metadata": "*",
+    "ts-morph": "^22.0.0"
   },
   "publishConfig": {
     "access": "public",
