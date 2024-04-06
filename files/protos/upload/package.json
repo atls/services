@@ -2,7 +2,9 @@
   "name": "@atls/services-proto-upload",
   "version": "0.0.1",
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "files": [
     "tech",
     "dist",
@@ -17,26 +19,28 @@
   },
   "dependencies": {
     "@monstrs/types-import-proto": "0.0.1",
-    "long": "^4.0.0",
-    "protobufjs": "^6.11.2"
+    "long": "5.2.3",
+    "protobufjs": "7.2.6"
   },
   "devDependencies": {
-    "@atls/nestjs-grpc-reflection": "^0.0.3",
-    "@grpc/grpc-js": "^1.5.7",
-    "@nestjs/common": "^8.3.1",
-    "@nestjs/core": "^8.3.1",
-    "@nestjs/microservices": "^8.3.1",
-    "@types/long": "^4.0.1",
-    "rxjs": "^7.3.0",
-    "ts-proto": "1.82.5"
+    "@atls/nestjs-grpc-reflection": "0.0.9",
+    "@grpc/grpc-js": "1.10.6",
+    "@nestjs/common": "10.3.7",
+    "@nestjs/core": "10.3.7",
+    "@nestjs/microservices": "10.3.7",
+    "@types/long": "5.0.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1",
+    "ts-proto": "1.171.0"
   },
   "peerDependencies": {
-    "@atls/nestjs-grpc-reflection": "^0.0.2",
-    "@grpc/grpc-js": "^1.3.6",
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "@nestjs/microservices": "^8.0.4",
-    "rxjs": "^7.2.0"
+    "@atls/nestjs-grpc-reflection": "^0.0.9",
+    "@grpc/grpc-js": "^1.10.6",
+    "@nestjs/common": "^10.3.7",
+    "@nestjs/core": "^10.3.7",
+    "@nestjs/microservices": "^10.3.7",
+    "reflect-metadata": "*",
+    "rxjs": "^7.8.1"
   },
   "publishConfig": {
     "access": "public",
