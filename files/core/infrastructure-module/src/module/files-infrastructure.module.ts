@@ -1,5 +1,3 @@
-import * as entities                           from '../entities'
-
 import { DynamicModule }                       from '@nestjs/common'
 import { Module }                              from '@nestjs/common'
 import { CqrsModule }                          from '@nestjs/cqrs'
@@ -8,6 +6,7 @@ import { TypeOrmModule }                       from '@nestjs/typeorm'
 import { UploadRepository }                    from '@files/domain-module'
 import { FileRepository }                      from '@files/domain-module'
 
+import * as entities                           from '../entities'
 import { UploadRepositoryImpl }                from '../repositories'
 import { FileRepositoryImpl }                  from '../repositories'
 import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from './files-infrastructure-module.contants'

@@ -1,12 +1,11 @@
-import * as entities                           from '../entities'
-import * as migrations                         from '../migrations'
-
 import { TypeOrmLogger }                       from '@atls/typeorm-logger'
 import { Inject }                              from '@nestjs/common'
 import { Injectable }                          from '@nestjs/common'
 import { TypeOrmOptionsFactory }               from '@nestjs/typeorm'
 import { TypeOrmModuleOptions }                from '@nestjs/typeorm'
 
+import * as entities                           from '../entities'
+import * as migrations                         from '../migrations'
 import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from './files-infrastructure-module.contants'
 import { FilesInfrastructureOptions }          from './files-infrastructure-module.interfaces'
 

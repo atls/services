@@ -1,7 +1,6 @@
 import { Injectable }       from '@nestjs/common'
 import { EventPublisher }   from '@nestjs/cqrs'
 import { InjectRepository } from '@nestjs/typeorm'
-
 import { Repository }       from 'typeorm'
 
 import { File }             from '@files/domain-module'

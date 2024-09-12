@@ -1,6 +1,6 @@
-import _m0  from 'protobufjs/minimal'
 /* eslint-disable */
 import Long from 'long'
+import _m0  from 'protobufjs/minimal'
 
 export const protobufPackage = 'tech.atls.files.v1alpha1'
 
