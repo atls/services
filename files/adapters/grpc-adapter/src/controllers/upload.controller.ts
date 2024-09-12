@@ -9,7 +9,6 @@ import { UseGuards }                      from '@nestjs/common'
 import { CommandBus }                     from '@nestjs/cqrs'
 import { QueryBus }                       from '@nestjs/cqrs'
 import { Payload }                        from '@nestjs/microservices'
-
 import { v4 as uuid }                     from 'uuid'
 
 import { CreateUploadResponse }           from '@atls/services-proto-upload'
@@ -29,7 +28,10 @@ import { CreateUploadDto }                from '../dto'
 @UseGuards(GrpcJwtIdentityGuard)
 @UseFilters(new GrpcExceptionsFilter())
 export class UploadController implements UploadServiceController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus
+  ) {}
 
   @UsePipes(new GrpcValidationPipe())
   async createUpload(

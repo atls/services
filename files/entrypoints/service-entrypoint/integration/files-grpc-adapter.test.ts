@@ -3,8 +3,6 @@ import { TypeOrmSeedingModule }                from '@atls/nestjs-typeorm-seedin
 import { SeederFactory }                       from '@atls/nestjs-typeorm-seeding'
 import { INestMicroservice }                   from '@nestjs/common'
 import { Test }                                from '@nestjs/testing'
-
-import getPort                                 from 'get-port'
 import { GenericContainer }                    from 'testcontainers'
 import { StartedTestContainer }                from 'testcontainers'
 import { Wait }                                from 'testcontainers'
@@ -12,6 +10,7 @@ import { promises as fs }                      from 'fs'
 import { join }                                from 'path'
 import { firstValueFrom }                      from 'rxjs'
 import { v4 as uuid }                          from 'uuid'
+import getPort                                 from 'get-port'
 
 import { FilesServiceClientModule }            from '@atls/services-proto-files'
 import { FILES_SERVICE_CLIENT_TOKEN }          from '@atls/services-proto-files'

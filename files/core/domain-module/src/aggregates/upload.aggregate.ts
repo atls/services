@@ -1,13 +1,12 @@
 import { AggregateRoot }            from '@nestjs/cqrs'
-
-import assert                       from 'assert'
-import match                        from 'mime-match'
-import mime                         from 'mime-types'
 import { extname }                  from 'path'
 import { format }                   from 'path'
 import { join }                     from 'path'
 import { relative }                 from 'path'
 import { format as formatUrl }      from 'url'
+import assert                       from 'assert'
+import match                        from 'mime-match'
+import mime                         from 'mime-types'
 
 import { UploadCreatedEvent }       from '../events'
 import { UploadConfirmedEvent }     from '../events'

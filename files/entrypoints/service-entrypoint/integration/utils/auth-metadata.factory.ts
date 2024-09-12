@@ -1,5 +1,4 @@
 import { Metadata }       from '@grpc/grpc-js'
-
 import { promises as fs } from 'fs'
 import { sign }           from 'jsonwebtoken'
 
