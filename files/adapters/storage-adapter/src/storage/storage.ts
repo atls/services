@@ -1,9 +1,9 @@
+import type { StoragePort }                 from '@files/domain-module'
+
 import { Logger }                           from '@atls/logger'
 import { Storage as GcsStorage }            from '@google-cloud/storage'
 import { Injectable }                       from '@nestjs/common'
 import { Inject }                           from '@nestjs/common'
-
-import { StoragePort }                      from '@files/domain-module'
 
 import { FILES_STORAGE_MODULE_OPTIONS }     from '../module'
 import { FilesStorageAdapterModuleOptions } from '../module'
@@ -50,10 +50,12 @@ export class Storage implements StoragePort {
     return url
   }
 
-  async getMetadata(bucket: string, filename: string) {
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+  async getMetadata(bucket: string, filename: string): Promise<any | null> {
     try {
       const [metadata] = await this.storage.bucket(bucket).file(filename).getMetadata()
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return metadata
     } catch (error) {
       this.logger.debug(error)

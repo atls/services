@@ -1,4 +1,4 @@
-import { FilesBucketType } from './files-bucket.type'
+import type { FilesBucketType } from './files-bucket.type'
 
 export interface FilesBucketConditionsLength {
   min: number

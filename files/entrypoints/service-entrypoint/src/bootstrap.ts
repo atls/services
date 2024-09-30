@@ -3,11 +3,17 @@ import { NestFactory }                  from '@nestjs/core'
 
 import { serverOptions }                from '@files/grpc-adapter-module'
 
-import { FilesServiceEntrypointModule } from './files-service-entrypoint.module'
+import { FilesServiceEntrypointModule } from './files-service-entrypoint.module.js'
 
-declare const module: any
+// eslint-disable-next-line @next/next/no-assign-module-variable
+declare const module: {
+  hot?: {
+    accept: () => void
+    dispose: (callback: () => Promise<void>) => void
+  }
+}
 
-const bootstrap = async () => {
+const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create(FilesServiceEntrypointModule, {
     logger: new NestLogger(),
   })
@@ -21,7 +27,9 @@ const bootstrap = async () => {
 
   if (module.hot) {
     module.hot.accept()
-    module.hot.dispose(() => app.close())
+    module.hot.dispose(async () => {
+      await app.close()
+    })
   }
 }
 

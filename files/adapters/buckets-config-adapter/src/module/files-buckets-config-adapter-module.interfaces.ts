@@ -1,16 +1,15 @@
-import { ModuleMetadata } from '@nestjs/common/interfaces'
-import { Type }           from '@nestjs/common/interfaces'
-
-import { FilesBucket }    from '@files/domain-module'
+import type { FilesBucket }    from '@files/domain-module'
+import type { ModuleMetadata } from '@nestjs/common/interfaces'
+import type { Type }           from '@nestjs/common/interfaces'
 
 export interface FilesBucketsConfigAdapterModuleOptions {
   buckets: Array<FilesBucket>
 }
 
 export interface FilesBucketsConfigAdapterOptionsFactory {
-  createFilesBucketsConfigOptions():
-    | Promise<FilesBucketsConfigAdapterModuleOptions>
+  createFilesBucketsConfigOptions: () =>
     | FilesBucketsConfigAdapterModuleOptions
+    | Promise<FilesBucketsConfigAdapterModuleOptions>
 }
 
 export interface FilesBucketsConfigAdapterModuleAsyncOptions
@@ -18,7 +17,7 @@ export interface FilesBucketsConfigAdapterModuleAsyncOptions
   useExisting?: Type<FilesBucketsConfigAdapterOptionsFactory>
   useClass?: Type<FilesBucketsConfigAdapterOptionsFactory>
   useFactory?: (
-    ...args: any[]
-  ) => Promise<FilesBucketsConfigAdapterModuleOptions> | FilesBucketsConfigAdapterModuleOptions
-  inject?: any[]
+    ...args: Array<any>
+  ) => FilesBucketsConfigAdapterModuleOptions | Promise<FilesBucketsConfigAdapterModuleOptions>
+  inject?: Array<any>
 }

@@ -1,11 +1,11 @@
-import { Type }                     from 'class-transformer'
-import { ValidateNested }           from 'class-validator'
-import { IsOptional }               from 'class-validator'
+import type { ListFilesRequest_IdQuery } from '@atls/services-proto-files'
 
-import { ListFilesRequest_IdQuery } from '@atls/services-proto-files'
+import { Type }                          from 'class-transformer'
+import { ValidateNested }                from 'class-validator'
+import { IsOptional }                    from 'class-validator'
 
-import { IdIncludeCondition }       from '../common'
-import { IdEqualCondition }         from '../common'
+import { IdIncludeCondition }            from '../common'
+import { IdEqualCondition }              from '../common'
 
 export class IdQueryDto implements ListFilesRequest_IdQuery {
   @IsOptional()

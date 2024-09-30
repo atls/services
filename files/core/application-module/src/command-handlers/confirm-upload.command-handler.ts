@@ -1,6 +1,6 @@
-import { CommandHandler }       from '@nestjs/cqrs'
-import { ICommandHandler }      from '@nestjs/cqrs'
+import type { ICommandHandler } from '@nestjs/cqrs'
 
+import { CommandHandler }       from '@nestjs/cqrs'
 import assert                   from 'assert'
 
 import { UploadRepository }     from '@files/domain-module'

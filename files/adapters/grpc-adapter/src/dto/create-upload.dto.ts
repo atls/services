@@ -1,8 +1,8 @@
-import { IsNotEmpty }          from 'class-validator'
-import { IsInt }               from 'class-validator'
-import { Min }                 from 'class-validator'
+import type { CreateUploadRequest } from '@atls/services-proto-upload'
 
-import { CreateUploadRequest } from '@atls/services-proto-upload'
+import { IsNotEmpty }               from 'class-validator'
+import { IsInt }                    from 'class-validator'
+import { Min }                      from 'class-validator'
 
 export class CreateUploadDto implements CreateUploadRequest {
   @IsNotEmpty()

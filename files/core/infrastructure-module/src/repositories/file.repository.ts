@@ -1,13 +1,15 @@
-import { Injectable }       from '@nestjs/common'
-import { EventPublisher }   from '@nestjs/cqrs'
-import { InjectRepository } from '@nestjs/typeorm'
+import type { FindFilesByQuery }       from '@files/domain-module'
+import type { FindFilesByQueryResult } from '@files/domain-module'
 
-import { Repository }       from 'typeorm'
+import { Injectable }                  from '@nestjs/common'
+import { EventPublisher }              from '@nestjs/cqrs'
+import { InjectRepository }            from '@nestjs/typeorm'
+import { Repository }                  from 'typeorm'
 
-import { File }             from '@files/domain-module'
-import { FileRepository }   from '@files/domain-module'
+import { File }                        from '@files/domain-module'
+import { FileRepository }              from '@files/domain-module'
 
-import { FileAggregate }    from '../entities'
+import { FileAggregate }               from '../entities'
 
 @Injectable()
 export class FileRepositoryImpl extends FileRepository {
@@ -29,9 +31,34 @@ export class FileRepositoryImpl extends FileRepository {
   }
 
   async findById(id: string): Promise<File | undefined> {
-    const entity = await this.repository.findOne({ id })
+    const entity = await this.repository.findOne({ where: { id } })
 
     return entity ? this.entityToAggregate(entity) : undefined
+  }
+
+  async findByQuery({ pager, order, query }: FindFilesByQuery): Promise<FindFilesByQueryResult> {
+    const qb = await this.repository.createQueryBuilder('file')
+
+    if (query?.id?.eq?.value) {
+      qb.andWhere('file.id = :id', { id: query.id.eq.value })
+    }
+
+    if (query?.id?.in?.values && query?.id?.in?.values?.length > 0) {
+      qb.andWhere('file.id IN (:...ids)', { ids: query.id.in.values })
+    }
+
+    if (order) {
+      qb.orderBy(qb.escape(order.field), order.direction === 'ASC' ? 'ASC' : 'DESC')
+    }
+
+    qb.skip(pager?.offset || 0).take((pager?.take || 25) + 1)
+
+    const files = await qb.getMany()
+
+    return {
+      files: files.map(this.entityToAggregate),
+      hasNextPage: qb.expressionMap.take ? files.length >= qb.expressionMap.take : false,
+    }
   }
 
   private entityToAggregate(entity: FileAggregate): File {
@@ -56,30 +83,5 @@ export class FileRepositoryImpl extends FileRepository {
 
   private aggregateToEntity(data: File): FileAggregate {
     return Object.assign(new FileAggregate(), data)
-  }
-
-  async findByQuery({ pager, order, query }) {
-    const qb = await this.repository.createQueryBuilder('file')
-
-    if (query?.id?.eq?.value) {
-      qb.andWhere('file.id = :id', { id: query.id.eq.value })
-    }
-
-    if (query?.id?.in?.values && query?.id?.in?.values?.length > 0) {
-      qb.andWhere('file.id IN (:...ids)', { ids: query.id.in.values })
-    }
-
-    if (order) {
-      qb.orderBy(qb.escape(order.field), order.direction === 'ASC' ? 'ASC' : 'DESC')
-    }
-
-    qb.skip(pager?.offset || 0).take((pager?.take || 25) + 1)
-
-    const files = await qb.getMany()
-
-    return {
-      files: files.map(this.entityToAggregate),
-      hasNextPage: qb.expressionMap.take ? files.length >= qb.expressionMap.take : false,
-    }
   }
 }

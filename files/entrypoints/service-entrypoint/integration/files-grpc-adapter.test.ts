@@ -1,28 +1,30 @@
+/* eslint-disable */
+import type { FilesServiceClient }             from '@atls/services-proto-files'
+import type { INestMicroservice }              from '@nestjs/common'
+import type { StartedTestContainer }           from 'testcontainers'
+
 import { GRPC_IDENTITY_MODULE_OPTIONS }        from '@atls/nestjs-grpc-identity'
 import { TypeOrmSeedingModule }                from '@atls/nestjs-typeorm-seeding'
+// @ts-expect-error
 import { SeederFactory }                       from '@atls/nestjs-typeorm-seeding'
-import { INestMicroservice }                   from '@nestjs/common'
 import { Test }                                from '@nestjs/testing'
-
-import getPort                                 from 'get-port'
 import { GenericContainer }                    from 'testcontainers'
-import { StartedTestContainer }                from 'testcontainers'
 import { Wait }                                from 'testcontainers'
 import { promises as fs }                      from 'fs'
 import { join }                                from 'path'
 import { firstValueFrom }                      from 'rxjs'
 import { v4 as uuid }                          from 'uuid'
+import getPort                                 from 'get-port'
 
 import { FilesServiceClientModule }            from '@atls/services-proto-files'
 import { FILES_SERVICE_CLIENT_TOKEN }          from '@atls/services-proto-files'
-import { FilesServiceClient }                  from '@atls/services-proto-files'
 import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from '@files/infrastructure-module'
 import { FileAggregate }                       from '@files/infrastructure-module'
 import { FILES_STORAGE_MODULE_OPTIONS }        from '@files/storage-adapter-module'
 import { serverOptions }                       from '@files/grpc-adapter-module'
 
-import { FilesServiceEntrypointModule }        from '../src/files-service-entrypoint.module'
-import { AuthMetadataFactory }                 from './utils'
+import { FilesServiceEntrypointModule }        from '../src/files-service-entrypoint.module.js'
+import { AuthMetadataFactory }                 from './utils/index.js'
 
 jest.setTimeout(60000)
 
@@ -37,14 +39,16 @@ describe('files grpc adapter', () => {
   beforeAll(async () => {
     postgres = await new GenericContainer('bitnami/postgresql')
       .withWaitStrategy(Wait.forLogMessage('database system is ready to accept connections'))
-      .withEnv('POSTGRESQL_PASSWORD', 'password')
-      .withEnv('POSTGRESQL_DATABASE', 'db')
+      .withEnvironment({
+        POSTGRESQL_PASSWORD: 'password',
+        POSTGRESQL_DATABASE: 'db',
+      })
       .withExposedPorts(5432)
       .start()
 
     const port = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [
         FilesServiceClientModule.register({ url: `0.0.0.0:${port}` }),
         TypeOrmSeedingModule.register(),
@@ -66,7 +70,7 @@ describe('files grpc adapter', () => {
       .useValue({
         jwks: {
           jwksUri: join(__dirname, 'fixtures/.jwks.json'),
-          fetcher: async (jwksUri) => {
+          fetcher: async (jwksUri: string) => {
             const data = await fs.readFile(jwksUri)
 
             return JSON.parse(data.toString())
@@ -77,7 +81,7 @@ describe('files grpc adapter', () => {
       })
       .compile()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -85,10 +89,10 @@ describe('files grpc adapter', () => {
       },
     })
 
-    await service.listenAsync()
+    await service.listen()
 
-    client = module.get<FilesServiceClient>(FILES_SERVICE_CLIENT_TOKEN)
-    seederFactory = module.get(SeederFactory)
+    client = testingModule.get<FilesServiceClient>(FILES_SERVICE_CLIENT_TOKEN)
+    seederFactory = testingModule.get(SeederFactory)
   })
 
   afterAll(async () => {

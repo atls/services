@@ -14,11 +14,12 @@ import { CreateUploadInput }           from '../inputs'
 import { ConfirmUploadResponse }       from '../types'
 import { CreateUploadResponse }        from '../types'
 
-@Resolver((of) => Upload)
+@Resolver((of: typeof Upload) => Upload)
 export class UploadMutations {
   constructor(@Inject(UPLOAD_SERVICE_CLIENT_TOKEN) private readonly client: UploadServiceClient) {}
 
   @Mutation((returns) => CreateUploadResponse)
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
   createUpload(
     @Args('input')
     input: CreateUploadInput,
@@ -32,6 +33,7 @@ export class UploadMutations {
   }
 
   @Mutation((returns) => ConfirmUploadResponse)
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
   confirmUpload(
     @Args('input')
     input: ConfirmUploadInput,

@@ -1,13 +1,15 @@
-import { DynamicModule }       from '@nestjs/common'
-import { Module }              from '@nestjs/common'
-import { ClientProxyFactory }  from '@nestjs/microservices'
-import { Transport }           from '@nestjs/microservices'
+import type { DynamicModule }       from '@nestjs/common'
 
-import { UploadServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { UPLOAD_SERVICE_NAME } from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { protobufPackage }     from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { uploadServicePath }   from '../paths'
-import { includeDirs }         from '../paths'
+import type { UploadServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
+
+import { Module }                   from '@nestjs/common'
+import { ClientProxyFactory }       from '@nestjs/microservices'
+import { Transport }                from '@nestjs/microservices'
+
+import { UPLOAD_SERVICE_NAME }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
+import { protobufPackage }          from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
+import { uploadServicePath }        from '../paths'
+import { includeDirs }              from '../paths'
 
 export interface UploadServiceClientModuleOptions {
   url?: string
@@ -20,7 +22,7 @@ export class UploadServiceClientModule {
   static register(options: UploadServiceClientModuleOptions = {}): DynamicModule {
     const filesServiceClientProvider = {
       provide: UPLOAD_SERVICE_CLIENT_TOKEN,
-      useFactory: () => {
+      useFactory: (): UploadServiceClient => {
         const client = ClientProxyFactory.create({
           transport: Transport.GRPC,
           options: {

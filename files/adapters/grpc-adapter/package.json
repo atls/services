@@ -25,6 +25,7 @@
     "@nestjs/microservices": "10.3.7",
     "@nestjs/testing": "10.3.7",
     "@types/node": "20.12.5",
+    "@types/uuid": "9.0.1",
     "reflect-metadata": "0.2.2"
   },
   "peerDependencies": {

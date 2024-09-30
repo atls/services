@@ -1,20 +1,21 @@
-import { AggregateRoot }            from '@nestjs/cqrs'
+import type { FilesBucket }              from '../interfaces'
+import type { FilesBucketsRegistryPort } from '../ports'
+import type { StoragePort }              from '../ports'
 
-import assert                       from 'assert'
-import match                        from 'mime-match'
-import mime                         from 'mime-types'
-import { extname }                  from 'path'
-import { format }                   from 'path'
-import { join }                     from 'path'
-import { relative }                 from 'path'
-import { format as formatUrl }      from 'url'
+import { AggregateRoot }                 from '@nestjs/cqrs'
+import { extname }                       from 'path'
+import { format }                        from 'path'
+import { join }                          from 'path'
+import { relative }                      from 'path'
+import { format as formatUrl }           from 'url'
+import assert                            from 'assert'
+// @ts-expect-error
+import match                             from 'mime-match'
+import mime                              from 'mime-types'
 
-import { UploadCreatedEvent }       from '../events'
-import { UploadConfirmedEvent }     from '../events'
-import { FilesBucket }              from '../interfaces'
-import { FilesBucketsRegistryPort } from '../ports'
-import { StoragePort }              from '../ports'
-import { File }                     from './file.aggregate'
+import { UploadCreatedEvent }            from '../events'
+import { UploadConfirmedEvent }          from '../events'
+import { File }                          from './file.aggregate'
 
 export class Upload extends AggregateRoot {
   private id!: string
@@ -38,7 +39,13 @@ export class Upload extends AggregateRoot {
     super()
   }
 
-  async create(id: string, ownerId: string, bucket: string, name: string, size: number) {
+  async create(
+    id: string,
+    ownerId: string,
+    bucket: string,
+    name: string,
+    size: number
+  ): Promise<void> {
     assert.ok(ownerId, 'Unknown initiator')
 
     const filesBucket = this.bucketsRegistry.get(bucket)
@@ -50,6 +57,7 @@ export class Upload extends AggregateRoot {
     assert.ok(contentType, 'Unknown file type')
 
     assert.ok(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       match(contentType, filesBucket.conditions.type),
       `Files bucket ${bucket} not support type '${contentType}', only '${filesBucket.conditions.type}'.`
     )
@@ -76,7 +84,7 @@ export class Upload extends AggregateRoot {
     this.apply(new UploadCreatedEvent(id, ownerId, url, name, filename, filesBucket))
   }
 
-  onUploadCreatedEvent(event: UploadCreatedEvent) {
+  onUploadCreatedEvent(event: UploadCreatedEvent): void {
     this.id = event.uploadId
     this.ownerId = event.ownerId
     this.url = event.url
@@ -132,7 +140,7 @@ export class Upload extends AggregateRoot {
     return file
   }
 
-  onUploadConfirmedEvent() {
+  onUploadConfirmedEvent(): void {
     this.confirmed = true
   }
 }

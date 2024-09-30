@@ -1,4 +1,4 @@
-import { FilesBucket } from '../interfaces'
+import type { FilesBucket } from '../interfaces'
 
 export class UploadCreatedEvent {
   constructor(

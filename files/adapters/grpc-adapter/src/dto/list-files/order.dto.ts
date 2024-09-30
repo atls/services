@@ -12,5 +12,6 @@ export class OrderDto {
       value === ListFilesRequest_OrderDirection.ORDER_DIRECTION_ASC_UNSPECIFIED ? 'ASC' : 'DESC',
     { toClassOnly: true }
   )
-  direction!: 'ASC' | 'DESC' | ListFilesRequest_OrderDirection
+  // direction!: 'ASC' | 'DESC' | ListFilesRequest_OrderDirection
+  direction!: ListFilesRequest_OrderDirection | 'ASC' | 'DESC'
 }

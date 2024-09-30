@@ -1,20 +1,28 @@
-import { Logger }                                  from '@atls/logger'
+import type { FilesBucketsConfigAdapterOptionsFactory } from '../module'
+import type { FilesBucketsConfigAdapterModuleOptions }  from '../module'
+import type { BucketConditions }                        from './files-application-env.config.interfaces.js'
+import type { BucketConfig }                            from './files-application-env.config.interfaces.js'
 
-import { FilesBucketType }                         from '@files/domain-module'
+import { Logger }                                       from '@atls/logger'
 
-import { FilesBucketsConfigAdapterOptionsFactory } from '../module'
-import { FilesBucketsConfigAdapterModuleOptions }  from '../module'
+import { FilesBucketType }                              from '@files/domain-module'
 
 export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFactory {
-  private readonly logger = new Logger(FilesBucketsEnvConfig.name)
-
   static FILES_BUCKETS_ENV_PREFIX = 'FILES_BUCKETS'
 
-  protected getAvailableBuckets(): string[] {
-    const bucketKeys: string[] = Object.keys(process.env).filter((key) =>
+  #logger = new Logger(FilesBucketsEnvConfig.name)
+
+  createFilesBucketsConfigOptions(): FilesBucketsConfigAdapterModuleOptions {
+    return {
+      buckets: this.getBuckets(),
+    }
+  }
+
+  protected getAvailableBuckets(): Array<string> {
+    const bucketKeys: Array<string> = Object.keys(process.env).filter((key) =>
       key.startsWith(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX))
 
-    return bucketKeys.reduce((result: string[], key) => {
+    return bucketKeys.reduce((result: Array<string>, key) => {
       const [scope] = key
         .replace(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX, '')
         .substr(1)
@@ -29,20 +37,20 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }, [])
   }
 
-  protected getValueFromEnv(...args) {
+  protected getValueFromEnv(...args: Array<string>): string | undefined {
     const key = [FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX, ...args].join('_').toUpperCase()
 
     return process.env[key]
   }
 
-  protected getBucketConditions(scope: string) {
+  protected getBucketConditions(scope: string): BucketConditions {
     // TODO: validate content type
     let type = this.getValueFromEnv(scope, 'conditions', 'type')
     let min = Number(this.getValueFromEnv(scope, 'conditions', 'length', 'min'))
     let max = Number(this.getValueFromEnv(scope, 'conditions', 'length', 'max'))
 
     if (!type) {
-      this.logger.warn(
+      this.#logger.warn(
         `Condtitions type config not found for bucket ${scope}, use default 'image/*'`
       )
 
@@ -54,7 +62,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
 
     if (!max || Number.isNaN(max)) {
-      this.logger.warn(
+      this.#logger.warn(
         `Conditions length max config not found for bucket ${scope}, use default 1000000`
       )
 
@@ -70,7 +78,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
   }
 
-  protected getBucketConfig(scope: string) {
+  protected getBucketConfig(scope: string): BucketConfig {
     const type = (this.getValueFromEnv(scope, 'type') as FilesBucketType) || FilesBucketType.PRIVATE
     const bucket = this.getValueFromEnv(scope, 'bucket')
     const path = this.getValueFromEnv(scope, 'path') || '/'
@@ -82,7 +90,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
 
     if (Number.isNaN(expiration)) {
-      this.logger.warn(`Expiration config not found for bucket ${scope}, use default 1800000`)
+      this.#logger.warn(`Expiration config not found for bucket ${scope}, use default 1800000`)
 
       expiration = 1800000
     }
@@ -98,13 +106,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
   }
 
-  protected getBuckets() {
+  protected getBuckets(): Array<BucketConfig> {
     return this.getAvailableBuckets().map((scope) => this.getBucketConfig(scope))
-  }
-
-  createFilesBucketsConfigOptions(): FilesBucketsConfigAdapterModuleOptions {
-    return {
-      buckets: this.getBuckets(),
-    }
   }
 }

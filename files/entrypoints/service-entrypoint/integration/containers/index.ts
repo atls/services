@@ -1,2 +1,2 @@
-export * from './gcs-server.started-container'
-export * from './gcs-server.container'
+export * from './gcs-server.started-container.js'
+export * from './gcs-server.container.js'

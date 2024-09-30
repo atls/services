@@ -5,9 +5,8 @@ import type { handleUnaryCall }              from '@grpc/grpc-js'
 import { Metadata }                          from '@grpc/grpc-js'
 import { GrpcMethod }                        from '@nestjs/microservices'
 import { GrpcStreamMethod }                  from '@nestjs/microservices'
-
-import _m0                                   from 'protobufjs/minimal'
 import { Observable }                        from 'rxjs'
+import _m0                                   from 'protobufjs/minimal'
 
 import { File }                              from './file'
 

@@ -1,7 +1,6 @@
 import { Injectable }           from '@nestjs/common'
 import { EventPublisher }       from '@nestjs/cqrs'
 import { InjectRepository }     from '@nestjs/typeorm'
-
 import { Repository }           from 'typeorm'
 
 import { FilesBucketsRegistry } from '@files/buckets-config-adapter-module'
@@ -33,7 +32,7 @@ export class UploadRepositoryImpl extends UploadRepository {
   }
 
   async findById(id: string): Promise<Upload | undefined> {
-    const entity = await this.repository.findOne({ id })
+    const entity = await this.repository.findOne({ where: { id } })
 
     return entity ? this.entityToAggregate(entity) : undefined
   }

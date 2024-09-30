@@ -1,9 +1,10 @@
-import { CommandHandler }      from '@nestjs/cqrs'
-import { ICommandHandler }     from '@nestjs/cqrs'
+import type { ICommandHandler } from '@nestjs/cqrs'
 
-import { UploadRepository }    from '@files/domain-module'
+import { CommandHandler }       from '@nestjs/cqrs'
 
-import { CreateUploadCommand } from '../commands'
+import { UploadRepository }     from '@files/domain-module'
+
+import { CreateUploadCommand }  from '../commands'
 
 @CommandHandler(CreateUploadCommand)
 export class CreateUploadCommandHandler implements ICommandHandler<CreateUploadCommand, void> {
