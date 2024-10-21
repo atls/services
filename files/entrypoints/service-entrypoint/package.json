@@ -18,7 +18,7 @@
     "@atls/nestjs-grpc-errors": "0.0.12",
     "@atls/nestjs-grpc-identity": "0.0.9",
     "@atls/nestjs-grpc-playground": "0.0.17",
-    "@atls/nestjs-logger": "0.2.39",
+    "@atls/nestjs-logger": "0.2.41",
     "@atls/nestjs-typeorm-seeding": "0.0.6",
     "@atls/services-proto-files": "workspace:*",
     "@atls/services-proto-upload": "workspace:*",

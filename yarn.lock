@@ -501,17 +501,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-logger@npm:0.2.39":
-  version: 0.2.39
-  resolution: "@atls/nestjs-logger@npm:0.2.39"
+"@atls/nestjs-logger@npm:0.2.41":
+  version: 0.2.41
+  resolution: "@atls/nestjs-logger@npm:0.2.41"
   dependencies:
     "@atls/logger": "npm:0.0.2"
   peerDependencies:
-    "@nestjs/common": 10.2.5
-    "@nestjs/core": 10.2.5
-    reflect-metadata: 0.1.13
-    rxjs: 7.8.1
-  checksum: 10/8113f826c933ef2066b60c75c5b653dc6a7f454bb868e351e7f3dcd3ae73c21019deb2c6886d534e3c22e14bf1f2ceef4868c50f7d2f3ae2ed72bc81da5180a6
+    "@nestjs/common": 10
+    "@nestjs/core": 10
+    reflect-metadata: 0.2
+    rxjs: 7
+  checksum: 10/e68708e9be7f9c39a8d23859830ef02b3773255588fac38f3b0f62d0ad1c12bc544017b7b01c416c5f41d5569ac4034501f4c71e7b2258c1c73b134b1866dbad
   languageName: node
   linkType: hard
 
@@ -1962,7 +1962,7 @@ __metadata:
     "@atls/nestjs-grpc-errors": "npm:0.0.12"
     "@atls/nestjs-grpc-identity": "npm:0.0.9"
     "@atls/nestjs-grpc-playground": "npm:0.0.17"
-    "@atls/nestjs-logger": "npm:0.2.39"
+    "@atls/nestjs-logger": "npm:0.2.41"
     "@atls/nestjs-typeorm-seeding": "npm:0.0.6"
     "@atls/services-proto-files": "workspace:*"
     "@atls/services-proto-upload": "workspace:*"
