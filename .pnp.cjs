@@ -549,6 +549,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/grpc-error-status", "npm:0.0.3"],\
           ["@grpc/grpc-js", "npm:1.10.6"],\
+          ["@types/google-protobuf", "npm:3.15.12"],\
           ["google-protobuf", "npm:3.21.2"]\
         ],\
         "linkType": "HARD"\
@@ -7100,6 +7101,15 @@ const RAW_RUNTIME_STATE =
           ["@types/qs", "npm:6.9.5"],\
           ["@types/range-parser", "npm:1.2.3"],\
           ["@types/send", "npm:0.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/google-protobuf", [\
+      ["npm:3.15.12", {\
+        "packageLocation": "./.yarn/cache/@types-google-protobuf-npm-3.15.12-fa91faceb9-a5c5f09a3f.zip/node_modules/@types/google-protobuf/",\
+        "packageDependencies": [\
+          ["@types/google-protobuf", "npm:3.15.12"]\
         ],\
         "linkType": "HARD"\
       }]\
