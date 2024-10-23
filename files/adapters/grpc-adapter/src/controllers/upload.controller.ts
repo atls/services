@@ -21,8 +21,8 @@ import { ConfirmUploadCommand }           from '@files/application-module'
 import { GetUploadByIdQuery }             from '@files/application-module'
 import { GetFileByIdQuery }               from '@files/application-module'
 
-import { ConfirmUploadDto }               from '../dto'
-import { CreateUploadDto }                from '../dto'
+import { ConfirmUploadDto }               from '../dto/index.js'
+import { CreateUploadDto }                from '../dto/index.js'
 
 @Controller()
 @UploadServiceControllerMethods()

@@ -1817,7 +1817,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@files/application-module@workspace:*, @files/application-module@workspace:0.0.1, @files/application-module@workspace:files/core/application-module":
+"@files/application-module@workspace:*, @files/application-module@workspace:files/core/application-module":
   version: 0.0.0-use.local
   resolution: "@files/application-module@workspace:files/core/application-module"
   dependencies:
@@ -1900,7 +1900,7 @@ __metadata:
     "@atls/nestjs-grpc-reflection": "npm:0.0.9"
     "@atls/services-proto-files": "workspace:0.0.3"
     "@atls/services-proto-upload": "workspace:0.0.1"
-    "@files/application-module": "workspace:0.0.1"
+    "@files/application-module": "workspace:*"
     "@files/domain-module": "workspace:0.0.1"
     "@nestjs/common": "npm:10.3.7"
     "@nestjs/core": "npm:10.3.7"

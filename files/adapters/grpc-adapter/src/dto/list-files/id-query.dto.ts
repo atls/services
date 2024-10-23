@@ -4,8 +4,8 @@ import { Type }                          from 'class-transformer'
 import { ValidateNested }                from 'class-validator'
 import { IsOptional }                    from 'class-validator'
 
-import { IdIncludeCondition }            from '../common'
-import { IdEqualCondition }              from '../common'
+import { IdIncludeCondition }            from '../common/index.js'
+import { IdEqualCondition }              from '../common/index.js'
 
 export class IdQueryDto implements ListFilesRequest_IdQuery {
   @IsOptional()

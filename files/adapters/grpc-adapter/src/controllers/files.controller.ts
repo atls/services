@@ -12,7 +12,7 @@ import { Payload }                       from '@nestjs/microservices'
 import { FilesServiceControllerMethods } from '@atls/services-proto-files'
 import { GetFilesQuery }                 from '@files/application-module'
 
-import { ListFilesDto }                  from '../dto'
+import { ListFilesDto }                  from '../dto/index.js'
 
 @Controller()
 @FilesServiceControllerMethods()

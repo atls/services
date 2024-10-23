@@ -4,7 +4,7 @@ import { Type }                        from 'class-transformer'
 import { ValidateNested }              from 'class-validator'
 import { IsOptional }                  from 'class-validator'
 
-import { IdQueryDto }                  from './id-query.dto'
+import { IdQueryDto }                  from './id-query.dto.js'
 
 export class QueryDto implements ListFilesRequest_Query {
   @IsOptional()

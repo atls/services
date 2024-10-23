@@ -6,8 +6,8 @@ import { GrpcPlaygroundModule }    from '@atls/nestjs-grpc-playground'
 import { PrivateKeyAuthenticator } from '@atls/nestjs-grpc-playground'
 import { Module }                  from '@nestjs/common'
 
-import * as controllers            from '../controllers'
-import { serverOptions }           from './server.options'
+import * as controllers            from '../controllers/index.js'
+import { serverOptions }           from './server.options.js'
 
 @Module({})
 export class FilesGrpcAdapterModule {

@@ -1,2 +1,2 @@
-export * from './id-include.condition'
-export * from './id-equal.comdition'
+export * from './id-include.condition.js'
+export * from './id-equal.comdition.js'

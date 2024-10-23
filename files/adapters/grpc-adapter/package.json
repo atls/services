@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "license": "BSD-3-Clause",
+  "type": "module",
   "main": "src/index.ts",
   "dependencies": {
     "@atls/nestjs-grpc-errors": "0.0.12",
@@ -11,7 +12,7 @@
     "@atls/nestjs-grpc-reflection": "0.0.9",
     "@atls/services-proto-files": "workspace:0.0.3",
     "@atls/services-proto-upload": "workspace:0.0.1",
-    "@files/application-module": "workspace:0.0.1",
+    "@files/application-module": "workspace:*",
     "@files/domain-module": "workspace:0.0.1",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
