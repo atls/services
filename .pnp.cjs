@@ -7479,6 +7479,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/ws", [\
+      ["npm:8.5.12", {\
+        "packageLocation": "./.yarn/cache/@types-ws-npm-8.5.12-90c42288cf-d8a3ddfb5f.zip/node_modules/@types/ws/",\
+        "packageDependencies": [\
+          ["@types/ws", "npm:8.5.12"],\
+          ["@types/node", "npm:20.12.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/yargs", [\
       ["npm:17.0.32", {\
         "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.32-38712e567a-1e2b267384.zip/node_modules/@types/yargs/",\
@@ -19338,6 +19348,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["subscriptions-transport-ws", "virtual:69b4f982f377305ad2d4f1dec120ad16d46a02b351869435230387f3d2d3528aee15cd50aa4342c32ca4868d23832a6a1f87882f5595100218bcaa9738395643#npm:0.11.0"],\
           ["@types/graphql", null],\
+          ["@types/ws", "npm:8.5.12"],\
           ["backo2", "npm:1.0.2"],\
           ["eventemitter3", "npm:3.1.2"],\
           ["graphql", "npm:16.8.1"],\
