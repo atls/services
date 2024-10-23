@@ -1825,7 +1825,6 @@ __metadata:
     "@nestjs/common": "npm:10.4.6"
     "@nestjs/core": "npm:10.4.6"
     "@nestjs/cqrs": "npm:10.2.7"
-    "@nestjs/testing": "npm:10.3.7"
     "@types/node": "npm:22.7.9"
     uuid: "npm:9.0.1"
   peerDependencies:
