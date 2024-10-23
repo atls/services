@@ -7399,7 +7399,8 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/serve-static", "npm:1.13.8"],\
           ["@types/mime", "npm:4.0.0"],\
-          ["@types/node", "npm:20.12.5"]\
+          ["@types/node", "npm:20.12.5"],\
+          ["mime", "npm:4.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
