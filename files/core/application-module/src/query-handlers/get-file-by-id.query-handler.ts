@@ -5,7 +5,7 @@ import { QueryHandler }       from '@nestjs/cqrs'
 
 import { FileRepository }     from '@files/domain-module'
 
-import { GetFileByIdQuery }   from '../queries'
+import { GetFileByIdQuery }   from '../queries/index.js'
 
 @QueryHandler(GetFileByIdQuery)
 export class GetFileQueryHandler implements IQueryHandler<GetFileByIdQuery> {

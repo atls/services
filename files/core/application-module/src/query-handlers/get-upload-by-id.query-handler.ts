@@ -5,7 +5,7 @@ import { QueryHandler }       from '@nestjs/cqrs'
 
 import { UploadRepository }   from '@files/domain-module'
 
-import { GetUploadByIdQuery } from '../queries'
+import { GetUploadByIdQuery } from '../queries/index.js'
 
 @QueryHandler(GetUploadByIdQuery)
 export class GetUploadQueryHandler implements IQueryHandler<GetUploadByIdQuery> {
