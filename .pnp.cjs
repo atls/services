@@ -924,7 +924,6 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["google-protobuf", "npm:3.21.2"],\
-          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.2.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
@@ -959,7 +958,6 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["google-protobuf", "npm:3.21.2"],\
-          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.2.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
@@ -994,7 +992,6 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["google-protobuf", "npm:3.21.2"],\
-          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.2.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
@@ -1029,7 +1026,6 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["google-protobuf", "npm:3.21.2"],\
-          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.2.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
@@ -1064,7 +1060,6 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["google-protobuf", "npm:3.21.2"],\
-          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.2.5"],\
           ["reflect-metadata", "npm:0.2.2"],\
           ["rxjs", "npm:7.8.1"]\
