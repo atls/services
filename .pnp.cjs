@@ -690,7 +690,6 @@ const RAW_RUNTIME_STATE =
           ["buffer-json", "npm:2.0.0"],\
           ["class-transformer", "npm:0.5.1"],\
           ["cookie", "npm:0.5.0"],\
-          ["express", "npm:4.19.2"],\
           ["jsonwebtoken", "npm:9.0.1"],\
           ["lodash.get", "npm:4.4.2"],\
           ["reflect-metadata", "npm:0.2.2"],\
@@ -730,7 +729,6 @@ const RAW_RUNTIME_STATE =
           ["buffer-json", "npm:2.0.0"],\
           ["class-transformer", "npm:0.5.1"],\
           ["cookie", "npm:0.5.0"],\
-          ["express", "npm:4.19.2"],\
           ["jsonwebtoken", "npm:9.0.1"],\
           ["lodash.get", "npm:4.4.2"],\
           ["reflect-metadata", "npm:0.2.2"],\
