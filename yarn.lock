@@ -14940,7 +14940,81 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typeorm@npm:*, typeorm@npm:0.3.20":
+"typeorm@npm:0.2.45, typeorm@npm:^0.2":
+  version: 0.2.45
+  resolution: "typeorm@npm:0.2.45"
+  dependencies:
+    "@sqltools/formatter": "npm:^1.2.2"
+    app-root-path: "npm:^3.0.0"
+    buffer: "npm:^6.0.3"
+    chalk: "npm:^4.1.0"
+    cli-highlight: "npm:^2.1.11"
+    debug: "npm:^4.3.1"
+    dotenv: "npm:^8.2.0"
+    glob: "npm:^7.1.6"
+    js-yaml: "npm:^4.0.0"
+    mkdirp: "npm:^1.0.4"
+    reflect-metadata: "npm:^0.1.13"
+    sha.js: "npm:^2.4.11"
+    tslib: "npm:^2.1.0"
+    uuid: "npm:^8.3.2"
+    xml2js: "npm:^0.4.23"
+    yargs: "npm:^17.0.1"
+    zen-observable-ts: "npm:^1.0.0"
+  peerDependencies:
+    "@sap/hana-client": ^2.11.14
+    better-sqlite3: ^7.1.2
+    hdb-pool: ^0.1.6
+    ioredis: ^4.28.3
+    mongodb: ^3.6.0
+    mssql: ^6.3.1
+    mysql2: ^2.2.5
+    oracledb: ^5.1.0
+    pg: ^8.5.1
+    pg-native: ^3.0.0
+    pg-query-stream: ^4.0.0
+    redis: ^3.1.1
+    sql.js: ^1.4.0
+    sqlite3: ^5.0.2
+    typeorm-aurora-data-api-driver: ^2.0.0
+  peerDependenciesMeta:
+    "@sap/hana-client":
+      optional: true
+    better-sqlite3:
+      optional: true
+    hdb-pool:
+      optional: true
+    ioredis:
+      optional: true
+    mongodb:
+      optional: true
+    mssql:
+      optional: true
+    mysql2:
+      optional: true
+    oracledb:
+      optional: true
+    pg:
+      optional: true
+    pg-native:
+      optional: true
+    pg-query-stream:
+      optional: true
+    redis:
+      optional: true
+    sql.js:
+      optional: true
+    sqlite3:
+      optional: true
+    typeorm-aurora-data-api-driver:
+      optional: true
+  bin:
+    typeorm: cli.js
+  checksum: 10/48d291ec6dba9f214b6622055a76e8cb1186cfaf3048b9e6149def42112e4529e4a63375cc44119ec6649169131aa07151190322beb7eb322d0898675eeab8c6
+  languageName: node
+  linkType: hard
+
+"typeorm@npm:0.3.20":
   version: 0.3.20
   resolution: "typeorm@npm:0.3.20"
   dependencies:
@@ -15017,80 +15091,6 @@ __metadata:
     typeorm-ts-node-commonjs: cli-ts-node-commonjs.js
     typeorm-ts-node-esm: cli-ts-node-esm.js
   checksum: 10/956f64c6df4d0653d4bea7293bc1ddabf5d33df858c1f0f9d7e0f9fd861559c228e5ece7826eb89eb51b9d45757afc37c6b9eccca73e664c0d988c21e4758a69
-  languageName: node
-  linkType: hard
-
-"typeorm@npm:0.2.45, typeorm@npm:^0.2":
-  version: 0.2.45
-  resolution: "typeorm@npm:0.2.45"
-  dependencies:
-    "@sqltools/formatter": "npm:^1.2.2"
-    app-root-path: "npm:^3.0.0"
-    buffer: "npm:^6.0.3"
-    chalk: "npm:^4.1.0"
-    cli-highlight: "npm:^2.1.11"
-    debug: "npm:^4.3.1"
-    dotenv: "npm:^8.2.0"
-    glob: "npm:^7.1.6"
-    js-yaml: "npm:^4.0.0"
-    mkdirp: "npm:^1.0.4"
-    reflect-metadata: "npm:^0.1.13"
-    sha.js: "npm:^2.4.11"
-    tslib: "npm:^2.1.0"
-    uuid: "npm:^8.3.2"
-    xml2js: "npm:^0.4.23"
-    yargs: "npm:^17.0.1"
-    zen-observable-ts: "npm:^1.0.0"
-  peerDependencies:
-    "@sap/hana-client": ^2.11.14
-    better-sqlite3: ^7.1.2
-    hdb-pool: ^0.1.6
-    ioredis: ^4.28.3
-    mongodb: ^3.6.0
-    mssql: ^6.3.1
-    mysql2: ^2.2.5
-    oracledb: ^5.1.0
-    pg: ^8.5.1
-    pg-native: ^3.0.0
-    pg-query-stream: ^4.0.0
-    redis: ^3.1.1
-    sql.js: ^1.4.0
-    sqlite3: ^5.0.2
-    typeorm-aurora-data-api-driver: ^2.0.0
-  peerDependenciesMeta:
-    "@sap/hana-client":
-      optional: true
-    better-sqlite3:
-      optional: true
-    hdb-pool:
-      optional: true
-    ioredis:
-      optional: true
-    mongodb:
-      optional: true
-    mssql:
-      optional: true
-    mysql2:
-      optional: true
-    oracledb:
-      optional: true
-    pg:
-      optional: true
-    pg-native:
-      optional: true
-    pg-query-stream:
-      optional: true
-    redis:
-      optional: true
-    sql.js:
-      optional: true
-    sqlite3:
-      optional: true
-    typeorm-aurora-data-api-driver:
-      optional: true
-  bin:
-    typeorm: cli.js
-  checksum: 10/48d291ec6dba9f214b6622055a76e8cb1186cfaf3048b9e6149def42112e4529e4a63375cc44119ec6649169131aa07151190322beb7eb322d0898675eeab8c6
   languageName: node
   linkType: hard
 
