@@ -681,7 +681,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:10.3.7"],\
           ["@nestjs/core", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.3.7"],\
           ["@nestjs/microservices", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.3.7"],\
-          ["@types/express", "npm:5.0.0"],\
+          ["@types/express", "npm:4.17.21"],\
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
@@ -720,7 +720,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/common", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:10.3.7"],\
           ["@nestjs/core", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:10.3.7"],\
           ["@nestjs/microservices", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:10.3.7"],\
-          ["@types/express", "npm:5.0.0"],\
+          ["@types/express", "npm:4.17.21"],\
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
@@ -7283,17 +7283,6 @@ const RAW_RUNTIME_STATE =
           ["@types/serve-static", "npm:1.13.8"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:5.0.0", {\
-        "packageLocation": "./.yarn/cache/@types-express-npm-5.0.0-a645691cd5-45b199ab66.zip/node_modules/@types/express/",\
-        "packageDependencies": [\
-          ["@types/express", "npm:5.0.0"],\
-          ["@types/body-parser", "npm:1.19.0"],\
-          ["@types/express-serve-static-core", "npm:5.0.0"],\
-          ["@types/qs", "npm:6.9.5"],\
-          ["@types/serve-static", "npm:1.13.8"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/express-serve-static-core", [\
@@ -7301,17 +7290,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-express-serve-static-core-npm-4.19.0-7b35544f17-3e803822f9.zip/node_modules/@types/express-serve-static-core/",\
         "packageDependencies": [\
           ["@types/express-serve-static-core", "npm:4.19.0"],\
-          ["@types/node", "npm:20.12.5"],\
-          ["@types/qs", "npm:6.9.5"],\
-          ["@types/range-parser", "npm:1.2.3"],\
-          ["@types/send", "npm:0.17.4"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:5.0.0", {\
-        "packageLocation": "./.yarn/cache/@types-express-serve-static-core-npm-5.0.0-d89b918522-fc40cdeae6.zip/node_modules/@types/express-serve-static-core/",\
-        "packageDependencies": [\
-          ["@types/express-serve-static-core", "npm:5.0.0"],\
           ["@types/node", "npm:20.12.5"],\
           ["@types/qs", "npm:6.9.5"],\
           ["@types/range-parser", "npm:1.2.3"],\
