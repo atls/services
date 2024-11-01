@@ -1,5 +1,6 @@
+import type { GrpcOptions }     from '@nestjs/microservices'
+
 import { Transport }            from '@nestjs/microservices'
-import { GrpcOptions }          from '@nestjs/microservices'
 import { serverReflectionPath } from '@atls/nestjs-grpc-reflection/proto'
 
 import { protobufPackage }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
