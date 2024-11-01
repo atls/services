@@ -1,18 +1,19 @@
-import { Provider }                         from '@nestjs/common'
+import type { Provider }                         from '@nestjs/common'
 
-import { Storage }                          from '../storage'
-import { FILES_STORAGE_MODULE_OPTIONS }     from './files-storage-adapter-module.constants'
-import { FilesStorageAdapterModuleOptions } from './files-storage-adapter-module.interfaces'
+import type { FilesStorageAdapterModuleOptions } from './files-storage-adapter-module.interfaces'
+
+import { Storage }                               from '../storage'
+import { FILES_STORAGE_MODULE_OPTIONS }          from './files-storage-adapter-module.constants'
 
 export const createFilesOptionsProvider = (
   options?: FilesStorageAdapterModuleOptions
-): Provider[] => [
+): Array<Provider> => [
   {
     provide: FILES_STORAGE_MODULE_OPTIONS,
     useValue: options || {},
   },
 ]
 
-export const createFilesProvider = (): Provider[] => []
+export const createFilesProvider = (): Array<Provider> => []
 
-export const createFilesExportsProvider = (): Provider[] => [Storage]
+export const createFilesExportsProvider = (): Array<Provider> => [Storage]

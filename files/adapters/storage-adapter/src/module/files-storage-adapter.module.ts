@@ -1,14 +1,16 @@
-import { DynamicModule }                         from '@nestjs/common'
-import { Module }                                from '@nestjs/common'
-import { Provider }                              from '@nestjs/common'
+import type { DynamicModule }                         from '@nestjs/common'
+import type { Provider }                              from '@nestjs/common'
 
-import { FILES_STORAGE_MODULE_OPTIONS }          from './files-storage-adapter-module.constants'
-import { FilesStorageAdapterModuleAsyncOptions } from './files-storage-adapter-module.interfaces'
-import { FilesStorageAdapterModuleOptions }      from './files-storage-adapter-module.interfaces'
-import { FilesStorageAdapterOptionsFactory }     from './files-storage-adapter-module.interfaces'
-import { createFilesExportsProvider }            from './files-storage-adapter-module.providers'
-import { createFilesProvider }                   from './files-storage-adapter-module.providers'
-import { createFilesOptionsProvider }            from './files-storage-adapter-module.providers'
+import type { FilesStorageAdapterModuleAsyncOptions } from './files-storage-adapter-module.interfaces'
+import type { FilesStorageAdapterModuleOptions }      from './files-storage-adapter-module.interfaces'
+import type { FilesStorageAdapterOptionsFactory }     from './files-storage-adapter-module.interfaces'
+
+import { Module }                                     from '@nestjs/common'
+
+import { FILES_STORAGE_MODULE_OPTIONS }               from './files-storage-adapter-module.constants'
+import { createFilesExportsProvider }                 from './files-storage-adapter-module.providers'
+import { createFilesProvider }                        from './files-storage-adapter-module.providers'
+import { createFilesOptionsProvider }                 from './files-storage-adapter-module.providers'
 
 @Module({})
 export class FilesStorageAdapterModule {
@@ -38,7 +40,9 @@ export class FilesStorageAdapterModule {
     }
   }
 
-  private static createAsyncProviders(options: FilesStorageAdapterModuleAsyncOptions): Provider[] {
+  private static createAsyncProviders(
+    options: FilesStorageAdapterModuleAsyncOptions
+  ): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -65,7 +69,9 @@ export class FilesStorageAdapterModule {
 
     return {
       provide: FILES_STORAGE_MODULE_OPTIONS,
-      useFactory: (optionsFactory: FilesStorageAdapterOptionsFactory) =>
+      useFactory: (
+        optionsFactory: FilesStorageAdapterOptionsFactory
+      ): FilesStorageAdapterModuleOptions | Promise<FilesStorageAdapterModuleOptions> =>
         optionsFactory.createFilesStorageOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

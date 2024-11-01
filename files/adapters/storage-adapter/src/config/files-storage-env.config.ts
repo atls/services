@@ -1,5 +1,5 @@
-import { FilesStorageAdapterOptionsFactory } from '../module'
-import { FilesStorageAdapterModuleOptions }  from '../module'
+import type { FilesStorageAdapterOptionsFactory } from '../module'
+import type { FilesStorageAdapterModuleOptions }  from '../module'
 
 export class FilesApplicationEnvConfig implements FilesStorageAdapterOptionsFactory {
   createFilesStorageOptions(): FilesStorageAdapterModuleOptions {
