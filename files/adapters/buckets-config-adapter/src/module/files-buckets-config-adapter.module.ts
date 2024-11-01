@@ -1,14 +1,16 @@
-import { DynamicModule }                               from '@nestjs/common'
-import { Module }                                      from '@nestjs/common'
-import { Provider }                                    from '@nestjs/common'
+import type { DynamicModule }                               from '@nestjs/common'
+import type { Provider }                                    from '@nestjs/common'
 
-import { FILES_BUCKETS_MODULE_OPTIONS }                from './files-buckets-config-adapter-module.constants'
-import { FilesBucketsConfigAdapterModuleAsyncOptions } from './files-buckets-config-adapter-module.interfaces'
-import { FilesBucketsConfigAdapterModuleOptions }      from './files-buckets-config-adapter-module.interfaces'
-import { FilesBucketsConfigAdapterOptionsFactory }     from './files-buckets-config-adapter-module.interfaces'
-import { createFilesExportsProvider }                  from './files-buckets-config-adapter-module.providers'
-import { createFilesProvider }                         from './files-buckets-config-adapter-module.providers'
-import { createFilesOptionsProvider }                  from './files-buckets-config-adapter-module.providers'
+import type { FilesBucketsConfigAdapterModuleAsyncOptions } from './files-buckets-config-adapter-module.interfaces'
+import type { FilesBucketsConfigAdapterModuleOptions }      from './files-buckets-config-adapter-module.interfaces'
+import type { FilesBucketsConfigAdapterOptionsFactory }     from './files-buckets-config-adapter-module.interfaces'
+
+import { Module }                                           from '@nestjs/common'
+
+import { FILES_BUCKETS_MODULE_OPTIONS }                     from './files-buckets-config-adapter-module.constants'
+import { createFilesExportsProvider }                       from './files-buckets-config-adapter-module.providers'
+import { createFilesProvider }                              from './files-buckets-config-adapter-module.providers'
+import { createFilesOptionsProvider }                       from './files-buckets-config-adapter-module.providers'
 
 @Module({})
 export class FilesBucketsConfigAdapterModule {
@@ -40,7 +42,7 @@ export class FilesBucketsConfigAdapterModule {
 
   private static createAsyncProviders(
     options: FilesBucketsConfigAdapterModuleAsyncOptions
-  ): Provider[] {
+  ): Array<Provider> {
     if (options.useExisting || options.useFactory) {
       return [this.createAsyncOptionsProvider(options)]
     }
@@ -67,7 +69,7 @@ export class FilesBucketsConfigAdapterModule {
 
     return {
       provide: FILES_BUCKETS_MODULE_OPTIONS,
-      useFactory: (optionsFactory: FilesBucketsConfigAdapterOptionsFactory) =>
+      useFactory: async (optionsFactory: FilesBucketsConfigAdapterOptionsFactory) =>
         optionsFactory.createFilesBucketsConfigOptions(),
       inject: [options.useExisting! || options.useClass!],
     }

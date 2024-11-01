@@ -2561,6 +2561,7 @@ const RAW_RUNTIME_STATE =
           ["@files/buckets-config-adapter-module", "virtual:2ee36e8bb362567f122112e857ae2284b3071ac6f0504b4643138320b34c30c3e7856218ec8cd4db428d86d402f84d28904664ccf6bb55a28c388c26bf9f4f51#workspace:files/adapters/buckets-config-adapter"],\
           ["@atls/logger", "npm:0.0.1"],\
           ["@files/domain-module", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/core", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.0.5"],\
@@ -2584,6 +2585,7 @@ const RAW_RUNTIME_STATE =
           ["@files/buckets-config-adapter-module", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#workspace:files/adapters/buckets-config-adapter"],\
           ["@atls/logger", "npm:0.0.1"],\
           ["@files/domain-module", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.4.7"],\
           ["@nestjs/core", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.0.5"],\
@@ -2607,6 +2609,7 @@ const RAW_RUNTIME_STATE =
           ["@files/buckets-config-adapter-module", "workspace:files/adapters/buckets-config-adapter"],\
           ["@atls/logger", "npm:0.0.1"],\
           ["@files/domain-module", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/core", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.0.5"]\

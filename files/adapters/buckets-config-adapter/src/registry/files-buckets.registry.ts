@@ -1,8 +1,8 @@
+import type { FilesBucket }                       from '@files/domain-module'
+import type { FilesBucketsRegistryPort }          from '@files/domain-module'
+
 import { Injectable }                             from '@nestjs/common'
 import { Inject }                                 from '@nestjs/common'
-
-import { FilesBucket }                            from '@files/domain-module'
-import { FilesBucketsRegistryPort }               from '@files/domain-module'
 
 import { FILES_BUCKETS_MODULE_OPTIONS }           from '../module'
 import { FilesBucketsConfigAdapterModuleOptions } from '../module'
@@ -10,6 +10,7 @@ import { FilesBucketsConfigAdapterModuleOptions } from '../module'
 @Injectable()
 export class FilesBucketsRegistry implements FilesBucketsRegistryPort {
   constructor(
+    // @ts-expect-error
     @Inject(FILES_BUCKETS_MODULE_OPTIONS)
     private readonly options: FilesBucketsConfigAdapterModuleOptions
   ) {}
