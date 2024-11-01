@@ -1,10 +1,20 @@
+import type { UploadServiceClient }            from '@atls/services-proto-upload'
+import type { INestMicroservice }              from '@nestjs/common'
+import type { StartedTestContainer }           from 'testcontainers'
+
+import type { GcsServerStartedContainer }      from './containers/index.js'
+
 import { ErrorStatus }                         from '@atls/grpc-error-status'
 import { GRPC_IDENTITY_MODULE_OPTIONS }        from '@atls/nestjs-grpc-identity'
 import { Metadata }                            from '@grpc/grpc-js'
-import { INestMicroservice }                   from '@nestjs/common'
 import { Test }                                from '@nestjs/testing'
+import { it }                                  from '@jest/globals'
+import { expect }                              from '@jest/globals'
+import { beforeAll }                           from '@jest/globals'
+import { afterAll }                            from '@jest/globals'
+import { jest }                                from '@jest/globals'
+import { describe }                            from '@jest/globals'
 import { GenericContainer }                    from 'testcontainers'
-import { StartedTestContainer }                from 'testcontainers'
 import { Wait }                                from 'testcontainers'
 import { promises as fs }                      from 'fs'
 import { createReadStream }                    from 'fs'
@@ -17,15 +27,13 @@ import fetch                                   from 'node-fetch'
 
 import { UploadServiceClientModule }           from '@atls/services-proto-upload'
 import { UPLOAD_SERVICE_CLIENT_TOKEN }         from '@atls/services-proto-upload'
-import { UploadServiceClient }                 from '@atls/services-proto-upload'
 import { FILES_BUCKETS_MODULE_OPTIONS }        from '@files/buckets-config-adapter-module'
 import { FILES_INFRASTRUCTURE_MODULE_OPTIONS } from '@files/infrastructure-module'
 import { FILES_STORAGE_MODULE_OPTIONS }        from '@files/storage-adapter-module'
 import { serverOptions }                       from '@files/grpc-adapter-module'
 
-import { FilesServiceEntrypointModule }        from '../src/files-service-entrypoint.module'
-import { GcsServerStartedContainer }           from './containers'
-import { GcsServerContainer }                  from './containers'
+import { FilesServiceEntrypointModule }        from '../src/files-service-entrypoint.module.js'
+import { GcsServerContainer }                  from './containers/index.js'
 
 jest.setTimeout(60000)
 
@@ -51,7 +59,7 @@ describe('files upload grpc adapter', () => {
 
     const port = await getPort()
 
-    const module = await Test.createTestingModule({
+    const testingModule = await Test.createTestingModule({
       imports: [
         UploadServiceClientModule.register({ url: `0.0.0.0:${port}` }),
         FilesServiceEntrypointModule,
@@ -72,9 +80,10 @@ describe('files upload grpc adapter', () => {
       .useValue({
         jwks: {
           jwksUri: join(__dirname, 'fixtures/.jwks.json'),
-          fetcher: async (jwksUri) => {
+          fetcher: async (jwksUri: string) => {
             const data = await fs.readFile(jwksUri)
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             return JSON.parse(data.toString())
           },
           cache: true,
@@ -101,7 +110,7 @@ describe('files upload grpc adapter', () => {
       })
       .compile()
 
-    service = module.createNestMicroservice({
+    service = testingModule.createNestMicroservice({
       ...serverOptions,
       options: {
         ...serverOptions.options,
@@ -111,7 +120,7 @@ describe('files upload grpc adapter', () => {
 
     await service.listen()
 
-    client = module.get<UploadServiceClient>(UPLOAD_SERVICE_CLIENT_TOKEN)
+    client = testingModule.get<UploadServiceClient>(UPLOAD_SERVICE_CLIENT_TOKEN)
 
     const privateKey = await fs.readFile(join(__dirname, 'fixtures/.jwks.pem'), 'utf-8')
     const token = sign({ sub: uuid() }, privateKey, { algorithm: 'RS256' })
@@ -122,6 +131,7 @@ describe('files upload grpc adapter', () => {
   afterAll(async () => {
     await service.close()
     await postgres.stop()
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await gcsServer.stop()
   })
 
@@ -140,6 +150,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error).toObject()).toEqual(
         expect.objectContaining({
           details: expect.arrayContaining([
@@ -181,6 +192,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -205,6 +217,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -229,6 +242,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -266,6 +280,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -299,6 +314,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -379,6 +395,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,
@@ -424,6 +441,7 @@ describe('files upload grpc adapter', () => {
         )
       )
     } catch (error) {
+      // @ts-expect-error
       expect(ErrorStatus.fromServiceError(error)).toEqual(
         expect.objectContaining({
           code: 3,

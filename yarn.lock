@@ -230,24 +230,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-identity@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "@atls/nestjs-grpc-identity@npm:0.0.6"
-  dependencies:
-    "@atls/grpc-error-status": "npm:^0.0.3"
-    "@grpc/grpc-js": "npm:^1.3.7"
-    jsonwebtoken: "npm:^8.5.1"
-    jwks-rsa: "npm:^2.0.5"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/5fff2f0d85d028ad2fd8743c5c86480410fb196d039d850f690440d6bb566542ff3a85cab879366aabb6f80997acd4a2786aa5b163d4faa0fd4ef9157a6a2e24
-  languageName: node
-  linkType: hard
-
 "@atls/nestjs-grpc-playground@npm:0.0.20":
   version: 0.0.20
   resolution: "@atls/nestjs-grpc-playground@npm:0.0.20"
@@ -334,18 +316,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-typeorm-seeding@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@atls/nestjs-typeorm-seeding@npm:0.0.5"
+"@atls/nestjs-typeorm-seeding@npm:0.0.6":
+  version: 0.0.6
+  resolution: "@atls/nestjs-typeorm-seeding@npm:0.0.6"
   dependencies:
-    "@atls/typeorm-seeding": "npm:^0.0.2"
-    typeorm: "npm:^0.2"
+    "@atls/typeorm-seeding": "npm:0.0.3"
+    typeorm: "npm:0.2.45"
   peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/8cc75f687306731d83d05cc2ed1595c45b31066d8f8917b7c71b58e9fa99807aa764002f8c253d116632911480ed80847c82fb59a8f5494397bcb783f15192b3
+    "@nestjs/common": 10.2.5
+    "@nestjs/core": 10.2.5
+    reflect-metadata: 0.1.13
+    rxjs: 7.8.1
+  checksum: 10/e9cbf37648e0c7584a9c72c678f86ded5d74a04c0d83a002b12d75989261f2ab8b2721ec093aa4279e44c457902db3b1422be618c6c17a720aefe01d852622ec
   languageName: node
   linkType: hard
 
@@ -466,13 +448,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/typeorm-seeding@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@atls/typeorm-seeding@npm:0.0.2"
+"@atls/typeorm-seeding@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@atls/typeorm-seeding@npm:0.0.3"
   dependencies:
     faker: "npm:^5.5.3"
     typeorm: "npm:^0.2"
-  checksum: 10/f031d69551e53dc6ad1818c5219147557164b0f9e1d972f48dd3e4f4cca2e51326d40801bd5352b32793997d5b57dde644d08c4716348634eab87318ef44acf8
+  checksum: 10/ca10c25426d16aefb77ae5013b9793d0be6e4675ea20ae23757c778e96a5bfb8b25f1a2032dcca5bcf467825e793b7ce0b861a47b4b42c7673550a685c41ce5f
   languageName: node
   linkType: hard
 
@@ -1108,10 +1090,10 @@ __metadata:
   dependencies:
     "@atls/grpc-error-status": "npm:^0.0.3"
     "@atls/nestjs-grpc-errors": "npm:^0.0.4"
-    "@atls/nestjs-grpc-identity": "npm:^0.0.6"
+    "@atls/nestjs-grpc-identity": "npm:0.0.10"
     "@atls/nestjs-grpc-playground": "npm:0.0.6"
     "@atls/nestjs-logger": "npm:^0.2.38"
-    "@atls/nestjs-typeorm-seeding": "npm:^0.0.5"
+    "@atls/nestjs-typeorm-seeding": "npm:0.0.6"
     "@atls/services-proto-files": "workspace:0.0.3"
     "@atls/services-proto-upload": "workspace:0.0.1"
     "@files/application-module": "workspace:0.0.1"
@@ -1123,6 +1105,7 @@ __metadata:
     "@files/storage-adapter-module": "workspace:0.0.1"
     "@grpc/grpc-js": "npm:^1.5.7"
     "@grpc/proto-loader": "npm:^0.6.4"
+    "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:^8.3.1"
     "@nestjs/core": "npm:^8.3.1"
     "@nestjs/cqrs": "npm:^8.0.2"
@@ -1479,7 +1462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/globals@npm:^29.7.0":
+"@jest/globals@npm:29.7.0, @jest/globals@npm:^29.7.0":
   version: 29.7.0
   resolution: "@jest/globals@npm:29.7.0"
   dependencies:
@@ -2641,7 +2624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:^4.17.13, @types/express@npm:^4.17.14":
+"@types/express@npm:^4.17.13":
   version: 4.17.21
   resolution: "@types/express@npm:4.17.21"
   dependencies:
@@ -2708,7 +2691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:^8.5.4, @types/jsonwebtoken@npm:^8.5.8, @types/jsonwebtoken@npm:^8.5.9":
+"@types/jsonwebtoken@npm:^8.5.4, @types/jsonwebtoken@npm:^8.5.8":
   version: 8.5.9
   resolution: "@types/jsonwebtoken@npm:8.5.9"
   dependencies:
@@ -7736,7 +7719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^2.0.5, jose@npm:^2.0.6":
+"jose@npm:^2.0.5":
   version: 2.0.7
   resolution: "jose@npm:2.0.7"
   dependencies:
@@ -7937,20 +7920,6 @@ __metadata:
     limiter: "npm:^1.1.5"
     lru-memoizer: "npm:^2.1.4"
   checksum: 10/52905f70188d745e8fc651f519b5874f5a798028d74ac97fbe69d9881b74a3d5158bb61cd80409a252b6f1c52576ef0c1cda20debefffb3134dd14da6c2556fd
-  languageName: node
-  linkType: hard
-
-"jwks-rsa@npm:^2.0.5":
-  version: 2.1.5
-  resolution: "jwks-rsa@npm:2.1.5"
-  dependencies:
-    "@types/express": "npm:^4.17.14"
-    "@types/jsonwebtoken": "npm:^8.5.9"
-    debug: "npm:^4.3.4"
-    jose: "npm:^2.0.6"
-    limiter: "npm:^1.1.5"
-    lru-memoizer: "npm:^2.1.4"
-  checksum: 10/fb454bffa94de967c2639357b97f66f339b73adb797b10e9c55c5dfd3614669cdeaa0fcead31384443a66b60f9c05ab245a72332a8ea96db24791987e12cc81f
   languageName: node
   linkType: hard
 
@@ -11710,7 +11679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typeorm@npm:^0.2, typeorm@npm:^0.2.37":
+"typeorm@npm:0.2.45, typeorm@npm:^0.2, typeorm@npm:^0.2.37":
   version: 0.2.45
   resolution: "typeorm@npm:0.2.45"
   dependencies:
