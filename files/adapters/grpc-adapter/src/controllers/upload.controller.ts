@@ -1,3 +1,7 @@
+import type { CreateUploadResponse }      from '@atls/services-proto-upload'
+import type { ConfirmUploadResponse }     from '@atls/services-proto-upload'
+import type { UploadServiceController }   from '@atls/services-proto-upload'
+
 import { GrpcExceptionsFilter }           from '@atls/nestjs-grpc-errors'
 import { GrpcValidationPipe }             from '@atls/nestjs-grpc-errors'
 import { GrpcJwtIdentityGuard }           from '@atls/nestjs-grpc-identity'
@@ -11,17 +15,14 @@ import { QueryBus }                       from '@nestjs/cqrs'
 import { Payload }                        from '@nestjs/microservices'
 import { v4 as uuid }                     from 'uuid'
 
-import { CreateUploadResponse }           from '@atls/services-proto-upload'
-import { ConfirmUploadResponse }          from '@atls/services-proto-upload'
 import { UploadServiceControllerMethods } from '@atls/services-proto-upload'
-import { UploadServiceController }        from '@atls/services-proto-upload'
 import { CreateUploadCommand }            from '@files/application-module'
 import { ConfirmUploadCommand }           from '@files/application-module'
 import { GetUploadByIdQuery }             from '@files/application-module'
 import { GetFileByIdQuery }               from '@files/application-module'
 
-import { ConfirmUploadDto }               from '../dto'
-import { CreateUploadDto }                from '../dto'
+import { ConfirmUploadDto }               from '../dto/index.js'
+import { CreateUploadDto }                from '../dto/index.js'
 
 @Controller()
 @UploadServiceControllerMethods()
@@ -34,9 +35,10 @@ export class UploadController implements UploadServiceController {
   ) {}
 
   @UsePipes(new GrpcValidationPipe())
+  // @ts-expect-error
   async createUpload(
     @Payload() request: CreateUploadDto,
-    @Subject() subject
+    @Subject() subject: string
   ): Promise<CreateUploadResponse> {
     const command = new CreateUploadCommand(
       uuid(),
@@ -52,9 +54,10 @@ export class UploadController implements UploadServiceController {
   }
 
   @UsePipes(new GrpcValidationPipe())
+  // @ts-expect-error
   async confirmUpload(
     @Payload() request: ConfirmUploadDto,
-    @Subject() subject
+    @Subject() subject: string
   ): Promise<ConfirmUploadResponse> {
     const command = new ConfirmUploadCommand(request.id, subject)
 

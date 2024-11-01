@@ -25,7 +25,7 @@
     "@files/buckets-config-adapter-module": "workspace:0.0.1",
     "@files/cqrs-adapter-module": "workspace:0.0.1",
     "@files/domain-module": "workspace:0.0.1",
-    "@files/grpc-adapter-module": "workspace:0.0.1",
+    "@files/grpc-adapter-module": "workspace:0.0.2",
     "@files/infrastructure-module": "workspace:0.0.1",
     "@files/storage-adapter-module": "workspace:0.0.1",
     "@grpc/grpc-js": "^1.5.7",
