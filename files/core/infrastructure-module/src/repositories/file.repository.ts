@@ -11,6 +11,7 @@ import { FileAggregate }    from '../entities'
 @Injectable()
 export class FileRepositoryImpl extends FileRepository {
   constructor(
+    // @ts-expect-error
     @InjectRepository(FileAggregate) private readonly repository: Repository<FileAggregate>,
     private readonly eventPublisher: EventPublisher
   ) {
@@ -31,6 +32,39 @@ export class FileRepositoryImpl extends FileRepository {
     const entity = await this.repository.findOne({ id })
 
     return entity ? this.entityToAggregate(entity) : undefined
+  }
+
+  async findByQuery({
+    pager,
+    order,
+    query,
+  }: {
+    pager?: { offset?: number; take?: number }
+    order?: { field: string; direction: 'ASC' | 'DESC' }
+    query?: { id?: { eq?: { value: string }; in?: { values: Array<string> } } }
+  }): Promise<{ files: Array<File>; hasNextPage: boolean }> {
+    const qb = await this.repository.createQueryBuilder('file')
+
+    if (query?.id?.eq?.value) {
+      qb.andWhere('file.id = :id', { id: query.id.eq.value })
+    }
+
+    if (query?.id?.in?.values && query?.id?.in?.values?.length > 0) {
+      qb.andWhere('file.id IN (:...ids)', { ids: query.id.in.values })
+    }
+
+    if (order) {
+      qb.orderBy(qb.escape(order.field), order.direction === 'ASC' ? 'ASC' : 'DESC')
+    }
+
+    qb.skip(pager?.offset || 0).take((pager?.take || 25) + 1)
+
+    const files = await qb.getMany()
+
+    return {
+      files: files.map(this.entityToAggregate),
+      hasNextPage: qb.expressionMap.take ? files.length >= qb.expressionMap.take : false,
+    }
   }
 
   private entityToAggregate(entity: FileAggregate): File {
@@ -55,30 +89,5 @@ export class FileRepositoryImpl extends FileRepository {
 
   private aggregateToEntity(data: File): FileAggregate {
     return Object.assign(new FileAggregate(), data)
-  }
-
-  async findByQuery({ pager, order, query }) {
-    const qb = await this.repository.createQueryBuilder('file')
-
-    if (query?.id?.eq?.value) {
-      qb.andWhere('file.id = :id', { id: query.id.eq.value })
-    }
-
-    if (query?.id?.in?.values && query?.id?.in?.values?.length > 0) {
-      qb.andWhere('file.id IN (:...ids)', { ids: query.id.in.values })
-    }
-
-    if (order) {
-      qb.orderBy(qb.escape(order.field), order.direction === 'ASC' ? 'ASC' : 'DESC')
-    }
-
-    qb.skip(pager?.offset || 0).take((pager?.take || 25) + 1)
-
-    const files = await qb.getMany()
-
-    return {
-      files: files.map(this.entityToAggregate),
-      hasNextPage: qb.expressionMap.take ? files.length >= qb.expressionMap.take : false,
-    }
   }
 }

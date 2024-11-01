@@ -13,6 +13,7 @@ import { UploadAggregate }      from '../entities'
 @Injectable()
 export class UploadRepositoryImpl extends UploadRepository {
   constructor(
+    // @ts-expect-error
     @InjectRepository(UploadAggregate) private readonly repository: Repository<UploadAggregate>,
     private readonly eventPublisher: EventPublisher,
     private readonly registry: FilesBucketsRegistry,

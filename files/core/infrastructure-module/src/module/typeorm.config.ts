@@ -1,8 +1,9 @@
+import type { TypeOrmOptionsFactory }          from '@nestjs/typeorm'
+import type { TypeOrmModuleOptions }           from '@nestjs/typeorm'
+
 import { TypeOrmLogger }                       from '@atls/typeorm-logger'
 import { Inject }                              from '@nestjs/common'
 import { Injectable }                          from '@nestjs/common'
-import { TypeOrmOptionsFactory }               from '@nestjs/typeorm'
-import { TypeOrmModuleOptions }                from '@nestjs/typeorm'
 
 import * as entities                           from '../entities'
 import * as migrations                         from '../migrations'
@@ -12,6 +13,7 @@ import { FilesInfrastructureOptions }          from './files-infrastructure-modu
 @Injectable()
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
   constructor(
+    // @ts-expect-error
     @Inject(FILES_INFRASTRUCTURE_MODULE_OPTIONS)
     private readonly options: FilesInfrastructureOptions
   ) {}

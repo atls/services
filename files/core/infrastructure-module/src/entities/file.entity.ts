@@ -46,5 +46,5 @@ export class FileAggregate {
   contentLanguage?: string
 
   @Column('jsonb', { nullable: true, default: {} })
-  metadata!: { [key: string]: string }
+  metadata!: Record<string, string>
 }
