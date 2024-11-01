@@ -1131,6 +1131,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/graphql", "virtual:becaaebd9690e5b5bc544f703d29efeef935a3a55e26fb44775460da8e9a41b6fbb2c3c7b88699818d14b09940de22c7972d4a0a7f4045ae69bb4642bce74d35#npm:10.2.1"],\
           ["graphql", "npm:15.9.0"],\
+          ["rxjs", "npm:7.8.1"],\
           ["ts-morph", "npm:13.0.3"]\
         ],\
         "linkType": "SOFT"\
@@ -1373,7 +1374,8 @@ const RAW_RUNTIME_STATE =
           "@types/nestjs__common",\
           "@types/nestjs__core",\
           "@types/nestjs__microservices",\
-          "@types/rxjs"\
+          "@types/rxjs",\
+          "rxjs"\
         ],\
         "linkType": "SOFT"\
       }],\

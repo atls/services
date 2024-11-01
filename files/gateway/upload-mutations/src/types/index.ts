@@ -1,2 +1,2 @@
-export * from './confirm-upload.response'
-export * from './create-upload.response'
+export * from './confirm-upload.response.js'
+export * from './create-upload.response.js'
