@@ -1,15 +1,17 @@
-import { IQueryHandler }  from '@nestjs/cqrs'
-import { QueryHandler }   from '@nestjs/cqrs'
+import type { FindFilesByQueryResult } from '@files/domain-module'
+import type { IQueryHandler }          from '@nestjs/cqrs'
 
-import { FileRepository } from '@files/domain-module'
+import { QueryHandler }                from '@nestjs/cqrs'
 
-import { GetFilesQuery }  from '../queries'
+import { FileRepository }              from '@files/domain-module'
+
+import { GetFilesQuery }               from '../queries'
 
 @QueryHandler(GetFilesQuery)
 export class GetFilesQueryHandler implements IQueryHandler<GetFilesQuery> {
   constructor(private readonly fileRepository: FileRepository) {}
 
-  execute({ pager, order, query }: GetFilesQuery) {
+  async execute({ pager, order, query }: GetFilesQuery): Promise<FindFilesByQueryResult> {
     return this.fileRepository.findByQuery({
       pager,
       order,
