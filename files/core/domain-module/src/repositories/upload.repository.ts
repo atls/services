@@ -1,4 +1,4 @@
-import { Upload } from '../aggregates'
+import type { Upload } from '../aggregates'
 
 export abstract class UploadRepository {
   abstract create(): Upload

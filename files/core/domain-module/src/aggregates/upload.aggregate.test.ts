@@ -1,9 +1,13 @@
-import { v4 as uuid }               from 'uuid'
+import type { FilesBucketType }          from '../interfaces'
+import type { FilesBucketsRegistryPort } from '../ports'
+import type { StoragePort }              from '../ports'
 
-import { FilesBucketType }          from '../interfaces'
-import { FilesBucketsRegistryPort } from '../ports'
-import { StoragePort }              from '../ports'
-import { Upload }                   from './upload.aggregate'
+import { describe }                      from '@jest/globals'
+import { expect }                        from '@jest/globals'
+import { it }                            from '@jest/globals'
+import { v4 as uuid }                    from 'uuid'
+
+import { Upload }                        from './upload.aggregate'
 
 describe('project aggregate', () => {
   const registry = {
@@ -30,13 +34,16 @@ describe('project aggregate', () => {
   } as FilesBucketsRegistryPort
 
   const storage = {
-    generateUploadUrl() {
+    async generateUploadUrl(): Promise<string> {
       return Promise.resolve('http://example.com/upload')
     },
-    generateReadUrl() {
+    async generateReadUrl(): Promise<string> {
       return Promise.resolve('http://example.com/upload')
     },
-    getMetadata(bucket, filename) {
+    async getMetadata(
+      bucket,
+      filename
+    ): Promise<{ bucket: string; type: FilesBucketType; name: string; size: number }> {
       return Promise.resolve({
         bucket,
         type: 'public' as FilesBucketType,
@@ -54,7 +61,7 @@ describe('project aggregate', () => {
     try {
       await upload.create(uuid(), uuid(), 'undefined', 'test.png', 206)
     } catch (error) {
-      expect(error.message).toEqual('Files bucket undefined not found')
+      expect((error as Error).message).toEqual('Files bucket undefined not found')
     }
   })
 
@@ -66,7 +73,7 @@ describe('project aggregate', () => {
     try {
       await upload.create(uuid(), uuid(), 'test', 'test.zip', 206)
     } catch (error) {
-      expect(error.message).toEqual(
+      expect((error as Error).message).toEqual(
         `Files bucket test not support type 'application/zip', only 'image/*'.`
       )
     }
@@ -80,7 +87,7 @@ describe('project aggregate', () => {
     try {
       await upload.create(uuid(), uuid(), 'test', 'test.png', 2000)
     } catch (error) {
-      expect(error.message).toEqual(
+      expect((error as Error).message).toEqual(
         'File size must be greater than 0 and less than 1000, current size is 2000'
       )
     }
@@ -130,7 +137,7 @@ describe('project aggregate', () => {
     try {
       await upload.confirm(owner)
     } catch (error) {
-      expect(error.message).toEqual('Upload already confirmed.')
+      expect((error as Error).message).toEqual('Upload already confirmed.')
     }
   })
 
@@ -144,7 +151,7 @@ describe('project aggregate', () => {
     try {
       await upload.confirm(uuid())
     } catch (error) {
-      expect(error.message).toEqual('Upload initiator does not match the endorsement.')
+      expect((error as Error).message).toEqual('Upload initiator does not match the endorsement.')
     }
   })
 })

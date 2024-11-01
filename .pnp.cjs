@@ -2654,6 +2654,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@files-domain-module-virtual-f36d12c09a/1/files/core/domain-module/",\
         "packageDependencies": [\
           ["@files/domain-module", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/core", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:8.0.5"],\
@@ -2684,6 +2685,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@files-domain-module-virtual-24421409d1/1/files/core/domain-module/",\
         "packageDependencies": [\
           ["@files/domain-module", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:8.4.7"],\
           ["@nestjs/core", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:30daa49e5cecf0e77d0cc07504f8148ffe958e4643d40c7b319c393a6232198cca7d70cbd08cb8d3087eb188765d695bfb7b3766220175dc8993b4454091e3cb#npm:8.0.5"],\
@@ -2714,6 +2716,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@files-domain-module-virtual-d02673ea68/1/files/core/domain-module/",\
         "packageDependencies": [\
           ["@files/domain-module", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.4.7"],\
           ["@nestjs/core", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:8.0.5"],\
@@ -2744,6 +2747,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./files/core/domain-module/",\
         "packageDependencies": [\
           ["@files/domain-module", "workspace:files/core/domain-module"],\
+          ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:a16433a458e3a84ac5827d13142bda8531288b1ec8a8dfeea47fffef27c2d9d92f0a270d32f4dadedb46cc93955cb088c1bdc433fee3baee529393a8a9c2f552#npm:8.4.7"],\
           ["@nestjs/core", "virtual:a16433a458e3a84ac5827d13142bda8531288b1ec8a8dfeea47fffef27c2d9d92f0a270d32f4dadedb46cc93955cb088c1bdc433fee3baee529393a8a9c2f552#npm:8.4.7"],\
           ["@nestjs/cqrs", "virtual:a16433a458e3a84ac5827d13142bda8531288b1ec8a8dfeea47fffef27c2d9d92f0a270d32f4dadedb46cc93955cb088c1bdc433fee3baee529393a8a9c2f552#npm:8.0.5"],\

@@ -1007,6 +1007,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/domain-module@workspace:files/core/domain-module"
   dependencies:
+    "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:^8.3.1"
     "@nestjs/core": "npm:^8.3.1"
     "@nestjs/cqrs": "npm:^8.0.2"
