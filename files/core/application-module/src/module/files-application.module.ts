@@ -2,8 +2,8 @@ import type { DynamicModule } from '@nestjs/common'
 
 import { Module }             from '@nestjs/common'
 
-import * as CommandHandlers   from '../command-handlers'
-import * as QueryHandlers     from '../query-handlers'
+import * as CommandHandlers   from '../command-handlers/index.js'
+import * as QueryHandlers     from '../query-handlers/index.js'
 
 @Module({})
 export class FilesApplicationeModule {

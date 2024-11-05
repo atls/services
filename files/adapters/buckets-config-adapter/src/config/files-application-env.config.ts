@@ -1,5 +1,5 @@
-import type { FilesBucketsConfigAdapterOptionsFactory } from '../module'
-import type { FilesBucketsConfigAdapterModuleOptions }  from '../module'
+import type { FilesBucketsConfigAdapterOptionsFactory } from '../module/index.js'
+import type { FilesBucketsConfigAdapterModuleOptions }  from '../module/index.js'
 
 import { Logger }                                       from '@atls/logger'
 

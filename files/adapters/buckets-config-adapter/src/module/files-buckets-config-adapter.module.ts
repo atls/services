@@ -1,16 +1,16 @@
 import type { DynamicModule }                               from '@nestjs/common'
 import type { Provider }                                    from '@nestjs/common'
 
-import type { FilesBucketsConfigAdapterModuleAsyncOptions } from './files-buckets-config-adapter-module.interfaces'
-import type { FilesBucketsConfigAdapterModuleOptions }      from './files-buckets-config-adapter-module.interfaces'
-import type { FilesBucketsConfigAdapterOptionsFactory }     from './files-buckets-config-adapter-module.interfaces'
+import type { FilesBucketsConfigAdapterModuleAsyncOptions } from './files-buckets-config-adapter-module.interfaces.js'
+import type { FilesBucketsConfigAdapterModuleOptions }      from './files-buckets-config-adapter-module.interfaces.js'
+import type { FilesBucketsConfigAdapterOptionsFactory }     from './files-buckets-config-adapter-module.interfaces.js'
 
 import { Module }                                           from '@nestjs/common'
 
-import { FILES_BUCKETS_MODULE_OPTIONS }                     from './files-buckets-config-adapter-module.constants'
-import { createFilesExportsProvider }                       from './files-buckets-config-adapter-module.providers'
-import { createFilesProvider }                              from './files-buckets-config-adapter-module.providers'
-import { createFilesOptionsProvider }                       from './files-buckets-config-adapter-module.providers'
+import { FILES_BUCKETS_MODULE_OPTIONS }                     from './files-buckets-config-adapter-module.constants.js'
+import { createFilesExportsProvider }                       from './files-buckets-config-adapter-module.providers.js'
+import { createFilesProvider }                              from './files-buckets-config-adapter-module.providers.js'
+import { createFilesOptionsProvider }                       from './files-buckets-config-adapter-module.providers.js'
 
 @Module({})
 export class FilesBucketsConfigAdapterModule {

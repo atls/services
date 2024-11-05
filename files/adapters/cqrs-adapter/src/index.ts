@@ -1,1 +1,1 @@
-export * from './cqrs-adapter.module'
+export * from './cqrs-adapter.module.js'

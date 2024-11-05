@@ -8,12 +8,11 @@ import { Upload }               from '@files/domain-module'
 import { UploadRepository }     from '@files/domain-module'
 import { Storage }              from '@files/storage-adapter-module'
 
-import { UploadAggregate }      from '../entities'
+import { UploadAggregate }      from '../entities/index.js'
 
 @Injectable()
 export class UploadRepositoryImpl extends UploadRepository {
   constructor(
-    // @ts-expect-error
     @InjectRepository(UploadAggregate) private readonly repository: Repository<UploadAggregate>,
     private readonly eventPublisher: EventPublisher,
     private readonly registry: FilesBucketsRegistry,
@@ -33,7 +32,7 @@ export class UploadRepositoryImpl extends UploadRepository {
   }
 
   async findById(id: string): Promise<Upload | undefined> {
-    const entity = await this.repository.findOne({ id })
+    const entity = await this.repository.findOne({ where: { id } })
 
     return entity ? this.entityToAggregate(entity) : undefined
   }

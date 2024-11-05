@@ -6,12 +6,11 @@ import { Repository }       from 'typeorm'
 import { File }             from '@files/domain-module'
 import { FileRepository }   from '@files/domain-module'
 
-import { FileAggregate }    from '../entities'
+import { FileAggregate }    from '../entities/index.js'
 
 @Injectable()
 export class FileRepositoryImpl extends FileRepository {
   constructor(
-    // @ts-expect-error
     @InjectRepository(FileAggregate) private readonly repository: Repository<FileAggregate>,
     private readonly eventPublisher: EventPublisher
   ) {
@@ -29,7 +28,7 @@ export class FileRepositoryImpl extends FileRepository {
   }
 
   async findById(id: string): Promise<File | undefined> {
-    const entity = await this.repository.findOne({ id })
+    const entity = await this.repository.findOne({ where: { id } })
 
     return entity ? this.entityToAggregate(entity) : undefined
   }

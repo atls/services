@@ -1,6 +1,6 @@
-import type { FilesBucket }              from '../interfaces'
-import type { FilesBucketsRegistryPort } from '../ports'
-import type { StoragePort }              from '../ports'
+import type { FilesBucket }              from '../interfaces/index.js'
+import type { FilesBucketsRegistryPort } from '../ports/index.js'
+import type { StoragePort }              from '../ports/index.js'
 
 import { AggregateRoot }                 from '@nestjs/cqrs'
 import { extname }                       from 'path'
@@ -13,9 +13,9 @@ import assert                            from 'assert'
 import match                             from 'mime-match'
 import mime                              from 'mime-types'
 
-import { UploadCreatedEvent }            from '../events'
-import { UploadConfirmedEvent }          from '../events'
-import { File }                          from './file.aggregate'
+import { UploadCreatedEvent }            from '../events/index.js'
+import { UploadConfirmedEvent }          from '../events/index.js'
+import { File }                          from './file.aggregate.js'
 
 export class Upload extends AggregateRoot {
   private id!: string

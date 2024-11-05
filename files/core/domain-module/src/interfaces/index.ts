@@ -1,2 +1,2 @@
-export * from './files-bucket.interfaces'
-export * from './files-bucket.type'
+export * from './files-bucket.interfaces.js'
+export * from './files-bucket.type.js'

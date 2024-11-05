@@ -1,4 +1,4 @@
-import type { FilesBucketType } from '../interfaces'
+import type { FilesBucketType } from '../interfaces/index.js'
 
 export class FileCreatedEvent {
   constructor(

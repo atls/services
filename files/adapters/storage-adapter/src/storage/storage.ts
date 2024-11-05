@@ -5,8 +5,8 @@ import { Storage as GcsStorage }            from '@google-cloud/storage'
 import { Injectable }                       from '@nestjs/common'
 import { Inject }                           from '@nestjs/common'
 
-import { FILES_STORAGE_MODULE_OPTIONS }     from '../module'
-import { FilesStorageAdapterModuleOptions } from '../module'
+import { FILES_STORAGE_MODULE_OPTIONS }     from '../module/index.js'
+import { FilesStorageAdapterModuleOptions } from '../module/index.js'
 
 @Injectable()
 export class Storage implements StoragePort {
@@ -14,7 +14,6 @@ export class Storage implements StoragePort {
 
   private readonly storage: GcsStorage
 
-  // @ts-expect-error
   constructor(@Inject(FILES_STORAGE_MODULE_OPTIONS) options: FilesStorageAdapterModuleOptions) {
     this.storage = new GcsStorage(options)
   }

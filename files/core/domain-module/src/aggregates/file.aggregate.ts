@@ -1,8 +1,8 @@
-import type { FilesBucketType } from '../interfaces'
+import type { FilesBucketType } from '../interfaces/index.js'
 
 import { AggregateRoot }        from '@nestjs/cqrs'
 
-import { FileCreatedEvent }     from '../events'
+import { FileCreatedEvent }     from '../events/index.js'
 
 export class File extends AggregateRoot {
   private id!: string

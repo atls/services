@@ -3,7 +3,7 @@ import { afterAll }              from '@jest/globals'
 import { expect }                from '@jest/globals'
 import { it }                    from '@jest/globals'
 
-import { FilesBucketsEnvConfig } from './files-application-env.config'
+import { FilesBucketsEnvConfig } from './files-application-env.config.js'
 
 describe('files buckets env config', () => {
   const originalEnv = process.env

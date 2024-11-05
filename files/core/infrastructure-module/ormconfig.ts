@@ -1,5 +1,5 @@
-import * as entities   from './src/entities'
-import * as migrations from './src/migrations'
+import * as entities   from './src/entities/index.js'
+import * as migrations from './src/migrations/index.js'
 
 export default {
   type: 'postgres',

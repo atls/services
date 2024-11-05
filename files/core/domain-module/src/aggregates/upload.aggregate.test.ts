@@ -1,13 +1,13 @@
-import type { FilesBucketType }          from '../interfaces'
-import type { FilesBucketsRegistryPort } from '../ports'
-import type { StoragePort }              from '../ports'
+import type { FilesBucketType }          from '../interfaces/index.js'
+import type { FilesBucketsRegistryPort } from '../ports/index.js'
+import type { StoragePort }              from '../ports/index.js'
 
 import { describe }                      from '@jest/globals'
 import { expect }                        from '@jest/globals'
 import { it }                            from '@jest/globals'
 import { v4 as uuid }                    from 'uuid'
 
-import { Upload }                        from './upload.aggregate'
+import { Upload }                        from './upload.aggregate.js'
 
 describe('project aggregate', () => {
   const registry = {

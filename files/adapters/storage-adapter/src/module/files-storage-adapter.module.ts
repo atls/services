@@ -1,16 +1,16 @@
 import type { DynamicModule }                         from '@nestjs/common'
 import type { Provider }                              from '@nestjs/common'
 
-import type { FilesStorageAdapterModuleAsyncOptions } from './files-storage-adapter-module.interfaces'
-import type { FilesStorageAdapterModuleOptions }      from './files-storage-adapter-module.interfaces'
-import type { FilesStorageAdapterOptionsFactory }     from './files-storage-adapter-module.interfaces'
+import type { FilesStorageAdapterModuleAsyncOptions } from './files-storage-adapter-module.interfaces.js'
+import type { FilesStorageAdapterModuleOptions }      from './files-storage-adapter-module.interfaces.js'
+import type { FilesStorageAdapterOptionsFactory }     from './files-storage-adapter-module.interfaces.js'
 
 import { Module }                                     from '@nestjs/common'
 
-import { FILES_STORAGE_MODULE_OPTIONS }               from './files-storage-adapter-module.constants'
-import { createFilesExportsProvider }                 from './files-storage-adapter-module.providers'
-import { createFilesProvider }                        from './files-storage-adapter-module.providers'
-import { createFilesOptionsProvider }                 from './files-storage-adapter-module.providers'
+import { FILES_STORAGE_MODULE_OPTIONS }               from './files-storage-adapter-module.constants.js'
+import { createFilesExportsProvider }                 from './files-storage-adapter-module.providers.js'
+import { createFilesProvider }                        from './files-storage-adapter-module.providers.js'
+import { createFilesOptionsProvider }                 from './files-storage-adapter-module.providers.js'
 
 @Module({})
 export class FilesStorageAdapterModule {

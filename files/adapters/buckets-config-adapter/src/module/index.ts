@@ -1,3 +1,3 @@
-export * from './files-buckets-config-adapter-module.constants'
-export * from './files-buckets-config-adapter-module.interfaces'
-export * from './files-buckets-config-adapter.module'
+export * from './files-buckets-config-adapter-module.constants.js'
+export * from './files-buckets-config-adapter-module.interfaces.js'
+export * from './files-buckets-config-adapter.module.js'

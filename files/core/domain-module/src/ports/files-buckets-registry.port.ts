@@ -1,4 +1,4 @@
-import type { FilesBucket } from '../interfaces'
+import type { FilesBucket } from '../interfaces/index.js'
 
 export interface FilesBucketsRegistryPort {
   get: (name: string) => FilesBucket | undefined
