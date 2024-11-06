@@ -93,7 +93,7 @@ describe('files grpc adapter', () => {
       },
     })
 
-    await service.listenAsync()
+    await service.listen()
 
     client = testingModule.get<FilesServiceClient>(FILES_SERVICE_CLIENT_TOKEN)
     seederFactory = testingModule.get(SeederFactory as string)
