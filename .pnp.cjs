@@ -2852,9 +2852,8 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__typeorm", null],\
           ["@types/node", "npm:22.9.0"],\
           ["@types/pg", "npm:8.11.10"],\
-          ["@types/typeorm", null],\
           ["ts-node", "virtual:2ee36e8bb362567f122112e857ae2284b3071ac6f0504b4643138320b34c30c3e7856218ec8cd4db428d86d402f84d28904664ccf6bb55a28c388c26bf9f4f51#npm:10.9.2"],\
-          ["typeorm", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:0.2.45"]\
+          ["typeorm", "virtual:2ee36e8bb362567f122112e857ae2284b3071ac6f0504b4643138320b34c30c3e7856218ec8cd4db428d86d402f84d28904664ccf6bb55a28c388c26bf9f4f51#npm:0.3.20"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -2864,9 +2863,7 @@ const RAW_RUNTIME_STATE =
           "@types/nestjs__common",\
           "@types/nestjs__core",\
           "@types/nestjs__cqrs",\
-          "@types/nestjs__typeorm",\
-          "@types/typeorm",\
-          "typeorm"\
+          "@types/nestjs__typeorm"\
         ],\
         "linkType": "SOFT"\
       }],\
