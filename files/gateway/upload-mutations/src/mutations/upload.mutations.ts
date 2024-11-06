@@ -19,7 +19,6 @@ import { CreateUploadResponse }        from '../types/index.js'
 
 @Resolver(() => Upload)
 export class UploadMutations {
-  // @ts-expect-error
   constructor(@Inject(UPLOAD_SERVICE_CLIENT_TOKEN) private readonly client: UploadServiceClient) {}
 
   @Mutation(() => CreateUploadResponse)
