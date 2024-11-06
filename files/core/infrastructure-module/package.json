@@ -11,7 +11,7 @@
     "typeorm": "TS_NODE_PROJECT=./typeorm.tsconfig.json node --require ts-node/register $(yarn bin typeorm)"
   },
   "dependencies": {
-    "@atls/typeorm-logger": "^0.0.1",
+    "@atls/typeorm-logger": "1.0.1",
     "@files/application-module": "workspace:*",
     "@files/buckets-config-adapter-module": "workspace:*",
     "@files/domain-module": "workspace:*",

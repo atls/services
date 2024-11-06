@@ -106,13 +106,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/grpc-error-status@npm:0.0.3, @atls/grpc-error-status@npm:^0.0.3":
+"@atls/grpc-error-status@npm:0.0.3":
   version: 0.0.3
   resolution: "@atls/grpc-error-status@npm:0.0.3"
   dependencies:
     "@grpc/grpc-js": "npm:^1.3.4"
     google-protobuf: "npm:^3.17.3"
   checksum: 10/ecdf63f95d16ba1c003bd6912ccf88d599cdc7e08776b3cd379b1edd4fbc19ad0122ea7b780427e9c801849e2f3aa054e81567d658f9b372dbb516b7a7631fc6
+  languageName: node
+  linkType: hard
+
+"@atls/grpc-error-status@npm:0.1.5":
+  version: 0.1.5
+  resolution: "@atls/grpc-error-status@npm:0.1.5"
+  dependencies:
+    "@grpc/grpc-js": "npm:1.12.2"
+    google-protobuf: "npm:3.21.4"
+  checksum: 10/07e7661ec869c9f936971099668702d12098fc66377bf32fb771a54392a994623cba4304eedd4ddd526523f716307fece5be8780f56b887a0f9d22d33ccbed3c
   languageName: node
   linkType: hard
 
@@ -125,15 +135,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/logger@npm:0.0.1":
-  version: 0.0.1
-  resolution: "@atls/logger@npm:0.0.1"
-  dependencies:
-    pino: "npm:^6.11.3"
-  checksum: 10/e5d87cb284bfac5c4afb71081097aa34e894867b02fa3cbc5ee1a6f5ae21b780df3c5ee3e2ba301441faaa6f8fa88a6f5861034daaa0ae8a60a60a4d53621859
-  languageName: node
-  linkType: hard
-
 "@atls/logger@npm:0.0.2":
   version: 0.0.2
   resolution: "@atls/logger@npm:0.0.2"
@@ -143,43 +144,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-errors@npm:0.0.12":
-  version: 0.0.12
-  resolution: "@atls/nestjs-grpc-errors@npm:0.0.12"
+"@atls/nestjs-grpc-errors@npm:0.0.13":
+  version: 0.0.13
+  resolution: "@atls/nestjs-grpc-errors@npm:0.0.13"
   dependencies:
     "@atls/grpc-error-status": "npm:0.0.3"
-    "@grpc/grpc-js": "npm:1.9.0"
+    "@grpc/grpc-js": "npm:1.11.2"
   peerDependencies:
-    "@nestjs/common": 10.2.5
-    "@nestjs/core": 10.2.5
-    "@nestjs/microservices": 10.2.5
-    class-validator: 0.14.0
-    reflect-metadata: 0.1.13
-    rxjs: 7.8.1
-  checksum: 10/8db8ce70e878924f9fae9934574e704332a9adcf200adc9de0d206c10ce2314600d9ebb25ea3be6c96b36c519e7ce8ac9fcc7b9f771f7788a2b2f683ee42d33b
+    "@nestjs/common": 10
+    "@nestjs/core": 10
+    "@nestjs/microservices": 10
+    class-validator: 0.14
+    reflect-metadata: 0.2
+    rxjs: 7
+  checksum: 10/5c812c8d94ebe90f38051097e25e44e4becfa48238f56e095c8f732151e8b3a9bdc05d5cdea1fbbc41d8721131de7bea2550044c8426833de7bfc31af7554fbd
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-errors@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@atls/nestjs-grpc-errors@npm:0.0.4"
-  dependencies:
-    "@atls/grpc-error-status": "npm:^0.0.3"
-    "@grpc/grpc-js": "npm:^1.3.7"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    class-validator: ^0.13
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/3f23e5dcb776bfccdf15bcd4d4a8ed1b223b4e399f61bbf5e37bf689a05d6afda4e9d4e04339cb77265b2bbabe2886aa5285f8566d9e1e75f738e99c7ad384c1
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-grpc-http-proxy@npm:0.0.13":
-  version: 0.0.13
-  resolution: "@atls/nestjs-grpc-http-proxy@npm:0.0.13"
+"@atls/nestjs-grpc-http-proxy@npm:0.0.14":
+  version: 0.0.14
+  resolution: "@atls/nestjs-grpc-http-proxy@npm:0.0.14"
   dependencies:
     "@atls/grpc-error-status": "npm:0.0.3"
     "@grpc/grpc-js": "npm:1.11.2"
@@ -196,30 +180,7 @@ __metadata:
     "@nestjs/microservices": 10
     reflect-metadata: 0.2
     rxjs: 7
-  checksum: 10/de1c0fe2f01a966f7ec285cb692d60cade6d8e05f471453ab0c8fee62e992448a1de8618c098c8bce53d76dcc00e471006b49f58e370a25913c025732b1e70fe
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-grpc-http-proxy@npm:0.0.4":
-  version: 0.0.4
-  resolution: "@atls/nestjs-grpc-http-proxy@npm:0.0.4"
-  dependencies:
-    "@atls/grpc-error-status": "npm:^0.0.3"
-    "@grpc/grpc-js": "npm:^1.3.7"
-    "@grpc/proto-loader": "npm:^0.6.4"
-    buffer-json: "npm:^2.0.0"
-    class-transformer: "npm:^0.4.0"
-    cookie: "npm:^0.4.1"
-    jsonwebtoken: "npm:^8.5.1"
-    lodash.get: "npm:^4.4.2"
-    uuid: "npm:^8.3.2"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/6495a6c55f66619953ac2e8ab5ad9f2d5649263b0094a80cad8be7a8c8b9e592408dde688d9458a3445da8845442dd477655d33dbaee1346e2752d38f37b3265
+  checksum: 10/ff6a9669bfed7664e44f7543b9b1e0b06ed72a050883d69a97e0758235d6a4154441ba0b3bbca10fedf041464eaa66d36c9a012136ec28429dcf8a0d61858d3f
   languageName: node
   linkType: hard
 
@@ -241,48 +202,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-playground@npm:0.0.20":
-  version: 0.0.20
-  resolution: "@atls/nestjs-grpc-playground@npm:0.0.20"
+"@atls/nestjs-grpc-playground@npm:0.0.25":
+  version: 0.0.25
+  resolution: "@atls/nestjs-grpc-playground@npm:0.0.25"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "npm:0.0.13"
-    "@atls/nestjs-grpc-reflection": "npm:0.0.10"
+    "@atls/nestjs-grpc-http-proxy": "npm:0.0.14"
+    "@atls/nestjs-grpc-reflection": "npm:0.0.14"
     node-fetch: "npm:2.7.0"
   peerDependencies:
-    "@nestjs/common": 10
-    "@nestjs/core": 10
-    "@nestjs/microservices": 10
-    reflect-metadata: 0.2
-    rxjs: 7
-  checksum: 10/7eaa7078356e62d95dd9111e4ba2ad7d7cbe7d9445906ca899abf59eaec6b49a5f5c20a70b275c9529377e00cf32826a323f3c54845db0710bf89ee33f91a3e3
+    "@nestjs/common": ^10
+    "@nestjs/core": ^10
+    "@nestjs/microservices": ^10
+    reflect-metadata: ^0.2
+    rxjs: ^7
+  checksum: 10/721338642cf687638e1289410f2c8c607b2c143bd624062e0d75e09de5b32ee64ff2fb89726c0e9e7ec3f351720a22d3840adb87f31f211e0aa98257bd2bac3a
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-playground@npm:0.0.6":
-  version: 0.0.6
-  resolution: "@atls/nestjs-grpc-playground@npm:0.0.6"
+"@atls/nestjs-grpc-reflection@npm:0.0.14":
+  version: 0.0.14
+  resolution: "@atls/nestjs-grpc-reflection@npm:0.0.14"
   dependencies:
-    "@atls/nestjs-grpc-http-proxy": "npm:0.0.4"
-    "@atls/nestjs-grpc-reflection": "npm:0.0.3"
-    node-fetch: "npm:^2.6.7"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/55ed73eeed10fd3574b35c27b35b6c32365e34be5082c3981b0c26978a3af1ba533d000363b5dff0df5cd69170ec511f829229410842665714d679ced8861e84
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-grpc-reflection@npm:0.0.10":
-  version: 0.0.10
-  resolution: "@atls/nestjs-grpc-reflection@npm:0.0.10"
-  dependencies:
+    "@atls/nestjs-proto-types": "npm:0.0.4"
     "@grpc/grpc-js": "npm:1.11.2"
     "@grpc/proto-loader": "npm:0.7.13"
-    "@monstrs/types-import-proto": "npm:0.0.1"
-    google-protobuf: "npm:3.21.2"
+    google-protobuf: "npm:3.21.4"
     protobufjs: "npm:7.4.0"
   peerDependencies:
     "@nestjs/common": 10
@@ -290,40 +234,28 @@ __metadata:
     "@nestjs/microservices": 10
     reflect-metadata: 0.2
     rxjs: 7
-  checksum: 10/828d546e7bf7df308196dd5ba13b995c3b2e0d2d07c5605221d88bc71c2d80605c4d23cdc2dfd75734bdcd50d5620f378d7eb8f807ddab55ee9e9b927b4cff6b
+  checksum: 10/830c670cf10eb822f58eb704370bc76fb91b58be14e5e0c2b9dbec431e95e9f0a97506383ddcb3a9b2a52ddad52863dfd5434f37d895c7c992d923fb5a738dae
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-reflection@npm:0.0.3, @atls/nestjs-grpc-reflection@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "@atls/nestjs-grpc-reflection@npm:0.0.3"
-  dependencies:
-    "@grpc/grpc-js": "npm:^1.3.7"
-    "@grpc/proto-loader": "npm:^0.6.4"
-    "@monstrs/types-import-proto": "npm:^0.0.1"
-    google-protobuf: "npm:^3.17.3"
-    protobufjs: "npm:^6.11.2"
-  peerDependencies:
-    "@nestjs/common": ^8.0.0
-    "@nestjs/core": ^8.0.0
-    "@nestjs/microservices": ^8.0.0
-    reflect-metadata: ^0.1.12
-    rxjs: ^6.3.3
-  checksum: 10/f2ebb5d81199affcd5c91a7904f4baf339888b14856c830dcfb8b58bf1d608225071b2f8a132cc7b22c6cac65ba739ae17949249a1921a3aecd701fe56f36f6b
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-logger@npm:^0.2.38":
-  version: 0.2.39
-  resolution: "@atls/nestjs-logger@npm:0.2.39"
+"@atls/nestjs-logger@npm:0.2.41":
+  version: 0.2.41
+  resolution: "@atls/nestjs-logger@npm:0.2.41"
   dependencies:
     "@atls/logger": "npm:0.0.2"
   peerDependencies:
-    "@nestjs/common": 10.2.5
-    "@nestjs/core": 10.2.5
-    reflect-metadata: 0.1.13
-    rxjs: 7.8.1
-  checksum: 10/8113f826c933ef2066b60c75c5b653dc6a7f454bb868e351e7f3dcd3ae73c21019deb2c6886d534e3c22e14bf1f2ceef4868c50f7d2f3ae2ed72bc81da5180a6
+    "@nestjs/common": 10
+    "@nestjs/core": 10
+    reflect-metadata: 0.2
+    rxjs: 7
+  checksum: 10/e68708e9be7f9c39a8d23859830ef02b3773255588fac38f3b0f62d0ad1c12bc544017b7b01c416c5f41d5569ac4034501f4c71e7b2258c1c73b134b1866dbad
+  languageName: node
+  linkType: hard
+
+"@atls/nestjs-proto-types@npm:0.0.4":
+  version: 0.0.4
+  resolution: "@atls/nestjs-proto-types@npm:0.0.4"
+  checksum: 10/0d37cd1b3b0c7e291ecfe37bba49490d653ff5c97f60405a62cc76b8c29c77c7a9ea991b591fde885640d7022569e053c35c2608c91b5668209603cc2d13c399
   languageName: node
   linkType: hard
 
@@ -362,8 +294,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/services-gateway-upload-mutations@workspace:files/gateway/upload-mutations"
   dependencies:
-    "@atls/services-gateway-upload-types": "workspace:0.0.1"
-    "@atls/services-proto-upload": "workspace:0.0.1"
+    "@atls/services-gateway-upload-types": "workspace:*"
+    "@atls/services-proto-upload": "workspace:*"
     "@grpc/grpc-js": "npm:^1.5.7"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
@@ -372,7 +304,7 @@ __metadata:
     rxjs: "npm:^7.2.0"
     ts-morph: "npm:^13.0.2"
   peerDependencies:
-    "@atls/nestjs-grpc-reflection": ^0.0.3
+    "@atls/nestjs-grpc-reflection": ^0.0.14
     "@grpc/grpc-js": ^1.3.7
     "@nestjs/common": 10.4.7
     "@nestjs/core": 10.4.7
@@ -384,7 +316,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-gateway-upload-types@workspace:0.0.1, @atls/services-gateway-upload-types@workspace:files/gateway/upload-types":
+"@atls/services-gateway-upload-types@workspace:*, @atls/services-gateway-upload-types@workspace:files/gateway/upload-types":
   version: 0.0.0-use.local
   resolution: "@atls/services-gateway-upload-types@workspace:files/gateway/upload-types"
   dependencies:
@@ -400,11 +332,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-proto-files@workspace:0.0.3, @atls/services-proto-files@workspace:files/protos/files":
+"@atls/services-proto-files@workspace:*, @atls/services-proto-files@workspace:0.0.3, @atls/services-proto-files@workspace:files/protos/files":
   version: 0.0.0-use.local
   resolution: "@atls/services-proto-files@workspace:files/protos/files"
   dependencies:
-    "@atls/nestjs-grpc-reflection": "npm:^0.0.3"
+    "@atls/nestjs-grpc-reflection": "npm:0.0.14"
     "@grpc/grpc-js": "npm:^1.5.7"
     "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "npm:^8.3.1"
@@ -425,11 +357,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/services-proto-upload@workspace:0.0.1, @atls/services-proto-upload@workspace:files/protos/upload":
+"@atls/services-proto-upload@workspace:*, @atls/services-proto-upload@workspace:0.0.1, @atls/services-proto-upload@workspace:files/protos/upload":
   version: 0.0.0-use.local
   resolution: "@atls/services-proto-upload@workspace:files/protos/upload"
   dependencies:
-    "@atls/nestjs-grpc-reflection": "npm:^0.0.3"
+    "@atls/nestjs-grpc-reflection": "npm:0.0.14"
     "@grpc/grpc-js": "npm:^1.5.7"
     "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "npm:^8.3.1"
@@ -441,7 +373,7 @@ __metadata:
     rxjs: "npm:^7.3.0"
     ts-proto: "npm:1.82.5"
   peerDependencies:
-    "@atls/nestjs-grpc-reflection": ^0.0.2
+    "@atls/nestjs-grpc-reflection": ^0.0.14
     "@grpc/grpc-js": ^1.3.6
     "@nestjs/common": ^8.0.4
     "@nestjs/core": ^8.0.4
@@ -450,12 +382,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/typeorm-logger@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@atls/typeorm-logger@npm:0.0.1"
+"@atls/typeorm-logger@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@atls/typeorm-logger@npm:1.0.1"
   dependencies:
-    "@atls/logger": "npm:0.0.1"
-  checksum: 10/5dd338c0fa686d61be5982dbf3483f043c711bc04b8d4e455e69648eb7b9f1bc8c710fad8f7c36823d363bdfba5c26b3092bec8c20a1d8409daa6ecf7da8e028
+    "@atls/logger": "npm:0.0.2"
+  peerDependencies:
+    typeorm: ^0.3.20
+  checksum: 10/c6efa6653f635bec908681e9fcbbcec3e5f186338a874910cae27f1effbb9b8c4a5c23a416d355655c57e259251b100cd38869f739552d1733dea9cca3fe2f80
   languageName: node
   linkType: hard
 
@@ -986,7 +920,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/buckets-config-adapter-module@workspace:files/adapters/buckets-config-adapter"
   dependencies:
-    "@atls/logger": "npm:0.0.1"
+    "@atls/logger": "npm:0.0.2"
     "@files/domain-module": "workspace:*"
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.7"
@@ -1042,12 +976,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/grpc-adapter-module@workspace:files/adapters/grpc-adapter"
   dependencies:
-    "@atls/nestjs-grpc-errors": "npm:0.0.12"
+    "@atls/nestjs-grpc-errors": "npm:0.0.13"
     "@atls/nestjs-grpc-identity": "npm:0.0.10"
-    "@atls/nestjs-grpc-playground": "npm:0.0.20"
-    "@atls/nestjs-grpc-reflection": "npm:^0.0.3"
-    "@atls/services-proto-files": "workspace:0.0.3"
-    "@atls/services-proto-upload": "workspace:0.0.1"
+    "@atls/nestjs-grpc-playground": "npm:0.0.25"
+    "@atls/nestjs-grpc-reflection": "npm:0.0.14"
+    "@atls/services-proto-files": "workspace:*"
+    "@atls/services-proto-upload": "workspace:*"
     "@files/application-module": "workspace:*"
     "@files/domain-module": "workspace:*"
     "@nestjs/common": "npm:10.4.7"
@@ -1073,7 +1007,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/infrastructure-module@workspace:files/core/infrastructure-module"
   dependencies:
-    "@atls/typeorm-logger": "npm:^0.0.1"
+    "@atls/typeorm-logger": "npm:1.0.1"
     "@files/application-module": "workspace:*"
     "@files/buckets-config-adapter-module": "workspace:*"
     "@files/domain-module": "workspace:*"
@@ -1099,11 +1033,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/service-entrypoint@workspace:files/entrypoints/service-entrypoint"
   dependencies:
-    "@atls/grpc-error-status": "npm:^0.0.3"
-    "@atls/nestjs-grpc-errors": "npm:^0.0.4"
+    "@atls/grpc-error-status": "npm:0.1.5"
+    "@atls/nestjs-grpc-errors": "npm:0.0.13"
     "@atls/nestjs-grpc-identity": "npm:0.0.10"
-    "@atls/nestjs-grpc-playground": "npm:0.0.6"
-    "@atls/nestjs-logger": "npm:^0.2.38"
+    "@atls/nestjs-grpc-playground": "npm:0.0.25"
+    "@atls/nestjs-logger": "npm:0.2.41"
     "@atls/nestjs-typeorm-seeding": "npm:0.0.6"
     "@atls/services-proto-files": "workspace:0.0.3"
     "@atls/services-proto-upload": "workspace:0.0.1"
@@ -1144,7 +1078,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@files/storage-adapter-module@workspace:files/adapters/storage-adapter"
   dependencies:
-    "@atls/logger": "npm:0.0.1"
+    "@atls/logger": "npm:0.0.2"
     "@files/domain-module": "workspace:*"
     "@google-cloud/storage": "npm:5.20.5"
     "@nestjs/common": "npm:10.4.7"
@@ -1672,7 +1606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/types-import-proto@npm:0.0.1, @monstrs/types-import-proto@npm:^0.0.1":
+"@monstrs/types-import-proto@npm:0.0.1":
   version: 0.0.1
   resolution: "@monstrs/types-import-proto@npm:0.0.1"
   checksum: 10/11c9cd5b81f9bfc6bb239964966b27ece07182ae758a73d912e5f1b259a7f8191cca43d19bfa2b2e71d279a270902217612ad335c6863e097372323920edcfbd
@@ -4007,7 +3941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-json@npm:2.0.0, buffer-json@npm:^2.0.0":
+"buffer-json@npm:2.0.0":
   version: 2.0.0
   resolution: "buffer-json@npm:2.0.0"
   checksum: 10/d3f14b383b708a500c95e9022b826aae8d0a97c0ea4c5930d6f77585e328345cada8642b3f85919cc480df4d78903714213f18459b5cd29115119e0cda0054ba
@@ -4481,13 +4415,6 @@ __metadata:
   version: 0.7.1
   resolution: "cookie@npm:0.7.1"
   checksum: 10/aec6a6aa0781761bf55d60447d6be08861d381136a0fe94aa084fddd4f0300faa2b064df490c6798adfa1ebaef9e0af9b08a189c823e0811b8b313b3d9a03380
-  languageName: node
-  linkType: hard
-
-"cookie@npm:^0.4.1":
-  version: 0.4.2
-  resolution: "cookie@npm:0.4.2"
-  checksum: 10/2e1de9fdedca54881eab3c0477aeb067f281f3155d9cfee9d28dfb252210d09e85e9d175c0a60689661feb9e35e588515352f2456bc1f8e8db4267e05fd70137
   languageName: node
   linkType: hard
 
@@ -5769,14 +5696,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-redact@npm:^3.0.0, fast-redact@npm:^3.1.1":
+"fast-redact@npm:^3.1.1":
   version: 3.5.0
   resolution: "fast-redact@npm:3.5.0"
   checksum: 10/24b27e2023bd5a62f908d97a753b1adb8d89206b260f97727728e00b693197dea2fc2aa3711147a385d0ec6e713569fd533df37a4ef947e08cb65af3019c7ad5
   languageName: node
   linkType: hard
 
-"fast-safe-stringify@npm:2.1.1, fast-safe-stringify@npm:^2.0.8":
+"fast-safe-stringify@npm:2.1.1":
   version: 2.1.1
   resolution: "fast-safe-stringify@npm:2.1.1"
   checksum: 10/dc1f063c2c6ac9533aee14d406441f86783a8984b2ca09b19c2fe281f9ff59d315298bc7bc22fd1f83d26fe19ef2f20e2ddb68e96b15040292e555c5ced0c1e4
@@ -5869,13 +5796,6 @@ __metadata:
     keyv: "npm:^4.5.3"
     rimraf: "npm:^3.0.2"
   checksum: 10/02381c6ece5e9fa5b826c9bbea481d7fd77645d96e4b0b1395238124d581d10e56f17f723d897b6d133970f7a57f0fab9148cbbb67237a0a0ffe794ba60c0c70
-  languageName: node
-  linkType: hard
-
-"flatstr@npm:^1.0.12":
-  version: 1.0.12
-  resolution: "flatstr@npm:1.0.12"
-  checksum: 10/2334fec61d9b4e1d8de8ceb33d9a8c64f87073d06d5cb157b04c8835c50f600b10e763a303fa388443ee423f28ed600cfd04cba1e793fe5d7c2d7e13fd912a01
   languageName: node
   linkType: hard
 
@@ -6236,14 +6156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-protobuf@npm:3.21.2":
-  version: 3.21.2
-  resolution: "google-protobuf@npm:3.21.2"
-  checksum: 10/b376c2e47fb0419b41b901e4da8f3827fe9594ffb7887708b9c241f36005d0b9f2edc7b3f05795f6793924a241e767f67831732eae0f23bdbb337b56a6ab4e26
-  languageName: node
-  linkType: hard
-
-"google-protobuf@npm:^3.17.3":
+"google-protobuf@npm:3.21.4, google-protobuf@npm:^3.17.3":
   version: 3.21.4
   resolution: "google-protobuf@npm:3.21.4"
   checksum: 10/0d87fe8ef221d105cbaa808f4024bd577638524d8e461469e3733f2e4933391ad4da86b7fcbd11e8781bee04eacf2e8ba19aaacd5f9deb336a220485841d980f
@@ -7796,7 +7709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.get@npm:4.4.2, lodash.get@npm:^4.4.2":
+"lodash.get@npm:4.4.2":
   version: 4.4.2
   resolution: "lodash.get@npm:4.4.2"
   checksum: 10/2a4925f6e89bc2c010a77a802d1ba357e17ed1ea03c2ddf6a146429f2856a216663e694a6aa3549a318cbbba3fd8b7decb392db457e6ac0b83dc745ed0a17380
@@ -7880,17 +7793,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:5.2.3, long@npm:^5.0.0, long@npm:^5.2.3":
-  version: 5.2.3
-  resolution: "long@npm:5.2.3"
-  checksum: 10/9167ec6947a825b827c30da169a7384eec6c0c9ec2f0b9c74da2e93d81159bbe39fb09c3f13dae9721d4b807ccfa09797a7dd1012f5d478e3e33ca3c78b608e6
-  languageName: node
-  linkType: hard
-
 "long@npm:^4.0.0":
   version: 4.0.0
   resolution: "long@npm:4.0.0"
   checksum: 10/8296e2ba7bab30f9cfabb81ebccff89c819af6a7a78b4bb5a70ea411aa764ee0532f7441381549dfa6a1a98d72abe9138bfcf99f4fa41238629849bc035b845b
+  languageName: node
+  linkType: hard
+
+"long@npm:^5.0.0, long@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "long@npm:5.2.3"
+  checksum: 10/9167ec6947a825b827c30da169a7384eec6c0c9ec2f0b9c74da2e93d81159bbe39fb09c3f13dae9721d4b807ccfa09797a7dd1012f5d478e3e33ca3c78b608e6
   languageName: node
   linkType: hard
 
@@ -8851,13 +8764,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-std-serializers@npm:^3.1.0":
-  version: 3.2.0
-  resolution: "pino-std-serializers@npm:3.2.0"
-  checksum: 10/7c295474c39c87bcbd52beda250b03316d1eb1afe218d43ced36f54f1f4c5b41f7771b730bc10a63987ec039c374977d2d223c5b99d0b4f32d97e34befd8afdf
-  languageName: node
-  linkType: hard
-
 "pino-std-serializers@npm:^6.0.0":
   version: 6.2.2
   resolution: "pino-std-serializers@npm:6.2.2"
@@ -8883,23 +8789,6 @@ __metadata:
   bin:
     pino: bin.js
   checksum: 10/be635068a214261a8183331bd360c3e01ebed2ed01919694a64271549d4accc6163d470de85be8d54de9144ff90a83520021c0f1530999c283ee9de13143864c
-  languageName: node
-  linkType: hard
-
-"pino@npm:^6.11.3":
-  version: 6.14.0
-  resolution: "pino@npm:6.14.0"
-  dependencies:
-    fast-redact: "npm:^3.0.0"
-    fast-safe-stringify: "npm:^2.0.8"
-    flatstr: "npm:^1.0.12"
-    pino-std-serializers: "npm:^3.1.0"
-    process-warning: "npm:^1.0.0"
-    quick-format-unescaped: "npm:^4.0.3"
-    sonic-boom: "npm:^1.0.2"
-  bin:
-    pino: bin.js
-  checksum: 10/b1cc51743a2e2ae3afa1abffc8199196f60c81531db5d62f25f3d37d60508199e8687b379a3f67e98b3f2335952df5336473942567f07f01a464a8821e8a61e9
   languageName: node
   linkType: hard
 
@@ -9010,13 +8899,6 @@ __metadata:
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
   checksum: 10/1d38588e520dab7cea67cbbe2efdd86a10cc7a074c09657635e34f035277b59fbb57d09d8638346bf7090f8e8ebc070c96fa5fd183b777fff4f5edff5e9466cf
-  languageName: node
-  linkType: hard
-
-"process-warning@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "process-warning@npm:1.0.0"
-  checksum: 10/8736d11d8d71c349d176e210305e84d74b13af06efb3c779377b056bfd608257d1e4e32b8fbbf90637c900f0313e40f7c9f583140884f667a21fc10a869b840c
   languageName: node
   linkType: hard
 
@@ -9866,16 +9748,6 @@ __metadata:
     ip-address: "npm:^9.0.5"
     smart-buffer: "npm:^4.2.0"
   checksum: 10/ffcb622c22481dfcd7589aae71fbfd71ca34334064d181df64bf8b7feaeee19706aba4cffd1de35cc7bbaeeaa0af96be2d7f40fcbc7bc0ab69533a7ae9ffc4fb
-  languageName: node
-  linkType: hard
-
-"sonic-boom@npm:^1.0.2":
-  version: 1.4.1
-  resolution: "sonic-boom@npm:1.4.1"
-  dependencies:
-    atomic-sleep: "npm:^1.0.0"
-    flatstr: "npm:^1.0.12"
-  checksum: 10/b1de05ae435ae6432df33462ab5406f20dff9f4d647d17c6df3f72e715e42c416d84c55ce0c8d49603a559e3799e3211f3223f19f454820bf9badaa3dd7d233d
   languageName: node
   linkType: hard
 
