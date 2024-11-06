@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@atls/typeorm-logger": "^0.0.1",
-    "@files/application-module": "workspace:0.0.1",
-    "@files/buckets-config-adapter-module": "workspace:0.0.1",
-    "@files/domain-module": "workspace:0.0.1",
-    "@files/storage-adapter-module": "workspace:0.0.1"
+    "@files/application-module": "workspace:*",
+    "@files/buckets-config-adapter-module": "workspace:*",
+    "@files/domain-module": "workspace:*",
+    "@files/storage-adapter-module": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/common": "10.4.7",

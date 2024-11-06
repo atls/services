@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": false,
     "isolatedModules": false,
-    "module": "commonjs",
+    "module": "NodeNext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
@@ -20,7 +20,7 @@
     "resolveJsonModule": true,
     "strict": true,
     "sourceMap": false,
-    "target": "es2017",
+    "target": "es2022",
     "jsx": "react"
   },
   "include": ["src/entities/*.ts"]

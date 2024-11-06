@@ -971,7 +971,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@files/buckets-config-adapter-module@workspace:0.0.1, @files/buckets-config-adapter-module@workspace:files/adapters/buckets-config-adapter":
+"@files/buckets-config-adapter-module@workspace:*, @files/buckets-config-adapter-module@workspace:0.0.1, @files/buckets-config-adapter-module@workspace:files/adapters/buckets-config-adapter":
   version: 0.0.0-use.local
   resolution: "@files/buckets-config-adapter-module@workspace:files/adapters/buckets-config-adapter"
   dependencies:
@@ -1063,10 +1063,10 @@ __metadata:
   resolution: "@files/infrastructure-module@workspace:files/core/infrastructure-module"
   dependencies:
     "@atls/typeorm-logger": "npm:^0.0.1"
-    "@files/application-module": "workspace:0.0.1"
-    "@files/buckets-config-adapter-module": "workspace:0.0.1"
-    "@files/domain-module": "workspace:0.0.1"
-    "@files/storage-adapter-module": "workspace:0.0.1"
+    "@files/application-module": "workspace:*"
+    "@files/buckets-config-adapter-module": "workspace:*"
+    "@files/domain-module": "workspace:*"
+    "@files/storage-adapter-module": "workspace:*"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
     "@nestjs/cqrs": "npm:10.2.8"
@@ -1130,7 +1130,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@files/storage-adapter-module@workspace:0.0.1, @files/storage-adapter-module@workspace:files/adapters/storage-adapter":
+"@files/storage-adapter-module@workspace:*, @files/storage-adapter-module@workspace:0.0.1, @files/storage-adapter-module@workspace:files/adapters/storage-adapter":
   version: 0.0.0-use.local
   resolution: "@files/storage-adapter-module@workspace:files/adapters/storage-adapter"
   dependencies:
