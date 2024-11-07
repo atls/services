@@ -4,6 +4,7 @@ import { GrpcMethod }       from '@nestjs/microservices'
 import { GrpcStreamMethod } from '@nestjs/microservices'
 import { Observable }       from 'rxjs'
 import Long                 from 'long'
+// @ts-expect-error
 import _m0                  from 'protobufjs/minimal'
 
 export const protobufPackage = 'tech.atls.files.v1alpha1'
