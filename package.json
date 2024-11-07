@@ -10,7 +10,7 @@
     "@grpc/grpc-js": "1.5.7"
   },
   "devDependencies": {
-    "@atls/code-runtime": "1.1.0",
+    "@atls/code-runtime": "1.1.2",
     "@types/node": "22.5.4",
     "typescript": "5.4.2"
   },
