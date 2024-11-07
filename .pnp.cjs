@@ -2822,7 +2822,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__cqrs", null],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -2846,7 +2846,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__cqrs", null],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -2870,7 +2870,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__common", null],\
           ["@types/nestjs__core", null],\
           ["@types/nestjs__cqrs", null],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -2891,7 +2891,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:10.4.7"],\
           ["@nestjs/cqrs", "virtual:22131513c21bd486665c0cbe971e661fa61168564eb293ad700551df37cbd71bdd357448f96c6afbcb1190bc2da8ade94f5927f53f53ac7d4cc71fb544552ccd#npm:10.2.8"],\
           ["@nestjs/testing", "virtual:f36d12c09a843c4fdab8a7bbfa1350e39452b173e3f6e4fc05b0750d8cd3779e56672e65c1802f488582f4a7dac0224da88475b0cfb87c735a349f9f32923143#npm:10.4.7"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3014,7 +3014,7 @@ const RAW_RUNTIME_STATE =
           ["mime-types", "npm:2.1.35"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -3045,7 +3045,7 @@ const RAW_RUNTIME_STATE =
           ["mime-types", "npm:2.1.35"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -3076,7 +3076,7 @@ const RAW_RUNTIME_STATE =
           ["mime-types", "npm:2.1.35"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -3104,7 +3104,7 @@ const RAW_RUNTIME_STATE =
           ["mime-types", "npm:2.1.35"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3136,7 +3136,7 @@ const RAW_RUNTIME_STATE =
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.14.1"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "packagePeers": [\
           "@nestjs/common",\
@@ -3172,7 +3172,7 @@ const RAW_RUNTIME_STATE =
           ["class-transformer", "npm:0.5.1"],\
           ["class-validator", "npm:0.14.1"],\
           ["rxjs", "npm:7.8.1"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3277,7 +3277,7 @@ const RAW_RUNTIME_STATE =
           ["rxjs", "npm:7.8.1"],\
           ["testcontainers", "npm:7.24.0"],\
           ["typeorm", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:0.2.45"],\
-          ["uuid", "npm:8.3.2"]\
+          ["uuid", "npm:11.0.2"]\
         ],\
         "linkType": "SOFT"\
       }]\

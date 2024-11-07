@@ -289,7 +289,7 @@ __metadata:
   dependencies:
     "@atls/services-gateway-upload-types": "workspace:*"
     "@atls/services-proto-upload": "workspace:*"
-    "@grpc/grpc-js": "npm:^1.5.7"
+    "@grpc/grpc-js": "npm:1.12.2"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
     "@nestjs/graphql": "npm:^10.0.5"
@@ -330,7 +330,7 @@ __metadata:
   resolution: "@atls/services-proto-files@workspace:files/protos/files"
   dependencies:
     "@atls/nestjs-grpc-reflection": "npm:0.0.15"
-    "@grpc/grpc-js": "npm:^1.5.7"
+    "@grpc/grpc-js": "npm:1.12.2"
     "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
@@ -355,7 +355,7 @@ __metadata:
   resolution: "@atls/services-proto-upload@workspace:files/protos/upload"
   dependencies:
     "@atls/nestjs-grpc-reflection": "npm:0.0.15"
-    "@grpc/grpc-js": "npm:^1.5.7"
+    "@grpc/grpc-js": "npm:1.12.2"
     "@monstrs/types-import-proto": "npm:0.0.1"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
@@ -1264,7 +1264,7 @@ __metadata:
     "@nestjs/core": "npm:10.4.7"
     "@nestjs/cqrs": "npm:10.2.8"
     "@nestjs/testing": "npm:10.4.7"
-    uuid: "npm:8.3.2"
+    uuid: "npm:11.0.2"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
@@ -1320,7 +1320,7 @@ __metadata:
     mime-types: "npm:^2.1.32"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.3.0"
-    uuid: "npm:^8.3.2"
+    uuid: "npm:^11.0.2"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
@@ -1350,7 +1350,7 @@ __metadata:
     class-transformer: "npm:0.5.1"
     class-validator: "npm:0.14.1"
     rxjs: "npm:7.8.1"
-    uuid: "npm:8.3.2"
+    uuid: "npm:11.0.2"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
@@ -1404,7 +1404,7 @@ __metadata:
     "@files/grpc-adapter-module": "workspace:*"
     "@files/infrastructure-module": "workspace:*"
     "@files/storage-adapter-module": "workspace:*"
-    "@grpc/grpc-js": "npm:^1.5.7"
+    "@grpc/grpc-js": "npm:1.12.2"
     "@grpc/proto-loader": "npm:^0.6.4"
     "@jest/globals": "npm:29.7.0"
     "@nestjs/common": "npm:10.4.7"
@@ -1426,7 +1426,7 @@ __metadata:
     rxjs: "npm:^7.3.0"
     testcontainers: "npm:^7.18.2"
     typeorm: "npm:^0.2.37"
-    uuid: "npm:^8.3.2"
+    uuid: "npm:^11.0.2"
   languageName: unknown
   linkType: soft
 
@@ -11750,21 +11750,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:11.0.2":
+"uuid@npm:11.0.2, uuid@npm:^11.0.2":
   version: 11.0.2
   resolution: "uuid@npm:11.0.2"
   bin:
     uuid: dist/esm/bin/uuid
   checksum: 10/b98082f398fa2ece8cacc2264402f739256ca70def4bb82e3a14ec70777d189c01ce1054764c3b59b8fc098b62b135a15d1b24914712904c988822e2ac9b4f44
-  languageName: node
-  linkType: hard
-
-"uuid@npm:8.3.2, uuid@npm:^8.0.0, uuid@npm:^8.3.2":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 10/9a5f7aa1d6f56dd1e8d5f2478f855f25c645e64e26e347a98e98d95781d5ed20062d6cca2eecb58ba7c84bc3910be95c0451ef4161906abaab44f9cb68ffbdd1
   languageName: node
   linkType: hard
 
@@ -11783,6 +11774,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10/9d0b6adb72b736e36f2b1b53da0d559125ba3e39d913b6072f6f033e0c87835b414f0836b45bcfaf2bdf698f92297fea1c3cc19b0b258bc182c9c43cc0fab9f2
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.0.0, uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 10/9a5f7aa1d6f56dd1e8d5f2478f855f25c645e64e26e347a98e98d95781d5ed20062d6cca2eecb58ba7c84bc3910be95c0451ef4161906abaab44f9cb68ffbdd1
   languageName: node
   linkType: hard
 
