@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@atls/code-runtime": "1.1.2",
-    "@types/node": "22.5.4",
+    "@types/node": "22.9.0",
     "typescript": "5.4.2"
   },
   "dependenciesMeta": {

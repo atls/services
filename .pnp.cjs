@@ -93,7 +93,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@atls/code-runtime", "npm:1.1.2"],\
-          ["@types/node", "npm:22.5.4"],\
+          ["@types/node", "npm:22.9.0"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
         "linkType": "SOFT"\
@@ -15186,7 +15186,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["services", "workspace:."],\
           ["@atls/code-runtime", "npm:1.1.2"],\
-          ["@types/node", "npm:22.5.4"],\
+          ["@types/node", "npm:22.9.0"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
         "linkType": "SOFT"\
