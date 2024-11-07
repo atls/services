@@ -1,6 +1,6 @@
-import { protobufPackage }   from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { uploadServicePath } from '../paths'
-import { includeDirs }       from '../paths'
+import { protobufPackage }   from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service.js'
+import { uploadServicePath } from '../paths.js'
+import { includeDirs }       from '../paths.js'
 
 export const uploadGatewayHandler = {
   endpoint: process.env.FILES_SERVICE_URL || '0.0.0.0:50051',

@@ -1,15 +1,15 @@
 import type { DynamicModule }       from '@nestjs/common'
 
-import type { UploadServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
+import type { UploadServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service.js'
 
 import { Module }                   from '@nestjs/common'
 import { ClientProxyFactory }       from '@nestjs/microservices'
 import { Transport }                from '@nestjs/microservices'
 
-import { UPLOAD_SERVICE_NAME }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { protobufPackage }          from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { uploadServicePath }        from '../paths'
-import { includeDirs }              from '../paths'
+import { UPLOAD_SERVICE_NAME }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service.js'
+import { protobufPackage }          from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service.js'
+import { uploadServicePath }        from '../paths.js'
+import { includeDirs }              from '../paths.js'
 
 export interface UploadServiceClientModuleOptions {
   url?: string

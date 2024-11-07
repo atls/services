@@ -1,15 +1,15 @@
 import type { DynamicModule }      from '@nestjs/common'
 
-import type { FilesServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
+import type { FilesServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/files_service.js'
 
 import { Module }                  from '@nestjs/common'
 import { ClientProxyFactory }      from '@nestjs/microservices'
 import { Transport }               from '@nestjs/microservices'
 
-import { FILES_SERVICE_NAME }      from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { protobufPackage }         from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { filesServicePath }        from '../paths'
-import { includeDirs }             from '../paths'
+import { FILES_SERVICE_NAME }      from '../gen/nestjs/tech/atls/files/v1alpha1/files_service.js'
+import { protobufPackage }         from '../gen/nestjs/tech/atls/files/v1alpha1/files_service.js'
+import { filesServicePath }        from '../paths.js'
+import { includeDirs }             from '../paths.js'
 
 export interface FilesServiceClientModuleOptions {
   url?: string

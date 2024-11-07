@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs'
 import Long                 from 'long'
 import _m0                  from 'protobufjs/minimal'
 
-import { File }             from '../../../../tech/atls/files/v1alpha1/file'
+import { File }             from '../../../../tech/atls/files/v1alpha1/file.js'
 
 export const protobufPackage = 'tech.atls.files.v1alpha1'
 

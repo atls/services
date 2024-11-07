@@ -1190,7 +1190,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
           ["@types/rxjs", null],\
-          ["long", "npm:4.0.0"],\
+          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
           ["ts-proto", "npm:1.82.5"]\
@@ -1227,7 +1227,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
           ["@types/rxjs", null],\
-          ["long", "npm:4.0.0"],\
+          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
           ["ts-proto", "npm:1.82.5"]\
@@ -1264,7 +1264,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__core", null],\
           ["@types/nestjs__microservices", null],\
           ["@types/rxjs", null],\
-          ["long", "npm:4.0.0"],\
+          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
           ["ts-proto", "npm:1.82.5"]\
@@ -1295,7 +1295,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/core", "virtual:ca5c4b50fdf793f47abe41c165d008973da47a68d27c13411aef9cbd05b503074c7514092f4e73b0c026598bae2ef6dae287e7e953fa62ea454b45b5f0321118#npm:10.4.7"],\
           ["@nestjs/microservices", "virtual:ca5c4b50fdf793f47abe41c165d008973da47a68d27c13411aef9cbd05b503074c7514092f4e73b0c026598bae2ef6dae287e7e953fa62ea454b45b5f0321118#npm:10.4.7"],\
           ["@types/long", "npm:4.0.2"],\
-          ["long", "npm:4.0.0"],\
+          ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
           ["ts-proto", "npm:1.82.5"]\
@@ -1324,7 +1324,7 @@ const RAW_RUNTIME_STATE =
           ["long", "npm:4.0.0"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
-          ["ts-proto", "npm:2.2.5"]\
+          ["ts-proto", "npm:1.82.5"]\
         ],\
         "packagePeers": [\
           "@atls/nestjs-grpc-reflection",\
@@ -1361,7 +1361,7 @@ const RAW_RUNTIME_STATE =
           ["long", "npm:4.0.0"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
-          ["ts-proto", "npm:2.2.5"]\
+          ["ts-proto", "npm:1.82.5"]\
         ],\
         "packagePeers": [\
           "@grpc/grpc-js",\
@@ -1397,7 +1397,7 @@ const RAW_RUNTIME_STATE =
           ["long", "npm:4.0.0"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
-          ["ts-proto", "npm:2.2.5"]\
+          ["ts-proto", "npm:1.82.5"]\
         ],\
         "packagePeers": [\
           "@grpc/grpc-js",\
@@ -1434,7 +1434,7 @@ const RAW_RUNTIME_STATE =
           ["long", "npm:4.0.0"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
-          ["ts-proto", "npm:2.2.5"]\
+          ["ts-proto", "npm:1.82.5"]\
         ],\
         "packagePeers": [\
           "@atls/nestjs-grpc-reflection",\
@@ -1465,7 +1465,7 @@ const RAW_RUNTIME_STATE =
           ["long", "npm:4.0.0"],\
           ["protobufjs", "npm:6.11.4"],\
           ["rxjs", "npm:7.8.1"],\
-          ["ts-proto", "npm:2.2.5"]\
+          ["ts-proto", "npm:1.82.5"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -2362,15 +2362,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@bufbuild/protobuf", [\
-      ["npm:2.2.2", {\
-        "packageLocation": "../.yarn/berry/cache/@bufbuild-protobuf-npm-2.2.2-fae02e29b4-10.zip/node_modules/@bufbuild/protobuf/",\
-        "packageDependencies": [\
-          ["@bufbuild/protobuf", "npm:2.2.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@cspotcode/source-map-support", [\
       ["npm:0.8.1", {\
         "packageLocation": "../.yarn/berry/cache/@cspotcode-source-map-support-npm-0.8.1-964f2de99d-10.zip/node_modules/@cspotcode/source-map-support/",\
@@ -3188,7 +3179,8 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@grpc/grpc-js", "npm:1.5.7"],\
           ["@grpc/proto-loader", "npm:0.6.13"],\
-          ["@types/node", "npm:22.5.4"]\
+          ["@types/node", "npm:22.5.4"],\
+          ["long", "npm:5.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8089,15 +8081,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["case-anything", [\
-      ["npm:2.1.13", {\
-        "packageLocation": "../.yarn/berry/cache/case-anything-npm-2.1.13-ead887fee0-10.zip/node_modules/case-anything/",\
-        "packageDependencies": [\
-          ["case-anything", "npm:2.1.13"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["chalk", [\
       ["npm:2.4.2", {\
         "packageLocation": "../.yarn/berry/cache/chalk-npm-2.4.2-3ea16dd91e-10.zip/node_modules/chalk/",\
@@ -8852,15 +8835,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["detect-libc", [\
-      ["npm:1.0.3", {\
-        "packageLocation": "../.yarn/berry/cache/detect-libc-npm-1.0.3-c30ac344d4-10.zip/node_modules/detect-libc/",\
-        "packageDependencies": [\
-          ["detect-libc", "npm:1.0.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["detect-newline", [\
       ["npm:3.1.0", {\
         "packageLocation": "../.yarn/berry/cache/detect-newline-npm-3.1.0-6d33fa8d37-10.zip/node_modules/detect-newline/",\
@@ -8984,16 +8958,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/dotenv-npm-8.6.0-2ce3e9f7bb-10.zip/node_modules/dotenv/",\
         "packageDependencies": [\
           ["dotenv", "npm:8.6.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["dprint-node", [\
-      ["npm:1.0.8", {\
-        "packageLocation": "./.yarn/unplugged/dprint-node-npm-1.0.8-f7d03c5245/node_modules/dprint-node/",\
-        "packageDependencies": [\
-          ["dprint-node", "npm:1.0.8"],\
-          ["detect-libc", "npm:1.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -15451,14 +15415,6 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:2.8.8"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:6.9.0", {\
-        "packageLocation": "../.yarn/berry/cache/ts-poet-npm-6.9.0-6b32dcc88f-10.zip/node_modules/ts-poet/",\
-        "packageDependencies": [\
-          ["ts-poet", "npm:6.9.0"],\
-          ["dprint-node", "npm:1.0.8"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["ts-proto", [\
@@ -15474,17 +15430,6 @@ const RAW_RUNTIME_STATE =
           ["ts-proto-descriptors", "npm:1.16.0"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:2.2.5", {\
-        "packageLocation": "../.yarn/berry/cache/ts-proto-npm-2.2.5-2a67efe8b8-10.zip/node_modules/ts-proto/",\
-        "packageDependencies": [\
-          ["ts-proto", "npm:2.2.5"],\
-          ["@bufbuild/protobuf", "npm:2.2.2"],\
-          ["case-anything", "npm:2.1.13"],\
-          ["ts-poet", "npm:6.9.0"],\
-          ["ts-proto-descriptors", "npm:2.0.0"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["ts-proto-descriptors", [\
@@ -15494,14 +15439,6 @@ const RAW_RUNTIME_STATE =
           ["ts-proto-descriptors", "npm:1.16.0"],\
           ["long", "npm:5.2.3"],\
           ["protobufjs", "npm:7.4.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:2.0.0", {\
-        "packageLocation": "../.yarn/berry/cache/ts-proto-descriptors-npm-2.0.0-9d29859bc2-10.zip/node_modules/ts-proto-descriptors/",\
-        "packageDependencies": [\
-          ["ts-proto-descriptors", "npm:2.0.0"],\
-          ["@bufbuild/protobuf", "npm:2.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\

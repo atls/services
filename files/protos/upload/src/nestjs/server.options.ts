@@ -3,9 +3,9 @@ import type { GrpcOptions }     from '@nestjs/microservices'
 import { Transport }            from '@nestjs/microservices'
 import { serverReflectionPath } from '@atls/nestjs-grpc-reflection/proto'
 
-import { protobufPackage }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service'
-import { uploadServicePath }    from '../paths'
-import { includeDirs }          from '../paths'
+import { protobufPackage }      from '../gen/nestjs/tech/atls/files/v1alpha1/upload_service.js'
+import { uploadServicePath }    from '../paths.js'
+import { includeDirs }          from '../paths.js'
 
 export const serverOptions: GrpcOptions = {
   transport: Transport.GRPC,

@@ -369,7 +369,7 @@ __metadata:
     "@nestjs/core": "npm:10.4.7"
     "@nestjs/microservices": "npm:10.4.7"
     "@types/long": "npm:^4.0.1"
-    long: "npm:^4.0.0"
+    long: "npm:5.2.3"
     protobufjs: "npm:^6.11.2"
     rxjs: "npm:^7.3.0"
     ts-proto: "npm:1.82.5"
@@ -397,7 +397,7 @@ __metadata:
     long: "npm:^4.0.0"
     protobufjs: "npm:^6.11.2"
     rxjs: "npm:^7.3.0"
-    ts-proto: "npm:2.2.5"
+    ts-proto: "npm:1.82.5"
   peerDependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.15
     "@grpc/grpc-js": ^1.3.6
@@ -833,13 +833,6 @@ __metadata:
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
   checksum: 10/1a1f0e356a3bb30b5f1ced6f79c413e6ebacf130421f15fac5fcd8be5ddf98aedb4404d7f5624e3285b700e041f9ef938321f3ca4d359d5b716f96afa120d88d
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protobuf@npm:^2.0.0":
-  version: 2.2.2
-  resolution: "@bufbuild/protobuf@npm:2.2.2"
-  checksum: 10/f739b7787f3e978db7ed5eff55fb15ec6fea3d7ab9ae8f1de9e03375e786facd4c8bfd09ea4f9558bf29f8521b524781bfeec6960fc910e7d1309c4a2329317b
   languageName: node
   linkType: hard
 
@@ -4001,13 +3994,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"case-anything@npm:^2.1.13":
-  version: 2.1.13
-  resolution: "case-anything@npm:2.1.13"
-  checksum: 10/a034cd0a33d0eedfc623f09bc62d72bb2d9a4f127340add5dfea27cfb74fc67497197db90b6843fa5e966ee7dc772f53ed641c5b74d975271a973a8316a14ac3
-  languageName: node
-  linkType: hard
-
 "chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -4633,15 +4619,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "detect-libc@npm:1.0.3"
-  bin:
-    detect-libc: ./bin/detect-libc.js
-  checksum: 10/3849fe7720feb153e4ac9407086956e073f1ce1704488290ef0ca8aab9430a8d48c8a9f8351889e7cdc64e5b1128589501e4fef48f3a4a49ba92cd6d112d0757
-  languageName: node
-  linkType: hard
-
 "detect-newline@npm:^3.0.0":
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
@@ -4752,15 +4729,6 @@ __metadata:
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 10/31d7b5c010cebb80046ba6853d703f9573369b00b15129536494f04b0af4ea0060ce8646e3af58b455af2f6f1237879dd261a5831656410ec92561ae1ea44508
-  languageName: node
-  linkType: hard
-
-"dprint-node@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "dprint-node@npm:1.0.8"
-  dependencies:
-    detect-libc: "npm:^1.0.3"
-  checksum: 10/c4d33416ca5cf37918abb6247d62d7442aacaf0c7cf2936592c33598b7a4823edac23ac5ef4fecfb5f95d6306ce289c2c282a2ee864885678b1b08b89490b325
   languageName: node
   linkType: hard
 
@@ -10402,24 +10370,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-poet@npm:^6.7.0":
-  version: 6.9.0
-  resolution: "ts-poet@npm:6.9.0"
-  dependencies:
-    dprint-node: "npm:^1.0.8"
-  checksum: 10/104a76f67c646aaafb74269299bd2356cd6f8c4d58a857b5833a8e90e531dee530c29a11c40233828e8a12f6c3af76859e0039287e3a8ee61adcf30f4634acfd
-  languageName: node
-  linkType: hard
-
-"ts-proto-descriptors@npm:2.0.0":
-  version: 2.0.0
-  resolution: "ts-proto-descriptors@npm:2.0.0"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^2.0.0"
-  checksum: 10/409abadbcbd06fba36d25ba1bb65ff0003680b60183e203f42511846eb4352142fb3b8a033f1dbe33e44c19867e8540b27c186b674fa1f317114ffe22e82390c
-  languageName: node
-  linkType: hard
-
 "ts-proto-descriptors@npm:^1.2.1":
   version: 1.16.0
   resolution: "ts-proto-descriptors@npm:1.16.0"
@@ -10443,20 +10393,6 @@ __metadata:
   bin:
     protoc-gen-ts_proto: protoc-gen-ts_proto
   checksum: 10/69fe26117962fd52b4f7ddb4e0b1cca8c68a690eef78ad7f3b47b432210d9cb84353776a8aecbc0ac71adb2681d316b023816c92872042a1e2a966abcac87cdc
-  languageName: node
-  linkType: hard
-
-"ts-proto@npm:2.2.5":
-  version: 2.2.5
-  resolution: "ts-proto@npm:2.2.5"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^2.0.0"
-    case-anything: "npm:^2.1.13"
-    ts-poet: "npm:^6.7.0"
-    ts-proto-descriptors: "npm:2.0.0"
-  bin:
-    protoc-gen-ts_proto: protoc-gen-ts_proto
-  checksum: 10/7ed4a8134ee4ca94840ad483a8c6701431419a0eb842c897ad2e211efa0c9d8925b538889d254f311673ec3b90be4a9f72129811e10f5022cd5986c34c200bd5
   languageName: node
   linkType: hard
 
