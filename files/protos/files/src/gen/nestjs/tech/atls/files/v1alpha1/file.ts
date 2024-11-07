@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Long from 'long'
+// @ts-expect-error
 import _m0  from 'protobufjs/minimal'
 
 export const protobufPackage = 'tech.atls.files.v1alpha1'
