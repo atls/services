@@ -9,7 +9,7 @@
     "@atls/nestjs-grpc-errors": "0.0.13",
     "@atls/nestjs-grpc-identity": "0.0.10",
     "@atls/nestjs-grpc-playground": "0.0.25",
-    "@atls/nestjs-grpc-reflection": "0.0.14",
+    "@atls/nestjs-grpc-reflection": "0.0.15",
     "@atls/services-proto-files": "workspace:*",
     "@atls/services-proto-upload": "workspace:*",
     "@files/application-module": "workspace:*",
