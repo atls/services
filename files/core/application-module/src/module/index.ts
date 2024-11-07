@@ -1,1 +1,1 @@
-export * from './files-application.module'
+export * from './files-application.module.js'

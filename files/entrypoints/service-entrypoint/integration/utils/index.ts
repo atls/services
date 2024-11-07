@@ -1,1 +1,1 @@
-export * from './auth-metadata.factory'
+export * from './auth-metadata.factory.js'

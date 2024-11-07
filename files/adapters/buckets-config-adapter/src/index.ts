@@ -1,3 +1,3 @@
-export * from './registry'
-export * from './config'
-export * from './module'
+export * from './registry/index.js'
+export * from './config/index.js'
+export * from './module/index.js'

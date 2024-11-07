@@ -1,2 +1,2 @@
-export * from './controllers'
-export * from './module'
+export * from './controllers/index.js'
+export * from './module/index.js'

@@ -1,4 +1,4 @@
-import { FilesBucketType } from '../interfaces'
+import type { FilesBucketType } from '../interfaces/index.js'
 
 export class FileCreatedEvent {
   constructor(
@@ -14,6 +14,6 @@ export class FileCreatedEvent {
     public readonly contentDisposition?: string,
     public readonly contentEncoding?: string,
     public readonly contentLanguage?: string,
-    public readonly metadata?: { [key: string]: string }
+    public readonly metadata?: Record<string, string>
   ) {}
 }

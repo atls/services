@@ -1,1 +1,1 @@
-export * from './files-storage-env.config'
+export * from './files-storage-env.config.js'

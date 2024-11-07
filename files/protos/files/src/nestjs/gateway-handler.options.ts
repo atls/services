@@ -1,6 +1,6 @@
-import { protobufPackage }  from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { filesServicePath } from '../paths'
-import { includeDirs }      from '../paths'
+import { protobufPackage }  from '../gen/nestjs/tech/atls/files/v1alpha1/files_service.js'
+import { filesServicePath } from '../paths.js'
+import { includeDirs }      from '../paths.js'
 
 export const filesGatewayHandler = {
   endpoint: process.env.FILES_SERVICE_URL || '0.0.0.0:50051',

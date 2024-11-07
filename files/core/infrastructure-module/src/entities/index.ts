@@ -1,2 +1,2 @@
-export * from './upload.entity'
-export * from './file.entity'
+export * from './upload.entity.js'
+export * from './file.entity.js'

@@ -1,1 +1,1 @@
-export * from './files-buckets.registry'
+export * from './files-buckets.registry.js'

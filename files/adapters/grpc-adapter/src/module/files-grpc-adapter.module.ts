@@ -1,12 +1,13 @@
+import type { DynamicModule }      from '@nestjs/common'
+
 import { GrpcIdentityModule }      from '@atls/nestjs-grpc-identity'
 import { GrpcIdentityEnvConfig }   from '@atls/nestjs-grpc-identity'
 import { GrpcPlaygroundModule }    from '@atls/nestjs-grpc-playground'
 import { PrivateKeyAuthenticator } from '@atls/nestjs-grpc-playground'
-import { DynamicModule }           from '@nestjs/common'
 import { Module }                  from '@nestjs/common'
 
-import * as controllers            from '../controllers'
-import { serverOptions }           from './server.options'
+import * as controllers            from '../controllers/index.js'
+import { serverOptions }           from './server.options.js'
 
 @Module({})
 export class FilesGrpcAdapterModule {

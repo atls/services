@@ -1,6 +1,7 @@
-import { DynamicModule } from '@nestjs/common'
-import { Module }        from '@nestjs/common'
-import { CqrsModule }    from '@nestjs/cqrs'
+import type { DynamicModule } from '@nestjs/common'
+
+import { Module }             from '@nestjs/common'
+import { CqrsModule }         from '@nestjs/cqrs'
 
 @Module({})
 export class CqrsAdapterModule {

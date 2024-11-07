@@ -1,9 +1,10 @@
-import { DynamicModule }             from '@nestjs/common'
+import type { DynamicModule }        from '@nestjs/common'
+
 import { Module }                    from '@nestjs/common'
 
 import { UploadServiceClientModule } from '@atls/services-proto-upload'
 
-import { UploadMutations }           from './mutations'
+import { UploadMutations }           from './mutations/index.js'
 
 @Module({})
 export class UploadMutationsModule {

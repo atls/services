@@ -6,5 +6,5 @@ export class IdIncludeCondition {
     each: true,
   })
   @IsOptional()
-  values!: string[]
+  values!: Array<string>
 }

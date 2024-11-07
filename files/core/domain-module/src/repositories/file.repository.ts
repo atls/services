@@ -1,7 +1,7 @@
-import { File } from '../aggregates'
+import type { File } from '../aggregates/index.js'
 
 interface IncludeCondition {
-  values: string[]
+  values: Array<string>
 }
 
 interface EqualCondition {

@@ -1,2 +1,2 @@
-export * from './nestjs'
-export * from './paths'
+export * from './nestjs/index.js'
+export * from './paths.js'

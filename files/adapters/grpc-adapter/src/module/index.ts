@@ -1,2 +1,2 @@
-export * from './files-grpc-adapter.module'
-export * from './server.options'
+export * from './files-grpc-adapter.module.js'
+export * from './server.options.js'

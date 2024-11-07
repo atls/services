@@ -1,5 +1,5 @@
-import { FilesStorageAdapterOptionsFactory } from '../module'
-import { FilesStorageAdapterModuleOptions }  from '../module'
+import type { FilesStorageAdapterOptionsFactory } from '../module/index.js'
+import type { FilesStorageAdapterModuleOptions }  from '../module/index.js'
 
 export class FilesApplicationEnvConfig implements FilesStorageAdapterOptionsFactory {
   createFilesStorageOptions(): FilesStorageAdapterModuleOptions {

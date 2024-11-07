@@ -1,3 +1,3 @@
-export * from './storage'
-export * from './module'
-export * from './config'
+export * from './storage/index.js'
+export * from './module/index.js'
+export * from './config/index.js'

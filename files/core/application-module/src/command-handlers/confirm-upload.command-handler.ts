@@ -1,11 +1,12 @@
+import type { ICommandHandler } from '@nestjs/cqrs'
+
 import { CommandHandler }       from '@nestjs/cqrs'
-import { ICommandHandler }      from '@nestjs/cqrs'
 import assert                   from 'assert'
 
 import { UploadRepository }     from '@files/domain-module'
 import { FileRepository }       from '@files/domain-module'
 
-import { ConfirmUploadCommand } from '../commands'
+import { ConfirmUploadCommand } from '../commands/index.js'
 
 @CommandHandler(ConfirmUploadCommand)
 export class ConfirmUploadCommandHandler implements ICommandHandler<ConfirmUploadCommand, void> {

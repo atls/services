@@ -1,1 +1,1 @@
-export * from './upload.type'
+export * from './upload.type.js'

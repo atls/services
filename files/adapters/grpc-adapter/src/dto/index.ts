@@ -1,3 +1,3 @@
-export * from './confirm-upload.dto'
-export * from './create-upload.dto'
-export * from './list-files'
+export * from './confirm-upload.dto.js'
+export * from './create-upload.dto.js'
+export * from './list-files/index.js'

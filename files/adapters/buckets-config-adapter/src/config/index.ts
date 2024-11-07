@@ -1,1 +1,1 @@
-export * from './files-application-env.config'
+export * from './files-application-env.config.js'

@@ -7,23 +7,23 @@ export interface StorageFileMetadata {
   contentDisposition?: string
   contentEncoding?: string
   contentLanguage?: string
-  metadata?: { [key: string]: string }
+  metadata?: Record<string, string>
 }
 
 export interface StoragePort {
-  generateUploadUrl(
+  generateUploadUrl: (
     bucket: string,
     filename: string,
     contentLength: number,
     contentType: string
-  ): Promise<string>
-  getMetadata(bucket: string, filename: string): Promise<StorageFileMetadata>
-  generateReadUrl(
+  ) => Promise<string>
+  getMetadata: (bucket: string, filename: string) => Promise<StorageFileMetadata>
+  generateReadUrl: (
     bucket: string,
     filename: string,
     cname?: string,
     expiration?: number
-  ): Promise<string>
+  ) => Promise<string>
 }
 
 export const STORAGE_PORT_TOKEN = '__storagePort'

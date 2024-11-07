@@ -1,6 +1,6 @@
-import { FilesPager } from '@files/domain-module'
-import { FilesOrder } from '@files/domain-module'
-import { FilesQuery } from '@files/domain-module'
+import type { FilesPager } from '@files/domain-module'
+import type { FilesOrder } from '@files/domain-module'
+import type { FilesQuery } from '@files/domain-module'
 
 export class GetFilesQuery {
   constructor(

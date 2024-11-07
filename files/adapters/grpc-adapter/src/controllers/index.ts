@@ -1,2 +1,2 @@
-export * from './upload.controller'
-export * from './files.controller'
+export * from './upload.controller.js'
+export * from './files.controller.js'
