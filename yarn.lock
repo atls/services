@@ -195,12 +195,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/nestjs-grpc-playground@npm:0.0.25":
-  version: 0.0.25
-  resolution: "@atls/nestjs-grpc-playground@npm:0.0.25"
+"@atls/nestjs-grpc-playground@npm:0.0.27":
+  version: 0.0.27
+  resolution: "@atls/nestjs-grpc-playground@npm:0.0.27"
   dependencies:
     "@atls/nestjs-grpc-http-proxy": "npm:0.0.14"
-    "@atls/nestjs-grpc-reflection": "npm:0.0.14"
+    "@atls/nestjs-grpc-reflection": "npm:0.0.15"
     node-fetch: "npm:2.7.0"
   peerDependencies:
     "@nestjs/common": ^10
@@ -208,26 +208,7 @@ __metadata:
     "@nestjs/microservices": ^10
     reflect-metadata: ^0.2
     rxjs: ^7
-  checksum: 10/721338642cf687638e1289410f2c8c607b2c143bd624062e0d75e09de5b32ee64ff2fb89726c0e9e7ec3f351720a22d3840adb87f31f211e0aa98257bd2bac3a
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-grpc-reflection@npm:0.0.14":
-  version: 0.0.14
-  resolution: "@atls/nestjs-grpc-reflection@npm:0.0.14"
-  dependencies:
-    "@atls/nestjs-proto-types": "npm:0.0.4"
-    "@grpc/grpc-js": "npm:1.11.2"
-    "@grpc/proto-loader": "npm:0.7.13"
-    google-protobuf: "npm:3.21.4"
-    protobufjs: "npm:7.4.0"
-  peerDependencies:
-    "@nestjs/common": 10
-    "@nestjs/core": 10
-    "@nestjs/microservices": 10
-    reflect-metadata: 0.2
-    rxjs: 7
-  checksum: 10/830c670cf10eb822f58eb704370bc76fb91b58be14e5e0c2b9dbec431e95e9f0a97506383ddcb3a9b2a52ddad52863dfd5434f37d895c7c992d923fb5a738dae
+  checksum: 10/18fba7c70372d2617e2e2f7d0f9bc65b780c515f37995cb5e44ed68500703a99fdf4922d4ec579827e45b1b034f47905a8ad984ce648bdcf746ca35ecca36679
   languageName: node
   linkType: hard
 
@@ -261,13 +242,6 @@ __metadata:
     reflect-metadata: 0.2
     rxjs: 7
   checksum: 10/e68708e9be7f9c39a8d23859830ef02b3773255588fac38f3b0f62d0ad1c12bc544017b7b01c416c5f41d5569ac4034501f4c71e7b2258c1c73b134b1866dbad
-  languageName: node
-  linkType: hard
-
-"@atls/nestjs-proto-types@npm:0.0.4":
-  version: 0.0.4
-  resolution: "@atls/nestjs-proto-types@npm:0.0.4"
-  checksum: 10/0d37cd1b3b0c7e291ecfe37bba49490d653ff5c97f60405a62cc76b8c29c77c7a9ea991b591fde885640d7022569e053c35c2608c91b5668209603cc2d13c399
   languageName: node
   linkType: hard
 
@@ -1360,7 +1334,7 @@ __metadata:
   dependencies:
     "@atls/nestjs-grpc-errors": "npm:0.0.13"
     "@atls/nestjs-grpc-identity": "npm:0.0.10"
-    "@atls/nestjs-grpc-playground": "npm:0.0.25"
+    "@atls/nestjs-grpc-playground": "npm:0.0.27"
     "@atls/nestjs-grpc-reflection": "npm:0.0.15"
     "@atls/services-proto-files": "workspace:*"
     "@atls/services-proto-upload": "workspace:*"
@@ -1418,7 +1392,7 @@ __metadata:
     "@atls/grpc-error-status": "npm:0.1.5"
     "@atls/nestjs-grpc-errors": "npm:0.0.13"
     "@atls/nestjs-grpc-identity": "npm:0.0.10"
-    "@atls/nestjs-grpc-playground": "npm:0.0.25"
+    "@atls/nestjs-grpc-playground": "npm:0.0.27"
     "@atls/nestjs-logger": "npm:0.2.41"
     "@atls/nestjs-typeorm-seeding": "npm:0.0.6"
     "@atls/services-proto-files": "workspace:0.0.3"
