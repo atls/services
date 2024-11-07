@@ -1315,12 +1315,12 @@ __metadata:
     "@nestjs/testing": "npm:10.4.7"
     "@types/mime": "npm:^2.0.3"
     "@types/mime-types": "npm:^2.1.0"
-    "@types/uuid": "npm:^8.3.1"
+    "@types/uuid": "npm:^10.0.0"
     mime-match: "npm:^1.0.2"
     mime-types: "npm:^2.1.32"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.3.0"
-    uuid: "npm:^11.0.2"
+    uuid: "npm:11.0.2"
   peerDependencies:
     "@nestjs/common": ^10
     "@nestjs/core": ^10
@@ -1346,7 +1346,7 @@ __metadata:
     "@nestjs/microservices": "npm:10.4.7"
     "@nestjs/testing": "npm:10.4.7"
     "@types/node": "npm:22.9.0"
-    "@types/uuid": "npm:8.3.4"
+    "@types/uuid": "npm:10.0.0"
     class-transformer: "npm:0.5.1"
     class-validator: "npm:0.14.1"
     rxjs: "npm:7.8.1"
@@ -1416,7 +1416,7 @@ __metadata:
     "@nestjs/typeorm": "npm:10.0.2"
     "@types/jsonwebtoken": "npm:^8.5.4"
     "@types/node-fetch": "npm:^2"
-    "@types/uuid": "npm:^8.3.1"
+    "@types/uuid": "npm:^10.0.0"
     class-transformer: "npm:^0.4.0"
     class-validator: "npm:^0.13.1"
     get-port: "npm:^5.1.1"
@@ -1426,7 +1426,7 @@ __metadata:
     rxjs: "npm:^7.3.0"
     testcontainers: "npm:^7.18.2"
     typeorm: "npm:^0.2.37"
-    uuid: "npm:^11.0.2"
+    uuid: "npm:11.0.2"
   languageName: unknown
   linkType: soft
 
@@ -3242,10 +3242,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:8.3.4, @types/uuid@npm:^8.3.1":
-  version: 8.3.4
-  resolution: "@types/uuid@npm:8.3.4"
-  checksum: 10/6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
+"@types/uuid@npm:10.0.0, @types/uuid@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@types/uuid@npm:10.0.0"
+  checksum: 10/e3958f8b0fe551c86c14431f5940c3470127293280830684154b91dc7eb3514aeb79fe3216968833cf79d4d1c67f580f054b5be2cd562bebf4f728913e73e944
   languageName: node
   linkType: hard
 
@@ -11750,7 +11750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:11.0.2, uuid@npm:^11.0.2":
+"uuid@npm:11.0.2":
   version: 11.0.2
   resolution: "uuid@npm:11.0.2"
   bin:
