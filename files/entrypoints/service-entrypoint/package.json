@@ -46,7 +46,7 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.3.0",
+    "rxjs": "7.8.1",
     "testcontainers": "^7.18.2",
     "typeorm": "^0.2.37",
     "uuid": "11.0.2"

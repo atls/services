@@ -273,7 +273,7 @@ __metadata:
   dependencies:
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
-    "@nestjs/graphql": "npm:^12.2.1"
+    "@nestjs/graphql": "npm:12.2.1"
     graphql: "npm:^15.8.0"
     ts-morph: "npm:^13.0.2"
   peerDependencies:
@@ -292,9 +292,9 @@ __metadata:
     "@grpc/grpc-js": "npm:1.12.2"
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
-    "@nestjs/graphql": "npm:^12.2.1"
+    "@nestjs/graphql": "npm:12.2.1"
     graphql: "npm:^15.8.0"
-    rxjs: "npm:^7.2.0"
+    rxjs: "npm:7.8.1"
     ts-morph: "npm:^13.0.2"
   peerDependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.15
@@ -315,7 +315,7 @@ __metadata:
   dependencies:
     "@nestjs/common": "npm:10.4.7"
     "@nestjs/core": "npm:10.4.7"
-    "@nestjs/graphql": "npm:^12.2.1"
+    "@nestjs/graphql": "npm:12.2.1"
     graphql: "npm:^15.8.0"
     ts-morph: "npm:^13.0.2"
   peerDependencies:
@@ -338,7 +338,7 @@ __metadata:
     "@types/long": "npm:^4.0.1"
     long: "npm:5.2.3"
     protobufjs: "npm:^6.11.2"
-    rxjs: "npm:^7.3.0"
+    rxjs: "npm:7.8.1"
     ts-proto: "npm:1.82.5"
   peerDependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.15
@@ -363,7 +363,7 @@ __metadata:
     "@types/long": "npm:^4.0.1"
     long: "npm:^4.0.0"
     protobufjs: "npm:^6.11.2"
-    rxjs: "npm:^7.3.0"
+    rxjs: "npm:7.8.1"
     ts-proto: "npm:1.82.5"
   peerDependencies:
     "@atls/nestjs-grpc-reflection": ^0.0.15
@@ -1319,7 +1319,7 @@ __metadata:
     mime-match: "npm:^1.0.2"
     mime-types: "npm:^2.1.32"
     reflect-metadata: "npm:^0.1.13"
-    rxjs: "npm:^7.3.0"
+    rxjs: "npm:7.8.1"
     uuid: "npm:11.0.2"
   peerDependencies:
     "@nestjs/common": ^10
@@ -1422,7 +1422,7 @@ __metadata:
     jsonwebtoken: "npm:^8.5.1"
     node-fetch: "npm:^2.6.1"
     reflect-metadata: "npm:^0.1.13"
-    rxjs: "npm:^7.3.0"
+    rxjs: "npm:7.8.1"
     testcontainers: "npm:^7.18.2"
     typeorm: "npm:^0.2.37"
     uuid: "npm:11.0.2"
@@ -2033,7 +2033,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/graphql@npm:^12.2.1":
+"@nestjs/graphql@npm:12.2.1":
   version: 12.2.1
   resolution: "@nestjs/graphql@npm:12.2.1"
   dependencies:
@@ -10184,7 +10184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:^7.2.0, rxjs@npm:^7.3.0":
+"rxjs@npm:7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
