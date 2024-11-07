@@ -3255,13 +3255,13 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/platform-express", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.4.7"],\
           ["@nestjs/testing", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.4.7"],\
           ["@nestjs/typeorm", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.0.2"],\
-          ["@types/jsonwebtoken", "npm:8.5.9"],\
+          ["@types/jsonwebtoken", "npm:9.0.7"],\
           ["@types/node-fetch", "npm:2.6.11"],\
           ["@types/uuid", "npm:10.0.0"],\
           ["class-transformer", "npm:0.4.0"],\
           ["class-validator", "npm:0.13.2"],\
           ["get-port", "npm:5.1.1"],\
-          ["jsonwebtoken", "npm:8.5.1"],\
+          ["jsonwebtoken", "npm:9.0.2"],\
           ["node-fetch", "virtual:72db6b3551c1b46986e711aee96d1643b26ff6991672401c35442adfbef36d10ccd9289b58e518aac04afe4e688ca4b130da9fae9c1c040113a2585b8cfeea9a#npm:2.7.0"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
@@ -6826,6 +6826,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@types-jsonwebtoken-npm-8.5.9-79c2843a81-10.zip/node_modules/@types/jsonwebtoken/",\
         "packageDependencies": [\
           ["@types/jsonwebtoken", "npm:8.5.9"],\
+          ["@types/node", "npm:22.5.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.0.7", {\
+        "packageLocation": "../.yarn/berry/cache/@types-jsonwebtoken-npm-9.0.7-da827cdc0b-10.zip/node_modules/@types/jsonwebtoken/",\
+        "packageDependencies": [\
+          ["@types/jsonwebtoken", "npm:9.0.7"],\
           ["@types/node", "npm:22.5.4"]\
         ],\
         "linkType": "HARD"\
@@ -12696,10 +12704,21 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["jsonwebtoken", [\
-      ["npm:8.5.1", {\
-        "packageLocation": "../.yarn/berry/cache/jsonwebtoken-npm-8.5.1-c007670b76-10.zip/node_modules/jsonwebtoken/",\
+      ["npm:9.0.1", {\
+        "packageLocation": "../.yarn/berry/cache/jsonwebtoken-npm-9.0.1-30d1a69741-10.zip/node_modules/jsonwebtoken/",\
         "packageDependencies": [\
-          ["jsonwebtoken", "npm:8.5.1"],\
+          ["jsonwebtoken", "npm:9.0.1"],\
+          ["jws", "npm:3.2.2"],\
+          ["lodash", "npm:4.17.21"],\
+          ["ms", "npm:2.1.3"],\
+          ["semver", "npm:7.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.0.2", {\
+        "packageLocation": "../.yarn/berry/cache/jsonwebtoken-npm-9.0.2-42c6b14d02-10.zip/node_modules/jsonwebtoken/",\
+        "packageDependencies": [\
+          ["jsonwebtoken", "npm:9.0.2"],\
           ["jws", "npm:3.2.2"],\
           ["lodash.includes", "npm:4.3.0"],\
           ["lodash.isboolean", "npm:3.0.3"],\
@@ -12708,17 +12727,6 @@ const RAW_RUNTIME_STATE =
           ["lodash.isplainobject", "npm:4.0.6"],\
           ["lodash.isstring", "npm:4.0.1"],\
           ["lodash.once", "npm:4.1.1"],\
-          ["ms", "npm:2.1.3"],\
-          ["semver", "npm:5.7.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:9.0.1", {\
-        "packageLocation": "../.yarn/berry/cache/jsonwebtoken-npm-9.0.1-30d1a69741-10.zip/node_modules/jsonwebtoken/",\
-        "packageDependencies": [\
-          ["jsonwebtoken", "npm:9.0.1"],\
-          ["jws", "npm:3.2.2"],\
-          ["lodash", "npm:4.17.21"],\
           ["ms", "npm:2.1.3"],\
           ["semver", "npm:7.6.3"]\
         ],\
@@ -15104,13 +15112,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["semver", [\
-      ["npm:5.7.2", {\
-        "packageLocation": "../.yarn/berry/cache/semver-npm-5.7.2-938ee91eaa-10.zip/node_modules/semver/",\
-        "packageDependencies": [\
-          ["semver", "npm:5.7.2"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:6.3.1", {\
         "packageLocation": "../.yarn/berry/cache/semver-npm-6.3.1-bcba31fdbe-10.zip/node_modules/semver/",\
         "packageDependencies": [\
