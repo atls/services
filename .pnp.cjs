@@ -3256,7 +3256,6 @@ const RAW_RUNTIME_STATE =
           ["@files/infrastructure-module", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#workspace:files/core/infrastructure-module"],\
           ["@files/storage-adapter-module", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#workspace:files/adapters/storage-adapter"],\
           ["@grpc/grpc-js", "npm:1.5.7"],\
-          ["@grpc/proto-loader", "npm:0.6.13"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@nestjs/common", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.4.7"],\
           ["@nestjs/core", "virtual:7997d45b4d759a6c02cb54bc5b9d690483ef0994110d24f02dbd574df3b8628d114544145e811d600d4b632f0f4f38649a69438ef87aaeafdeac780f91db8bb3#npm:10.4.7"],\

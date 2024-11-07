@@ -30,7 +30,6 @@
     "@files/infrastructure-module": "workspace:*",
     "@files/storage-adapter-module": "workspace:*",
     "@grpc/grpc-js": "1.12.2",
-    "@grpc/proto-loader": "^0.6.4",
     "@jest/globals": "29.7.0",
     "@nestjs/core": "10.4.7",
     "@nestjs/cqrs": "10.2.8",
