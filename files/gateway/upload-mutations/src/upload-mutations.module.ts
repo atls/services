@@ -1,16 +1,16 @@
-import { DynamicModule }             from '@nestjs/common'
-import { Module }                    from '@nestjs/common'
+import { DynamicModule }            from '@nestjs/common'
+import { Module }                   from '@nestjs/common'
 
-import { UploadServiceClientModule } from '@atls/services-proto-upload'
+import { FilesServiceClientModule } from '@atls/services-proto-files'
 
-import { UploadMutations }           from './mutations'
+import { UploadMutations }          from './mutations/index.js'
 
 @Module({})
 export class UploadMutationsModule {
   static register(): DynamicModule {
     return {
       module: UploadMutationsModule,
-      imports: [UploadServiceClientModule.register()],
+      imports: [FilesServiceClientModule.register()],
       providers: [UploadMutations],
     }
   }

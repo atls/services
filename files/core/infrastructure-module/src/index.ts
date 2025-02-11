@@ -1,3 +1,2 @@
-export * from './repositories'
-export * from './entities'
-export * from './module'
+export * from './modules/index.js'
+export * from './repositories/index.js'

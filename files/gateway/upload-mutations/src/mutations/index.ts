@@ -1,1 +1,1 @@
-export * from './upload.mutations'
+export * from './upload.mutations.js'

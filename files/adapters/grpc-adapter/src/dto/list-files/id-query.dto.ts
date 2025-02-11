@@ -4,8 +4,8 @@ import { IsOptional }               from 'class-validator'
 
 import { ListFilesRequest_IdQuery } from '@atls/services-proto-files'
 
-import { IdIncludeCondition }       from '../common'
-import { IdEqualCondition }         from '../common'
+import { IdIncludeCondition }       from '../common/index.js'
+import { IdEqualCondition }         from '../common/index.js'
 
 export class IdQueryDto implements ListFilesRequest_IdQuery {
   @IsOptional()

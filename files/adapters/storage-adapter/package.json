@@ -1,22 +1,30 @@
 {
-  "name": "@files/storage-adapter-module",
+  "name": "@files/storage-adapter",
   "version": "0.0.1",
   "private": true,
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "dependencies": {
-    "@atls/logger": "0.0.1",
-    "@files/domain-module": "workspace:0.0.1",
-    "@google-cloud/storage": "^5.13.0"
+    "@atls/logger": "0.0.3",
+    "@google-cloud/storage": "5.20.5"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.3.1",
-    "@nestjs/core": "^8.3.1",
-    "@nestjs/cqrs": "^8.0.2"
+    "@files/cqrs-adapter": "workspace:*",
+    "@files/domain-module": "workspace:*",
+    "@nestjs/common": "10.4.15",
+    "@nestjs/core": "10.4.15",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "@nestjs/cqrs": "^8.0.2"
+    "@files/cqrs-adapter": "workspace:*",
+    "@files/domain-module": "workspace:*",
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
   }
 }

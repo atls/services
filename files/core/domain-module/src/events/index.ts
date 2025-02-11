@@ -1,3 +1,3 @@
-export * from './upload-confirmed.event'
-export * from './upload-created.event'
-export * from './file-created.event'
+export * from './upload-confirmed.event.js'
+export * from './upload-created.event.js'
+export * from './file-created.event.js'

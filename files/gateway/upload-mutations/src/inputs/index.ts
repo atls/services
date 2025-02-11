@@ -1,2 +1,2 @@
-export * from './confirm-upload.input'
-export * from './create-upload.input'
+export * from './confirm-upload.input.js'
+export * from './create-upload.input.js'

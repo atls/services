@@ -1,7 +1,24 @@
-import { AggregateRoot }    from '@nestjs/cqrs'
+import type { FilesBucketType } from '../interfaces/index.js'
 
-import { FileCreatedEvent } from '../events'
-import { FilesBucketType }  from '../interfaces'
+import { AggregateRoot }        from '@files/cqrs-adapter'
+
+import { FileCreatedEvent }     from '../events/index.js'
+
+export interface FileProperties {
+  id: string
+  ownerId: string
+  type: FilesBucketType
+  url: string
+  bucket: string
+  name: string
+  size: number
+  contentType?: string
+  cacheControl?: string
+  contentDisposition?: string
+  contentEncoding?: string
+  contentLanguage?: string
+  metadata?: Record<string, string>
+}
 
 export class File extends AggregateRoot {
   private id!: string
@@ -28,7 +45,25 @@ export class File extends AggregateRoot {
 
   private contentLanguage?: string
 
-  private metadata?: { [key: string]: string }
+  private metadata?: Record<string, string>
+
+  get properties(): FileProperties {
+    return {
+      id: this.id,
+      ownerId: this.ownerId,
+      type: this.type,
+      url: this.url,
+      bucket: this.bucket,
+      name: this.name,
+      size: this.size,
+      contentType: this.contentType,
+      cacheControl: this.cacheControl,
+      contentDisposition: this.contentDisposition,
+      contentEncoding: this.contentEncoding,
+      contentLanguage: this.contentLanguage,
+      metadata: this.metadata,
+    }
+  }
 
   static async create(
     id: string,
@@ -43,8 +78,8 @@ export class File extends AggregateRoot {
     contentDisposition?: string,
     contentEncoding?: string,
     contentLanguage?: string,
-    metadata?: { [key: string]: string }
-  ) {
+    metadata?: Record<string, string>
+  ): Promise<File> {
     const file = new File()
 
     file.apply(
@@ -68,7 +103,7 @@ export class File extends AggregateRoot {
     return file
   }
 
-  onFileCreatedEvent(event: FileCreatedEvent) {
+  onFileCreatedEvent(event: FileCreatedEvent): void {
     this.id = event.fileId
     this.ownerId = event.ownerId
     this.type = event.type

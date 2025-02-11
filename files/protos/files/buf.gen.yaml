@@ -1,6 +1,16 @@
-version: v1beta1
+version: v1
 
 plugins:
   - name: ts_proto
-    out: src/gen/nestjs
-    opt: ts_proto_out=proto,nestJs=true,addGrpcMetadata=true,esModuleInterop=true,useOptionals=true,outputServices=grpc-js,stringEnums=true,unrecognizedEnum=false
+    out: gen/nestjs
+    opt:
+      - ts_proto_out=proto
+      - useDate=true
+      - nestJs=true
+      - addGrpcMetadata=true
+      - esModuleInterop=true
+      - importSuffix=.js
+      - useOptionals=messages
+      - outputServices=grpc-js
+      - env=node
+      - useNullAsOptional=true

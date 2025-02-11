@@ -1,35 +1,52 @@
 {
-  "name": "@files/grpc-adapter-module",
+  "name": "@files/grpc-adapter",
   "version": "0.0.1",
   "private": true,
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "dependencies": {
-    "@atls/nestjs-grpc-errors": "^0.0.4",
-    "@atls/nestjs-grpc-identity": "^0.0.6",
-    "@atls/nestjs-grpc-playground": "^0.0.6",
-    "@atls/nestjs-grpc-reflection": "^0.0.3",
-    "@atls/services-proto-files": "workspace:0.0.3",
-    "@atls/services-proto-upload": "workspace:0.0.1",
-    "@files/application-module": "workspace:0.0.1",
-    "@files/domain-module": "workspace:0.0.1",
-    "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1",
-    "rxjs": "^7.3.0",
-    "uuid": "^8.3.2"
+    "@atls/grpc-error-status": "0.0.3",
+    "@atls/nestjs-grpc-errors": "0.0.13",
+    "@atls/nestjs-grpc-identity": "0.0.13",
+    "@atls/nestjs-grpc-playground": "0.0.17",
+    "@atls/nestjs-grpc-reflection": "1.0.6",
+    "@atls/services-proto-files": "workspace:*",
+    "jsonwebtoken": "9.0.1",
+    "jwks-rsa": "2.1.4",
+    "uuid": "11.0.5"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.3.1",
-    "@nestjs/core": "^8.3.1",
-    "@nestjs/cqrs": "^8.0.2",
-    "@nestjs/microservices": "^8.3.1",
-    "@nestjs/testing": "^8.3.1",
-    "@types/node": "^16.6.1"
+    "@files/application-module": "workspace:*",
+    "@files/cqrs-adapter": "workspace:*",
+    "@files/domain-module": "workspace:*",
+    "@grpc/grpc-js": "1.12.5",
+    "@grpc/proto-loader": "0.7.13",
+    "@nestjs/common": "10.4.15",
+    "@nestjs/core": "10.4.15",
+    "@nestjs/microservices": "10.4.15",
+    "@nestjs/testing": "10.4.15",
+    "@types/jsonwebtoken": "9.0.6",
+    "@types/jwk-to-pem": "2.0.3",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.4",
-    "@nestjs/core": "^8.0.4",
-    "@nestjs/cqrs": "^8.0.0",
-    "@nestjs/microservices": "^8.0.4"
+    "@files/application-module": "workspace:*",
+    "@files/cqrs-adapter": "workspace:*",
+    "@files/domain-module": "workspace:*",
+    "@grpc/grpc-js": "*",
+    "@grpc/proto-loader": "*",
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/microservices": "*",
+    "class-transformer": "*",
+    "class-validator": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
   }
 }
