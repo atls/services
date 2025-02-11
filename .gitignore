@@ -46,3 +46,6 @@ images.json
 dist/
 .idea
 *.iml
+
+# VSCode
+.vscode
