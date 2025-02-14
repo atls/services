@@ -35,5 +35,5 @@ export class UploadEntity {
   bucket: FilesBucket
 
   @Property()
-  confirmed: string
+  confirmed: boolean
 }
