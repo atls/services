@@ -8,6 +8,7 @@ export interface StorageFileMetadata {
   contentEncoding?: string
   contentLanguage?: string
   metadata?: Record<string, string>
+  mediaLink: string
 }
 
 export interface StoragePort {

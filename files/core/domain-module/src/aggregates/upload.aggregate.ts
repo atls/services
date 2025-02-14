@@ -69,8 +69,6 @@ export class Upload extends AggregateRoot {
     name: string,
     size: number
   ): Promise<void> {
-    assert.ok(ownerId, 'Unknown initiator')
-
     const filesBucket = this.bucketsRegistry.get(bucket)
 
     assert.ok(filesBucket, `Files bucket ${bucket} not found`)
@@ -130,25 +128,13 @@ export class Upload extends AggregateRoot {
 
     assert.ok(metadata, 'File not uploaded.')
 
-    const signedReadUrl = await this.storage.generateReadUrl(
-      this.bucket.bucket,
-      this.filename,
-      this.bucket.hostname
-    )
-
-    const parsedUrl = new URL(signedReadUrl)
-
-    parsedUrl.search = ''
-
-    const url = formatUrl(parsedUrl)
-
     this.apply(new UploadConfirmedEvent(this.id))
 
     const file = await File.create(
       this.id,
       this.ownerId,
       this.bucket.type,
-      url,
+      metadata.mediaLink,
       metadata.bucket,
       metadata.name,
       metadata.size,
@@ -165,5 +151,21 @@ export class Upload extends AggregateRoot {
 
   onUploadConfirmedEvent(): void {
     this.confirmed = true
+  }
+
+  async getSignedUrl() {
+    const signedReadUrl = await this.storage.generateReadUrl(
+      this.bucket.bucket,
+      this.filename,
+      this.bucket.hostname
+    )
+
+    const parsedUrl = new URL(signedReadUrl)
+
+    parsedUrl.search = ''
+
+    const url = formatUrl(parsedUrl)
+
+    return url
   }
 }
