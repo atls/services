@@ -26,5 +26,5 @@
     "jsx": "react",
     "outDir": "./dist"
   },
-  "include": ["project.types.d.ts", "translations/**/*", "files/**/*"]
+  "include": ["project.types.d.ts", "files/**/*", "gateway/**/*"]
 }
