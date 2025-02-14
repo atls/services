@@ -6,6 +6,8 @@ import { UploadRepository }     from '@files/domain-module'
 import { FileRepository }       from '@files/domain-module'
 
 import { ConfirmUploadCommand } from '../commands/index.js'
+import { CommandException }     from '../exceptions/index.js'
+import { NotFoundException }    from '../exceptions/index.js'
 
 @CommandHandler(ConfirmUploadCommand)
 export class ConfirmUploadCommandHandler implements ICommandHandler<ConfirmUploadCommand, void> {
@@ -15,13 +17,17 @@ export class ConfirmUploadCommandHandler implements ICommandHandler<ConfirmUploa
   ) {}
 
   async execute(command: ConfirmUploadCommand): Promise<void> {
-    const upload = await this.uploadRepository.findById(command.id)
+    try {
+      const upload = await this.uploadRepository.findById(command.id)
 
-    assert.ok(upload, 'Upload not found.')
+      assert.ok(upload, new NotFoundException('Upload', command))
 
-    const file = await upload.confirm(command.confirmatorId)
+      const file = await upload.confirm(command.confirmatorId)
 
-    await this.uploadRepository.save(upload)
-    await this.fileRepository.save(file)
+      await this.uploadRepository.save(upload)
+      await this.fileRepository.save(file)
+    } catch (error) {
+      throw new CommandException(ConfirmUploadCommandHandler.name, command, error)
+    }
   }
 }
