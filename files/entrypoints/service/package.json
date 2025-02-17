@@ -49,6 +49,7 @@
     "@types/amqplib": "0.10.6",
     "@types/jsonwebtoken": "9.0.8",
     "get-port": "7.1.0",
+    "node-fetch": "3.3.2",
     "testcontainers": "10.17.2"
   }
 }
