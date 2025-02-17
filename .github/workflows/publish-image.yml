@@ -20,4 +20,4 @@ jobs:
       project: ${{ github.repository_owner }}
       nodeVersion: '22'
     secrets:
-      registryKey: ${{ secrets.JADE_SMITH_BOT_TOKEN }}
+      registryKey: ${{ secrets.GITHUB_TOKEN }}
