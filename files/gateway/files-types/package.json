@@ -19,6 +19,7 @@
     "@nestjs/core": "10.4.15",
     "@nestjs/graphql": "10.0.5",
     "graphql": "15.8.0",
+    "rxjs": "7.8.1",
     "ts-morph": "13.0.2"
   },
   "peerDependencies": {
@@ -26,11 +27,13 @@
     "@nestjs/core": "^10",
     "@nestjs/graphql": "^10",
     "graphql": "^15.8.0 || ^16.0.0",
+    "rxjs": "^7.8",
     "ts-morph": "^13.0.2"
   },
   "publishConfig": {
     "access": "public",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  }
+  },
+  "typecheckSkipLibCheck": true
 }
