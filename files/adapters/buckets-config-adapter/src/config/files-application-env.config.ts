@@ -1,23 +1,32 @@
-import { Logger }                                  from '@atls/logger'
+import type { FilesBucket }                             from '@files/domain-module'
+import type { FilesBucketConditions }                   from '@files/domain-module'
 
-import { FilesBucketType }                         from '@files/domain-module'
+import type { FilesBucketsConfigAdapterOptionsFactory } from '../module/index.js'
+import type { FilesBucketsConfigAdapterModuleOptions }  from '../module/index.js'
 
-import { FilesBucketsConfigAdapterOptionsFactory } from '../module'
-import { FilesBucketsConfigAdapterModuleOptions }  from '../module'
+import { Logger }                                       from '@atls/logger'
+
+import { FilesBucketType }                              from '@files/domain-module'
 
 export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFactory {
-  private readonly logger = new Logger(FilesBucketsEnvConfig.name)
-
   static FILES_BUCKETS_ENV_PREFIX = 'FILES_BUCKETS'
 
-  protected getAvailableBuckets(): string[] {
-    const bucketKeys: string[] = Object.keys(process.env).filter((key) =>
+  private readonly logger = new Logger(FilesBucketsEnvConfig.name)
+
+  createFilesBucketsConfigOptions(): FilesBucketsConfigAdapterModuleOptions {
+    return {
+      buckets: this.getBuckets(),
+    }
+  }
+
+  protected getAvailableBuckets(): Array<string> {
+    const bucketKeys: Array<string> = Object.keys(process.env).filter((key) =>
       key.startsWith(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX))
 
-    return bucketKeys.reduce((result: string[], key) => {
+    return bucketKeys.reduce((result: Array<string>, key) => {
       const [scope] = key
         .replace(FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX, '')
-        .substr(1)
+        .substring(1)
         .toLowerCase()
         .split('_')
 
@@ -29,13 +38,13 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }, [])
   }
 
-  protected getValueFromEnv(...args) {
+  protected getValueFromEnv(...args: Array<any>): string | undefined {
     const key = [FilesBucketsEnvConfig.FILES_BUCKETS_ENV_PREFIX, ...args].join('_').toUpperCase()
 
     return process.env[key]
   }
 
-  protected getBucketConditions(scope: string) {
+  protected getBucketConditions(scope: string): FilesBucketConditions {
     // TODO: validate content type
     let type = this.getValueFromEnv(scope, 'conditions', 'type')
     let min = Number(this.getValueFromEnv(scope, 'conditions', 'length', 'min'))
@@ -70,7 +79,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
   }
 
-  protected getBucketConfig(scope: string) {
+  protected getBucketConfig(scope: string): FilesBucket {
     const type = (this.getValueFromEnv(scope, 'type') as FilesBucketType) || FilesBucketType.PRIVATE
     const bucket = this.getValueFromEnv(scope, 'bucket')
     const path = this.getValueFromEnv(scope, 'path') || '/'
@@ -98,13 +107,7 @@ export class FilesBucketsEnvConfig implements FilesBucketsConfigAdapterOptionsFa
     }
   }
 
-  protected getBuckets() {
+  protected getBuckets(): Array<FilesBucket> {
     return this.getAvailableBuckets().map((scope) => this.getBucketConfig(scope))
-  }
-
-  createFilesBucketsConfigOptions(): FilesBucketsConfigAdapterModuleOptions {
-    return {
-      buckets: this.getBuckets(),
-    }
   }
 }

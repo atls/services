@@ -1,18 +1,19 @@
-import { Provider }                               from '@nestjs/common'
+import type { Provider }                               from '@nestjs/common'
 
-import { FilesBucketsRegistry }                   from '../registry'
-import { FILES_BUCKETS_MODULE_OPTIONS }           from './files-buckets-config-adapter-module.constants'
-import { FilesBucketsConfigAdapterModuleOptions } from './files-buckets-config-adapter-module.interfaces'
+import type { FilesBucketsConfigAdapterModuleOptions } from './files-buckets-config-adapter-module.interfaces.js'
+
+import { FilesBucketsRegistry }                        from '../registry/index.js'
+import { FILES_BUCKETS_MODULE_OPTIONS }                from './files-buckets-config-adapter-module.constants.js'
 
 export const createFilesOptionsProvider = (
   options?: FilesBucketsConfigAdapterModuleOptions
-): Provider[] => [
+): Array<Provider> => [
   {
     provide: FILES_BUCKETS_MODULE_OPTIONS,
     useValue: options || {},
   },
 ]
 
-export const createFilesProvider = (): Provider[] => []
+export const createFilesProvider = (): Array<Provider> => []
 
-export const createFilesExportsProvider = (): Provider[] => [FilesBucketsRegistry]
+export const createFilesExportsProvider = (): Array<Provider> => [FilesBucketsRegistry]

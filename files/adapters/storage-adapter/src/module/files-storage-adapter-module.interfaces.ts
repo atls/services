@@ -1,20 +1,21 @@
-import { StorageOptions } from '@google-cloud/storage'
-import { ModuleMetadata } from '@nestjs/common/interfaces'
-import { Type }           from '@nestjs/common/interfaces'
+import type { StorageOptions } from '@google-cloud/storage'
+import type { ModuleMetadata } from '@nestjs/common/interfaces'
+import type { Type }           from '@nestjs/common/interfaces'
 
 export type FilesStorageAdapterModuleOptions = StorageOptions
 
 export interface FilesStorageAdapterOptionsFactory {
-  createFilesStorageOptions():
-    | Promise<FilesStorageAdapterModuleOptions>
+  createFilesStorageOptions: () =>
     | FilesStorageAdapterModuleOptions
+    | Promise<FilesStorageAdapterModuleOptions>
 }
 
 export interface FilesStorageAdapterModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<FilesStorageAdapterOptionsFactory>
   useClass?: Type<FilesStorageAdapterOptionsFactory>
   useFactory?: (
-    ...args: any[]
-  ) => Promise<FilesStorageAdapterModuleOptions> | FilesStorageAdapterModuleOptions
-  inject?: any[]
+    ...args: Array<any>
+  ) => FilesStorageAdapterModuleOptions | Promise<FilesStorageAdapterModuleOptions>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  inject?: Array<any>
 }

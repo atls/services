@@ -1,2 +1,2 @@
-export * from './upload.repository'
-export * from './file.repository'
+export * from './files.repository.js'
+export * from './upload.repository.js'

@@ -1,19 +1,32 @@
-import { AggregateRoot }            from '@nestjs/cqrs'
-import { extname }                  from 'path'
-import { format }                   from 'path'
-import { join }                     from 'path'
-import { relative }                 from 'path'
-import { format as formatUrl }      from 'url'
-import assert                       from 'assert'
-import match                        from 'mime-match'
-import mime                         from 'mime-types'
+import type { FilesBucket }              from '../interfaces/index.js'
+import type { FilesBucketsRegistryPort } from '../ports/index.js'
+import type { StoragePort }              from '../ports/index.js'
 
-import { UploadCreatedEvent }       from '../events'
-import { UploadConfirmedEvent }     from '../events'
-import { FilesBucket }              from '../interfaces'
-import { FilesBucketsRegistryPort } from '../ports'
-import { StoragePort }              from '../ports'
-import { File }                     from './file.aggregate'
+import { extname }                       from 'path'
+import { format }                        from 'path'
+import { join }                          from 'path'
+import { relative }                      from 'path'
+import { format as formatUrl }           from 'url'
+import assert                            from 'assert'
+// @ts-expect-error has no types
+import match                             from 'mime-match'
+import mime                              from 'mime-types'
+
+import { AggregateRoot }                 from '@files/cqrs-adapter'
+
+import { UploadCreatedEvent }            from '../events/index.js'
+import { UploadConfirmedEvent }          from '../events/index.js'
+import { File }                          from './file.aggregate.js'
+
+export interface UploadProperties {
+  id: string
+  ownerId: string
+  url: string
+  name: string
+  filename: string
+  bucket: FilesBucket
+  confirmed: boolean
+}
 
 export class Upload extends AggregateRoot {
   private id!: string
@@ -37,9 +50,25 @@ export class Upload extends AggregateRoot {
     super()
   }
 
-  async create(id: string, ownerId: string, bucket: string, name: string, size: number) {
-    assert.ok(ownerId, 'Unknown initiator')
+  get properties(): UploadProperties {
+    return {
+      id: this.id,
+      ownerId: this.ownerId,
+      url: this.url,
+      name: this.name,
+      filename: this.filename,
+      bucket: this.bucket,
+      confirmed: this.confirmed,
+    }
+  }
 
+  async create(
+    id: string,
+    ownerId: string,
+    bucket: string,
+    name: string,
+    size: number
+  ): Promise<void> {
     const filesBucket = this.bucketsRegistry.get(bucket)
 
     assert.ok(filesBucket, `Files bucket ${bucket} not found`)
@@ -49,6 +78,7 @@ export class Upload extends AggregateRoot {
     assert.ok(contentType, 'Unknown file type')
 
     assert.ok(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       match(contentType, filesBucket.conditions.type),
       `Files bucket ${bucket} not support type '${contentType}', only '${filesBucket.conditions.type}'.`
     )
@@ -75,7 +105,7 @@ export class Upload extends AggregateRoot {
     this.apply(new UploadCreatedEvent(id, ownerId, url, name, filename, filesBucket))
   }
 
-  onUploadCreatedEvent(event: UploadCreatedEvent) {
+  onUploadCreatedEvent(event: UploadCreatedEvent): void {
     this.id = event.uploadId
     this.ownerId = event.ownerId
     this.url = event.url
@@ -98,25 +128,13 @@ export class Upload extends AggregateRoot {
 
     assert.ok(metadata, 'File not uploaded.')
 
-    const signedReadUrl = await this.storage.generateReadUrl(
-      this.bucket.bucket,
-      this.filename,
-      this.bucket.hostname
-    )
-
-    const parsedUrl = new URL(signedReadUrl)
-
-    parsedUrl.search = ''
-
-    const url = formatUrl(parsedUrl)
-
     this.apply(new UploadConfirmedEvent(this.id))
 
     const file = await File.create(
       this.id,
       this.ownerId,
       this.bucket.type,
-      url,
+      metadata.mediaLink,
       metadata.bucket,
       metadata.name,
       metadata.size,
@@ -131,7 +149,23 @@ export class Upload extends AggregateRoot {
     return file
   }
 
-  onUploadConfirmedEvent() {
+  onUploadConfirmedEvent(): void {
     this.confirmed = true
+  }
+
+  async getSignedUrl(): Promise<string> {
+    const signedReadUrl = await this.storage.generateReadUrl(
+      this.bucket.bucket,
+      this.filename,
+      this.bucket.hostname
+    )
+
+    const parsedUrl = new URL(signedReadUrl)
+
+    parsedUrl.search = ''
+
+    const url = formatUrl(parsedUrl)
+
+    return url
   }
 }

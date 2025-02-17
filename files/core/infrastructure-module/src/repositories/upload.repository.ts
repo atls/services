@@ -1,43 +1,58 @@
-import { Injectable }           from '@nestjs/common'
-import { EventPublisher }       from '@nestjs/cqrs'
-import { InjectRepository }     from '@nestjs/typeorm'
-import { Repository }           from 'typeorm'
+import type { UploadRepository } from '@files/domain-module'
 
-import { FilesBucketsRegistry } from '@files/buckets-config-adapter-module'
-import { Upload }               from '@files/domain-module'
-import { UploadRepository }     from '@files/domain-module'
-import { Storage }              from '@files/storage-adapter-module'
+import { Injectable }            from '@nestjs/common'
 
-import { UploadAggregate }      from '../entities'
+import { FilesBucketsRegistry }  from '@files/buckets-config-adapter'
+import { EventPublisher }        from '@files/cqrs-adapter'
+import { FindException }         from '@files/domain-module'
+import { SaveException }         from '@files/domain-module'
+import { Upload }                from '@files/domain-module'
+import { MikroORM }              from '@files/mikro-orm-adapter'
+import { UploadEntity }          from '@files/mikro-orm-adapter'
+import { Storage }               from '@files/storage-adapter'
 
 @Injectable()
-export class UploadRepositoryImpl extends UploadRepository {
+export class UploadRepositoryImpl implements UploadRepository {
   constructor(
-    @InjectRepository(UploadAggregate) private readonly repository: Repository<UploadAggregate>,
+    private readonly orm: MikroORM,
     private readonly eventPublisher: EventPublisher,
     private readonly registry: FilesBucketsRegistry,
     private readonly storage: Storage
-  ) {
-    super()
-  }
+  ) {}
 
   create(): Upload {
     return this.eventPublisher.mergeObjectContext(new Upload(this.registry, this.storage))
   }
 
-  async save(aggregate: Upload): Promise<void> {
-    await this.repository.save(this.aggregateToEntity(aggregate))
-
-    aggregate.commit()
-  }
-
   async findById(id: string): Promise<Upload | undefined> {
-    const entity = await this.repository.findOne({ id })
+    try {
+      const fork = this.orm.em.fork()
 
-    return entity ? this.entityToAggregate(entity) : undefined
+      const entity = await fork.findOne(UploadEntity, { id })
+
+      return entity ? this.entityToAggregate(entity) : undefined
+    } catch (error) {
+      throw new FindException('UploadRepository', { id }, error)
+    }
   }
 
-  private entityToAggregate(entity: UploadAggregate): Upload {
+  async save(aggregate: Upload): Promise<void> {
+    try {
+      const fork = this.orm.em.fork()
+
+      await fork.upsert(UploadEntity, this.aggregateToEntity(aggregate))
+
+      aggregate.commit()
+    } catch (error) {
+      throw new SaveException('UploadRepository', aggregate.properties, error)
+    }
+  }
+
+  private aggregateToEntity(aggregate: Upload): UploadEntity {
+    return Object.assign(new UploadEntity(), aggregate.properties)
+  }
+
+  private entityToAggregate(entity: UploadEntity): Upload {
     const upload = new Upload(this.registry, this.storage)
 
     return Object.assign(upload, {
@@ -49,9 +64,5 @@ export class UploadRepositoryImpl extends UploadRepository {
       bucket: entity.bucket,
       confirmed: entity.confirmed,
     })
-  }
-
-  private aggregateToEntity(data: Upload): UploadAggregate {
-    return Object.assign(new UploadAggregate(), data)
   }
 }

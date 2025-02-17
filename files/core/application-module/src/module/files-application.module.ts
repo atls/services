@@ -1,15 +1,15 @@
 import { DynamicModule }    from '@nestjs/common'
 import { Module }           from '@nestjs/common'
 
-import * as CommandHandlers from '../command-handlers'
-import * as QueryHandlers   from '../query-handlers'
+import * as commandHandlers from '../command-handlers/index.js'
+import * as queryHandlers   from '../query-handlers/index.js'
 
 @Module({})
-export class FilesApplicationeModule {
+export class ApplicationModule {
   static register(): DynamicModule {
     return {
-      module: FilesApplicationeModule,
-      providers: [...Object.values(CommandHandlers), ...Object.values(QueryHandlers)],
+      module: ApplicationModule,
+      providers: [...Object.values(commandHandlers), ...Object.values(queryHandlers)],
     }
   }
 }

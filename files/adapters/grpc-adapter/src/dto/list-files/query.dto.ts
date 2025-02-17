@@ -4,7 +4,7 @@ import { IsOptional }             from 'class-validator'
 
 import { ListFilesRequest_Query } from '@atls/services-proto-files'
 
-import { IdQueryDto }             from './id-query.dto'
+import { IdQueryDto }             from './id-query.dto.js'
 
 export class QueryDto implements ListFilesRequest_Query {
   @IsOptional()

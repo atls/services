@@ -1,2 +1,2 @@
-export * from './upload.aggregate'
-export * from './file.aggregate'
+export * from './upload.aggregate.js'
+export * from './file.aggregate.js'

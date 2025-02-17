@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package tech.atls.files.v1;
+
+import "tech/atls/files/v1/files.types.proto";
+
+message ListFilesRequest {
+  message Pager {
+    int32 offset = 1;
+    int32 take = 2;
+  }
+
+  message IncludeCondition {
+    repeated string values = 1;
+  }
+
+  message EqualCondition {
+    string value = 1;
+  }
+
+  message IdQuery {
+    oneof conditions {
+      EqualCondition eq = 1;
+      IncludeCondition in = 2;
+    }
+  }
+
+  message Query {
+    IdQuery id = 1;
+  }
+
+  enum OrderDirection {
+    ORDER_DIRECTION_ASC_UNSPECIFIED = 0;
+    ORDER_DIRECTION_DESC = 1;
+  }
+
+  message Order {
+    string field = 1;
+    OrderDirection direction = 2;
+  }
+
+  Pager pager = 1;
+  Query query = 2;
+  Order order = 3;
+}
+
+message ListFilesResponse {
+  repeated File files = 1;
+  bool has_next_page = 2;
+}
+
+message CreateUploadRequest {
+  string bucket = 1;
+  string name = 2;
+  int32 size = 3;
+}
+
+message CreateUploadResponse {
+  string id = 1;
+  string url = 2;
+}
+
+message ConfirmUploadRequest {
+  string id = 1;
+}
+
+message ConfirmUploadResponse {
+  string id = 1;
+  string url = 2;
+}

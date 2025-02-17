@@ -4,9 +4,9 @@ import { IsOptional }       from 'class-validator'
 
 import { ListFilesRequest } from '@atls/services-proto-files'
 
-import { OrderDto }         from './order.dto'
-import { PagerDto }         from './pager.dto'
-import { QueryDto }         from './query.dto'
+import { OrderDto }         from './order.dto.js'
+import { PagerDto }         from './pager.dto.js'
+import { QueryDto }         from './query.dto.js'
 
 export class ListFilesDto implements Omit<ListFilesRequest, 'order'> {
   @IsOptional()

@@ -1,7 +1,7 @@
-import { File } from '../aggregates'
+import type { File } from '../aggregates/index.js'
 
 interface IncludeCondition {
-  values: string[]
+  values: Array<string>
 }
 
 interface EqualCondition {
@@ -24,6 +24,7 @@ export interface FilesPager {
 
 export interface FilesOrder {
   field: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   direction: any
 }
 

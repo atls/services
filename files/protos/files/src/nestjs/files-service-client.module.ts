@@ -3,11 +3,11 @@ import { Module }             from '@nestjs/common'
 import { ClientProxyFactory } from '@nestjs/microservices'
 import { Transport }          from '@nestjs/microservices'
 
-import { FilesServiceClient } from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { FILES_SERVICE_NAME } from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { protobufPackage }    from '../gen/nestjs/tech/atls/files/v1alpha1/files_service'
-import { filesServicePath }   from '../paths'
-import { includeDirs }        from '../paths'
+import { FILES_SERVICE_NAME } from '../../gen/nestjs/tech/atls/files/v1/files.service.js'
+import { FilesServiceClient } from '../../gen/nestjs/tech/atls/files/v1/files.service.js'
+import { protobufPackage }    from '../../gen/nestjs/tech/atls/files/v1/files.types.js'
+import { filesServicePath }   from '../path.js'
+import { includeDirs }        from '../path.js'
 
 export interface FilesServiceClientModuleOptions {
   url?: string
@@ -20,7 +20,7 @@ export class FilesServiceClientModule {
   static register(options: FilesServiceClientModuleOptions = {}): DynamicModule {
     const filesServiceClientProvider = {
       provide: FILES_SERVICE_CLIENT_TOKEN,
-      useFactory: () => {
+      useFactory: (): FilesServiceClient => {
         const client = ClientProxyFactory.create({
           transport: Transport.GRPC,
           options: {

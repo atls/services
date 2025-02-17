@@ -1,1 +1,1 @@
-export * from './list-files.dto'
+export * from './list-files.dto.js'
