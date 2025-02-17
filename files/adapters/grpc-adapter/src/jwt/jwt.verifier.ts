@@ -2,10 +2,9 @@ import type { JwtPayload } from 'jsonwebtoken'
 
 import { Injectable }      from '@nestjs/common'
 import { JwksClient }      from 'jwks-rsa'
-import { decode }          from 'jsonwebtoken'
 import jsonwebtoken        from 'jsonwebtoken'
 
-const { verify } =
+const { verify, decode } =
   'default' in jsonwebtoken ? (jsonwebtoken.default as typeof jsonwebtoken) : jsonwebtoken
 
 @Injectable()

@@ -1,6 +1,5 @@
 import { GrpcExceptionsFilter }          from '@atls/nestjs-grpc-errors'
 import { GrpcValidationPipe }            from '@atls/nestjs-grpc-errors'
-import { Subject }                       from '@atls/nestjs-grpc-identity'
 import { Controller }                    from '@nestjs/common'
 import { UseFilters }                    from '@nestjs/common'
 import { UsePipes }                      from '@nestjs/common'
@@ -22,6 +21,7 @@ import { QueryBus }                      from '@files/cqrs-adapter'
 import { CommandBus }                    from '@files/cqrs-adapter'
 import { FindFilesByQueryResult }        from '@files/domain-module'
 
+import { Subject }                       from '../decorators/index.js'
 import { ConfirmUploadDto }              from '../dto/index.js'
 import { CreateUploadDto }               from '../dto/index.js'
 import { ListFilesDto }                  from '../dto/index.js'
@@ -29,8 +29,8 @@ import { GrpcJwtIdentityGuard }          from '../guards/index.js'
 
 @Controller()
 @FilesServiceControllerMethods()
-@UseGuards(GrpcJwtIdentityGuard)
 @UseFilters(new GrpcExceptionsFilter())
+@UseGuards(GrpcJwtIdentityGuard)
 export class FilesController implements FilesServiceController {
   constructor(
     private readonly commandBus: CommandBus,

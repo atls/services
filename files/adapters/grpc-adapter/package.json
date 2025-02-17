@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@atls/grpc-error-status": "0.0.3",
-    "@atls/nestjs-grpc-errors": "0.0.13",
-    "@atls/nestjs-grpc-identity": "0.0.13",
+    "@atls/nestjs-grpc-errors": "0.1.1",
+    "@atls/nestjs-grpc-identity": "patch:@atls/nestjs-grpc-identity@npm%3A0.0.13#~/.yarn/patches/@atls-nestjs-grpc-identity-npm-0.0.13-77c9692290.patch",
     "@atls/nestjs-grpc-playground": "0.0.17",
     "@atls/nestjs-grpc-reflection": "1.0.6",
     "@atls/services-proto-files": "workspace:*",

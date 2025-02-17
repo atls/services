@@ -1,0 +1,17 @@
+diff --git a/dist/jwt/jwt.verifier.js b/dist/jwt/jwt.verifier.js
+index 20c31c2f3c50a57f6d5210ad29f12f98adc7fa8c..c656c8a755b80bcb101309e94a67febb5de13c7e 100644
+--- a/dist/jwt/jwt.verifier.js
++++ b/dist/jwt/jwt.verifier.js
+@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
+ };
+ import { Injectable } from '@nestjs/common';
+ import { JwksClient } from 'jwks-rsa';
+-import { decode } from 'jsonwebtoken';
+-import { verify } from 'jsonwebtoken';
++import jsonwebtoken from 'jsonwebtoken';
++
++const { verify, decode } = 'default' in jsonwebtoken ? jsonwebtoken.default : jsonwebtoken
++
+ let JwtVerifier = class JwtVerifier {
+     jwksClient;
+     constructor(jwksClient) {
