@@ -9,11 +9,11 @@ services:
       - yarn:/.yarn/berry
       - ./:/workspace
     entrypoint: yarn
-    
+
   db:
     image: bitnami/postgresql
     env_file:
-      - .env
+      - .config/.env
     ports:
       - '5432:5432'
     healthcheck:
@@ -26,11 +26,11 @@ services:
 
   gcs:
     image: fsouza/fake-gcs-server
-    command: -scheme http -external-url http://localhost:8600
+    command: -scheme http -external-url http://localhost:4443
     volumes:
       - .data/gcs:/storage
     ports:
-      - 8600:4443
+      - 4443:4443
 
   gateway:
     image: node:22
@@ -42,7 +42,7 @@ services:
     environment:
       - FILES_SERVICE_URL=files:50051
     env_file:
-      - .env
+      - .config/.env
     ports:
       - '3000:3000'
     depends_on:
@@ -57,4 +57,4 @@ services:
       - ./:/workspace
     entrypoint: yarn workspace @files/service-entrypoint dev
     env_file:
-      - .env
+      - .config/.env
