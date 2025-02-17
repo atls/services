@@ -10,8 +10,8 @@ import { CqrsAdapterModule }               from '@files/cqrs-adapter'
 import { GrpcAdapterModule }               from '@files/grpc-adapter'
 import { InfrastructureModule }            from '@files/infrastructure-module'
 import { MikroOrmAdapterModule }           from '@files/mikro-orm-adapter'
-import { FilesApplicationEnvConfig }       from '@files/storage-adapter'
 import { FilesStorageAdapterModule }       from '@files/storage-adapter'
+import { FilesApplicationEnvConfig }       from '@files/storage-adapter'
 
 import * as configs                        from './configs/index.js'
 
