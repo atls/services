@@ -1,8 +1,8 @@
-import { GatewaySourceType }         from '@atls/nestjs-gateway'
-import { GatewayModule }             from '@atls/nestjs-gateway'
-import { Module }                    from '@nestjs/common'
+import { GatewaySourceType }   from '@atls/nestjs-gateway'
+import { GatewayModule }       from '@atls/nestjs-gateway'
+import { Module }              from '@nestjs/common'
 
-import { filesGatewayHandler }       from '@atls/services-proto-files'
+import { filesGatewayHandler } from '@atls/services-proto-files'
 
 @Module({
   imports: [

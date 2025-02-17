@@ -44,7 +44,7 @@ export class UploadRepositoryImpl implements UploadRepository {
 
       aggregate.commit()
     } catch (error) {
-      throw new SaveException('UploadRepository', aggregate, error)
+      throw new SaveException('UploadRepository', aggregate.properties, error)
     }
   }
 

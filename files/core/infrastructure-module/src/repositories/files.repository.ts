@@ -70,7 +70,7 @@ export class FileRepositoryImpl implements FileRepository {
 
       aggregate.commit()
     } catch (error) {
-      throw new SaveException('FileRepository', aggregate, error)
+      throw new SaveException('FileRepository', aggregate.properties, error)
     }
   }
 

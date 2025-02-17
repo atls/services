@@ -153,7 +153,7 @@ export class Upload extends AggregateRoot {
     this.confirmed = true
   }
 
-  async getSignedUrl() {
+  async getSignedUrl(): Promise<string> {
     const signedReadUrl = await this.storage.generateReadUrl(
       this.bucket.bucket,
       this.filename,

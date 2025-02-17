@@ -1,13 +1,14 @@
-import { Logger }                           from '@atls/logger'
-import { Storage as GcsStorage }            from '@google-cloud/storage'
-import { Injectable }                       from '@nestjs/common'
-import { Inject }                           from '@nestjs/common'
+import type { FilesStorageAdapterModuleOptions } from '../module/index.js'
 
-import { StorageFileMetadata }              from '@files/domain-module'
-import { StoragePort }                      from '@files/domain-module'
+import { Logger }                                from '@atls/logger'
+import { Storage as GcsStorage }                 from '@google-cloud/storage'
+import { Injectable }                            from '@nestjs/common'
+import { Inject }                                from '@nestjs/common'
 
-import { FILES_STORAGE_MODULE_OPTIONS }     from '../module/index.js'
-import { FilesStorageAdapterModuleOptions } from '../module/index.js'
+import { StorageFileMetadata }                   from '@files/domain-module'
+import { StoragePort }                           from '@files/domain-module'
+
+import { FILES_STORAGE_MODULE_OPTIONS }          from '../module/index.js'
 
 @Injectable()
 export class Storage implements StoragePort {
