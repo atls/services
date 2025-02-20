@@ -12,7 +12,7 @@
     "gen"
   ],
   "scripts": {
-    "build": "yarn library build",
+    "build": "yarn library build && cp -r ./tech ./dist/tech",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist",
     "proto:generate": "PATH=$PATH:$(yarn bin ts-proto) buf generate",

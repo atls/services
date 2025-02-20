@@ -1,5 +1,5 @@
-import { DynamicModule }      from '@nestjs/common'
 import { Module }             from '@nestjs/common'
+import { DynamicModule }      from '@nestjs/common'
 import { ClientProxyFactory } from '@nestjs/microservices'
 import { Transport }          from '@nestjs/microservices'
 
