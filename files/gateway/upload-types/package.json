@@ -1,6 +1,6 @@
 {
   "name": "@atls/services-gateway-upload-types",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
@@ -32,6 +32,14 @@
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   },
