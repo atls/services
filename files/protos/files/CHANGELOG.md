@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/atls/services/compare/@atls/services-proto-files@0.0.4...@atls/services-proto-files@0.1.1) (2025-02-20)
+
+
+
+
+
+
 ## [0.0.4](https://github.com/atls/services/compare/@atls/services-proto-files@0.0.4...@atls/services-proto-files@0.0.4) (2025-02-20)
 
 

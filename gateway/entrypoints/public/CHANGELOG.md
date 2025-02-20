@@ -7,6 +7,13 @@
 
 
 
+## [0.0.1](https://github.com/atls/services/compare/@gateway/public-gateway-entrypoint@0.0.1...@gateway/public-gateway-entrypoint@0.0.1) (2025-02-20)
+
+
+
+
+
+
 ## 0.0.1 (2025-02-17)
 
 
