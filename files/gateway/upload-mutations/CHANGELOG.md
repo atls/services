@@ -1,5 +1,12 @@
 
 
+## [0.1.3](https://github.com/atls/services/compare/@atls/services-gateway-upload-mutations@0.1.2...@atls/services-gateway-upload-mutations@0.1.3) (2025-02-20)
+
+
+
+
+
+
 ## [0.1.2](https://github.com/atls/services/compare/@atls/services-gateway-upload-mutations@0.1.0...@atls/services-gateway-upload-mutations@0.1.2) (2025-02-20)
 
 
