@@ -47,7 +47,15 @@
   },
   "publishConfig": {
     "access": "public",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/src/index.js",
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/src/index.js"
+      }
+    },
+    "main": "dist/src/index.js",
+    "typings": "dist/src/index.d.ts"
   }
 }

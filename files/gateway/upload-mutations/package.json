@@ -1,6 +1,6 @@
 {
   "name": "@atls/services-gateway-upload-mutations",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
@@ -28,7 +28,7 @@
     "ts-morph": "13.0.2"
   },
   "peerDependencies": {
-    "@atls/nestjs-grpc-reflection": "workspace:*",
+    "@atls/nestjs-grpc-reflection": "1.0.6",
     "@grpc/grpc-js": "^1.12",
     "@nestjs/common": "^10",
     "@nestjs/core": "^10",
@@ -40,6 +40,14 @@
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   },
