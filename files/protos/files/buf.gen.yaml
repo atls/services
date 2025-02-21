@@ -2,7 +2,7 @@ version: v1
 
 plugins:
   - name: ts_proto
-    out: gen/nestjs
+    out: src/gen/nestjs
     opt:
       - ts_proto_out=proto
       - useDate=true
