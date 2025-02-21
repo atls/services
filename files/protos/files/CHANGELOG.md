@@ -1,5 +1,17 @@
 
 
+## [0.1.3](https://github.com/atls/services/compare/@atls/services-proto-files@0.1.2...@atls/services-proto-files@0.1.3) (2025-02-21)
+
+
+### Bug Fixes
+
+
+* **files:** build protos ([#35](https://github.com/atls/services/issues/35)) ([eb81d25](https://github.com/atls/services/commit/eb81d25861f58f71c868baa7b547fce4fbf04511))
+
+
+
+
+
 ## [0.1.2](https://github.com/atls/services/compare/@atls/services-proto-files@0.1.1...@atls/services-proto-files@0.1.2) (2025-02-20)
 
 
