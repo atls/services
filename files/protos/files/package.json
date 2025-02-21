@@ -8,11 +8,10 @@
   },
   "files": [
     "tech",
-    "dist",
-    "gen"
+    "dist"
   ],
   "scripts": {
-    "build": "yarn library build && cp -r ./tech ./dist/tech",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist",
     "proto:generate": "PATH=$PATH:$(yarn bin ts-proto) buf generate",
@@ -49,12 +48,12 @@
     "exports": {
       "./package.json": "./package.json",
       ".": {
-        "import": "./dist/src/index.js",
-        "types": "./dist/src/index.d.ts",
-        "default": "./dist/src/index.js"
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
-    "main": "dist/src/index.js",
-    "typings": "dist/src/index.d.ts"
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   }
 }
