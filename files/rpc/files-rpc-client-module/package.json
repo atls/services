@@ -1,0 +1,53 @@
+{
+  "name": "@atls-files-engine/files-rpc-client-module",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@atls-files-engine/files-rpc": "workspace:0.0.0",
+    "dataloader": "^2.2.2"
+  },
+  "devDependencies": {
+    "@bufbuild/protobuf": "^1.10.0",
+    "@connectrpc/connect": "^1.6.1",
+    "@connectrpc/connect-node": "^1.6.1",
+    "@nestjs/common": "^10.2.5",
+    "@nestjs/core": "^10.2.5",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^1.5.0",
+    "@connectrpc/connect": "^1.1.3",
+    "@connectrpc/connect-node": "^1.1.3",
+    "@nestjs/common": "^10",
+    "@nestjs/core": "^10",
+    "reflect-metadata": "^0.2",
+    "rxjs": "^7"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
