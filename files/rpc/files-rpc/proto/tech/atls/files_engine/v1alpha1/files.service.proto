@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package tech.atls.files_system.v1alpha1;
+package tech.atls.files_engine.v1alpha1;
 
 import "tech/atls/queries/v1alpha1/queries.proto";
 
-service FilesService {
+service FilesEngine {
   rpc CreateUpload(CreateUploadRequest) returns (CreateUploadResponse) {}
   rpc ConfirmUpload(ConfirmUploadRequest) returns (ConfirmUploadResponse) {}
   rpc ListFiles(ListFilesRequest) returns (ListFilesResponse) {}
