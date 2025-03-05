@@ -1,2 +1,2 @@
-export * from './files-buckets-registry.port.js'
-export * from './storage.port.js'
+export * from './files-storage.adapter.js'
+export * from './files-buckets.adapter.js'
