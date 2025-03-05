@@ -1,6 +1,6 @@
 export class CreateUploadCommand {
   constructor(
-    public readonly id: string,
+    public readonly uploadId: string,
     public readonly initiatorId: string,
     public readonly bucket: string,
     public readonly name: string,

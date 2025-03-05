@@ -1,29 +1,35 @@
-import { CommandHandler }      from '@files/cqrs-adapter'
-import { ICommandHandler }     from '@files/cqrs-adapter'
-import { UploadRepository }    from '@files/domain-module'
+import type { ICommandHandler } from '@nestjs/cqrs'
 
-import { CreateUploadCommand } from '../commands/index.js'
-import { CommandException }    from '../exceptions/index.js'
+import { CommandHandler }       from '@nestjs/cqrs'
+
+import { UploadRepository }     from '@files-engine/domain-module'
+import { FilesBucketsAdapter }  from '@files-engine/domain-module'
+import { FilesStorageAdapter }  from '@files-engine/domain-module'
+import { Upload }               from '@files-engine/domain-module'
+
+import { CreateUploadCommand }  from '../commands/index.js'
 
 @CommandHandler(CreateUploadCommand)
 export class CreateUploadCommandHandler implements ICommandHandler<CreateUploadCommand, void> {
-  constructor(private readonly uploadRepository: UploadRepository) {}
+  constructor(
+    private readonly uploadRepository: UploadRepository,
+    private readonly bucketsAdapter: FilesBucketsAdapter,
+    private readonly storageAdapter: FilesStorageAdapter
+  ) {}
 
   async execute(command: CreateUploadCommand): Promise<void> {
-    try {
-      const upload = this.uploadRepository.create()
+    const bucket = await this.bucketsAdapter.toFilesBucket(command.bucket)
 
-      await upload.create(
-        command.id,
-        command.initiatorId,
-        command.bucket,
-        command.name,
-        command.size
-      )
+    const upload = new Upload().create(
+      command.uploadId,
+      command.initiatorId,
+      bucket!,
+      command.name,
+      command.size
+    )
 
-      await this.uploadRepository.save(upload)
-    } catch (error) {
-      throw new CommandException(CreateUploadCommandHandler.name, command, error)
-    }
+    await this.uploadRepository.save(
+      upload.prepare(await this.storageAdapter.prepareUpload(upload))
+    )
   }
 }

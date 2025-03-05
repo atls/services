@@ -1,29 +1,35 @@
 {
-  "name": "@files/application-module",
+  "name": "@files-engine/application-module",
   "version": "0.0.1",
   "private": true,
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
+    "./package.json": "./package.json",
     ".": "./src/index.ts"
   },
+  "main": "src/index.ts",
   "dependencies": {
-    "uuid": "11.0.5"
+    "@atls/logger": "0.0.3",
+    "uuid": "9.0.1"
   },
   "devDependencies": {
-    "@files/cqrs-adapter": "workspace:*",
-    "@files/domain-module": "workspace:*",
-    "@nestjs/common": "10.4.15",
-    "@nestjs/core": "10.4.15",
+    "@files-engine/domain-module": "workspace:0.0.1",
+    "@nestjs/common": "10.2.5",
+    "@nestjs/core": "10.2.5",
+    "@nestjs/cqrs": "10.2.5",
+    "@nestjs/testing": "10.2.5",
+    "@types/node": "20.6.0",
+    "@types/uuid": "9.0.3",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1"
   },
   "peerDependencies": {
-    "@files/cqrs-adapter": "workspace:*",
-    "@files/domain-module": "workspace:*",
-    "@nestjs/common": "*",
-    "@nestjs/core": "*",
-    "reflect-metadata": "*",
-    "rxjs": "*"
+    "@files-engine/domain-module": "workspace:0.0.1",
+    "@nestjs/common": "^10",
+    "@nestjs/core": "^10",
+    "@nestjs/cqrs": "^10",
+    "reflect-metadata": "^0.2",
+    "rxjs": "^7"
   }
 }

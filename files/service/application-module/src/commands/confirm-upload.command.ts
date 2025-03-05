@@ -1,6 +1,6 @@
 export class ConfirmUploadCommand {
   constructor(
-    public readonly id: string,
-    public readonly confirmatorId: string
+    public readonly uploadId: string,
+    public readonly ownerId: string
   ) {}
 }

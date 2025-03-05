@@ -1,11 +1,9 @@
-import type { FilesPager } from '@files/domain-module'
-import type { FilesOrder } from '@files/domain-module'
-import type { FilesQuery } from '@files/domain-module'
+import type { FindFilesByQuery } from '@files-engine/domain-module'
 
 export class GetFilesQuery {
   constructor(
-    public readonly pager: FilesPager = { take: 100, offset: 0 },
-    public readonly order?: FilesOrder,
-    public readonly query?: FilesQuery
+    public readonly pager: FindFilesByQuery['pager'],
+    public readonly order?: FindFilesByQuery['order'],
+    public readonly query?: FindFilesByQuery['query']
   ) {}
 }

@@ -1,20 +1,17 @@
-import { IQueryHandler }    from '@files/cqrs-adapter'
-import { QueryHandler }     from '@files/cqrs-adapter'
-import { FileRepository }   from '@files/domain-module'
-import { File }             from '@files/domain-module'
+import type { File }          from '@files-engine/domain-module'
+import type { IQueryHandler } from '@nestjs/cqrs'
 
-import { QueryException }   from '../exceptions/index.js'
-import { GetFileByIdQuery } from '../queries/index.js'
+import { QueryHandler }       from '@nestjs/cqrs'
+
+import { FileRepository }     from '@files-engine/domain-module'
+
+import { GetFileByIdQuery }   from '../queries/index.js'
 
 @QueryHandler(GetFileByIdQuery)
 export class GetFileQueryHandler implements IQueryHandler<GetFileByIdQuery> {
   constructor(private readonly fileRepository: FileRepository) {}
 
   async execute(query: GetFileByIdQuery): Promise<File | undefined> {
-    try {
-      return this.fileRepository.findById(query.id)
-    } catch (error) {
-      throw new QueryException(GetFileQueryHandler.name, query, error)
-    }
+    return this.fileRepository.findById(query.id)
   }
 }

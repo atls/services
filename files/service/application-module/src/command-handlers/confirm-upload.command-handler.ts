@@ -1,33 +1,32 @@
-import assert                   from 'assert'
+import type { ICommandHandler }    from '@nestjs/cqrs'
 
-import { CommandHandler }       from '@files/cqrs-adapter'
-import { ICommandHandler }      from '@files/cqrs-adapter'
-import { UploadRepository }     from '@files/domain-module'
-import { FileRepository }       from '@files/domain-module'
+import assert                      from 'node:assert'
 
-import { ConfirmUploadCommand } from '../commands/index.js'
-import { CommandException }     from '../exceptions/index.js'
-import { NotFoundException }    from '../exceptions/index.js'
+import { CommandHandler }          from '@nestjs/cqrs'
+
+import { TransactionalRepository } from '@files-engine/domain-module'
+import { UploadRepository }        from '@files-engine/domain-module'
+import { FilesStorageAdapter }     from '@files-engine/domain-module'
+
+import { ConfirmUploadCommand }    from '../commands/index.js'
 
 @CommandHandler(ConfirmUploadCommand)
 export class ConfirmUploadCommandHandler implements ICommandHandler<ConfirmUploadCommand, void> {
   constructor(
+    private readonly transactionalRepository: TransactionalRepository,
     private readonly uploadRepository: UploadRepository,
-    private readonly fileRepository: FileRepository
+    private readonly storageAdapter: FilesStorageAdapter
   ) {}
 
   async execute(command: ConfirmUploadCommand): Promise<void> {
-    try {
-      const upload = await this.uploadRepository.findById(command.id)
+    const upload = await this.uploadRepository.findById(command.uploadId)
 
-      assert.ok(upload, new NotFoundException('Upload', command))
+    assert.ok(upload, `Upload with id '${command.uploadId}' not found`)
 
-      const file = await upload.confirm(command.confirmatorId)
+    const metadata = await this.storageAdapter.toFileMetadata(upload)
 
-      await this.uploadRepository.save(upload)
-      await this.fileRepository.save(file)
-    } catch (error) {
-      throw new CommandException(ConfirmUploadCommandHandler.name, command, error)
-    }
+    const file = await upload.confirm(command.ownerId, metadata!)
+
+    await this.transactionalRepository.saveUploadAndFile(upload, file)
   }
 }
