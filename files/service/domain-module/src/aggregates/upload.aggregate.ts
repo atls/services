@@ -1,171 +1,206 @@
-import type { FilesBucket }              from '../interfaces/index.js'
-import type { FilesBucketsRegistryPort } from '../ports/index.js'
-import type { StoragePort }              from '../ports/index.js'
+/// <reference path="../types/mime-match.d.ts" />
 
-import { extname }                       from 'path'
-import { format }                        from 'path'
-import { join }                          from 'path'
-import { relative }                      from 'path'
-import { format as formatUrl }           from 'url'
-import assert                            from 'assert'
-// @ts-expect-error has no types
-import match                             from 'mime-match'
-import mime                              from 'mime-types'
+import { format }                      from 'node:path'
+import { extname }                     from 'node:path'
 
-import { AggregateRoot }                 from '@files/cqrs-adapter'
+import { Guard }                       from '@atls/guard-clause'
+import { Against }                     from '@atls/guard-clause'
+import { AggregateRoot }               from '@nestjs/cqrs'
+import match                           from 'mime-match'
+import mime                            from 'mime-types'
 
-import { UploadCreatedEvent }            from '../events/index.js'
-import { UploadConfirmedEvent }          from '../events/index.js'
-import { File }                          from './file.aggregate.js'
-
-export interface UploadProperties {
-  id: string
-  ownerId: string
-  url: string
-  name: string
-  filename: string
-  bucket: FilesBucket
-  confirmed: boolean
-}
+import { UknownFileTypeError }         from '../errors/index.js'
+import { InvalidContentTypeError }     from '../errors/index.js'
+import { InvalidContentSizeError }     from '../errors/index.js'
+import { UploadNotReadyError }         from '../errors/index.js'
+import { UploadAlreadyConfirmedError } from '../errors/index.js'
+import { UploadInitiatorDoesNotMatch } from '../errors/index.js'
+import { FileNotUploadedError }        from '../errors/index.js'
+import { UploadConfirmedEvent }        from '../events/index.js'
+import { UploadPreparedEvent }         from '../events/index.js'
+import { UploadCreatedEvent }          from '../events/index.js'
+import { StorageFileMetadata }         from '../value-objects/index.js'
+import { FilesBucket }                 from '../value-objects/index.js'
+import { File }                        from './file.aggregate.js'
 
 export class Upload extends AggregateRoot {
-  private id!: string
+  #id!: string
 
-  private ownerId!: string
+  #ownerId!: string
 
-  private url!: string
+  #bucket!: FilesBucket
 
-  private name!: string
+  #filename!: string
 
-  private filename!: string
+  #contentType!: string
 
-  private bucket!: FilesBucket
+  #name!: string
 
-  private confirmed: boolean = false
+  #size!: number
 
-  constructor(
-    private readonly bucketsRegistry: FilesBucketsRegistryPort,
-    private readonly storage: StoragePort
-  ) {
-    super()
+  #url!: string
+
+  #confirmed: boolean = false
+
+  get id(): string {
+    return this.#id
   }
 
-  get properties(): UploadProperties {
-    return {
-      id: this.id,
-      ownerId: this.ownerId,
-      url: this.url,
-      name: this.name,
-      filename: this.filename,
-      bucket: this.bucket,
-      confirmed: this.confirmed,
-    }
+  private set id(id: string) {
+    this.#id = id
   }
 
-  async create(
-    id: string,
-    ownerId: string,
-    bucket: string,
-    name: string,
-    size: number
-  ): Promise<void> {
-    const filesBucket = this.bucketsRegistry.get(bucket)
+  get ownerId(): string {
+    return this.#ownerId
+  }
 
-    assert.ok(filesBucket, `Files bucket ${bucket} not found`)
+  private set ownerId(ownerId: string) {
+    this.#ownerId = ownerId
+  }
 
+  get bucket(): FilesBucket {
+    return this.#bucket
+  }
+
+  private set bucket(bucket: FilesBucket) {
+    this.#bucket = bucket
+  }
+
+  get filename(): string {
+    return this.#filename
+  }
+
+  private set filename(filename: string) {
+    this.#filename = filename
+  }
+
+  get contentType(): string {
+    return this.#contentType
+  }
+
+  private set contentType(contentType: string) {
+    this.#contentType = contentType
+  }
+
+  get name(): string {
+    return this.#name
+  }
+
+  private set name(name: string) {
+    this.#name = name
+  }
+
+  get size(): number {
+    return this.#size
+  }
+
+  private set size(size: number) {
+    this.#size = size
+  }
+
+  get url(): string {
+    return this.#url
+  }
+
+  private set url(url: string) {
+    this.#url = url
+  }
+
+  get confirmed(): boolean {
+    return this.#confirmed
+  }
+
+  private set confirmed(confirmed: boolean) {
+    this.#confirmed = confirmed
+  }
+
+  @Guard()
+  create(
+    @Against('id').NotUUID(4) id: string,
+    @Against('ownerId').NotUUID(4) ownerId: string,
+    @Against('bucket').NotInstance(FilesBucket) bucket: FilesBucket,
+    @Against('name').Empty() name: string,
+    @Against('size').NotNumberBetween(0, Infinity) size: number
+  ): Upload {
     const contentType = mime.lookup(name)
 
-    assert.ok(contentType, 'Unknown file type')
+    if (!contentType) {
+      throw new UknownFileTypeError()
+    }
 
-    assert.ok(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      match(contentType, filesBucket.conditions.type),
-      `Files bucket ${bucket} not support type '${contentType}', only '${filesBucket.conditions.type}'.`
-    )
+    if (!match(contentType, bucket.conditions.type)) {
+      throw new InvalidContentTypeError(contentType, bucket.conditions.type)
+    }
 
-    assert.ok(
-      size > filesBucket.conditions.length.min && size < filesBucket.conditions.length.max,
-      `File size must be greater than ${filesBucket.conditions.length.min} and less than ${filesBucket.conditions.length.max}, current size is ${size}`
-    )
+    if (!(size > bucket.conditions.size.min && size < bucket.conditions.size.max)) {
+      throw new InvalidContentSizeError(size, bucket.conditions.size)
+    }
 
-    const filename = format({
-      name: filesBucket.path.startsWith('/')
-        ? relative('/', join(filesBucket.path, id))
-        : join(filesBucket.path, id),
-      ext: extname(name),
-    })
+    const filename = format({ name: id, ext: extname(name) })
 
-    const url = await this.storage.generateUploadUrl(
-      filesBucket.bucket,
-      filename,
-      size,
-      contentType
-    )
+    this.apply(new UploadCreatedEvent(id, ownerId, bucket, filename, contentType, name, size))
 
-    this.apply(new UploadCreatedEvent(id, ownerId, url, name, filename, filesBucket))
+    return this
   }
 
-  onUploadCreatedEvent(event: UploadCreatedEvent): void {
-    this.id = event.uploadId
-    this.ownerId = event.ownerId
-    this.url = event.url
-    this.name = event.name
-    this.filename = event.filename
-    this.bucket = event.bucket
+  @Guard()
+  prepare(@Against('url').Empty() url: string): Upload {
+    if (this.confirmed) {
+      throw new UploadAlreadyConfirmedError()
+    }
+
+    this.apply(new UploadPreparedEvent(this.id, url))
+
+    return this
   }
 
-  async confirm(confirmatorId: string): Promise<File> {
-    assert.ok(this.url, 'Upload not found.')
-    assert.ok(!this.confirmed, 'Upload already confirmed.')
+  @Guard()
+  confirm(
+    @Against('ownerId').NotUUID(4) ownerId: string,
+    @Against('metadadta').Optional.NotInstance(StorageFileMetadata) metadata: StorageFileMetadata
+  ): File {
+    if (this.confirmed) {
+      throw new UploadAlreadyConfirmedError()
+    }
 
-    assert.strictEqual(
-      this.ownerId,
-      confirmatorId,
-      'Upload initiator does not match the endorsement.'
-    )
+    if (!this.url) {
+      throw new UploadNotReadyError()
+    }
 
-    const metadata = await this.storage.getMetadata(this.bucket.bucket, this.filename)
+    if (this.ownerId !== ownerId) {
+      throw new UploadInitiatorDoesNotMatch()
+    }
 
-    assert.ok(metadata, 'File not uploaded.')
+    if (!metadata) {
+      throw new FileNotUploadedError()
+    }
 
     this.apply(new UploadConfirmedEvent(this.id))
 
-    const file = await File.create(
+    return File.create(
       this.id,
       this.ownerId,
       this.bucket.type,
-      metadata.mediaLink,
-      metadata.bucket,
-      metadata.name,
-      metadata.size,
-      metadata.contentType,
-      metadata.cacheControl,
-      metadata.contentDisposition,
-      metadata.contentEncoding,
-      metadata.contentLanguage,
-      metadata.metadata
+      metadata.url || this.url,
+      this.bucket.bucket
     )
-
-    return file
   }
 
-  onUploadConfirmedEvent(): void {
+  protected onUploadCreatedEvent(event: UploadCreatedEvent): void {
+    this.id = event.uploadId
+    this.ownerId = event.ownerId
+    this.bucket = event.bucket
+    this.filename = event.filename
+    this.contentType = event.contentType
+    this.name = event.name
+    this.size = event.size
+  }
+
+  protected onUploadPreparedEvent(event: UploadPreparedEvent): void {
+    this.url = event.url
+  }
+
+  protected onUploadConfirmedEvent(): void {
     this.confirmed = true
-  }
-
-  async getSignedUrl(): Promise<string> {
-    const signedReadUrl = await this.storage.generateReadUrl(
-      this.bucket.bucket,
-      this.filename,
-      this.bucket.hostname
-    )
-
-    const parsedUrl = new URL(signedReadUrl)
-
-    parsedUrl.search = ''
-
-    const url = formatUrl(parsedUrl)
-
-    return url
   }
 }

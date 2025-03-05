@@ -1,121 +1,81 @@
-import type { FilesBucketType } from '../interfaces/index.js'
+import { Guard }            from '@atls/guard-clause'
+import { Against }          from '@atls/guard-clause'
+import { AggregateRoot }    from '@nestjs/cqrs'
 
-import { AggregateRoot }        from '@files/cqrs-adapter'
-
-import { FileCreatedEvent }     from '../events/index.js'
-
-export interface FileProperties {
-  id: string
-  ownerId: string
-  type: FilesBucketType
-  url: string
-  bucket: string
-  name: string
-  size: number
-  contentType?: string
-  cacheControl?: string
-  contentDisposition?: string
-  contentEncoding?: string
-  contentLanguage?: string
-  metadata?: Record<string, string>
-}
+import { FilesBucketType }  from '../enums/index.js'
+import { FileCreatedEvent } from '../events/index.js'
 
 export class File extends AggregateRoot {
-  private id!: string
+  #id!: string
 
-  private ownerId!: string
+  #ownerId!: string
 
-  private type!: FilesBucketType
+  #type!: FilesBucketType
 
-  private url!: string
+  #url!: string
 
-  private bucket!: string
+  #bucket!: string
 
-  private name!: string
-
-  private size!: number
-
-  private contentType?: string
-
-  private cacheControl?: string
-
-  private contentDisposition?: string
-
-  private contentEncoding?: string
-
-  private contentLanguage?: string
-
-  private metadata?: Record<string, string>
-
-  get properties(): FileProperties {
-    return {
-      id: this.id,
-      ownerId: this.ownerId,
-      type: this.type,
-      url: this.url,
-      bucket: this.bucket,
-      name: this.name,
-      size: this.size,
-      contentType: this.contentType,
-      cacheControl: this.cacheControl,
-      contentDisposition: this.contentDisposition,
-      contentEncoding: this.contentEncoding,
-      contentLanguage: this.contentLanguage,
-      metadata: this.metadata,
-    }
+  get id(): string {
+    return this.#id
   }
 
-  static async create(
-    id: string,
-    ownerId: string,
-    type: FilesBucketType,
-    url: string,
-    bucket: string,
-    name: string,
-    size: number,
-    contentType?: string,
-    cacheControl?: string,
-    contentDisposition?: string,
-    contentEncoding?: string,
-    contentLanguage?: string,
-    metadata?: Record<string, string>
-  ): Promise<File> {
+  private set id(id: string) {
+    this.#id = id
+  }
+
+  get ownerId(): string {
+    return this.#ownerId
+  }
+
+  private set ownerId(ownerId: string) {
+    this.#ownerId = ownerId
+  }
+
+  get type(): FilesBucketType {
+    return this.#type
+  }
+
+  private set type(type: FilesBucketType) {
+    this.#type = type
+  }
+
+  get url(): string {
+    return this.#url
+  }
+
+  private set url(url: string) {
+    this.#url = url
+  }
+
+  get bucket(): string {
+    return this.#bucket
+  }
+
+  private set bucket(bucket: string) {
+    this.#bucket = bucket
+  }
+
+  @Guard()
+  static create(
+    @Against('id').NotUUID(4) id: string,
+    @Against('ownerId').NotUUID(4) ownerId: string,
+    @Against('type').NotEnum(FilesBucketType) type: FilesBucketType,
+    @Against('url').Empty() url: string,
+    @Against('bucket').Empty() bucket: string
+  ): File {
     const file = new File()
 
-    file.apply(
-      new FileCreatedEvent(
-        id,
-        ownerId,
-        type,
-        url,
-        bucket,
-        name,
-        size,
-        contentType,
-        cacheControl,
-        contentDisposition,
-        contentEncoding,
-        contentLanguage,
-        metadata
-      )
-    )
+    file.apply(new FileCreatedEvent(id, ownerId, type, url, bucket))
 
     return file
   }
 
-  onFileCreatedEvent(event: FileCreatedEvent): void {
+  protected onFileCreatedEvent(event: FileCreatedEvent): void {
     this.id = event.fileId
     this.ownerId = event.ownerId
     this.type = event.type
     this.url = event.url
     this.bucket = event.bucket
-    this.name = event.name
-    this.size = event.size
-    this.contentType = event.contentType
-    this.cacheControl = event.cacheControl
-    this.contentDisposition = event.contentDisposition
-    this.contentEncoding = event.contentEncoding
-    this.contentLanguage = event.contentLanguage
-    this.metadata = event.metadata
   }
 }

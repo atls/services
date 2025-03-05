@@ -1,36 +1,15 @@
-import type { File } from '../aggregates/index.js'
+import type { Query } from '@atls/query-types'
 
-interface IncludeCondition {
-  values: Array<string>
-}
-
-interface EqualCondition {
-  value: string
-}
-
-interface IdQuery {
-  eq?: EqualCondition
-  in?: IncludeCondition
-}
+import type { File }  from '../aggregates/index.js'
 
 export interface FilesQuery {
-  id?: IdQuery
-}
-
-export interface FilesPager {
-  take: number
-  offset: number
-}
-
-export interface FilesOrder {
-  field: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  direction: any
+  id?: Query.IDType
+  ownerId?: Query.IDType
 }
 
 export interface FindFilesByQuery {
-  pager: FilesPager
-  order?: FilesOrder
+  pager?: Query.Pager
+  order?: Query.Order
   query?: FilesQuery
 }
 
@@ -40,9 +19,7 @@ export interface FindFilesByQueryResult {
 }
 
 export abstract class FileRepository {
-  abstract create(): File
-
-  abstract save(data: File): Promise<void>
+  abstract save(aggregate: File): Promise<void>
 
   abstract findById(id: string): Promise<File | undefined>
 
