@@ -1,6 +1,0 @@
-export * from './aggregates/index.js'
-export * from './events/index.js'
-export * from './exceptions/index.js'
-export * from './interfaces/index.js'
-export * from './ports/index.js'
-export * from './repositories/index.js'
