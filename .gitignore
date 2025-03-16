@@ -49,4 +49,5 @@ package.tgz
 
 # IDE
 .idea
+*.iml
 .vscode
