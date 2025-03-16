@@ -3,7 +3,7 @@ import type { PromiseClient }  from '@connectrpc/connect'
 import { createPromiseClient } from '@connectrpc/connect'
 import { createGrpcTransport } from '@connectrpc/connect-node'
 
-import { FilesService }        from '@atls-files-engine/files-rpc/connect'
+import { FilesService }        from '@atls/files-rpc/connect'
 
 export const createClient = (options = {}): PromiseClient<typeof FilesService> =>
   createPromiseClient(

@@ -1,5 +1,5 @@
 {
-  "name": "@atls-files-engine/files-rpc",
+  "name": "@atls/files-rpc",
   "version": "0.0.0",
   "license": "BSD-3-Clause",
   "type": "module",

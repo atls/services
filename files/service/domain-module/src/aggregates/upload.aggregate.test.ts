@@ -17,7 +17,7 @@ import { FilesBucketConditions }       from '../value-objects/index.js'
 import { FilesBucket }                 from '../value-objects/index.js'
 import { Upload }                      from './upload.aggregate.js'
 
-describe('files-system', () => {
+describe('files-engine', () => {
   describe('domain', () => {
     describe('aggregates', () => {
       describe('upload', () => {
