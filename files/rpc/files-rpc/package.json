@@ -25,7 +25,7 @@
   "devDependencies": {
     "@atls/protoc-gen-abstractions": "0.0.3",
     "@atls/protoc-gen-interfaces": "0.0.7",
-    "@bufbuild/buf": "1.50.0",
+    "@bufbuild/buf": "1.50.1",
     "@bufbuild/protobuf": "1.10.0",
     "@bufbuild/protoc-gen-es": "1.10.0",
     "@connectrpc/protoc-gen-connect-es": "1.6.1"

@@ -4,7 +4,7 @@ import { Module }                 from '@nestjs/common'
 import { createClient }           from '@connectrpc/connect'
 import { createGrpcTransport }    from '@connectrpc/connect-node'
 
-import { FilesService }           from '@atls/files-rpc'
+import { FilesEngine }            from '@atls/files-rpc/connect'
 
 import { FILES_RPC_CLIENT_TOKEN } from '../constants/index.js'
 
@@ -20,7 +20,7 @@ export class FilesRPCClientCoreModule {
         {
           provide: FILES_RPC_CLIENT_TOKEN,
           useValue: createClient(
-            FilesService,
+            FilesEngine,
             createGrpcTransport({
               httpVersion: '2',
               baseUrl: process.env.FILES_SERVICE_URL || 'http://0.0.0.0:50051',

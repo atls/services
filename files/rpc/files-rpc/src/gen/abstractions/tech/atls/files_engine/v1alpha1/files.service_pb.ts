@@ -3,7 +3,9 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { Query_ID, Query_Order, Query_Pager } from "../../queries/v1alpha1/queries_pb.js";
+import type { Query_ID }    from '../../queries/v1alpha1/queries_pb.js'
+import type { Query_Order } from '../../queries/v1alpha1/queries_pb.js'
+import type { Query_Pager } from '../../queries/v1alpha1/queries_pb.js'
 
 /**
  * @generated from message tech.atls.files_engine.v1alpha1.File
@@ -12,18 +14,17 @@ export abstract class File {
   /**
    * @generated from field: string id = 1;
    */
-  abstract readonly id: string;
+  abstract readonly id: string
 
   /**
    * @generated from field: string url = 2;
    */
-  abstract readonly url: string;
+  abstract readonly url: string
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  abstract readonly ownerId: string;
-
+  abstract readonly ownerId: string
 }
 
 /**
@@ -33,18 +34,17 @@ export abstract class Upload {
   /**
    * @generated from field: string id = 1;
    */
-  abstract readonly id: string;
+  abstract readonly id: string
 
   /**
    * @generated from field: string url = 2;
    */
-  abstract readonly url: string;
+  abstract readonly url: string
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  abstract readonly ownerId: string;
-
+  abstract readonly ownerId: string
 }
 
 /**
@@ -54,13 +54,12 @@ export abstract class ListFilesResponse {
   /**
    * @generated from field: repeated tech.atls.files_engine.v1alpha1.File files = 1;
    */
-  abstract readonly files: File[];
+  abstract readonly files: File[]
 
   /**
    * @generated from field: bool has_next_page = 2;
    */
-  abstract readonly hasNextPage: boolean;
-
+  abstract readonly hasNextPage: boolean
 }
 
 /**
@@ -70,23 +69,22 @@ export abstract class CreateUploadRequest {
   /**
    * @generated from field: string owner_id = 1;
    */
-  abstract readonly ownerId: string;
+  abstract readonly ownerId: string
 
   /**
    * @generated from field: string bucket = 2;
    */
-  abstract readonly bucket: string;
+  abstract readonly bucket: string
 
   /**
    * @generated from field: string name = 3;
    */
-  abstract readonly name: string;
+  abstract readonly name: string
 
   /**
    * @generated from field: int32 size = 4;
    */
-  abstract readonly size: number;
-
+  abstract readonly size: number
 }
 
 /**
@@ -96,8 +94,7 @@ export abstract class CreateUploadResponse {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.Upload result = 1;
    */
-  abstract readonly result?: Upload;
-
+  abstract readonly result?: Upload
 }
 
 /**
@@ -107,13 +104,12 @@ export abstract class ConfirmUploadRequest {
   /**
    * @generated from field: string id = 1;
    */
-  abstract readonly id: string;
+  abstract readonly id: string
 
   /**
    * @generated from field: string owner_id = 2;
    */
-  abstract readonly ownerId: string;
-
+  abstract readonly ownerId: string
 }
 
 /**
@@ -123,8 +119,7 @@ export abstract class ConfirmUploadResponse {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.File result = 1;
    */
-  abstract readonly result?: File;
-
+  abstract readonly result?: File
 }
 
 /**
@@ -134,18 +129,17 @@ export abstract class ListFilesRequest {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Pager pager = 1;
    */
-  abstract readonly pager?: Query_Pager;
+  abstract readonly pager?: Query_Pager
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Order order = 2;
    */
-  abstract readonly order?: Query_Order;
+  abstract readonly order?: Query_Order
 
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.ListFilesRequest.FilesQuery query = 3;
    */
-  abstract readonly query?: ListFilesRequest_FilesQuery;
-
+  abstract readonly query?: ListFilesRequest_FilesQuery
 }
 
 /**
@@ -155,13 +149,12 @@ export abstract class ListFilesRequest_FilesQuery {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID id = 1;
    */
-  abstract readonly id?: Query_ID;
+  abstract readonly id?: Query_ID
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID owner_id = 2;
    */
-  abstract readonly ownerId?: Query_ID;
-
+  abstract readonly ownerId?: Query_ID
 }
 
 /**
@@ -171,8 +164,7 @@ export abstract class GenerateFileUrlRequest {
   /**
    * @generated from field: string id = 1;
    */
-  abstract readonly id: string;
-
+  abstract readonly id: string
 }
 
 /**
@@ -182,7 +174,5 @@ export abstract class GenerateFileUrlResponse {
   /**
    * @generated from field: string url = 1;
    */
-  abstract readonly url: string;
-
+  abstract readonly url: string
 }
-

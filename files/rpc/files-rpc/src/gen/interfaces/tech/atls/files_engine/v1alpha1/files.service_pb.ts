@@ -3,7 +3,9 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { Query_ID, Query_Order, Query_Pager } from "../../queries/v1alpha1/queries_pb.js";
+import type { Query_ID }    from '../../queries/v1alpha1/queries_pb.js'
+import type { Query_Order } from '../../queries/v1alpha1/queries_pb.js'
+import type { Query_Pager } from '../../queries/v1alpha1/queries_pb.js'
 
 /**
  * @generated from message tech.atls.files_engine.v1alpha1.File
@@ -12,18 +14,17 @@ export interface File {
   /**
    * @generated from field: string id = 1;
    */
-  id: string;
+  id: string
 
   /**
    * @generated from field: string url = 2;
    */
-  url: string;
+  url: string
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  ownerId: string;
-
+  ownerId: string
 }
 
 /**
@@ -33,18 +34,17 @@ export interface Upload {
   /**
    * @generated from field: string id = 1;
    */
-  id: string;
+  id: string
 
   /**
    * @generated from field: string url = 2;
    */
-  url: string;
+  url: string
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  ownerId: string;
-
+  ownerId: string
 }
 
 /**
@@ -54,13 +54,12 @@ export interface ListFilesResponse {
   /**
    * @generated from field: repeated tech.atls.files_engine.v1alpha1.File files = 1;
    */
-  files: File[];
+  files: File[]
 
   /**
    * @generated from field: bool has_next_page = 2;
    */
-  hasNextPage: boolean;
-
+  hasNextPage: boolean
 }
 
 /**
@@ -70,23 +69,22 @@ export interface CreateUploadRequest {
   /**
    * @generated from field: string owner_id = 1;
    */
-  ownerId: string;
+  ownerId: string
 
   /**
    * @generated from field: string bucket = 2;
    */
-  bucket: string;
+  bucket: string
 
   /**
    * @generated from field: string name = 3;
    */
-  name: string;
+  name: string
 
   /**
    * @generated from field: int32 size = 4;
    */
-  size: number;
-
+  size: number
 }
 
 /**
@@ -96,8 +94,7 @@ export interface CreateUploadResponse {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.Upload result = 1;
    */
-  result?: Upload;
-
+  result?: Upload
 }
 
 /**
@@ -107,13 +104,12 @@ export interface ConfirmUploadRequest {
   /**
    * @generated from field: string id = 1;
    */
-  id: string;
+  id: string
 
   /**
    * @generated from field: string owner_id = 2;
    */
-  ownerId: string;
-
+  ownerId: string
 }
 
 /**
@@ -123,8 +119,7 @@ export interface ConfirmUploadResponse {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.File result = 1;
    */
-  result?: File;
-
+  result?: File
 }
 
 /**
@@ -134,18 +129,17 @@ export interface ListFilesRequest {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Pager pager = 1;
    */
-  pager?: Query_Pager;
+  pager?: Query_Pager
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Order order = 2;
    */
-  order?: Query_Order;
+  order?: Query_Order
 
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.ListFilesRequest.FilesQuery query = 3;
    */
-  query?: ListFilesRequest_FilesQuery;
-
+  query?: ListFilesRequest_FilesQuery
 }
 
 /**
@@ -155,13 +149,12 @@ export interface ListFilesRequest_FilesQuery {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID id = 1;
    */
-  id?: Query_ID;
+  id?: Query_ID
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID owner_id = 2;
    */
-  ownerId?: Query_ID;
-
+  ownerId?: Query_ID
 }
 
 /**
@@ -171,8 +164,7 @@ export interface GenerateFileUrlRequest {
   /**
    * @generated from field: string id = 1;
    */
-  id: string;
-
+  id: string
 }
 
 /**
@@ -182,7 +174,5 @@ export interface GenerateFileUrlResponse {
   /**
    * @generated from field: string url = 1;
    */
-  url: string;
-
+  url: string
 }
-

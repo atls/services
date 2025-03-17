@@ -3,20 +3,28 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConfirmUploadRequest, ConfirmUploadResponse, CreateUploadRequest, CreateUploadResponse, GenerateFileUrlRequest, GenerateFileUrlResponse, ListFilesRequest, ListFilesResponse } from "./files.service_pb.js";
-import { MethodKind } from "@bufbuild/protobuf";
+import { MethodKind }              from '@bufbuild/protobuf'
+
+import { ConfirmUploadRequest }    from './files.service_pb.js'
+import { ConfirmUploadResponse }   from './files.service_pb.js'
+import { CreateUploadRequest }     from './files.service_pb.js'
+import { CreateUploadResponse }    from './files.service_pb.js'
+import { GenerateFileUrlRequest }  from './files.service_pb.js'
+import { GenerateFileUrlResponse } from './files.service_pb.js'
+import { ListFilesRequest }        from './files.service_pb.js'
+import { ListFilesResponse }       from './files.service_pb.js'
 
 /**
  * @generated from service tech.atls.files_engine.v1alpha1.FilesEngine
  */
 export const FilesEngine = {
-  typeName: "tech.atls.files_engine.v1alpha1.FilesEngine",
+  typeName: 'tech.atls.files_engine.v1alpha1.FilesEngine',
   methods: {
     /**
      * @generated from rpc tech.atls.files_engine.v1alpha1.FilesEngine.CreateUpload
      */
     createUpload: {
-      name: "CreateUpload",
+      name: 'CreateUpload',
       I: CreateUploadRequest,
       O: CreateUploadResponse,
       kind: MethodKind.Unary,
@@ -25,7 +33,7 @@ export const FilesEngine = {
      * @generated from rpc tech.atls.files_engine.v1alpha1.FilesEngine.ConfirmUpload
      */
     confirmUpload: {
-      name: "ConfirmUpload",
+      name: 'ConfirmUpload',
       I: ConfirmUploadRequest,
       O: ConfirmUploadResponse,
       kind: MethodKind.Unary,
@@ -34,7 +42,7 @@ export const FilesEngine = {
      * @generated from rpc tech.atls.files_engine.v1alpha1.FilesEngine.ListFiles
      */
     listFiles: {
-      name: "ListFiles",
+      name: 'ListFiles',
       I: ListFilesRequest,
       O: ListFilesResponse,
       kind: MethodKind.Unary,
@@ -43,11 +51,10 @@ export const FilesEngine = {
      * @generated from rpc tech.atls.files_engine.v1alpha1.FilesEngine.GenerateFileUrl
      */
     generateFileUrl: {
-      name: "GenerateFileUrl",
+      name: 'GenerateFileUrl',
       I: GenerateFileUrlRequest,
       O: GenerateFileUrlResponse,
       kind: MethodKind.Unary,
     },
-  }
-} as const;
-
+  },
+} as const

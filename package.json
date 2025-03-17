@@ -4,8 +4,7 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "workspaces": [
-    "files/**/*",
-    "gateway/**/*"
+    "files/rpc/**/*"
   ],
   "resolutions": {
     "@graphql-mesh/cache-inmemory-lru": "0.5.59",
@@ -25,6 +24,12 @@
     "typescript": "5.5.4"
   },
   "packageManager": "yarn@4.7.0",
+  "formatterIgnorePatterns": [
+    "files/service/**/*"
+  ],
+  "linterIgnorePatterns": [
+    "files/service/**/*"
+  ],
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",
@@ -32,5 +37,8 @@
       "type": "libraries",
       "migration": "1643131477515"
     }
-  }
+  },
+  "typecheckIgnorePatterns": [
+    "files/service/**/*"
+  ]
 }

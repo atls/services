@@ -1,15 +1,15 @@
+import type { FilesEngine }             from '@atls/files-rpc/connect'
+import type { File }                    from '@atls/files-rpc/connect'
+import type { ListFilesRequest }        from '@atls/files-rpc/connect'
+import type { ListFilesResponse }       from '@atls/files-rpc/connect'
+import type { CreateUploadRequest }     from '@atls/files-rpc/connect'
+import type { CreateUploadResponse }    from '@atls/files-rpc/connect'
+import type { ConfirmUploadRequest }    from '@atls/files-rpc/connect'
+import type { ConfirmUploadResponse }   from '@atls/files-rpc/connect'
+import type { GenerateFileUrlRequest }  from '@atls/files-rpc/connect'
+import type { GenerateFileUrlResponse } from '@atls/files-rpc/connect'
 import type { PartialMessage }          from '@bufbuild/protobuf'
 import type { Client }                  from '@connectrpc/connect'
-import type { FilesService }            from '@atls/files-rpc'
-import type { File }                    from '@atls/files-rpc'
-import type { ListFilesRequest }        from '@atls/files-rpc'
-import type { ListFilesResponse }       from '@atls/files-rpc'
-import type { CreateUploadRequest }     from '@atls/files-rpc'
-import type { CreateUploadResponse }    from '@atls/files-rpc'
-import type { ConfirmUploadRequest }    from '@atls/files-rpc'
-import type { ConfirmUploadResponse }   from '@atls/files-rpc'
-import type { GenerateFileUrlRequest }  from '@atls/files-rpc'
-import type { GenerateFileUrlResponse } from '@atls/files-rpc'
 
 import { Inject }                       from '@nestjs/common'
 import { Injectable }                   from '@nestjs/common'
@@ -21,7 +21,7 @@ import { FileByIdDataLoader }           from '../dataloaders/index.js'
 export class FilesRPCClient {
   constructor(
     @Inject(FILES_RPC_CLIENT_TOKEN)
-    protected readonly client: Client<typeof FilesService>,
+    protected readonly client: Client<typeof FilesEngine>,
     protected readonly fileByIdDataLoader: FileByIdDataLoader
   ) {}
 
