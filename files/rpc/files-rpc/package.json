@@ -1,0 +1,63 @@
+{
+  "name": "@atls/files-rpc",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    "./abstractions": "./src/gen/abstractions/index.ts",
+    "./interfaces": "./src/gen/interfaces/index.ts",
+    "./connect": "./src/gen/connect/index.ts",
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "buf:generate": "buf generate proto --include-imports",
+    "buf:lint": "buf lint proto",
+    "buf:update": "buf mod update proto",
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@atls/protoc-gen-abstractions": "0.0.3",
+    "@atls/protoc-gen-interfaces": "0.0.7",
+    "@bufbuild/buf": "1.50.1",
+    "@bufbuild/protobuf": "1.10.0",
+    "@bufbuild/protoc-gen-es": "1.10.0",
+    "@connectrpc/protoc-gen-connect-es": "1.6.1"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^1"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      "./abstractions": {
+        "import": "./dist/gen/abstractions/index.js",
+        "types": "./dist/gen/abstractions/index.d.ts",
+        "default": "./dist/gen/abstractions/index.js"
+      },
+      "./interfaces": {
+        "import": "./dist/gen/interfaces/index.js",
+        "types": "./dist/gen/interfaces/index.d.ts",
+        "default": "./dist/gen/interfaces/index.js"
+      },
+      "./connect": {
+        "import": "./dist/gen/connect/index.js",
+        "types": "./dist/gen/connect/index.d.ts",
+        "default": "./dist/gen/connect/index.js"
+      },
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

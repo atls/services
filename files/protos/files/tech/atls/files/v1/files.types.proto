@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package tech.atls.files.v1;
-
-message File {
-  string id = 1;
-  string url = 2;
-}
-
