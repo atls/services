@@ -3,13 +3,12 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { Timestamp } from "@bufbuild/protobuf";
+import type { Timestamp } from '@bufbuild/protobuf'
 
 /**
  * @generated from message tech.atls.queries.v1alpha1.Query
  */
-export interface Query {
-}
+export interface Query {}
 
 /**
  * @generated from enum tech.atls.queries.v1alpha1.Query.OrderDirection
@@ -48,13 +47,12 @@ export interface Query_Pager {
   /**
    * @generated from field: int32 offset = 1;
    */
-  offset: number;
+  offset: number
 
   /**
    * @generated from field: int32 take = 2;
    */
-  take: number;
-
+  take: number
 }
 
 /**
@@ -64,13 +62,12 @@ export interface Query_Order {
   /**
    * @generated from field: string field = 1;
    */
-  field: string;
+  field: string
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.OrderDirection direction = 2;
    */
-  direction: Query_OrderDirection;
-
+  direction: Query_OrderDirection
 }
 
 /**
@@ -80,13 +77,12 @@ export interface Query_Search {
   /**
    * @generated from field: repeated tech.atls.queries.v1alpha1.Query.Search.Field fields = 1;
    */
-  fields: Query_Search_Field[];
+  fields: Query_Search_Field[]
 
   /**
    * @generated from field: string value = 2;
    */
-  value: string;
-
+  value: string
 }
 
 /**
@@ -96,8 +92,7 @@ export interface Query_Search_Field {
   /**
    * @generated from field: repeated string path = 1;
    */
-  path: string[];
-
+  path: string[]
 }
 
 /**
@@ -107,8 +102,7 @@ export interface Query_StringValue {
   /**
    * @generated from field: string value = 1;
    */
-  value: string;
-
+  value: string
 }
 
 /**
@@ -118,8 +112,7 @@ export interface Query_StringValues {
   /**
    * @generated from field: repeated string values = 1;
    */
-  values: string[];
-
+  values: string[]
 }
 
 /**
@@ -129,8 +122,7 @@ export interface Query_IntValue {
   /**
    * @generated from field: int32 value = 1;
    */
-  value: number;
-
+  value: number
 }
 
 /**
@@ -140,8 +132,7 @@ export interface Query_IntValues {
   /**
    * @generated from field: repeated int32 values = 1;
    */
-  values: number[];
-
+  values: number[]
 }
 
 /**
@@ -151,8 +142,7 @@ export interface Query_Int64Value {
   /**
    * @generated from field: int64 value = 1;
    */
-  value: bigint;
-
+  value: bigint
 }
 
 /**
@@ -162,8 +152,7 @@ export interface Query_Int64Values {
   /**
    * @generated from field: repeated int64 values = 1;
    */
-  values: bigint[];
-
+  values: bigint[]
 }
 
 /**
@@ -173,8 +162,7 @@ export interface Query_BooleanValue {
   /**
    * @generated from field: bool value = 1;
    */
-  value: boolean;
-
+  value: boolean
 }
 
 /**
@@ -184,8 +172,7 @@ export interface Query_DateValue {
   /**
    * @generated from field: google.protobuf.Timestamp value = 1;
    */
-  value?: Timestamp;
-
+  value?: Timestamp
 }
 
 /**
@@ -195,18 +182,17 @@ export interface Query_IDConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValues in = 1;
    */
-  in?: Query_StringValues;
+  in?: Query_StringValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue eq = 2;
    */
-  eq?: Query_StringValue;
+  eq?: Query_StringValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.BooleanValue exists = 3;
    */
-  exists?: Query_BooleanValue;
-
+  exists?: Query_BooleanValue
 }
 
 /**
@@ -216,13 +202,12 @@ export interface Query_ID {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IDConditions conditions = 2;
    */
-  conditions?: Query_IDConditions;
-
+  conditions?: Query_IDConditions
 }
 
 /**
@@ -232,13 +217,12 @@ export interface Query_DateRangeConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue from = 1;
    */
-  from?: Query_DateValue;
+  from?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue to = 2;
    */
-  to?: Query_DateValue;
-
+  to?: Query_DateValue
 }
 
 /**
@@ -248,13 +232,12 @@ export interface Query_DateRange {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateRangeConditions conditions = 2;
    */
-  conditions?: Query_DateRangeConditions;
-
+  conditions?: Query_DateRangeConditions
 }
 
 /**
@@ -264,23 +247,22 @@ export interface Query_DateConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue eq = 1;
    */
-  eq?: Query_DateValue;
+  eq?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.BooleanValue exists = 2;
    */
-  exists?: Query_BooleanValue;
+  exists?: Query_BooleanValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue lt = 3;
    */
-  lt?: Query_DateValue;
+  lt?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue gt = 4;
    */
-  gt?: Query_DateValue;
-
+  gt?: Query_DateValue
 }
 
 /**
@@ -290,13 +272,12 @@ export interface Query_Date {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateConditions conditions = 2;
    */
-  conditions?: Query_DateConditions;
-
+  conditions?: Query_DateConditions
 }
 
 /**
@@ -306,18 +287,17 @@ export interface Query_StringConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValues in = 1;
    */
-  in?: Query_StringValues;
+  in?: Query_StringValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue eq = 2;
    */
-  eq?: Query_StringValue;
+  eq?: Query_StringValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue contains = 3;
    */
-  contains?: Query_StringValue;
-
+  contains?: Query_StringValue
 }
 
 /**
@@ -327,13 +307,12 @@ export interface Query_String {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringConditions conditions = 2;
    */
-  conditions?: Query_StringConditions;
-
+  conditions?: Query_StringConditions
 }
 
 /**
@@ -343,13 +322,12 @@ export interface Query_IntConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntValues in = 1;
    */
-  in?: Query_IntValues;
+  in?: Query_IntValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntValue eq = 2;
    */
-  eq?: Query_IntValue;
-
+  eq?: Query_IntValue
 }
 
 /**
@@ -359,13 +337,12 @@ export interface Query_Int {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntConditions conditions = 2;
    */
-  conditions?: Query_IntConditions;
-
+  conditions?: Query_IntConditions
 }
 
 /**
@@ -375,13 +352,12 @@ export interface Query_Int64Conditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Values in = 1;
    */
-  in?: Query_Int64Values;
+  in?: Query_Int64Values
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Value eq = 2;
    */
-  eq?: Query_Int64Value;
-
+  eq?: Query_Int64Value
 }
 
 /**
@@ -391,12 +367,10 @@ export interface Query_Int64 {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  operator: Query_Operator;
+  operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Conditions conditions = 2;
    */
-  conditions?: Query_Int64Conditions;
-
+  conditions?: Query_Int64Conditions
 }
-

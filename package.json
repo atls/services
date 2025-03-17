@@ -4,8 +4,7 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "workspaces": [
-    "service/*",
-    "rpc/*"
+    "files/rpc/**/*"
   ],
   "resolutions": {
     "pg": "8.10.0"
@@ -18,6 +17,12 @@
     "typescript": "5.5.4"
   },
   "packageManager": "yarn@4.7.0",
+  "formatterIgnorePatterns": [
+    "files/service/**/*"
+  ],
+  "linterIgnorePatterns": [
+    "files/service/**/*"
+  ],
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",
@@ -25,5 +30,8 @@
       "type": "libraries",
       "migration": "1643131477515"
     }
-  }
+  },
+  "typecheckIgnorePatterns": [
+    "files/service/**/*"
+  ]
 }

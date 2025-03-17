@@ -50,5 +50,5 @@
     "noImplicitOverride": true,
     "skipLibCheck": true
   },
-  "include": ["project.types.d.ts", "service/**/*", "rpc/**/*"]
+  "include": ["project.types.d.ts", "files/rpc/**/*"]
 }

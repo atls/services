@@ -1,6 +1,6 @@
+import type { File }              from '@atls/files-rpc/connect'
+import type { FilesEngine }       from '@atls/files-rpc/connect'
 import type { Client }            from '@connectrpc/connect'
-import type { File }              from '@atls/files-rpc'
-import type { FilesService }      from '@atls/files-rpc'
 
 import { Injectable }             from '@nestjs/common'
 import { Inject }                 from '@nestjs/common'
@@ -14,7 +14,7 @@ export class FileByIdDataLoader {
 
   constructor(
     @Inject(FILES_RPC_CLIENT_TOKEN)
-    protected readonly client: Client<typeof FilesService>
+    protected readonly client: Client<typeof FilesEngine>
   ) {
     this.dataloader = new DataLoader<string, File>(async (queries) => this.getFiles(queries), {
       cache: false,

@@ -3,9 +3,19 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
-import { Query_ID, Query_Order, Query_Pager } from "../../queries/v1alpha1/queries_pb.js";
+import type { BinaryReadOptions } from '@bufbuild/protobuf'
+import type { FieldList }         from '@bufbuild/protobuf'
+import type { JsonReadOptions }   from '@bufbuild/protobuf'
+import type { JsonValue }         from '@bufbuild/protobuf'
+import type { PartialMessage }    from '@bufbuild/protobuf'
+import type { PlainMessage }      from '@bufbuild/protobuf'
+
+import { Message }                from '@bufbuild/protobuf'
+import { proto3 }                 from '@bufbuild/protobuf'
+
+import { Query_ID }               from '../../queries/v1alpha1/queries_pb.js'
+import { Query_Order }            from '../../queries/v1alpha1/queries_pb.js'
+import { Query_Pager }            from '../../queries/v1alpha1/queries_pb.js'
 
 /**
  * @generated from message tech.atls.files_engine.v1alpha1.File
@@ -14,45 +24,48 @@ export class File extends Message<File> {
   /**
    * @generated from field: string id = 1;
    */
-  id = "";
+  id = ''
 
   /**
    * @generated from field: string url = 2;
    */
-  url = "";
+  url = ''
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  ownerId = "";
+  ownerId = ''
 
   constructor(data?: PartialMessage<File>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.File";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.File'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "url", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "owner_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
+    { no: 1, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: 'owner_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): File {
-    return new File().fromBinary(bytes, options);
+    return new File().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): File {
-    return new File().fromJson(jsonValue, options);
+    return new File().fromJson(jsonValue, options)
   }
 
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): File {
-    return new File().fromJsonString(jsonString, options);
+    return new File().fromJsonString(jsonString, options)
   }
 
-  static equals(a: File | PlainMessage<File> | undefined, b: File | PlainMessage<File> | undefined): boolean {
-    return proto3.util.equals(File, a, b);
+  static equals(
+    a: File | PlainMessage<File> | undefined,
+    b: File | PlainMessage<File> | undefined
+  ): boolean {
+    return proto3.util.equals(File, a, b)
   }
 }
 
@@ -63,45 +76,48 @@ export class Upload extends Message<Upload> {
   /**
    * @generated from field: string id = 1;
    */
-  id = "";
+  id = ''
 
   /**
    * @generated from field: string url = 2;
    */
-  url = "";
+  url = ''
 
   /**
    * @generated from field: string owner_id = 3;
    */
-  ownerId = "";
+  ownerId = ''
 
   constructor(data?: PartialMessage<Upload>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.Upload";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.Upload'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "url", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "owner_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
+    { no: 1, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: 'owner_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Upload {
-    return new Upload().fromBinary(bytes, options);
+    return new Upload().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Upload {
-    return new Upload().fromJson(jsonValue, options);
+    return new Upload().fromJson(jsonValue, options)
   }
 
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Upload {
-    return new Upload().fromJsonString(jsonString, options);
+    return new Upload().fromJsonString(jsonString, options)
   }
 
-  static equals(a: Upload | PlainMessage<Upload> | undefined, b: Upload | PlainMessage<Upload> | undefined): boolean {
-    return proto3.util.equals(Upload, a, b);
+  static equals(
+    a: Upload | PlainMessage<Upload> | undefined,
+    b: Upload | PlainMessage<Upload> | undefined
+  ): boolean {
+    return proto3.util.equals(Upload, a, b)
   }
 }
 
@@ -112,39 +128,42 @@ export class ListFilesResponse extends Message<ListFilesResponse> {
   /**
    * @generated from field: repeated tech.atls.files_engine.v1alpha1.File files = 1;
    */
-  files: File[] = [];
+  files: File[] = []
 
   /**
    * @generated from field: bool has_next_page = 2;
    */
-  hasNextPage = false;
+  hasNextPage = false
 
   constructor(data?: PartialMessage<ListFilesResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.ListFilesResponse";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.ListFilesResponse'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "files", kind: "message", T: File, repeated: true },
-    { no: 2, name: "has_next_page", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-  ]);
+    { no: 1, name: 'files', kind: 'message', T: File, repeated: true },
+    { no: 2, name: 'has_next_page', kind: 'scalar', T: 8 /* ScalarType.BOOL */ },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListFilesResponse {
-    return new ListFilesResponse().fromBinary(bytes, options);
+    return new ListFilesResponse().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListFilesResponse {
-    return new ListFilesResponse().fromJson(jsonValue, options);
+    return new ListFilesResponse().fromJson(jsonValue, options)
   }
 
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListFilesResponse {
-    return new ListFilesResponse().fromJsonString(jsonString, options);
+    return new ListFilesResponse().fromJsonString(jsonString, options)
   }
 
-  static equals(a: ListFilesResponse | PlainMessage<ListFilesResponse> | undefined, b: ListFilesResponse | PlainMessage<ListFilesResponse> | undefined): boolean {
-    return proto3.util.equals(ListFilesResponse, a, b);
+  static equals(
+    a: ListFilesResponse | PlainMessage<ListFilesResponse> | undefined,
+    b: ListFilesResponse | PlainMessage<ListFilesResponse> | undefined
+  ): boolean {
+    return proto3.util.equals(ListFilesResponse, a, b)
   }
 }
 
@@ -155,51 +174,57 @@ export class CreateUploadRequest extends Message<CreateUploadRequest> {
   /**
    * @generated from field: string owner_id = 1;
    */
-  ownerId = "";
+  ownerId = ''
 
   /**
    * @generated from field: string bucket = 2;
    */
-  bucket = "";
+  bucket = ''
 
   /**
    * @generated from field: string name = 3;
    */
-  name = "";
+  name = ''
 
   /**
    * @generated from field: int32 size = 4;
    */
-  size = 0;
+  size = 0
 
   constructor(data?: PartialMessage<CreateUploadRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.CreateUploadRequest";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.CreateUploadRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "owner_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "bucket", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 3, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 4, name: "size", kind: "scalar", T: 5 /* ScalarType.INT32 */ },
-  ]);
+    { no: 1, name: 'owner_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'bucket', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: 'size', kind: 'scalar', T: 5 /* ScalarType.INT32 */ },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateUploadRequest {
-    return new CreateUploadRequest().fromBinary(bytes, options);
+    return new CreateUploadRequest().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateUploadRequest {
-    return new CreateUploadRequest().fromJson(jsonValue, options);
+    return new CreateUploadRequest().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateUploadRequest {
-    return new CreateUploadRequest().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): CreateUploadRequest {
+    return new CreateUploadRequest().fromJsonString(jsonString, options)
   }
 
-  static equals(a: CreateUploadRequest | PlainMessage<CreateUploadRequest> | undefined, b: CreateUploadRequest | PlainMessage<CreateUploadRequest> | undefined): boolean {
-    return proto3.util.equals(CreateUploadRequest, a, b);
+  static equals(
+    a: CreateUploadRequest | PlainMessage<CreateUploadRequest> | undefined,
+    b: CreateUploadRequest | PlainMessage<CreateUploadRequest> | undefined
+  ): boolean {
+    return proto3.util.equals(CreateUploadRequest, a, b)
   }
 }
 
@@ -210,33 +235,39 @@ export class CreateUploadResponse extends Message<CreateUploadResponse> {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.Upload result = 1;
    */
-  result?: Upload;
+  result?: Upload
 
   constructor(data?: PartialMessage<CreateUploadResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.CreateUploadResponse";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.CreateUploadResponse'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "result", kind: "message", T: Upload },
-  ]);
+    { no: 1, name: 'result', kind: 'message', T: Upload },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateUploadResponse {
-    return new CreateUploadResponse().fromBinary(bytes, options);
+    return new CreateUploadResponse().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CreateUploadResponse {
-    return new CreateUploadResponse().fromJson(jsonValue, options);
+    return new CreateUploadResponse().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CreateUploadResponse {
-    return new CreateUploadResponse().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): CreateUploadResponse {
+    return new CreateUploadResponse().fromJsonString(jsonString, options)
   }
 
-  static equals(a: CreateUploadResponse | PlainMessage<CreateUploadResponse> | undefined, b: CreateUploadResponse | PlainMessage<CreateUploadResponse> | undefined): boolean {
-    return proto3.util.equals(CreateUploadResponse, a, b);
+  static equals(
+    a: CreateUploadResponse | PlainMessage<CreateUploadResponse> | undefined,
+    b: CreateUploadResponse | PlainMessage<CreateUploadResponse> | undefined
+  ): boolean {
+    return proto3.util.equals(CreateUploadResponse, a, b)
   }
 }
 
@@ -247,39 +278,45 @@ export class ConfirmUploadRequest extends Message<ConfirmUploadRequest> {
   /**
    * @generated from field: string id = 1;
    */
-  id = "";
+  id = ''
 
   /**
    * @generated from field: string owner_id = 2;
    */
-  ownerId = "";
+  ownerId = ''
 
   constructor(data?: PartialMessage<ConfirmUploadRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.ConfirmUploadRequest";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.ConfirmUploadRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "owner_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
+    { no: 1, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: 'owner_id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ConfirmUploadRequest {
-    return new ConfirmUploadRequest().fromBinary(bytes, options);
+    return new ConfirmUploadRequest().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ConfirmUploadRequest {
-    return new ConfirmUploadRequest().fromJson(jsonValue, options);
+    return new ConfirmUploadRequest().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ConfirmUploadRequest {
-    return new ConfirmUploadRequest().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): ConfirmUploadRequest {
+    return new ConfirmUploadRequest().fromJsonString(jsonString, options)
   }
 
-  static equals(a: ConfirmUploadRequest | PlainMessage<ConfirmUploadRequest> | undefined, b: ConfirmUploadRequest | PlainMessage<ConfirmUploadRequest> | undefined): boolean {
-    return proto3.util.equals(ConfirmUploadRequest, a, b);
+  static equals(
+    a: ConfirmUploadRequest | PlainMessage<ConfirmUploadRequest> | undefined,
+    b: ConfirmUploadRequest | PlainMessage<ConfirmUploadRequest> | undefined
+  ): boolean {
+    return proto3.util.equals(ConfirmUploadRequest, a, b)
   }
 }
 
@@ -290,33 +327,42 @@ export class ConfirmUploadResponse extends Message<ConfirmUploadResponse> {
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.File result = 1;
    */
-  result?: File;
+  result?: File
 
   constructor(data?: PartialMessage<ConfirmUploadResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.ConfirmUploadResponse";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.ConfirmUploadResponse'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "result", kind: "message", T: File },
-  ]);
+    { no: 1, name: 'result', kind: 'message', T: File },
+  ])
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ConfirmUploadResponse {
-    return new ConfirmUploadResponse().fromBinary(bytes, options);
+  static fromBinary(
+    bytes: Uint8Array,
+    options?: Partial<BinaryReadOptions>
+  ): ConfirmUploadResponse {
+    return new ConfirmUploadResponse().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ConfirmUploadResponse {
-    return new ConfirmUploadResponse().fromJson(jsonValue, options);
+    return new ConfirmUploadResponse().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ConfirmUploadResponse {
-    return new ConfirmUploadResponse().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): ConfirmUploadResponse {
+    return new ConfirmUploadResponse().fromJsonString(jsonString, options)
   }
 
-  static equals(a: ConfirmUploadResponse | PlainMessage<ConfirmUploadResponse> | undefined, b: ConfirmUploadResponse | PlainMessage<ConfirmUploadResponse> | undefined): boolean {
-    return proto3.util.equals(ConfirmUploadResponse, a, b);
+  static equals(
+    a: ConfirmUploadResponse | PlainMessage<ConfirmUploadResponse> | undefined,
+    b: ConfirmUploadResponse | PlainMessage<ConfirmUploadResponse> | undefined
+  ): boolean {
+    return proto3.util.equals(ConfirmUploadResponse, a, b)
   }
 }
 
@@ -327,45 +373,48 @@ export class ListFilesRequest extends Message<ListFilesRequest> {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Pager pager = 1;
    */
-  pager?: Query_Pager;
+  pager?: Query_Pager
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Order order = 2;
    */
-  order?: Query_Order;
+  order?: Query_Order
 
   /**
    * @generated from field: tech.atls.files_engine.v1alpha1.ListFilesRequest.FilesQuery query = 3;
    */
-  query?: ListFilesRequest_FilesQuery;
+  query?: ListFilesRequest_FilesQuery
 
   constructor(data?: PartialMessage<ListFilesRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.ListFilesRequest";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.ListFilesRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pager", kind: "message", T: Query_Pager },
-    { no: 2, name: "order", kind: "message", T: Query_Order },
-    { no: 3, name: "query", kind: "message", T: ListFilesRequest_FilesQuery },
-  ]);
+    { no: 1, name: 'pager', kind: 'message', T: Query_Pager },
+    { no: 2, name: 'order', kind: 'message', T: Query_Order },
+    { no: 3, name: 'query', kind: 'message', T: ListFilesRequest_FilesQuery },
+  ])
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListFilesRequest {
-    return new ListFilesRequest().fromBinary(bytes, options);
+    return new ListFilesRequest().fromBinary(bytes, options)
   }
 
   static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListFilesRequest {
-    return new ListFilesRequest().fromJson(jsonValue, options);
+    return new ListFilesRequest().fromJson(jsonValue, options)
   }
 
   static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListFilesRequest {
-    return new ListFilesRequest().fromJsonString(jsonString, options);
+    return new ListFilesRequest().fromJsonString(jsonString, options)
   }
 
-  static equals(a: ListFilesRequest | PlainMessage<ListFilesRequest> | undefined, b: ListFilesRequest | PlainMessage<ListFilesRequest> | undefined): boolean {
-    return proto3.util.equals(ListFilesRequest, a, b);
+  static equals(
+    a: ListFilesRequest | PlainMessage<ListFilesRequest> | undefined,
+    b: ListFilesRequest | PlainMessage<ListFilesRequest> | undefined
+  ): boolean {
+    return proto3.util.equals(ListFilesRequest, a, b)
   }
 }
 
@@ -376,39 +425,51 @@ export class ListFilesRequest_FilesQuery extends Message<ListFilesRequest_FilesQ
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID id = 1;
    */
-  id?: Query_ID;
+  id?: Query_ID
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.ID owner_id = 2;
    */
-  ownerId?: Query_ID;
+  ownerId?: Query_ID
 
   constructor(data?: PartialMessage<ListFilesRequest_FilesQuery>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.ListFilesRequest.FilesQuery";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.ListFilesRequest.FilesQuery'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "message", T: Query_ID },
-    { no: 2, name: "owner_id", kind: "message", T: Query_ID },
-  ]);
+    { no: 1, name: 'id', kind: 'message', T: Query_ID },
+    { no: 2, name: 'owner_id', kind: 'message', T: Query_ID },
+  ])
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListFilesRequest_FilesQuery {
-    return new ListFilesRequest_FilesQuery().fromBinary(bytes, options);
+  static fromBinary(
+    bytes: Uint8Array,
+    options?: Partial<BinaryReadOptions>
+  ): ListFilesRequest_FilesQuery {
+    return new ListFilesRequest_FilesQuery().fromBinary(bytes, options)
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListFilesRequest_FilesQuery {
-    return new ListFilesRequest_FilesQuery().fromJson(jsonValue, options);
+  static fromJson(
+    jsonValue: JsonValue,
+    options?: Partial<JsonReadOptions>
+  ): ListFilesRequest_FilesQuery {
+    return new ListFilesRequest_FilesQuery().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListFilesRequest_FilesQuery {
-    return new ListFilesRequest_FilesQuery().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): ListFilesRequest_FilesQuery {
+    return new ListFilesRequest_FilesQuery().fromJsonString(jsonString, options)
   }
 
-  static equals(a: ListFilesRequest_FilesQuery | PlainMessage<ListFilesRequest_FilesQuery> | undefined, b: ListFilesRequest_FilesQuery | PlainMessage<ListFilesRequest_FilesQuery> | undefined): boolean {
-    return proto3.util.equals(ListFilesRequest_FilesQuery, a, b);
+  static equals(
+    a: ListFilesRequest_FilesQuery | PlainMessage<ListFilesRequest_FilesQuery> | undefined,
+    b: ListFilesRequest_FilesQuery | PlainMessage<ListFilesRequest_FilesQuery> | undefined
+  ): boolean {
+    return proto3.util.equals(ListFilesRequest_FilesQuery, a, b)
   }
 }
 
@@ -419,33 +480,45 @@ export class GenerateFileUrlRequest extends Message<GenerateFileUrlRequest> {
   /**
    * @generated from field: string id = 1;
    */
-  id = "";
+  id = ''
 
   constructor(data?: PartialMessage<GenerateFileUrlRequest>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.GenerateFileUrlRequest";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.GenerateFileUrlRequest'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
+    { no: 1, name: 'id', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ])
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenerateFileUrlRequest {
-    return new GenerateFileUrlRequest().fromBinary(bytes, options);
+  static fromBinary(
+    bytes: Uint8Array,
+    options?: Partial<BinaryReadOptions>
+  ): GenerateFileUrlRequest {
+    return new GenerateFileUrlRequest().fromBinary(bytes, options)
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GenerateFileUrlRequest {
-    return new GenerateFileUrlRequest().fromJson(jsonValue, options);
+  static fromJson(
+    jsonValue: JsonValue,
+    options?: Partial<JsonReadOptions>
+  ): GenerateFileUrlRequest {
+    return new GenerateFileUrlRequest().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GenerateFileUrlRequest {
-    return new GenerateFileUrlRequest().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): GenerateFileUrlRequest {
+    return new GenerateFileUrlRequest().fromJsonString(jsonString, options)
   }
 
-  static equals(a: GenerateFileUrlRequest | PlainMessage<GenerateFileUrlRequest> | undefined, b: GenerateFileUrlRequest | PlainMessage<GenerateFileUrlRequest> | undefined): boolean {
-    return proto3.util.equals(GenerateFileUrlRequest, a, b);
+  static equals(
+    a: GenerateFileUrlRequest | PlainMessage<GenerateFileUrlRequest> | undefined,
+    b: GenerateFileUrlRequest | PlainMessage<GenerateFileUrlRequest> | undefined
+  ): boolean {
+    return proto3.util.equals(GenerateFileUrlRequest, a, b)
   }
 }
 
@@ -456,33 +529,44 @@ export class GenerateFileUrlResponse extends Message<GenerateFileUrlResponse> {
   /**
    * @generated from field: string url = 1;
    */
-  url = "";
+  url = ''
 
   constructor(data?: PartialMessage<GenerateFileUrlResponse>) {
-    super();
-    proto3.util.initPartial(data, this);
+    super()
+    proto3.util.initPartial(data, this)
   }
 
-  static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "tech.atls.files_engine.v1alpha1.GenerateFileUrlResponse";
+  static readonly runtime: typeof proto3 = proto3
+  static readonly typeName = 'tech.atls.files_engine.v1alpha1.GenerateFileUrlResponse'
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "url", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-  ]);
+    { no: 1, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+  ])
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GenerateFileUrlResponse {
-    return new GenerateFileUrlResponse().fromBinary(bytes, options);
+  static fromBinary(
+    bytes: Uint8Array,
+    options?: Partial<BinaryReadOptions>
+  ): GenerateFileUrlResponse {
+    return new GenerateFileUrlResponse().fromBinary(bytes, options)
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GenerateFileUrlResponse {
-    return new GenerateFileUrlResponse().fromJson(jsonValue, options);
+  static fromJson(
+    jsonValue: JsonValue,
+    options?: Partial<JsonReadOptions>
+  ): GenerateFileUrlResponse {
+    return new GenerateFileUrlResponse().fromJson(jsonValue, options)
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GenerateFileUrlResponse {
-    return new GenerateFileUrlResponse().fromJsonString(jsonString, options);
+  static fromJsonString(
+    jsonString: string,
+    options?: Partial<JsonReadOptions>
+  ): GenerateFileUrlResponse {
+    return new GenerateFileUrlResponse().fromJsonString(jsonString, options)
   }
 
-  static equals(a: GenerateFileUrlResponse | PlainMessage<GenerateFileUrlResponse> | undefined, b: GenerateFileUrlResponse | PlainMessage<GenerateFileUrlResponse> | undefined): boolean {
-    return proto3.util.equals(GenerateFileUrlResponse, a, b);
+  static equals(
+    a: GenerateFileUrlResponse | PlainMessage<GenerateFileUrlResponse> | undefined,
+    b: GenerateFileUrlResponse | PlainMessage<GenerateFileUrlResponse> | undefined
+  ): boolean {
+    return proto3.util.equals(GenerateFileUrlResponse, a, b)
   }
 }
-

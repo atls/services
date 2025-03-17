@@ -3,13 +3,12 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import type { Timestamp } from "@bufbuild/protobuf";
+import type { Timestamp } from '@bufbuild/protobuf'
 
 /**
  * @generated from message tech.atls.queries.v1alpha1.Query
  */
-export abstract class Query {
-}
+export abstract class Query {}
 
 /**
  * @generated from enum tech.atls.queries.v1alpha1.Query.OrderDirection
@@ -48,13 +47,12 @@ export abstract class Query_Pager {
   /**
    * @generated from field: int32 offset = 1;
    */
-  abstract readonly offset: number;
+  abstract readonly offset: number
 
   /**
    * @generated from field: int32 take = 2;
    */
-  abstract readonly take: number;
-
+  abstract readonly take: number
 }
 
 /**
@@ -64,13 +62,12 @@ export abstract class Query_Order {
   /**
    * @generated from field: string field = 1;
    */
-  abstract readonly field: string;
+  abstract readonly field: string
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.OrderDirection direction = 2;
    */
-  abstract readonly direction: Query_OrderDirection;
-
+  abstract readonly direction: Query_OrderDirection
 }
 
 /**
@@ -80,13 +77,12 @@ export abstract class Query_Search {
   /**
    * @generated from field: repeated tech.atls.queries.v1alpha1.Query.Search.Field fields = 1;
    */
-  abstract readonly fields: Query_Search_Field[];
+  abstract readonly fields: Query_Search_Field[]
 
   /**
    * @generated from field: string value = 2;
    */
-  abstract readonly value: string;
-
+  abstract readonly value: string
 }
 
 /**
@@ -96,8 +92,7 @@ export abstract class Query_Search_Field {
   /**
    * @generated from field: repeated string path = 1;
    */
-  abstract readonly path: string[];
-
+  abstract readonly path: string[]
 }
 
 /**
@@ -107,8 +102,7 @@ export abstract class Query_StringValue {
   /**
    * @generated from field: string value = 1;
    */
-  abstract readonly value: string;
-
+  abstract readonly value: string
 }
 
 /**
@@ -118,8 +112,7 @@ export abstract class Query_StringValues {
   /**
    * @generated from field: repeated string values = 1;
    */
-  abstract readonly values: string[];
-
+  abstract readonly values: string[]
 }
 
 /**
@@ -129,8 +122,7 @@ export abstract class Query_IntValue {
   /**
    * @generated from field: int32 value = 1;
    */
-  abstract readonly value: number;
-
+  abstract readonly value: number
 }
 
 /**
@@ -140,8 +132,7 @@ export abstract class Query_IntValues {
   /**
    * @generated from field: repeated int32 values = 1;
    */
-  abstract readonly values: number[];
-
+  abstract readonly values: number[]
 }
 
 /**
@@ -151,8 +142,7 @@ export abstract class Query_Int64Value {
   /**
    * @generated from field: int64 value = 1;
    */
-  abstract readonly value: bigint;
-
+  abstract readonly value: bigint
 }
 
 /**
@@ -162,8 +152,7 @@ export abstract class Query_Int64Values {
   /**
    * @generated from field: repeated int64 values = 1;
    */
-  abstract readonly values: bigint[];
-
+  abstract readonly values: bigint[]
 }
 
 /**
@@ -173,8 +162,7 @@ export abstract class Query_BooleanValue {
   /**
    * @generated from field: bool value = 1;
    */
-  abstract readonly value: boolean;
-
+  abstract readonly value: boolean
 }
 
 /**
@@ -184,8 +172,7 @@ export abstract class Query_DateValue {
   /**
    * @generated from field: google.protobuf.Timestamp value = 1;
    */
-  abstract readonly value?: Timestamp;
-
+  abstract readonly value?: Timestamp
 }
 
 /**
@@ -195,18 +182,17 @@ export abstract class Query_IDConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValues in = 1;
    */
-  abstract readonly in?: Query_StringValues;
+  abstract readonly in?: Query_StringValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue eq = 2;
    */
-  abstract readonly eq?: Query_StringValue;
+  abstract readonly eq?: Query_StringValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.BooleanValue exists = 3;
    */
-  abstract readonly exists?: Query_BooleanValue;
-
+  abstract readonly exists?: Query_BooleanValue
 }
 
 /**
@@ -216,13 +202,12 @@ export abstract class Query_ID {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IDConditions conditions = 2;
    */
-  abstract readonly conditions?: Query_IDConditions;
-
+  abstract readonly conditions?: Query_IDConditions
 }
 
 /**
@@ -232,13 +217,12 @@ export abstract class Query_DateRangeConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue from = 1;
    */
-  abstract readonly from?: Query_DateValue;
+  abstract readonly from?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue to = 2;
    */
-  abstract readonly to?: Query_DateValue;
-
+  abstract readonly to?: Query_DateValue
 }
 
 /**
@@ -248,13 +232,12 @@ export abstract class Query_DateRange {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateRangeConditions conditions = 2;
    */
-  abstract readonly conditions?: Query_DateRangeConditions;
-
+  abstract readonly conditions?: Query_DateRangeConditions
 }
 
 /**
@@ -264,23 +247,22 @@ export abstract class Query_DateConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue eq = 1;
    */
-  abstract readonly eq?: Query_DateValue;
+  abstract readonly eq?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.BooleanValue exists = 2;
    */
-  abstract readonly exists?: Query_BooleanValue;
+  abstract readonly exists?: Query_BooleanValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue lt = 3;
    */
-  abstract readonly lt?: Query_DateValue;
+  abstract readonly lt?: Query_DateValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateValue gt = 4;
    */
-  abstract readonly gt?: Query_DateValue;
-
+  abstract readonly gt?: Query_DateValue
 }
 
 /**
@@ -290,13 +272,12 @@ export abstract class Query_Date {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.DateConditions conditions = 2;
    */
-  abstract readonly conditions?: Query_DateConditions;
-
+  abstract readonly conditions?: Query_DateConditions
 }
 
 /**
@@ -306,18 +287,17 @@ export abstract class Query_StringConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValues in = 1;
    */
-  abstract readonly in?: Query_StringValues;
+  abstract readonly in?: Query_StringValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue eq = 2;
    */
-  abstract readonly eq?: Query_StringValue;
+  abstract readonly eq?: Query_StringValue
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringValue contains = 3;
    */
-  abstract readonly contains?: Query_StringValue;
-
+  abstract readonly contains?: Query_StringValue
 }
 
 /**
@@ -327,13 +307,12 @@ export abstract class Query_String {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.StringConditions conditions = 2;
    */
-  abstract readonly conditions?: Query_StringConditions;
-
+  abstract readonly conditions?: Query_StringConditions
 }
 
 /**
@@ -343,13 +322,12 @@ export abstract class Query_IntConditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntValues in = 1;
    */
-  abstract readonly in?: Query_IntValues;
+  abstract readonly in?: Query_IntValues
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntValue eq = 2;
    */
-  abstract readonly eq?: Query_IntValue;
-
+  abstract readonly eq?: Query_IntValue
 }
 
 /**
@@ -359,13 +337,12 @@ export abstract class Query_Int {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.IntConditions conditions = 2;
    */
-  abstract readonly conditions?: Query_IntConditions;
-
+  abstract readonly conditions?: Query_IntConditions
 }
 
 /**
@@ -375,13 +352,12 @@ export abstract class Query_Int64Conditions {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Values in = 1;
    */
-  abstract readonly in?: Query_Int64Values;
+  abstract readonly in?: Query_Int64Values
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Value eq = 2;
    */
-  abstract readonly eq?: Query_Int64Value;
-
+  abstract readonly eq?: Query_Int64Value
 }
 
 /**
@@ -391,12 +367,10 @@ export abstract class Query_Int64 {
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Operator operator = 1;
    */
-  abstract readonly operator: Query_Operator;
+  abstract readonly operator: Query_Operator
 
   /**
    * @generated from field: tech.atls.queries.v1alpha1.Query.Int64Conditions conditions = 2;
    */
-  abstract readonly conditions?: Query_Int64Conditions;
-
+  abstract readonly conditions?: Query_Int64Conditions
 }
-
