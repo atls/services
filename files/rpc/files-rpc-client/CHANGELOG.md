@@ -1,5 +1,12 @@
 
 
+## [0.0.1](https://github.com/atls/services/compare/@atls/files-rpc-client@0.0.0...@atls/files-rpc-client@0.0.1) (2025-03-17)
+
+
+
+
+
+
 # 0.0.0 (2025-03-17)
 
 
