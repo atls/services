@@ -1,6 +1,6 @@
 import type { Client }            from '@connectrpc/connect'
-import type { File }              from '@atls-files-engine/files-rpc'
-import type { FilesService }      from '@atls-files-engine/files-rpc'
+import type { File }              from '@atls/files-rpc'
+import type { FilesService }      from '@atls/files-rpc'
 
 import { Injectable }             from '@nestjs/common'
 import { Inject }                 from '@nestjs/common'

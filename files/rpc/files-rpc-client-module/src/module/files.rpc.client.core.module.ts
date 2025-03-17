@@ -4,7 +4,7 @@ import { Module }                 from '@nestjs/common'
 import { createClient }           from '@connectrpc/connect'
 import { createGrpcTransport }    from '@connectrpc/connect-node'
 
-import { FilesService }           from '@atls-files-engine/files-rpc'
+import { FilesService }           from '@atls/files-rpc'
 
 import { FILES_RPC_CLIENT_TOKEN } from '../constants/index.js'
 

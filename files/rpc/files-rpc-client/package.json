@@ -1,5 +1,5 @@
 {
-  "name": "@atls-files-engine/files-rpc-client",
+  "name": "@atls/files-rpc-client",
   "version": "0.0.0",
   "license": "BSD-3-Clause",
   "type": "module",
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls-files-engine/files-rpc": "workspace:0.0.0",
+    "@atls/files-rpc": "workspace:0.0.0",
     "@bufbuild/protobuf": "1.10.0",
     "@connectrpc/connect": "1.6.1",
     "@connectrpc/connect-node": "1.6.1"

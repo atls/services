@@ -1,5 +1,5 @@
 {
-  "name": "@atls-files-engine/files-rpc-client-module",
+  "name": "@atls/files-rpc-client-module",
   "version": "0.0.0",
   "license": "BSD-3-Clause",
   "type": "module",
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls-files-engine/files-rpc": "workspace:0.0.0",
+    "@atls/files-rpc": "workspace:0.0.0",
     "dataloader": "^2.2.2"
   },
   "devDependencies": {
