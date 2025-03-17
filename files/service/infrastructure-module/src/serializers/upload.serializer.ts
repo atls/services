@@ -1,6 +1,6 @@
 import type { Upload } from '@files-engine/domain-module'
 
-import * as rpc        from '@files-engine/files-rpc/abstractions'
+import * as rpc        from '@atls/files-rpc/abstractions'
 
 export class UploadSerializer extends rpc.Upload {
   constructor(private readonly upload: Upload) {

@@ -24,8 +24,8 @@ export class FilesBucketSizeConditions {
 
   @Guard()
   static create(
-    @Against('min').NotNumberBetween(0, Infinity) min: number,
-    @Against('max').NotNumberBetween(0, Infinity) max: number
+    @(Against('min').NotNumberBetween(0, Infinity)) min: number,
+    @(Against('max').NotNumberBetween(0, Infinity)) max: number
   ): FilesBucketSizeConditions {
     const filesBucketSizeConditions = new FilesBucketSizeConditions()
 

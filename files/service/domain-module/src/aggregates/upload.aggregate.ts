@@ -9,7 +9,7 @@ import { AggregateRoot }               from '@nestjs/cqrs'
 import match                           from 'mime-match'
 import mime                            from 'mime-types'
 
-import { UknownFileTypeError }         from '../errors/index.js'
+import { UnknownFileTypeError }        from '../errors/index.js'
 import { InvalidContentTypeError }     from '../errors/index.js'
 import { InvalidContentSizeError }     from '../errors/index.js'
 import { UploadNotReadyError }         from '../errors/index.js'
@@ -116,16 +116,16 @@ export class Upload extends AggregateRoot {
 
   @Guard()
   create(
-    @Against('id').NotUUID(4) id: string,
-    @Against('ownerId').NotUUID(4) ownerId: string,
-    @Against('bucket').NotInstance(FilesBucket) bucket: FilesBucket,
-    @Against('name').Empty() name: string,
-    @Against('size').NotNumberBetween(0, Infinity) size: number
+    @(Against('id').NotUUID(4)) id: string,
+    @(Against('ownerId').NotUUID(4)) ownerId: string,
+    @(Against('bucket').NotInstance(FilesBucket)) bucket: FilesBucket,
+    @(Against('name').Empty()) name: string,
+    @(Against('size').NotNumberBetween(0, Infinity)) size: number
   ): Upload {
     const contentType = mime.lookup(name)
 
     if (!contentType) {
-      throw new UknownFileTypeError()
+      throw new UnknownFileTypeError()
     }
 
     if (!match(contentType, bucket.conditions.type)) {
@@ -144,7 +144,7 @@ export class Upload extends AggregateRoot {
   }
 
   @Guard()
-  prepare(@Against('url').Empty() url: string): Upload {
+  prepare(@(Against('url').Empty()) url: string): Upload {
     if (this.confirmed) {
       throw new UploadAlreadyConfirmedError()
     }
@@ -156,8 +156,8 @@ export class Upload extends AggregateRoot {
 
   @Guard()
   confirm(
-    @Against('ownerId').NotUUID(4) ownerId: string,
-    @Against('metadadta').Optional.NotInstance(StorageFileMetadata) metadata: StorageFileMetadata
+    @(Against('ownerId').NotUUID(4)) ownerId: string,
+    @(Against('metadadta').Optional.NotInstance(StorageFileMetadata)) metadata: StorageFileMetadata
   ): File {
     if (this.confirmed) {
       throw new UploadAlreadyConfirmedError()

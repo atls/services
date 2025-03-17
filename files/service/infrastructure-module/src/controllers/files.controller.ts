@@ -1,15 +1,15 @@
+import type { ListFilesRequest }        from '@atls/files-rpc/interfaces'
+import type { ListFilesResponse }       from '@atls/files-rpc/interfaces'
+import type { CreateUploadRequest }     from '@atls/files-rpc/interfaces'
+import type { ConfirmUploadRequest }    from '@atls/files-rpc/interfaces'
+import type { CreateUploadResponse }    from '@atls/files-rpc/interfaces'
+import type { ConfirmUploadResponse }   from '@atls/files-rpc/interfaces'
+import type { GenerateFileUrlResponse } from '@atls/files-rpc/interfaces'
+import type { GenerateFileUrlRequest }  from '@atls/files-rpc/interfaces'
 import type { ServiceImpl }             from '@connectrpc/connect'
 import type { Upload }                  from '@files-engine/domain-module'
 import type { File }                    from '@files-engine/domain-module'
 import type { FindFilesByQueryResult }  from '@files-engine/domain-module'
-import type { ListFilesRequest }        from '@files-engine/files-rpc/interfaces'
-import type { ListFilesResponse }       from '@files-engine/files-rpc/interfaces'
-import type { CreateUploadRequest }     from '@files-engine/files-rpc/interfaces'
-import type { ConfirmUploadRequest }    from '@files-engine/files-rpc/interfaces'
-import type { CreateUploadResponse }    from '@files-engine/files-rpc/interfaces'
-import type { ConfirmUploadResponse }   from '@files-engine/files-rpc/interfaces'
-import type { GenerateFileUrlResponse } from '@files-engine/files-rpc/interfaces'
-import type { GenerateFileUrlRequest }  from '@files-engine/files-rpc/interfaces'
 
 import { ConnectRpcMethod }             from '@atls/nestjs-connectrpc'
 import { ConnectRpcService }            from '@atls/nestjs-connectrpc'
@@ -21,13 +21,13 @@ import { QueryBus }                     from '@nestjs/cqrs'
 import { CommandBus }                   from '@nestjs/cqrs'
 import { v4 as uuid }                   from 'uuid'
 
+import { FilesEngine }                  from '@atls/files-rpc/connect'
 import { GetFilesQuery }                from '@files-engine/application-module'
 import { CreateUploadCommand }          from '@files-engine/application-module'
 import { ConfirmUploadCommand }         from '@files-engine/application-module'
 import { GetUploadByIdQuery }           from '@files-engine/application-module'
 import { GenerateFileUrlByIdQuery }     from '@files-engine/application-module'
 import { GetFileByIdQuery }             from '@files-engine/application-module'
-import { FilesService }                 from '@files-engine/files-rpc/connect'
 
 import { CreateUploadPayload }          from '../payloads/index.js'
 import { GenerateFileUrlPayload }       from '../payloads/index.js'
@@ -39,9 +39,9 @@ import { ListFilesSerializer }          from '../serializers/index.js'
 import { GenerateFileUrlSerializer }    from '../serializers/index.js'
 
 @Controller()
-@ConnectRpcService(FilesService)
+@ConnectRpcService(FilesEngine)
 @UseFilters(ConnectRpcExceptionsFilter)
-export class FilesController implements ServiceImpl<typeof FilesService> {
+export class FilesController implements ServiceImpl<typeof FilesEngine> {
   constructor(
     private readonly commandBus: CommandBus,
     private readonly queryBus: QueryBus,

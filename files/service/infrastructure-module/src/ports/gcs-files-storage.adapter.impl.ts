@@ -84,7 +84,7 @@ export class GcsFilesStorageAdapterImpl extends FilesStorageAdapter {
       )
     } catch (error) {
       if (error instanceof Error) {
-        if ((error as any).code !== 404) {
+        if ('code' in error && error.code !== 404) {
           this.#logger.error(error)
         }
       }

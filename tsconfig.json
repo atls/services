@@ -1,28 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -50,5 +28,5 @@
     "noImplicitOverride": true,
     "skipLibCheck": true
   },
-  "include": ["project.types.d.ts", "files/rpc/**/*"]
+  "include": ["project.types.d.ts", "files/**/*"]
 }

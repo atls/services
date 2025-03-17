@@ -1,4 +1,4 @@
-import { GenerateFileUrlResponse } from '@files-engine/files-rpc/abstractions'
+import { GenerateFileUrlResponse } from '@atls/files-rpc/abstractions'
 
 export class GenerateFileUrlSerializer extends GenerateFileUrlResponse {
   constructor(private readonly result: string) {

@@ -1,5 +1,5 @@
-import { PostgreSqlDriver }      from '@mikro-orm/postgresql'
 import { MikroORMConfigBuilder } from '@atls/nestjs-mikro-orm-config'
+import { PostgreSqlDriver }      from '@mikro-orm/postgresql'
 
 import * as entities             from './entities/index.js'
 import * as migrations           from './migrations/index.js'

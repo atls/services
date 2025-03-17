@@ -1,6 +1,6 @@
 import type { File }         from '@files-engine/domain-module'
 
-import { ListFilesResponse } from '@files-engine/files-rpc/abstractions'
+import { ListFilesResponse } from '@atls/files-rpc/abstractions'
 
 import { FileSerializer }    from './file.serializer.js'
 

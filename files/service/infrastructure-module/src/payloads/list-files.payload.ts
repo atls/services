@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
-import type { ListFilesRequest_FilesQuery } from '@files-engine/files-rpc/interfaces'
-import type { ListFilesRequest }            from '@files-engine/files-rpc/interfaces'
+import type { ListFilesRequest_FilesQuery } from '@atls/files-rpc/interfaces'
+import type { ListFilesRequest }            from '@atls/files-rpc/interfaces'
 
 import { IdQueryPayload }                   from '@atls/rpc-query-payloads'
 import { OrderPayload }                     from '@atls/rpc-query-payloads'

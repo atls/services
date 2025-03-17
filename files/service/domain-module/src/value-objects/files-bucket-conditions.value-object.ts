@@ -26,8 +26,8 @@ export class FilesBucketConditions {
 
   @Guard()
   static create(
-    @Against('type').Empty() type: string,
-    @Against('size').NotInstance(FilesBucketSizeConditions) size: FilesBucketSizeConditions
+    @(Against('type').Empty()) type: string,
+    @(Against('size').NotInstance(FilesBucketSizeConditions)) size: FilesBucketSizeConditions
   ): FilesBucketConditions {
     const filesBucketConditions = new FilesBucketConditions()
 

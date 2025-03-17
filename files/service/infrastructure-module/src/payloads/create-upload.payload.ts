@@ -1,4 +1,4 @@
-import type { CreateUploadRequest } from '@files-engine/files-rpc/interfaces'
+import type { CreateUploadRequest } from '@atls/files-rpc/interfaces'
 
 import { IsNotEmpty }               from 'class-validator'
 import { IsInt }                    from 'class-validator'

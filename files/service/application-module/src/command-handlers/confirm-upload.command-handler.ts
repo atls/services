@@ -25,6 +25,7 @@ export class ConfirmUploadCommandHandler implements ICommandHandler<ConfirmUploa
 
     const metadata = await this.storageAdapter.toFileMetadata(upload)
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const file = await upload.confirm(command.ownerId, metadata!)
 
     await this.transactionalRepository.saveUploadAndFile(upload, file)

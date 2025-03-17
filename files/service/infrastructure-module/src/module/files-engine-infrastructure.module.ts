@@ -4,9 +4,6 @@ import type { OnModuleInit }                           from '@nestjs/common'
 
 import type { FilesEngineInfrastructureModuleOptions } from './files-engine-infrastructure.module.interfaces.js'
 
-import { MikroORM }                                    from '@mikro-orm/core'
-import { MikroOrmModule }                              from '@mikro-orm/nestjs'
-import { PostgreSqlDriver }                            from '@mikro-orm/postgresql'
 import { ConnectRpcServer }                            from '@atls/nestjs-connectrpc'
 import { ServerProtocol }                              from '@atls/nestjs-connectrpc'
 import { CqrsModule }                                  from '@atls/nestjs-cqrs'
@@ -20,6 +17,9 @@ import { MikroORMRequestContextModule }                from '@atls/nestjs-mikro-
 import { S3ClientModule }                              from '@atls/nestjs-s3-client'
 import { S3ClientFactory }                             from '@atls/nestjs-s3-client'
 import { ValidationModule }                            from '@atls/nestjs-validation'
+import { MikroORM }                                    from '@mikro-orm/core'
+import { MikroOrmModule }                              from '@mikro-orm/nestjs'
+import { PostgreSqlDriver }                            from '@mikro-orm/postgresql'
 import { Module }                                      from '@nestjs/common'
 
 import { TransactionalRepository }                     from '@files-engine/domain-module'
@@ -39,7 +39,7 @@ import { TransactionalRepositoryImpl }                 from '../repositories/ind
 import { UploadRepositoryImpl }                        from '../repositories/index.js'
 import { FileRepositoryImpl }                          from '../repositories/index.js'
 import { FilesEngineInfrastructureModuleConfig }       from './files-engine-infrastructure.module.config.js'
-import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS }  from './files-engine-infrastructure.module.contants.js'
+import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS }  from './files-engine-infrastructure.module.constants.js'
 
 @Module({})
 export class FilesEngineInfrastructureModule implements OnModuleInit {

@@ -1,13 +1,13 @@
-import type { MikroOrmModuleOptions }                  from '@mikro-orm/nestjs'
 import type { CqrsKafkaEventsModuleOptions }           from '@atls/nestjs-cqrs-kafka-events'
 import type { GcsClientModuleOptions }                 from '@atls/nestjs-gcs-client'
 import type { S3ClientModuleOptions }                  from '@atls/nestjs-s3-client'
+import type { MikroOrmModuleOptions }                  from '@mikro-orm/nestjs'
 
 import type { FilesEngineInfrastructureModuleOptions } from './files-engine-infrastructure.module.interfaces.js'
 
 import { Inject }                                      from '@nestjs/common'
 
-import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS }  from './files-engine-infrastructure.module.contants.js'
+import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS }  from './files-engine-infrastructure.module.constants.js'
 
 export class FilesEngineInfrastructureModuleConfig {
   constructor(

@@ -1,6 +1,6 @@
+import type { RecordMetadata }                      from '@atls/nestjs-cqrs-kafka-events'
 import type { File }                                from '@files-engine/domain-module'
 import type { Upload }                              from '@files-engine/domain-module'
-import type { RecordMetadata }                      from '@atls/nestjs-cqrs-kafka-events'
 import type { IEvent }                              from '@nestjs/cqrs'
 
 import { EntityRepository }                         from '@mikro-orm/core'

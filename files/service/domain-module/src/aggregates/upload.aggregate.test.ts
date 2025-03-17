@@ -7,7 +7,7 @@ import { FilesBucketType }             from '../enums/index.js'
 import { UploadAlreadyConfirmedError } from '../errors/index.js'
 import { UploadInitiatorDoesNotMatch } from '../errors/index.js'
 import { UploadNotReadyError }         from '../errors/index.js'
-import { UknownFileTypeError }         from '../errors/index.js'
+import { UnknownFileTypeError }        from '../errors/index.js'
 import { InvalidContentTypeError }     from '../errors/index.js'
 import { InvalidContentSizeError }     from '../errors/index.js'
 import { FileNotUploadedError }        from '../errors/index.js'
@@ -37,7 +37,7 @@ describe('files-engine', () => {
                 ),
                 faker.system.commonFileName('unknown'),
                 faker.number.int()
-              )).toThrowError(UknownFileTypeError)
+              )).toThrowError(UnknownFileTypeError)
           })
 
           it('check unknown content type', async () => {
@@ -120,7 +120,7 @@ describe('files-engine', () => {
 
         describe('prepare', () => {
           it('check prepare', async () => {
-            const url = faker.image.urlPlaceholder()
+            const url = faker.image.url()
 
             const upload = new Upload().create(
               faker.string.uuid(),
@@ -162,7 +162,7 @@ describe('files-engine', () => {
             expect(() =>
               new Upload().confirm(
                 faker.string.uuid(),
-                StorageFileMetadata.create(faker.image.urlPlaceholder(), 206, 'image/png')
+                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
               )).toThrowError(UploadNotReadyError)
           })
 
@@ -182,12 +182,12 @@ describe('files-engine', () => {
                 faker.system.commonFileName('png'),
                 faker.number.int({ min: 1, max: 99 })
               )
-              .prepare(faker.image.urlPlaceholder())
+              .prepare(faker.image.url())
 
             expect(() =>
               upload.confirm(
                 faker.string.uuid(),
-                StorageFileMetadata.create(faker.image.urlPlaceholder(), 206, 'image/png')
+                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
               )).toThrowError(UploadInitiatorDoesNotMatch)
           })
 
@@ -207,9 +207,9 @@ describe('files-engine', () => {
                 faker.system.commonFileName('png'),
                 faker.number.int({ min: 1, max: 99 })
               )
-              .prepare(faker.image.urlPlaceholder())
+              .prepare(faker.image.url())
 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
             expect(() => upload.confirm(upload.ownerId, undefined as any)).toThrowError(
               FileNotUploadedError
             )
@@ -231,12 +231,12 @@ describe('files-engine', () => {
                 faker.system.commonFileName('png'),
                 faker.number.int({ min: 1, max: 99 })
               )
-              .prepare(faker.image.urlPlaceholder())
+              .prepare(faker.image.url())
 
             upload.commit()
             upload.confirm(
               upload.ownerId,
-              StorageFileMetadata.create(faker.image.urlPlaceholder(), 206, 'image/png')
+              StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
             )
 
             expect(upload.getUncommittedEvents()).toEqual(
@@ -270,17 +270,17 @@ describe('files-engine', () => {
                 faker.system.commonFileName('png'),
                 faker.number.int({ min: 1, max: 99 })
               )
-              .prepare(faker.image.urlPlaceholder())
+              .prepare(faker.image.url())
 
             upload.confirm(
               upload.ownerId,
-              StorageFileMetadata.create(faker.image.urlPlaceholder(), 206, 'image/png')
+              StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
             )
 
             expect(() =>
               upload.confirm(
                 upload.ownerId,
-                StorageFileMetadata.create(faker.image.urlPlaceholder(), 206, 'image/png')
+                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
               )).toThrowError(UploadAlreadyConfirmedError)
           })
         })

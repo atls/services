@@ -83,6 +83,7 @@ export class S3FilesStorageAdapterImpl extends FilesStorageAdapter {
       )
     } catch (error) {
       if (error instanceof Error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((error as any)?.$metadata?.httpStatusCode !== 404) {
           this.#logger.error(error)
         }

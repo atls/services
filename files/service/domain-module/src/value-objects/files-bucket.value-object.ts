@@ -57,11 +57,11 @@ export class FilesBucket {
 
   @Guard()
   static create(
-    @Against('type').NotEnum(FilesBucketType) type: FilesBucketType,
-    @Against('name').Empty() name: string,
-    @Against('bucket').Empty() bucket: string,
-    @Against('path').Empty() path: string,
-    @Against('conditions').NotInstance(FilesBucketConditions) conditions: FilesBucketConditions
+    @(Against('type').NotEnum(FilesBucketType)) type: FilesBucketType,
+    @(Against('name').Empty()) name: string,
+    @(Against('bucket').Empty()) bucket: string,
+    @(Against('path').Empty()) path: string,
+    @(Against('conditions').NotInstance(FilesBucketConditions)) conditions: FilesBucketConditions
   ): FilesBucket {
     const filesBucket = new FilesBucket()
 

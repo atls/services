@@ -58,11 +58,11 @@ export class File extends AggregateRoot {
 
   @Guard()
   static create(
-    @Against('id').NotUUID(4) id: string,
-    @Against('ownerId').NotUUID(4) ownerId: string,
-    @Against('type').NotEnum(FilesBucketType) type: FilesBucketType,
-    @Against('url').Empty() url: string,
-    @Against('bucket').Empty() bucket: string
+    @(Against('id').NotUUID(4)) id: string,
+    @(Against('ownerId').NotUUID(4)) ownerId: string,
+    @(Against('type').NotEnum(FilesBucketType)) type: FilesBucketType,
+    @(Against('url').Empty()) url: string,
+    @(Against('bucket').Empty()) bucket: string
   ): File {
     const file = new File()
 

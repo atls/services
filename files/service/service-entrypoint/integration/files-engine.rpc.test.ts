@@ -1,37 +1,37 @@
-import type { PromiseClient }                           from '@connectrpc/connect'
-import type { INestMicroservice }                       from '@nestjs/common'
-import type { StartedKafkaContainer }                   from '@testcontainers/kafka'
-import type { StartedTestContainer }                    from 'testcontainers'
+import type { Client }                                from '@connectrpc/connect'
+import type { INestMicroservice }                     from '@nestjs/common'
+import type { StartedKafkaContainer }                 from '@testcontainers/kafka'
+import type { StartedTestContainer }                  from 'testcontainers'
 
-import { ConnectError }                                 from '@connectrpc/connect'
-import { ConnectRpcServer }                             from '@atls/nestjs-connectrpc'
-import { ServerProtocol }                               from '@atls/nestjs-connectrpc'
-import { Test }                                         from '@nestjs/testing'
-import { KafkaContainer }                               from '@testcontainers/kafka'
-import { createPromiseClient }                          from '@connectrpc/connect'
-import { createGrpcTransport }                          from '@connectrpc/connect-node'
-import { faker }                                        from '@faker-js/faker'
-import { describe }                                     from '@jest/globals'
-import { afterAll }                                     from '@jest/globals'
-import { beforeAll }                                    from '@jest/globals'
-import { expect }                                       from '@jest/globals'
-import { it }                                           from '@jest/globals'
-import { findLogicalError }                             from '@atls/protobuf-rpc'
-import { findValidationErrorDetails } from '@atls/protobuf-rpc'
-import { GenericContainer }                             from 'testcontainers'
-import { Wait }                                         from 'testcontainers'
-import getPort                                          from 'get-port'
+import { ConnectRpcServer }                           from '@atls/nestjs-connectrpc'
+import { ServerProtocol }                             from '@atls/nestjs-connectrpc'
+import { ConnectError }                               from '@connectrpc/connect'
+import { Test }                                       from '@nestjs/testing'
+import { KafkaContainer }                             from '@testcontainers/kafka'
+import { findLogicalError }                           from '@atls/protobuf-rpc'
+import { findValidationErrorDetails }                 from '@atls/protobuf-rpc'
+import { createClient }                               from '@connectrpc/connect'
+import { createGrpcTransport }                        from '@connectrpc/connect-node'
+import { faker }                                      from '@faker-js/faker'
+import { describe }                                   from '@jest/globals'
+import { afterAll }                                   from '@jest/globals'
+import { beforeAll }                                  from '@jest/globals'
+import { expect }                                     from '@jest/globals'
+import { it }                                         from '@jest/globals'
+import { GenericContainer }                           from 'testcontainers'
+import { Wait }                                       from 'testcontainers'
+import getPort                                        from 'get-port'
 
-import { FilesBucketsAdapter }                          from '@files-engine/domain-module'
-import { FilesBucketSizeConditions }                    from '@files-engine/domain-module'
-import { FilesBucketConditions }                        from '@files-engine/domain-module'
-import { FilesBucketType }                              from '@files-engine/domain-module'
-import { FilesBucket }                                  from '@files-engine/domain-module'
-import { FilesService }                                 from '@files-engine/files-rpc/connect'
-import { StaticFilesBucketsAdapterImpl }                from '@files-engine/infrastructure-module'
-import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS }   from '@files-engine/infrastructure-module'
+import { FilesEngine }                                from '@atls/files-rpc/connect'
+import { FilesBucketsAdapter }                        from '@files-engine/domain-module'
+import { FilesBucketSizeConditions }                  from '@files-engine/domain-module'
+import { FilesBucketConditions }                      from '@files-engine/domain-module'
+import { FilesBucketType }                            from '@files-engine/domain-module'
+import { FilesBucket }                                from '@files-engine/domain-module'
+import { StaticFilesBucketsAdapterImpl }              from '@files-engine/infrastructure-module'
+import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS } from '@files-engine/infrastructure-module'
 
-import { FilesEngineServiceEntrypointModule }           from '../src/files-engine-service-entrypoint.module.js'
+import { FilesEngineServiceEntrypointModule }         from '../src/files-engine-service-entrypoint.module.js'
 
 describe('files-service', () => {
   describe('rpc', () => {
@@ -40,7 +40,7 @@ describe('files-service', () => {
       let kafka: StartedKafkaContainer
       let service: INestMicroservice
       let storage: StartedTestContainer
-      let client: PromiseClient<typeof FilesService>
+      let client: Client<typeof FilesEngine>
 
       beforeAll(async () => {
         kafka = await new KafkaContainer().withExposedPorts(9093).start()
@@ -108,8 +108,8 @@ describe('files-service', () => {
 
         await service.listen()
 
-        client = createPromiseClient(
-          FilesService,
+        client = createClient(
+          FilesEngine,
           createGrpcTransport({
             httpVersion: '2',
             baseUrl: `http://localhost:${port}`,

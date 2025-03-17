@@ -34,9 +34,9 @@ export class StorageFileMetadata {
 
   @Guard()
   static create(
-    @Against('url').Empty() url: string,
-    @Against('size').NotNumberBetween(0, Infinity) size: number,
-    @Against('contentType').Empty() contentType: string
+    @(Against('url').Empty()) url: string,
+    @(Against('size').NotNumberBetween(0, Infinity)) size: number,
+    @(Against('contentType').Empty()) contentType: string
   ): StorageFileMetadata {
     const storageFileMetadata = new StorageFileMetadata()
 

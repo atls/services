@@ -23,6 +23,7 @@ export class CreateUploadCommandHandler implements ICommandHandler<CreateUploadC
     const upload = new Upload().create(
       command.uploadId,
       command.initiatorId,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       bucket!,
       command.name,
       command.size
