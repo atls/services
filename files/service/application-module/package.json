@@ -1,0 +1,34 @@
+{
+  "name": "@files-engine/application-module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "dependencies": {
+    "@atls/logger": "0.0.3",
+    "uuid": "11.1.0"
+  },
+  "devDependencies": {
+    "@files-engine/domain-module": "workspace:*",
+    "@nestjs/common": "10.4.15",
+    "@nestjs/core": "10.4.15",
+    "@nestjs/cqrs": "10.2.8",
+    "@nestjs/testing": "10.4.15",
+    "@types/node": "22.13.10",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1"
+  },
+  "peerDependencies": {
+    "@files-engine/domain-module": "workspace:*",
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/cqrs": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
+  }
+}
