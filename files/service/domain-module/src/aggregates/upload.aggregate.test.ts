@@ -1,7 +1,8 @@
+import assert                          from 'node:assert/strict'
+import { describe }                    from 'node:test'
+import { it }                          from 'node:test'
+
 import { faker }                       from '@faker-js/faker'
-import { describe }                    from '@jest/globals'
-import { expect }                      from '@jest/globals'
-import { it }                          from '@jest/globals'
 
 import { FilesBucketType }             from '../enums/index.js'
 import { UploadAlreadyConfirmedError } from '../errors/index.js'
@@ -11,280 +12,192 @@ import { UnknownFileTypeError }        from '../errors/index.js'
 import { InvalidContentTypeError }     from '../errors/index.js'
 import { InvalidContentSizeError }     from '../errors/index.js'
 import { FileNotUploadedError }        from '../errors/index.js'
+import { UploadConfirmedEvent }        from '../events/index.js'
+import { UploadPreparedEvent }         from '../events/index.js'
+import { UploadCreatedEvent }          from '../events/upload-created.event.js'
 import { StorageFileMetadata }         from '../value-objects/index.js'
 import { FilesBucketSizeConditions }   from '../value-objects/index.js'
 import { FilesBucketConditions }       from '../value-objects/index.js'
 import { FilesBucket }                 from '../value-objects/index.js'
 import { Upload }                      from './upload.aggregate.js'
+import { assertContains }              from '../utils/index.js'
 
-describe('files-engine', () => {
-  describe('domain', () => {
-    describe('aggregates', () => {
-      describe('upload', () => {
-        describe('create', () => {
-          it('check unknown file type', async () => {
-            expect(() =>
-              new Upload().create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+describe('files-engine domain aggregates upload', () => {
+  const fakeBucket = FilesBucket.create(
+    FilesBucketType.PUBLIC,
+    faker.word.sample(),
+    faker.word.sample(),
+    faker.system.directoryPath(),
+    FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
+  )
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('unknown'),
-                faker.number.int()
-              )).toThrowError(UnknownFileTypeError)
-          })
+  const fakeMetadata = StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
 
-          it('check unknown content type', async () => {
-            expect(() =>
-              new Upload().create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+  describe('create', () => {
+    it('check unknown file type', async () => {
+      assert.throws(() => {
+        new Upload().create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('unknown'),
+          faker.number.int()
+        )
+      }, UnknownFileTypeError)
+    })
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('xls'),
-                faker.number.int()
-              )).toThrowError(InvalidContentTypeError)
-          })
+    it('check unknown content type', async () => {
+      assert.throws(() => {
+        new Upload().create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('xls'),
+          faker.number.int()
+        )
+      }, InvalidContentTypeError)
+    })
 
-          it('check unknown content size', async () => {
-            expect(() =>
-              new Upload().create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+    it('check unknown content size', async () => {
+      assert.throws(() => {
+        new Upload().create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('png'),
+          faker.number.int({ min: 200 })
+        )
+      }, InvalidContentSizeError)
+    })
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('png'),
-                faker.number.int({ min: 200 })
-              )).toThrowError(InvalidContentSizeError)
-          })
+    it('check create', async () => {
+      const uploadId = faker.string.uuid()
+      const ownerId = faker.string.uuid()
+      const name = faker.system.commonFileName('png')
+      const filename = `${uploadId}.png`
+      const size = faker.number.int({ min: 1, max: 99 })
 
-          it('check create', async () => {
-            const uploadId = faker.string.uuid()
-            const ownerId = faker.string.uuid()
-            const name = faker.system.commonFileName('png')
-            const filename = `${uploadId}.png`
-            const size = faker.number.int({ min: 1, max: 99 })
+      const upload = new Upload().create(uploadId, ownerId, fakeBucket, name, size)
 
-            const bucket = FilesBucket.create(
-              FilesBucketType.PUBLIC,
-              faker.word.sample(),
-              faker.word.sample(),
-              faker.system.directoryPath(),
+      const events = upload.getUncommittedEvents()
 
-              FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-            )
+      assert.equal(events.length, 1)
+      assert.ok(events[0] instanceof UploadCreatedEvent)
 
-            const upload = new Upload().create(uploadId, ownerId, bucket, name, size)
+      assertContains(events[0], { uploadId, ownerId, filename, name, size })
 
-            expect(upload.getUncommittedEvents()).toEqual(
-              expect.arrayContaining([
-                expect.objectContaining({
-                  uploadId,
-                  ownerId,
-                  filename,
-                  name,
-                  size,
-                }),
-              ])
-            )
+      assertContains(upload, { id: uploadId, ownerId, filename, name, size })
+    })
+  })
 
-            expect(upload).toEqual(
-              expect.objectContaining({
-                id: uploadId,
-                ownerId,
-                filename,
-                name,
-                size,
-              })
-            )
-          })
-        })
+  describe('prepare', () => {
+    it('check prepare', async () => {
+      const url = faker.image.url()
 
-        describe('prepare', () => {
-          it('check prepare', async () => {
-            const url = faker.image.url()
+      const upload = new Upload().create(
+        faker.string.uuid(),
+        faker.string.uuid(),
+        fakeBucket,
+        faker.system.commonFileName('png'),
+        faker.number.int({ min: 1, max: 99 })
+      )
 
-            const upload = new Upload().create(
-              faker.string.uuid(),
-              faker.string.uuid(),
-              FilesBucket.create(
-                FilesBucketType.PUBLIC,
-                faker.word.sample(),
-                faker.word.sample(),
-                faker.system.directoryPath(),
+      upload.commit()
+      upload.prepare(url)
 
-                FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-              ),
-              faker.system.commonFileName('png'),
-              faker.number.int({ min: 1, max: 99 })
-            )
+      const events = upload.getUncommittedEvents()
 
-            upload.commit()
-            upload.prepare(url)
+      assert.equal(events.length, 1)
+      assert.ok(events[0] instanceof UploadPreparedEvent)
 
-            expect(upload.getUncommittedEvents()).toEqual(
-              expect.arrayContaining([
-                expect.objectContaining({
-                  uploadId: upload.id,
-                  url,
-                }),
-              ])
-            )
+      assertContains(events[0], { uploadId: upload.id, url })
 
-            expect(upload).toEqual(
-              expect.objectContaining({
-                url,
-              })
-            )
-          })
-        })
+      assertContains(upload, { url })
+    })
+  })
 
-        describe('confirm', () => {
-          it('check url', async () => {
-            expect(() =>
-              new Upload().confirm(
-                faker.string.uuid(),
-                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
-              )).toThrowError(UploadNotReadyError)
-          })
+  describe('confirm', () => {
+    it('check url', async () => {
+      assert.throws(() => {
+        new Upload().confirm(faker.string.uuid(), fakeMetadata)
+      }, UploadNotReadyError)
+    })
 
-          it('check match initiator', async () => {
-            const upload = new Upload()
-              .create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+    it('check match initiator', async () => {
+      const upload = new Upload()
+        .create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('png'),
+          faker.number.int({ min: 1, max: 99 })
+        )
+        .prepare(faker.image.url())
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('png'),
-                faker.number.int({ min: 1, max: 99 })
-              )
-              .prepare(faker.image.url())
+      assert.throws(() => {
+        upload.confirm(faker.string.uuid(), fakeMetadata)
+      }, UploadInitiatorDoesNotMatch)
+    })
 
-            expect(() =>
-              upload.confirm(
-                faker.string.uuid(),
-                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
-              )).toThrowError(UploadInitiatorDoesNotMatch)
-          })
+    it('check file uploaded', async () => {
+      const upload = new Upload()
+        .create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('png'),
+          faker.number.int({ min: 1, max: 99 })
+        )
+        .prepare(faker.image.url())
 
-          it('check file uploaded', async () => {
-            const upload = new Upload()
-              .create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+      assert.throws(() => {
+        upload.confirm(upload.ownerId, undefined as never as StorageFileMetadata)
+      }, FileNotUploadedError)
+    })
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('png'),
-                faker.number.int({ min: 1, max: 99 })
-              )
-              .prepare(faker.image.url())
+    it('check confirm', async () => {
+      const upload = new Upload()
+        .create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('png'),
+          faker.number.int({ min: 1, max: 99 })
+        )
+        .prepare(faker.image.url())
 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
-            expect(() => upload.confirm(upload.ownerId, undefined as any)).toThrowError(
-              FileNotUploadedError
-            )
-          })
+      upload.commit()
+      upload.confirm(
+        upload.ownerId,
+        StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
+      )
 
-          it('check confirm', async () => {
-            const upload = new Upload()
-              .create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+      const events = upload.getUncommittedEvents()
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('png'),
-                faker.number.int({ min: 1, max: 99 })
-              )
-              .prepare(faker.image.url())
+      assert.equal(events.length, 1)
+      assert.ok(events[0] instanceof UploadConfirmedEvent)
 
-            upload.commit()
-            upload.confirm(
-              upload.ownerId,
-              StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
-            )
+      assertContains(events[0], { uploadId: upload.id })
 
-            expect(upload.getUncommittedEvents()).toEqual(
-              expect.arrayContaining([
-                expect.objectContaining({
-                  uploadId: upload.id,
-                }),
-              ])
-            )
+      assertContains(upload, { confirmed: true })
+    })
 
-            expect(upload).toEqual(
-              expect.objectContaining({
-                confirmed: true,
-              })
-            )
-          })
+    it('check already confirmed', async () => {
+      const upload = new Upload()
+        .create(
+          faker.string.uuid(),
+          faker.string.uuid(),
+          fakeBucket,
+          faker.system.commonFileName('png'),
+          faker.number.int({ min: 1, max: 99 })
+        )
+        .prepare(faker.image.url())
 
-          it('check already confirmed', async () => {
-            const upload = new Upload()
-              .create(
-                faker.string.uuid(),
-                faker.string.uuid(),
-                FilesBucket.create(
-                  FilesBucketType.PUBLIC,
-                  faker.word.sample(),
-                  faker.word.sample(),
-                  faker.system.directoryPath(),
+      upload.confirm(upload.ownerId, fakeMetadata)
 
-                  FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 100))
-                ),
-                faker.system.commonFileName('png'),
-                faker.number.int({ min: 1, max: 99 })
-              )
-              .prepare(faker.image.url())
-
-            upload.confirm(
-              upload.ownerId,
-              StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
-            )
-
-            expect(() =>
-              upload.confirm(
-                upload.ownerId,
-                StorageFileMetadata.create(faker.image.url(), 206, 'image/png')
-              )).toThrowError(UploadAlreadyConfirmedError)
-          })
-        })
-      })
+      assert.throws(() => {
+        upload.confirm(upload.ownerId, fakeMetadata)
+      }, UploadAlreadyConfirmedError)
     })
   })
 })
