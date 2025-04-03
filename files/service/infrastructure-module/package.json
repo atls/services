@@ -15,7 +15,7 @@
   "dependencies": {
     "@atls/logger": "0.0.3",
     "@atls/mikro-orm-query-builder": "0.0.1",
-    "@atls/nestjs-connectrpc-errors": "0.0.1",
+    "@atls/nestjs-connectrpc-errors": "0.0.2",
     "@atls/nestjs-cqrs": "0.0.3",
     "@atls/nestjs-cqrs-kafka-events": "0.0.1",
     "@atls/nestjs-gcs-client": "0.0.1",
@@ -40,7 +40,6 @@
     "@faker-js/faker": "9.6.0",
     "@files-engine/application-module": "workspace:*",
     "@files-engine/domain-module": "workspace:*",
-    "@jest/globals": "29.7.0",
     "@mikro-orm/cli": "5.8.1",
     "@mikro-orm/entity-generator": "5.8.1",
     "@mikro-orm/knex": "5.8.1",
