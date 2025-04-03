@@ -3,8 +3,15 @@ import type { INestMicroservice }                     from '@nestjs/common'
 import type { StartedKafkaContainer }                 from '@testcontainers/kafka'
 import type { StartedTestContainer }                  from 'testcontainers'
 
+import assert                                         from 'node:assert/strict'
+import { describe }                                   from 'node:test'
+import { before }                                     from 'node:test'
+import { after }                                      from 'node:test'
+import { it }                                         from 'node:test'
+
 import { ConnectRpcServer }                           from '@atls/nestjs-connectrpc'
 import { ServerProtocol }                             from '@atls/nestjs-connectrpc'
+import { ValidationError }                            from '@atls/protobuf-rpc'
 import { ConnectError }                               from '@connectrpc/connect'
 import { Test }                                       from '@nestjs/testing'
 import { KafkaContainer }                             from '@testcontainers/kafka'
@@ -13,11 +20,6 @@ import { findValidationErrorDetails }                 from '@atls/protobuf-rpc'
 import { createClient }                               from '@connectrpc/connect'
 import { createGrpcTransport }                        from '@connectrpc/connect-node'
 import { faker }                                      from '@faker-js/faker'
-import { describe }                                   from '@jest/globals'
-import { afterAll }                                   from '@jest/globals'
-import { beforeAll }                                  from '@jest/globals'
-import { expect }                                     from '@jest/globals'
-import { it }                                         from '@jest/globals'
 import { GenericContainer }                           from 'testcontainers'
 import { Wait }                                       from 'testcontainers'
 import getPort                                        from 'get-port'
@@ -33,319 +35,240 @@ import { FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS } from '@files-engine/infras
 
 import { FilesEngineServiceEntrypointModule }         from '../src/files-engine-service-entrypoint.module.js'
 
-describe('files-service', () => {
-  describe('rpc', () => {
-    describe('common', () => {
-      let postgres: StartedTestContainer
-      let kafka: StartedKafkaContainer
-      let service: INestMicroservice
-      let storage: StartedTestContainer
-      let client: Client<typeof FilesEngine>
+describe('files-service rpc common', () => {
+  let postgres: StartedTestContainer
+  let kafka: StartedKafkaContainer
+  let service: INestMicroservice
+  let storage: StartedTestContainer
+  let client: Client<typeof FilesEngine>
 
-      beforeAll(async () => {
-        kafka = await new KafkaContainer().withExposedPorts(9093).start()
+  before(async () => {
+    kafka = await new KafkaContainer().withExposedPorts(9093).start()
 
-        postgres = await new GenericContainer('bitnami/postgresql')
-          .withWaitStrategy(Wait.forLogMessage('database system is ready to accept connections'))
-          .withEnvironment({
-            POSTGRESQL_PASSWORD: 'password',
-            POSTGRESQL_DATABASE: 'db',
-          })
-          .withExposedPorts(5432)
-          .start()
+    postgres = await new GenericContainer('bitnami/postgresql')
+      .withWaitStrategy(Wait.forLogMessage('database system is ready to accept connections'))
+      .withEnvironment({
+        POSTGRESQL_PASSWORD: 'password',
+        POSTGRESQL_DATABASE: 'db',
+      })
+      .withExposedPorts(5432)
+      .start()
 
-        storage = await new GenericContainer('minio/minio')
-          .withCopyContentToContainer([
-            {
-              content: '1',
-              target: '/data/public/mock.txt',
-            },
-          ])
-          .withWaitStrategy(Wait.forLogMessage('http://127.0.0.1:9000'))
-          .withEnvironment({
-            MINIO_ROOT_USER: 'accesskey',
-            MINIO_ROOT_PASSWORD: 'secretkey',
-            MINIO_DOMAIN: 'localhost',
-          })
-          .withCommand(['server', '/data'])
-          .withExposedPorts(9000)
-          .start()
+    storage = await new GenericContainer('minio/minio')
+      .withCopyContentToContainer([
+        {
+          content: '1',
+          target: '/data/public/mock.txt',
+        },
+      ])
+      .withWaitStrategy(Wait.forLogMessage('http://127.0.0.1:9000'))
+      .withEnvironment({
+        MINIO_ROOT_USER: 'accesskey',
+        MINIO_ROOT_PASSWORD: 'secretkey',
+        MINIO_DOMAIN: 'localhost',
+      })
+      .withCommand(['server', '/data'])
+      .withExposedPorts(9000)
+      .start()
 
-        const port = await getPort()
+    const port = await getPort()
 
-        const testingModule = await Test.createTestingModule({
-          imports: [FilesEngineServiceEntrypointModule],
-        })
-          .overrideProvider(FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS)
-          .useValue({
-            db: {
-              port: postgres.getMappedPort(5432),
-            },
-            events: {
-              brokers: [`${kafka.getHost()}:${kafka.getMappedPort(9093)}`],
-            },
-          })
-          .overrideProvider(FilesBucketsAdapter)
-          .useValue(
-            new StaticFilesBucketsAdapterImpl([
-              FilesBucket.create(
-                FilesBucketType.PUBLIC,
-                'public',
-                'public',
-                '/',
-                FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 1000))
-              ),
+    const testingModule = await Test.createTestingModule({
+      imports: [FilesEngineServiceEntrypointModule],
+    })
+      .overrideProvider(FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS)
+      .useValue({
+        db: {
+          port: postgres.getMappedPort(5432),
+        },
+        events: {
+          brokers: [`${kafka.getHost()}:${kafka.getMappedPort(9093)}`],
+        },
+      })
+      .overrideProvider(FilesBucketsAdapter)
+      .useValue(
+        new StaticFilesBucketsAdapterImpl([
+          FilesBucket.create(
+            FilesBucketType.PUBLIC,
+            'public',
+            'public',
+            '/',
+            FilesBucketConditions.create('image/*', FilesBucketSizeConditions.create(0, 1000))
+          ),
+        ])
+      )
+      .compile()
+
+    service = testingModule.createNestMicroservice({
+      strategy: new ConnectRpcServer({
+        protocol: ServerProtocol.HTTP2_INSECURE,
+        port,
+      }),
+    })
+
+    await service.listen()
+
+    client = createClient(
+      FilesEngine,
+      createGrpcTransport({
+        httpVersion: '2',
+        baseUrl: `http://localhost:${port}`,
+        idleConnectionTimeoutMs: 1000,
+      })
+    )
+  })
+
+  after(async () => {
+    await service.close()
+    await postgres.stop()
+    await storage.stop()
+    await kafka.stop()
+  })
+
+  describe('uploads', () => {
+    describe('create upload', () => {
+      it('check invalid upload fields validation', async () => {
+        await assert.rejects(
+          async () => client.createUpload({}),
+          (error) => {
+            assert.ok(error instanceof ConnectError)
+
+            const errors = findValidationErrorDetails(error)
+
+            assert.deepEqual(errors, [
+              new ValidationError({
+                id: 'ownerId',
+                property: 'ownerId',
+                messages: [{ id: 'isUuid', constraint: 'ownerId must be a UUID' }],
+              }),
+              new ValidationError({
+                id: 'bucket',
+                property: 'bucket',
+                messages: [{ id: 'isNotEmpty', constraint: 'bucket should not be empty' }],
+              }),
+              new ValidationError({
+                id: 'name',
+                property: 'name',
+                messages: [{ id: 'isNotEmpty', constraint: 'name should not be empty' }],
+              }),
+              new ValidationError({
+                id: 'size',
+                property: 'size',
+                messages: [{ id: 'min', constraint: 'size must not be less than 1' }],
+              }),
             ])
-          )
-          .compile()
 
-        service = testingModule.createNestMicroservice({
-          strategy: new ConnectRpcServer({
-            protocol: ServerProtocol.HTTP2_INSECURE,
-            port,
-          }),
-        })
-
-        await service.listen()
-
-        client = createClient(
-          FilesEngine,
-          createGrpcTransport({
-            httpVersion: '2',
-            baseUrl: `http://localhost:${port}`,
-            idleConnectionTimeoutMs: 1000,
-          })
+            return true
+          }
         )
       })
 
-      afterAll(async () => {
-        await service.close()
-        await postgres.stop()
-        await storage.stop()
-        await kafka.stop()
+      it('check unknown bucket', async () => {
+        await assert.rejects(
+          async () =>
+            client.createUpload({
+              ownerId: faker.string.uuid(),
+              bucket: 'unknown',
+              name: faker.system.commonFileName('png'),
+              size: 1,
+            }),
+          (error) => {
+            assert.ok(error instanceof ConnectError)
+
+            const errors = findValidationErrorDetails(error)
+
+            assert.deepEqual(errors, [
+              new ValidationError({
+                id: 'guard.against.not-instance',
+                property: 'bucket',
+                messages: [
+                  {
+                    id: 'guard.against.not-instance',
+                    constraint: `Guard against 'bucket' value 'undefined' not instance 'FilesBucket'.`,
+                  },
+                ],
+              }),
+            ])
+
+            return true
+          }
+        )
       })
 
-      describe('uploads', () => {
-        describe('create upload', () => {
-          it('check invalid owner id validation', async () => {
-            expect.assertions(1)
+      it('check invalid file type', async () => {
+        await assert.rejects(
+          async () =>
+            client.createUpload({
+              ownerId: faker.string.uuid(),
+              bucket: 'public',
+              name: 'test.zip',
+              size: 1,
+            }),
+          (error) => {
+            assert.ok(error instanceof ConnectError)
 
-            try {
-              await client.createUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'ownerId',
-                      property: 'ownerId',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'isUuid',
-                          constraint: 'ownerId must be a UUID',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
+            const logicalError = findLogicalError(error)
 
-          it('check invalid bucket validation', async () => {
-            expect.assertions(1)
+            assert.equal(
+              logicalError?.message,
+              `Files bucket not support type 'application/zip', only 'image/*'`
+            )
 
-            try {
-              await client.createUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'bucket',
-                      property: 'bucket',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'isNotEmpty',
-                          constraint: 'bucket should not be empty',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
+            return true
+          }
+        )
+      })
 
-          it('check invalid name validation', async () => {
-            expect.assertions(1)
+      it('check file size', async () => {
+        await assert.rejects(
+          async () =>
+            client.createUpload({
+              ownerId: faker.string.uuid(),
+              name: faker.system.commonFileName('png'),
+              bucket: 'public',
+              size: 2000,
+            }),
+          (error) => {
+            assert.ok(error instanceof ConnectError)
 
-            try {
-              await client.createUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'name',
-                      property: 'name',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'isNotEmpty',
-                          constraint: 'name should not be empty',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
+            const logicalError = findLogicalError(error)
 
-          it('check invalid size validation', async () => {
-            expect.assertions(1)
+            assert.equal(
+              logicalError?.message,
+              'File size must be greater than 0 and less than 1000, current size is 2000'
+            )
 
-            try {
-              await client.createUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'size',
-                      property: 'size',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'min',
-                          constraint: 'size must not be less than 1',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
+            return true
+          }
+        )
+      })
+    })
 
-          it('check unknown bucket', async () => {
-            expect.assertions(1)
+    describe('confirm upload', () => {
+      it('check invalid confirm-upload request validation', async () => {
+        await assert.rejects(
+          async () => client.confirmUpload({}),
+          (error) => {
+            assert.ok(error instanceof ConnectError)
 
-            try {
-              await client.createUpload({
-                ownerId: faker.string.uuid(),
-                bucket: 'uknown',
-                name: faker.system.commonFileName('png'),
-                size: 1,
-              })
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'guard.against.not-instance',
-                      property: 'bucket',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'guard.against.not-instance',
-                          constraint: `Guard against 'bucket' value 'undefined' not instance 'FilesBucket'.`,
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
+            const errors = findValidationErrorDetails(error)
 
-          it('check invalid file type', async () => {
-            expect.assertions(1)
+            assert.deepEqual(errors, [
+              new ValidationError({
+                id: 'id',
+                property: 'id',
+                messages: [{ id: 'isUuid', constraint: 'id must be a UUID' }],
+              }),
+              new ValidationError({
+                id: 'ownerId',
+                property: 'ownerId',
+                messages: [{ id: 'isUuid', constraint: 'ownerId must be a UUID' }],
+              }),
+            ])
 
-            try {
-              await client.createUpload({
-                ownerId: faker.string.uuid(),
-                bucket: 'public',
-                name: 'test.zip',
-                size: 1,
-              })
-            } catch (error) {
-              const logicalError = findLogicalError(error)
-              expect(logicalError?.message).toBe(
-                `Files bucket not support type 'application/zip', only 'image/*'`
-              )
-            }
-          })
-
-          it('check file size', async () => {
-            expect.assertions(1)
-
-            try {
-              await client.createUpload({
-                ownerId: faker.string.uuid(),
-                name: faker.system.commonFileName('png'),
-                bucket: 'public',
-                size: 2000,
-              })
-            } catch (error) {
-              const logicalError = findLogicalError(error)
-
-              expect(logicalError?.message).toBe(
-                'File size must be greater than 0 and less than 1000, current size is 2000'
-              )
-            }
-          })
-        })
-
-        describe('confirm upload', () => {
-          it('check invalid id validation', async () => {
-            expect.assertions(1)
-
-            try {
-              await client.confirmUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'id',
-                      property: 'id',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'isUuid',
-                          constraint: 'id must be a UUID',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
-
-          it('check invalid owner id validation', async () => {
-            expect.assertions(1)
-
-            try {
-              await client.confirmUpload({})
-            } catch (error) {
-              if (error instanceof ConnectError) {
-                expect(findValidationErrorDetails(error)).toEqual(
-                  expect.arrayContaining([
-                    expect.objectContaining({
-                      id: 'ownerId',
-                      property: 'ownerId',
-                      messages: expect.arrayContaining([
-                        expect.objectContaining({
-                          id: 'isUuid',
-                          constraint: 'ownerId must be a UUID',
-                        }),
-                      ]),
-                    }),
-                  ])
-                )
-              }
-            }
-          })
-        })
+            return true
+          }
+        )
       })
     })
   })
