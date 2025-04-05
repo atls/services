@@ -1,15 +1,15 @@
 version: v2
 
 plugins:
-  - local: es
+  - local: protoc-gen-connect-es
     opt: target=ts
     out: src/gen/connect
   - local: connect-es
     opt: target=ts
     out: src/gen/connect
-  - local: abstractions
+  - local: protoc-gen-abstractions
     opt: target=ts
     out: src/gen/abstractions
-  - local: interfaces
+  - local: protoc-gen-interfaces
     opt: target=ts
     out: src/gen/interfaces
