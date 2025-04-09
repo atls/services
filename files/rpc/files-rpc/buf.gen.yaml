@@ -4,7 +4,7 @@ plugins:
   - local: protoc-gen-connect-es
     opt: target=ts
     out: src/gen/connect
-  - local: connect-es
+  - local: protoc-gen-es
     opt: target=ts
     out: src/gen/connect
   - local: protoc-gen-abstractions

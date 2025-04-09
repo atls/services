@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "buf:generate": "buf generate proto --include-imports",
+    "buf:generate": "buf generate",
     "buf:lint": "buf lint proto",
     "buf:update": "buf mod update proto",
     "build": "yarn library build",
