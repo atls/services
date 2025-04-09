@@ -1,9 +1,8 @@
-import { GatewayModule }       from '@atls/nestjs-gateway'
-import { Module }              from '@nestjs/common'
+import { GatewayModule } from '@atls/nestjs-gateway'
+import { Module }        from '@nestjs/common'
 
-import { filesGatewayHandler } from '@atls/files-rpc'
-
-import { createSources }       from './utils/index.js'
+import { filesHandler }  from './handlers/index.js'
+import { createSources } from './utils/index.js'
 
 @Module({
   imports: [
@@ -18,7 +17,7 @@ import { createSources }       from './utils/index.js'
           fieldNames: 'camelCase',
         },
       },
-      sources: createSources([filesGatewayHandler]),
+      sources: createSources([filesHandler]),
     }),
   ],
 })
