@@ -1,3 +1,15 @@
+
+
+## 0.0.1 (2025-04-09)
+
+
+### Bug Fixes
+
+
+* **files-engine:** type and linter errors ([e7dd73b](https://github.com/atls/services/commit/e7dd73b2e6d3a107b13ef50df7dd38c42b2f5efe))
+
+
+
 ## 0.0.1 (2025-02-17)
 
 ### Features
