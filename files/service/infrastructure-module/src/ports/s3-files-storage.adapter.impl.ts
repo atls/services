@@ -1,33 +1,49 @@
-import type { File }           from '@files-engine/domain-module'
-import type { Upload }         from '@files-engine/domain-module'
+import type { File }                             from '@files-engine/domain-module'
+import type { Upload }                           from '@files-engine/domain-module'
 
-import { join }                from 'node:path'
-import { relative }            from 'node:path'
+import { join }                                  from 'node:path'
+import { relative }                              from 'node:path'
 
-import { Logger }              from '@atls/logger'
-import { S3Client }            from '@atls/nestjs-s3-client'
-import { PutObjectCommand }    from '@atls/nestjs-s3-client'
-import { HeadObjectCommand }   from '@atls/nestjs-s3-client'
-import { GetObjectCommand }    from '@atls/nestjs-s3-client'
-import { Injectable }          from '@nestjs/common'
-import { getSignedUrl }        from '@atls/nestjs-s3-client'
+import { Logger }                                from '@atls/logger'
+import { S3ClientFactory }                       from '@atls/nestjs-s3-client'
+import { S3Client }                              from '@atls/nestjs-s3-client'
+import { PutObjectCommand }                      from '@atls/nestjs-s3-client'
+import { HeadObjectCommand }                     from '@atls/nestjs-s3-client'
+import { GetObjectCommand }                      from '@atls/nestjs-s3-client'
+import { Injectable }                            from '@nestjs/common'
+import { getSignedUrl }                          from '@atls/nestjs-s3-client'
 
-import { FilesStorageAdapter } from '@files-engine/domain-module'
-import { StorageFileMetadata } from '@files-engine/domain-module'
+import { FilesStorageAdapter }                   from '@files-engine/domain-module'
+import { StorageFileMetadata }                   from '@files-engine/domain-module'
+
+import { FilesEngineInfrastructureModuleConfig } from '../module/index.js'
 
 @Injectable()
 export class S3FilesStorageAdapterImpl extends FilesStorageAdapter {
+  localhostClient?: S3Client
+
   #logger = new Logger(S3FilesStorageAdapterImpl.name)
 
-  constructor(private readonly client: S3Client) {
+  constructor(
+    private readonly client: S3Client,
+    private readonly config: FilesEngineInfrastructureModuleConfig,
+    private readonly clientFactory: S3ClientFactory
+  ) {
     super()
+
+    if (config.s3.localhostEndpoint) {
+      this.localhostClient = this.clientFactory.create({
+        ...this.config.s3,
+        endpoint: config.s3.localhostEndpoint,
+      })
+    }
   }
 
   override async generateReadUrl(file: File): Promise<string | undefined> {
     const [, filename] = new URL(file.url).pathname.split(`${file.bucket}/`)
 
     const signedUrl = await getSignedUrl(
-      this.client,
+      this.localhostClient || this.client,
       new GetObjectCommand({
         Bucket: file.bucket,
         Key: filename,
@@ -42,8 +58,10 @@ export class S3FilesStorageAdapterImpl extends FilesStorageAdapter {
       ? relative('/', join(upload.bucket.path, upload.filename))
       : join(upload.bucket.path, upload.filename)
 
+    console.log()
+
     const url = await getSignedUrl(
-      this.client,
+      this.localhostClient || this.client,
       new PutObjectCommand({
         ContentType: upload.contentType,
         Bucket: upload.bucket.bucket,
@@ -69,7 +87,7 @@ export class S3FilesStorageAdapterImpl extends FilesStorageAdapter {
       )
 
       const signedUrl = await getSignedUrl(
-        this.client,
+        this.localhostClient || this.client,
         new GetObjectCommand({
           Bucket: upload.bucket.bucket,
           Key: filename,

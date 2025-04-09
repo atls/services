@@ -1,8 +1,8 @@
 import type { CqrsKafkaEventsModuleOptions }           from '@atls/nestjs-cqrs-kafka-events'
 import type { GcsClientModuleOptions }                 from '@atls/nestjs-gcs-client'
-import type { S3ClientModuleOptions }                  from '@atls/nestjs-s3-client'
 import type { MikroOrmModuleOptions }                  from '@mikro-orm/nestjs'
 
+import type { S3LocalClientModuleOptions }             from './files-engine-infrastructure.module.interfaces.js'
 import type { FilesEngineInfrastructureModuleOptions } from './files-engine-infrastructure.module.interfaces.js'
 
 import { Inject }                                      from '@nestjs/common'
@@ -31,8 +31,8 @@ export class FilesEngineInfrastructureModuleConfig {
     return this.options.gcs || {}
   }
 
-  get s3(): S3ClientModuleOptions {
-    return this.options.s3 || {}
+  get s3(): S3LocalClientModuleOptions {
+    return { ...this.options.s3, localhostEndpoint: process.env.S3_LOCALHOST_ENDPOINT }
   }
 
   get db(): Partial<MikroOrmModuleOptions> {
