@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "buf:generate": "buf generate proto --include-imports",
+    "buf:generate": "buf generate",
     "buf:lint": "buf lint proto",
     "buf:update": "buf mod update proto",
     "build": "yarn library build",
@@ -28,7 +28,8 @@
     "@bufbuild/buf": "1.50.1",
     "@bufbuild/protobuf": "1.10.0",
     "@bufbuild/protoc-gen-es": "1.10.0",
-    "@connectrpc/protoc-gen-connect-es": "1.6.1"
+    "@connectrpc/protoc-gen-connect-es": "1.6.1",
+    "@types/node": "22.13.10"
   },
   "peerDependencies": {
     "@bufbuild/protobuf": "^1"
