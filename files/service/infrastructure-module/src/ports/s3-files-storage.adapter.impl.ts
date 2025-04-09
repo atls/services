@@ -58,8 +58,6 @@ export class S3FilesStorageAdapterImpl extends FilesStorageAdapter {
       ? relative('/', join(upload.bucket.path, upload.filename))
       : join(upload.bucket.path, upload.filename)
 
-    console.log()
-
     const url = await getSignedUrl(
       this.localhostClient || this.client,
       new PutObjectCommand({
