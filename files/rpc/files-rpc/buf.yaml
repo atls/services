@@ -1,5 +1,8 @@
 version: v2
 
+deps:
+  - buf.build/atls/queries
+
 lint:
   use:
     - DEFAULT

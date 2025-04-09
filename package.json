@@ -4,7 +4,8 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "workspaces": [
-    "files/**/*"
+    "files/**/*",
+    "gateway/**/*"
   ],
   "resolutions": {
     "pg": "8.10.0"

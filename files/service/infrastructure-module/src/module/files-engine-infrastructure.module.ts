@@ -64,7 +64,7 @@ export class FilesEngineInfrastructureModule implements OnModuleInit {
         ): FilesStorageAdapter =>
           config.storage === 'gcs'
             ? new GcsFilesStorageAdapterImpl(googleStorageFactory.create())
-            : new S3FilesStorageAdapterImpl(s3ClientFactory.create()),
+            : new S3FilesStorageAdapterImpl(s3ClientFactory.create(), config, s3ClientFactory),
         inject: [FilesEngineInfrastructureModuleConfig, S3ClientFactory, GcsClientFactory],
       },
       {

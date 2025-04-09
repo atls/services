@@ -1,11 +1,21 @@
-version: '3.8'
+volumes:
+  yarn:
 
 services:
+  yarn:
+    image: node:22
+    working_dir: /workspace
+    volumes:
+      - yarn:/.yarn/berry
+      - ./:/workspace
+    entrypoint: yarn
+
   db:
     image: bitnami/postgresql
     environment:
       - POSTGRESQL_PASSWORD=password
       - POSTGRESQL_DATABASE=db
+      - POSTGRESQL_USER=postgres
     ports:
       - 5432:5432
 
@@ -28,7 +38,72 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_INTERNAL://broker:29092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  files:
+    image: node:22
+    working_dir: /workspace
+    entrypoint: bash -c "yarn workspace @files/service-entrypoint prepack && yarn workspace @files/service-entrypoint start"
+    volumes:
+      - yarn:/.yarn/berry
+      - ./:/workspace
+      - .config/dev/fake-google-credentials.json:/workspace/fixtures/fake-google-credentials.json
+    environment:
+      - KAFKA_BROKERS=kafka:9092
+
+      # - FILES_STORAGE_PROVIDER=gcs
+      # - GCS_API_ENDPOINT=http://gcs:4443
+      # - GCS_KEY_FILENAME=fixtures/fake-google-credentials.json
+
+      - FILES_STORAGE_PROVIDER=s3
+      - S3_ENDPOINT=http://minio:9000
+      - S3_LOCALHOST_ENDPOINT=http://localhost:9000
+      - S3_REGION=eu-central-1
+      - AWS_ACCESS_KEY_ID=accesskey
+      - AWS_SECRET_ACCESS_KEY=secretkey
+
+      - DB_HOST=db
+      - DB_DATABASE=files_core
+      - DB_PASSWORD=password
+      - DB_USERNAME=postgres
+
+      - FILES_BUCKETS_PUBLIC_BUCKET=public
+      - FILES_BUCKETS_PUBLIC_TYPE=public
+      - FILES_BUCKETS_PUBLIC_CONDITIONS_TYPE=image/*
+      - FILES_BUCKETS_PUBLIC_CONDITIONS_SIZE_MIN=1
+      - FILES_BUCKETS_PUBLIC_CONDITIONS_SIZE_MAX=5242880
+
+  gcs:
+    image: fsouza/fake-gcs-server
+    command: -scheme http -external-url http://localhost:4443
+    volumes:
+      - .data/gcs:/storage
+    ports:
+      - 4443:4443
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    volumes:
+      - .data/s3:/data
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      - MINIO_ROOT_USER=accesskey
+      - MINIO_ROOT_PASSWORD=secretkey
+
+  gateway:
+    image: node:22
+    working_dir: /workspace
+    volumes:
+      - yarn:/.yarn/berry
+      - ./:/workspace
+    entrypoint: yarn workspace @gateway/public-gateway-entrypoint dev
+    environment:
+      - FILES_SERVICE_URL=files:50051
+    ports:
+      - '3000:3000'

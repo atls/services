@@ -28,5 +28,5 @@
     "noImplicitOverride": true,
     "skipLibCheck": true
   },
-  "include": ["project.types.d.ts", "files/**/*"]
+  "include": ["project.types.d.ts", "files/**/*", "gateway/**/*"]
 }
