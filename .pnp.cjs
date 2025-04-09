@@ -308,7 +308,8 @@ const RAW_RUNTIME_STATE =
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoc-gen-es", "virtual:be21700ab3771a142a1db148d9e9c53b6ebca30fbafb171cd1acfcc39fa26d0f6cd37b6c281e2673f3fc49cf851c5c81b43ac09d5003e28d5d8a6ae394fd87cd#npm:1.10.0"],\
           ["@connectrpc/protoc-gen-connect-es", "virtual:be21700ab3771a142a1db148d9e9c53b6ebca30fbafb171cd1acfcc39fa26d0f6cd37b6c281e2673f3fc49cf851c5c81b43ac09d5003e28d5d8a6ae394fd87cd#npm:1.6.1"],\
-          ["@types/bufbuild__protobuf", null]\
+          ["@types/bufbuild__protobuf", null],\
+          ["@types/node", "npm:22.13.10"]\
         ],\
         "packagePeers": [\
           "@bufbuild/protobuf",\
@@ -325,7 +326,8 @@ const RAW_RUNTIME_STATE =
           ["@bufbuild/buf", "npm:1.50.1"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoc-gen-es", "virtual:be21700ab3771a142a1db148d9e9c53b6ebca30fbafb171cd1acfcc39fa26d0f6cd37b6c281e2673f3fc49cf851c5c81b43ac09d5003e28d5d8a6ae394fd87cd#npm:1.10.0"],\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:be21700ab3771a142a1db148d9e9c53b6ebca30fbafb171cd1acfcc39fa26d0f6cd37b6c281e2673f3fc49cf851c5c81b43ac09d5003e28d5d8a6ae394fd87cd#npm:1.6.1"]\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:be21700ab3771a142a1db148d9e9c53b6ebca30fbafb171cd1acfcc39fa26d0f6cd37b6c281e2673f3fc49cf851c5c81b43ac09d5003e28d5d8a6ae394fd87cd#npm:1.6.1"],\
+          ["@types/node", "npm:22.13.10"]\
         ],\
         "linkType": "SOFT"\
       }]\

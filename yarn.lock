@@ -228,6 +228,7 @@ __metadata:
     "@bufbuild/protobuf": "npm:1.10.0"
     "@bufbuild/protoc-gen-es": "npm:1.10.0"
     "@connectrpc/protoc-gen-connect-es": "npm:1.6.1"
+    "@types/node": "npm:22.13.10"
   peerDependencies:
     "@bufbuild/protobuf": ^1
   languageName: unknown
