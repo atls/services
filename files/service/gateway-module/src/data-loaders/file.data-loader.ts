@@ -1,9 +1,11 @@
-import type { File }           from '@files-engine/files-rpc-client'
-import type { NestDataLoader } from 'nestjs-dataloader'
+import type { File }           from '@atls/files-rpc-client'
+
+import type { NestDataLoader } from '../interfaces/index.js'
 
 import { Injectable }          from '@nestjs/common'
-import { client }              from '@files-engine/files-rpc-client'
 import DataLoader              from 'dataloader'
+
+import { client }              from '@atls/files-rpc-client'
 
 @Injectable()
 export class FileDataLoader implements NestDataLoader<string, File | undefined> {

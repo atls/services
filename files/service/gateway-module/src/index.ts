@@ -1,4 +1,4 @@
-export * from './dataloaders/index.js'
+export * from './data-loaders/index.js'
 export * from './mutations/index.js'
 export * from './module/index.js'
 export * from './inputs/index.js'

@@ -3,12 +3,11 @@
 import type { ValidationError }       from '@atls/protobuf-rpc'
 
 import { Context }                    from '@nestjs/graphql'
-import { Args }                       from '@nestjs/graphql'
 import { Mutation }                   from '@nestjs/graphql'
 import { Resolver }                   from '@nestjs/graphql'
-import { client }                     from '@files-engine/files-rpc-client'
 import { findValidationErrorDetails } from '@atls/protobuf-rpc'
-import { GraphQLError }               from 'graphql'
+
+import { client }                     from '@atls/files-rpc-client'
 
 import { InputArg }                   from '../decorators/index.js'
 import { ConfirmUploadInput }         from '../inputs/index.js'
