@@ -10,6 +10,7 @@ import { client }                     from '@files-engine/files-rpc-client'
 import { findValidationErrorDetails } from '@atls/protobuf-rpc'
 import { GraphQLError }               from 'graphql'
 
+import { InputArg }                   from '../decorators/index.js'
 import { ConfirmUploadInput }         from '../inputs/index.js'
 import { CreateUploadInput }          from '../inputs/index.js'
 import { ConfirmUploadResponse }      from '../responses/index.js'
@@ -20,7 +21,7 @@ import { Upload }                     from '../types/index.js'
 export class UploadMutations {
   @Mutation(() => CreateUploadResponse)
   async createUpload(
-    @Args('input')
+    @InputArg(CreateUploadInput)
     input: CreateUploadInput,
     @Context('user') ownerId: string
   ): Promise<CreateUploadResponse> {
@@ -51,7 +52,7 @@ export class UploadMutations {
 
   @Mutation(() => ConfirmUploadResponse)
   async confirmUpload(
-    @Args('input')
+    @InputArg(ConfirmUploadInput)
     input: ConfirmUploadInput,
     @Context('user') ownerId: string
   ): Promise<ConfirmUploadResponse> {
