@@ -2864,13 +2864,6 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:1.10.1", {\
-        "packageLocation": "../.yarn/berry/cache/@bufbuild-protobuf-npm-1.10.1-eb6fe46383-10.zip/node_modules/@bufbuild/protobuf/",\
-        "packageDependencies": [\
-          ["@bufbuild/protobuf", "npm:1.10.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:2.2.3", {\
         "packageLocation": "../.yarn/berry/cache/@bufbuild-protobuf-npm-2.2.3-85c848c4c1-10.zip/node_modules/@bufbuild/protobuf/",\
         "packageDependencies": [\
@@ -2915,32 +2908,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@connectrpc/connect", [\
-      ["npm:0.13.2", {\
-        "packageLocation": "../.yarn/berry/cache/@connectrpc-connect-npm-0.13.2-4961be15f1-10.zip/node_modules/@connectrpc/connect/",\
-        "packageDependencies": [\
-          ["@connectrpc/connect", "npm:0.13.2"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["npm:1.6.1", {\
         "packageLocation": "../.yarn/berry/cache/@connectrpc-connect-npm-1.6.1-d31c4e5a29-10.zip/node_modules/@connectrpc/connect/",\
         "packageDependencies": [\
           ["@connectrpc/connect", "npm:1.6.1"]\
         ],\
         "linkType": "SOFT"\
-      }],\
-      ["virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2", {\
-        "packageLocation": "./.yarn/__virtual__/@connectrpc-connect-virtual-bbda4b19f3/2/.yarn/berry/cache/@connectrpc-connect-npm-0.13.2-4961be15f1-10.zip/node_modules/@connectrpc/connect/",\
-        "packageDependencies": [\
-          ["@connectrpc/connect", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2"],\
-          ["@bufbuild/protobuf", "npm:1.10.1"],\
-          ["@types/bufbuild__protobuf", null]\
-        ],\
-        "packagePeers": [\
-          "@bufbuild/protobuf",\
-          "@types/bufbuild__protobuf"\
-        ],\
-        "linkType": "HARD"\
       }],\
       ["virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1", {\
         "packageLocation": "./.yarn/__virtual__/@connectrpc-connect-virtual-b6e7b1c285/2/.yarn/berry/cache/@connectrpc-connect-npm-1.6.1-d31c4e5a29-10.zip/node_modules/@connectrpc/connect/",\
@@ -2957,34 +2930,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@connectrpc/connect-node", [\
-      ["npm:0.13.2", {\
-        "packageLocation": "../.yarn/berry/cache/@connectrpc-connect-node-npm-0.13.2-45e43cffce-10.zip/node_modules/@connectrpc/connect-node/",\
-        "packageDependencies": [\
-          ["@connectrpc/connect-node", "npm:0.13.2"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["npm:1.6.1", {\
         "packageLocation": "../.yarn/berry/cache/@connectrpc-connect-node-npm-1.6.1-c3083f9671-10.zip/node_modules/@connectrpc/connect-node/",\
         "packageDependencies": [\
           ["@connectrpc/connect-node", "npm:1.6.1"]\
         ],\
         "linkType": "SOFT"\
-      }],\
-      ["virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2", {\
-        "packageLocation": "./.yarn/__virtual__/@connectrpc-connect-node-virtual-ae7a56e317/2/.yarn/berry/cache/@connectrpc-connect-node-npm-0.13.2-45e43cffce-10.zip/node_modules/@connectrpc/connect-node/",\
-        "packageDependencies": [\
-          ["@connectrpc/connect-node", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2"],\
-          ["@bufbuild/protobuf", "npm:1.10.1"],\
-          ["@connectrpc/connect", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2"],\
-          ["@types/bufbuild__protobuf", null],\
-          ["undici", "npm:5.29.0"]\
-        ],\
-        "packagePeers": [\
-          "@bufbuild/protobuf",\
-          "@types/bufbuild__protobuf"\
-        ],\
-        "linkType": "HARD"\
       }],\
       ["virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1", {\
         "packageLocation": "./.yarn/__virtual__/@connectrpc-connect-node-virtual-7692978f2b/2/.yarn/berry/cache/@connectrpc-connect-node-npm-1.6.1-c3083f9671-10.zip/node_modules/@connectrpc/connect-node/",\
@@ -3628,7 +3579,6 @@ const RAW_RUNTIME_STATE =
           ["@atls/files-rpc-client", "workspace:files/rpc/files-rpc-client"],\
           ["@atls/protobuf-rpc", "virtual:87c09c90834fb58d0e55de884421bb8a1c6bcce6b707faad28c07285bc9c6f7e94283df650cd76ffdc53e46dc3ff20c2af77118c119537c4c16d5f3d32f97a16#npm:0.0.5"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@files-system/files-rpc-client", "npm:0.0.6"],\
           ["@nestjs/common", "virtual:eb172786ac9a7ea7b4f5e5e184c606498a68d0f9162c5db3ef6fd4804af1528cc0a0a23f36db44aaeb09fc7558b0b016dc7dfc1bf3167287d244a40a377e4b21#npm:10.4.15"],\
           ["@nestjs/core", "virtual:eb172786ac9a7ea7b4f5e5e184c606498a68d0f9162c5db3ef6fd4804af1528cc0a0a23f36db44aaeb09fc7558b0b016dc7dfc1bf3167287d244a40a377e4b21#npm:10.4.15"],\
           ["@nestjs/graphql", "virtual:87c09c90834fb58d0e55de884421bb8a1c6bcce6b707faad28c07285bc9c6f7e94283df650cd76ffdc53e46dc3ff20c2af77118c119537c4c16d5f3d32f97a16#npm:12.2.2"],\
@@ -3790,41 +3740,6 @@ const RAW_RUNTIME_STATE =
           ["uuid", "npm:11.1.0"]\
         ],\
         "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@files-system/files-rpc", [\
-      ["npm:0.0.6", {\
-        "packageLocation": "../.yarn/berry/cache/@files-system-files-rpc-npm-0.0.6-44608edac2-10.zip/node_modules/@files-system/files-rpc/",\
-        "packageDependencies": [\
-          ["@files-system/files-rpc", "npm:0.0.6"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.0.6", {\
-        "packageLocation": "./.yarn/__virtual__/@files-system-files-rpc-virtual-94dca9a8ab/2/.yarn/berry/cache/@files-system-files-rpc-npm-0.0.6-44608edac2-10.zip/node_modules/@files-system/files-rpc/",\
-        "packageDependencies": [\
-          ["@files-system/files-rpc", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.0.6"],\
-          ["@bufbuild/protobuf", "npm:1.10.1"],\
-          ["@types/bufbuild__protobuf", null]\
-        ],\
-        "packagePeers": [\
-          "@bufbuild/protobuf",\
-          "@types/bufbuild__protobuf"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@files-system/files-rpc-client", [\
-      ["npm:0.0.6", {\
-        "packageLocation": "../.yarn/berry/cache/@files-system-files-rpc-client-npm-0.0.6-27e0f43187-10.zip/node_modules/@files-system/files-rpc-client/",\
-        "packageDependencies": [\
-          ["@files-system/files-rpc-client", "npm:0.0.6"],\
-          ["@bufbuild/protobuf", "npm:1.10.1"],\
-          ["@connectrpc/connect", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2"],\
-          ["@connectrpc/connect-node", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.13.2"],\
-          ["@files-system/files-rpc", "virtual:27e0f43187d09072b0c60992f8787cf7e8721f72a274437fdb7e8662df283e4eab3d9536f0da79ff3955f76d281960bd1e996ff54bebdc0c1a764cd687783346#npm:0.0.6"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["@files/service-entrypoint", [\
@@ -21847,14 +21762,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/undici-npm-5.28.5-52b9d359fd-10.zip/node_modules/undici/",\
         "packageDependencies": [\
           ["undici", "npm:5.28.5"],\
-          ["@fastify/busboy", "npm:2.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:5.29.0", {\
-        "packageLocation": "../.yarn/berry/cache/undici-npm-5.29.0-caeb96c8ee-10.zip/node_modules/undici/",\
-        "packageDependencies": [\
-          ["undici", "npm:5.29.0"],\
           ["@fastify/busboy", "npm:2.1.1"]\
         ],\
         "linkType": "HARD"\

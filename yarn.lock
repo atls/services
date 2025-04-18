@@ -1793,13 +1793,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^1.3.1":
-  version: 1.10.1
-  resolution: "@bufbuild/protobuf@npm:1.10.1"
-  checksum: 10/402e8d093d97eb9ea28bb65a667125cf20842f1d88767b36659a6d970222eb9c96c01c03a3429fbbaf1f40cde545d40a10c19b14741ef3cea29b98ad2f7109fa
-  languageName: node
-  linkType: hard
-
 "@bufbuild/protoc-gen-es@npm:1.10.0":
   version: 1.10.0
   resolution: "@bufbuild/protoc-gen-es@npm:1.10.0"
@@ -1837,27 +1830,6 @@ __metadata:
     "@bufbuild/protobuf": ^1.10.0
     "@connectrpc/connect": 1.6.1
   checksum: 10/af6fb393c0672334b61015fd69c41131cdf48532904127ccf066aadbab016b200a3e38d3e7e7cd4e1620055f7f64f2f444a2008525ced468c519430d8cf18854
-  languageName: node
-  linkType: hard
-
-"@connectrpc/connect-node@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@connectrpc/connect-node@npm:0.13.2"
-  dependencies:
-    "@connectrpc/connect": "npm:0.13.2"
-    undici: "npm:^5.23.0"
-  peerDependencies:
-    "@bufbuild/protobuf": ^1.2.1
-  checksum: 10/734b06cbdd22c21fce3252e8fc22a122ae896eb9f5311d684c47ec20938cf26f14b1f8380cf2a73e44720752ca906537f44ae350d59bd174322bc8aec4243b8e
-  languageName: node
-  linkType: hard
-
-"@connectrpc/connect@npm:0.13.2, @connectrpc/connect@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@connectrpc/connect@npm:0.13.2"
-  peerDependencies:
-    "@bufbuild/protobuf": ^1.2.1
-  checksum: 10/4f3bddd58c5458ba9ebfa96b05b5f2d1d8e0e6d0e69236fcc3510be35a31cee543176c16c1728c7f1149b89802bd95e6fa5a3f8968f85f9593d001ce7bc39ef0
   languageName: node
   linkType: hard
 
@@ -2240,7 +2212,6 @@ __metadata:
     "@atls/files-rpc-client": "workspace:*"
     "@atls/protobuf-rpc": "npm:0.0.5"
     "@bufbuild/protobuf": "npm:1.10.0"
-    "@files-system/files-rpc-client": "npm:^0.0.6"
     "@nestjs/common": "npm:10.4.15"
     "@nestjs/core": "npm:10.4.15"
     "@nestjs/graphql": "npm:12.2.2"
@@ -2325,27 +2296,6 @@ __metadata:
     rxjs: "*"
   languageName: unknown
   linkType: soft
-
-"@files-system/files-rpc-client@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "@files-system/files-rpc-client@npm:0.0.6"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^1.3.1"
-    "@connectrpc/connect": "npm:^0.13.2"
-    "@connectrpc/connect-node": "npm:^0.13.2"
-    "@files-system/files-rpc": "npm:0.0.6"
-  checksum: 10/1e100836bd8820699c63847c6a3b8ecd6ed0d70f2670cadb66005ccf63c30533781dee629db9440e6415a808a22518cf69a7bbf81128dd7b3206c1f9fafd7fe2
-  languageName: node
-  linkType: hard
-
-"@files-system/files-rpc@npm:0.0.6":
-  version: 0.0.6
-  resolution: "@files-system/files-rpc@npm:0.0.6"
-  peerDependencies:
-    "@bufbuild/protobuf": ^1
-  checksum: 10/01e719465d0494cddb12f22d7390c3a32fd4de44b4460d8fed7fd5bd607a53fe3dcc3d1a6f038728de1a9d572cc133c4496757fa3af23c03ab9cb7c4759d09cd
-  languageName: node
-  linkType: hard
 
 "@files/service-entrypoint@workspace:files/service/service-entrypoint":
   version: 0.0.0-use.local
@@ -15688,15 +15638,6 @@ __metadata:
   version: 4.16.0
   resolution: "undici@npm:4.16.0"
   checksum: 10/9cb629eeb81bcaa265e58fe172177e5cb1d16a8d8ba5b44570553cefcfc3274630a26b55548c4b0885091483ce05285231b94552be85adf2fccc871cc316b4e8
-  languageName: node
-  linkType: hard
-
-"undici@npm:^5.23.0":
-  version: 5.29.0
-  resolution: "undici@npm:5.29.0"
-  dependencies:
-    "@fastify/busboy": "npm:^2.0.0"
-  checksum: 10/0ceca8924a32acdcc0cfb8dd2d368c217840970aa3f5e314fc169608474be6341c5b8e50cad7bd257dbe3b4e432bc5d0a0d000f83644b54fa11a48735ec52b93
   languageName: node
   linkType: hard
 
