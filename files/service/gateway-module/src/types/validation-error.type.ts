@@ -3,13 +3,10 @@ import { ID }         from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class File {
+export class ValidationErrorType {
   @Field(() => ID)
   id!: string
 
   @Field()
-  url!: string
-
-  @Field()
-  ownerId!: string
+  message!: string
 }

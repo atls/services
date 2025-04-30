@@ -1,9 +1,10 @@
-import { ValidationError } from '@atls/protobuf-rpc'
-import { Field }           from '@nestjs/graphql'
-import { ObjectType }      from '@nestjs/graphql'
+import { Field }               from '@nestjs/graphql'
+import { ObjectType }          from '@nestjs/graphql'
+
+import { ValidationErrorType } from '../types/index.js'
 
 @ObjectType()
 export class ConfirmUploadErrors {
-  @Field(() => ValidationError, { nullable: true })
-  id?: ValidationError
+  @Field(() => ValidationErrorType, { nullable: true })
+  id?: ValidationErrorType
 }

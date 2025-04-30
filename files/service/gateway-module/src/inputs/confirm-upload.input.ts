@@ -6,4 +6,7 @@ import { InputType } from '@nestjs/graphql'
 export class ConfirmUploadInput {
   @Field(() => ID)
   id!: string
+
+  @Field()
+  ownerId!: string
 }

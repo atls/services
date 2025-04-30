@@ -10,5 +10,8 @@ export class CreateUploadInput {
   name!: string
 
   @Field()
+  ownerId!: string
+
+  @Field()
   size!: number
 }

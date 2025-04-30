@@ -1,15 +1,16 @@
-import { ValidationError } from '@atls/protobuf-rpc'
-import { Field }           from '@nestjs/graphql'
-import { ObjectType }      from '@nestjs/graphql'
+import { Field }               from '@nestjs/graphql'
+import { ObjectType }          from '@nestjs/graphql'
+
+import { ValidationErrorType } from '../types/index.js'
 
 @ObjectType()
 export class CreateUploadErrors {
-  @Field(() => ValidationError, { nullable: true })
-  bucket?: ValidationError
+  @Field(() => ValidationErrorType, { nullable: true })
+  bucket?: ValidationErrorType
 
-  @Field(() => ValidationError, { nullable: true })
-  name?: ValidationError
+  @Field(() => ValidationErrorType, { nullable: true })
+  name?: ValidationErrorType
 
-  @Field(() => ValidationError, { nullable: true })
-  size?: ValidationError
+  @Field(() => ValidationErrorType, { nullable: true })
+  size?: ValidationErrorType
 }

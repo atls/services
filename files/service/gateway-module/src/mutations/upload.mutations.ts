@@ -2,7 +2,6 @@
 
 import type { ValidationError }       from '@atls/protobuf-rpc'
 
-import { Context }                    from '@nestjs/graphql'
 import { Mutation }                   from '@nestjs/graphql'
 import { Resolver }                   from '@nestjs/graphql'
 import { findValidationErrorDetails } from '@atls/protobuf-rpc'
@@ -20,15 +19,10 @@ import { Upload }                     from '../types/index.js'
 export class UploadMutations {
   @Mutation(() => CreateUploadResponse)
   async createUpload(
-    @InputArg(CreateUploadInput)
-    input: CreateUploadInput,
-    @Context('user') ownerId: string
+    @InputArg(CreateUploadInput) input: CreateUploadInput
   ): Promise<CreateUploadResponse> {
     try {
-      return await client.createUpload({
-        ...input,
-        ownerId,
-      })
+      return client.createUpload(input)
     } catch (error) {
       const details: Array<ValidationError> = findValidationErrorDetails(error)
 
@@ -51,15 +45,10 @@ export class UploadMutations {
 
   @Mutation(() => ConfirmUploadResponse)
   async confirmUpload(
-    @InputArg(ConfirmUploadInput)
-    input: ConfirmUploadInput,
-    @Context('user') ownerId: string
+    @InputArg(ConfirmUploadInput) input: ConfirmUploadInput
   ): Promise<ConfirmUploadResponse> {
     try {
-      return await client.confirmUpload({
-        ...input,
-        ownerId,
-      })
+      return await client.confirmUpload(input)
     } catch (error) {
       const details: Array<ValidationError> = findValidationErrorDetails(error)
 
