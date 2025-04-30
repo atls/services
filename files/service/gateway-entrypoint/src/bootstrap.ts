@@ -16,7 +16,7 @@ const bootstrap = async (): Promise<void> => {
 
   app.enableShutdownHooks()
 
-  await app.listen(LISTEN_PORT)
+  await app.listen(LISTEN_PORT, '0.0.0.0')
 
   if (import.meta.webpackHot) {
     import.meta.webpackHot.accept()
