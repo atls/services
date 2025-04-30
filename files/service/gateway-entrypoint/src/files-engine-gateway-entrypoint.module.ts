@@ -18,7 +18,7 @@ import { FilesGatewayModule }      from '@files-engine/gateway-module'
       autoSchemaFile:
         process.env.NODE_ENV === 'production'
           ? join(process.cwd(), 'dist/schema.gql')
-          : join(process.cwd(), 'files/service/gateway-entrypoint/schema.gql'),
+          : join(process.cwd(), 'schema.gql'),
       sortSchema: true,
     }),
   ],
