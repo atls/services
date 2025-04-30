@@ -76,6 +76,18 @@ services:
       - FILES_BUCKETS_PUBLIC_CONDITIONS_SIZE_MIN=1
       - FILES_BUCKETS_PUBLIC_CONDITIONS_SIZE_MAX=5242880
 
+  files-gateway:
+    image: node:22
+    working_dir: /workspace
+    volumes:
+      - yarn:/.yarn/berry
+      - ./:/workspace
+    entrypoint: yarn workspace @files/gateway-entrypoint dev
+    environment:
+      - FILES_SERVICE_URL=http://files:50051
+    ports:
+      - 3000:3000
+
   gcs:
     image: fsouza/fake-gcs-server
     command: -scheme http -external-url http://localhost:4443
