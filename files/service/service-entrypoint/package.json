@@ -20,7 +20,7 @@
     "@atls/nestjs-grpc-reflection": "1.0.6",
     "@atls/nestjs-logger": "0.2.41",
     "@atls/nestjs-microservices-registry": "0.0.1",
-    "@atls/protobuf-rpc": "0.0.5",
+    "@atls/protobuf-rpc": "0.0.6",
     "@bufbuild/protobuf": "1.10.0",
     "@connectrpc/connect": "1.6.1",
     "@connectrpc/connect-node": "1.6.1",

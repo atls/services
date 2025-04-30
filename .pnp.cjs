@@ -1167,7 +1167,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/core-errors", "npm:0.0.4"],\
           ["@atls/guard-clause", "npm:0.0.1"],\
           ["@atls/nestjs-validation", "virtual:6fa46be8be044f799e939d57236013f3e0001e785df531ce0d2e0456616c766de755c3020ebeeb580faa6acb735f630be9424463c14c45581273807571e49cb6#npm:0.0.1"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:deb71586f4c2a06d5f6a9f4f47e489adcbd26a61c9cf2fa2516e5d54a52ec14c0e7ca253268e33c6e3a1e13ff5d68bacf9b4d958df0f0c320a57a7422ebbc233#npm:0.0.5"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@connectrpc/connect", "virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1"],\
           ["@nestjs/common", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:10.4.15"],\
@@ -1219,7 +1219,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/core-errors", "npm:0.0.4"],\
           ["@atls/guard-clause", "npm:0.0.1"],\
           ["@atls/nestjs-validation", "virtual:93633bffa80d03a91d6c936f30d44ca8f97bc175a6ca57269833d5aa32511a5b0cb55900ece6504ea3137f7f14109bf6bab98c0fae7fa87cefcde0de02244488#npm:0.0.1"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:deb71586f4c2a06d5f6a9f4f47e489adcbd26a61c9cf2fa2516e5d54a52ec14c0e7ca253268e33c6e3a1e13ff5d68bacf9b4d958df0f0c320a57a7422ebbc233#npm:0.0.5"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@connectrpc/connect", "virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1"],\
           ["@nestjs/common", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:10.4.15"],\
@@ -2100,10 +2100,30 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5", {\
-        "packageLocation": "./.yarn/__virtual__/@atls-protobuf-rpc-virtual-5598372bc3/2/.yarn/berry/cache/@atls-protobuf-rpc-npm-0.0.5-4ba7e0bbf3-10.zip/node_modules/@atls/protobuf-rpc/",\
+      ["npm:0.0.6", {\
+        "packageLocation": "../.yarn/berry/cache/@atls-protobuf-rpc-npm-0.0.6-3f46ea4817-10.zip/node_modules/@atls/protobuf-rpc/",\
         "packageDependencies": [\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "npm:0.0.6"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-protobuf-rpc-virtual-6a40cb39fc/2/.yarn/berry/cache/@atls-protobuf-rpc-npm-0.0.6-3f46ea4817-10.zip/node_modules/@atls/protobuf-rpc/",\
+        "packageDependencies": [\
+          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6"],\
+          ["@bufbuild/protobuf", "npm:1.10.0"],\
+          ["@types/bufbuild__protobuf", null]\
+        ],\
+        "packagePeers": [\
+          "@bufbuild/protobuf",\
+          "@types/bufbuild__protobuf"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:deb71586f4c2a06d5f6a9f4f47e489adcbd26a61c9cf2fa2516e5d54a52ec14c0e7ca253268e33c6e3a1e13ff5d68bacf9b4d958df0f0c320a57a7422ebbc233#npm:0.0.5", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-protobuf-rpc-virtual-1dbf621f00/2/.yarn/berry/cache/@atls-protobuf-rpc-npm-0.0.5-4ba7e0bbf3-10.zip/node_modules/@atls/protobuf-rpc/",\
+        "packageDependencies": [\
+          ["@atls/protobuf-rpc", "virtual:deb71586f4c2a06d5f6a9f4f47e489adcbd26a61c9cf2fa2516e5d54a52ec14c0e7ca253268e33c6e3a1e13ff5d68bacf9b4d958df0f0c320a57a7422ebbc233#npm:0.0.5"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@types/bufbuild__protobuf", null]\
         ],\
@@ -4154,7 +4174,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@files-engine/gateway-module", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#workspace:files/service/gateway-module"],\
           ["@atls/files-rpc-client", "workspace:files/rpc/files-rpc-client"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@nestjs/common", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:10.4.15"],\
           ["@nestjs/core", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:10.4.15"],\
@@ -4194,7 +4214,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@files-engine/gateway-module", "workspace:files/service/gateway-module"],\
           ["@atls/files-rpc-client", "workspace:files/rpc/files-rpc-client"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@nestjs/common", "virtual:eb172786ac9a7ea7b4f5e5e184c606498a68d0f9162c5db3ef6fd4804af1528cc0a0a23f36db44aaeb09fc7558b0b016dc7dfc1bf3167287d244a40a377e4b21#npm:10.4.15"],\
           ["@nestjs/core", "virtual:eb172786ac9a7ea7b4f5e5e184c606498a68d0f9162c5db3ef6fd4804af1528cc0a0a23f36db44aaeb09fc7558b0b016dc7dfc1bf3167287d244a40a377e4b21#npm:10.4.15"],\
@@ -4366,7 +4386,7 @@ const RAW_RUNTIME_STATE =
           ["@files/gateway-entrypoint", "workspace:files/service/gateway-entrypoint"],\
           ["@apollo/server", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:4.12.0"],\
           ["@atls/nestjs-logger", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.2.41"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@faker-js/faker", "npm:9.6.0"],\
           ["@files-engine/gateway-module", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#workspace:files/service/gateway-module"],\
@@ -4409,7 +4429,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/nestjs-grpc-reflection", "virtual:a712d76c03dedd5fb4cad0b8dbebc7bc808245b17ef48e30c5219b3188964ad8606ec3296d56cd7812264aed0486ec151128b463d489dcdc3d42bcbaefb4877e#npm:1.0.6"],\
           ["@atls/nestjs-logger", "virtual:a712d76c03dedd5fb4cad0b8dbebc7bc808245b17ef48e30c5219b3188964ad8606ec3296d56cd7812264aed0486ec151128b463d489dcdc3d42bcbaefb4877e#npm:0.2.41"],\
           ["@atls/nestjs-microservices-registry", "virtual:a712d76c03dedd5fb4cad0b8dbebc7bc808245b17ef48e30c5219b3188964ad8606ec3296d56cd7812264aed0486ec151128b463d489dcdc3d42bcbaefb4877e#npm:0.0.1"],\
-          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.5"],\
+          ["@atls/protobuf-rpc", "virtual:85c5c4e95e23f2f3c5ea9d794f9606e7fcf829d1a23403c6b8c1915991c40099a9861ee3f3011c6a72a1310d4e08df10df95fa1943e3c0beee4aba9caff13c4b#npm:0.0.6"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@connectrpc/connect", "virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1"],\
           ["@connectrpc/connect-node", "virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#npm:1.6.1"],\

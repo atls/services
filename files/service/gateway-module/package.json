@@ -11,7 +11,7 @@
   "main": "src/index.ts",
   "dependencies": {
     "@atls/files-rpc-client": "workspace:*",
-    "@atls/protobuf-rpc": "0.0.5",
+    "@atls/protobuf-rpc": "0.0.6",
     "dataloader": "2.2.3"
   },
   "devDependencies": {

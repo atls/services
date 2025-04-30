@@ -905,6 +905,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls/protobuf-rpc@npm:0.0.6":
+  version: 0.0.6
+  resolution: "@atls/protobuf-rpc@npm:0.0.6"
+  peerDependencies:
+    "@bufbuild/protobuf": "*"
+  checksum: 10/75f1f10d812b7ab6bf6aca3b7d7cd0155d912d8c5ccc0ab8d34ca50222183e595a7d18a7da7ecf20911e970bceb49f0f27ef4e390cd1a45af64408dd0366cf6f
+  languageName: node
+  linkType: hard
+
 "@atls/protoc-gen-abstractions@npm:0.0.3":
   version: 0.0.3
   resolution: "@atls/protoc-gen-abstractions@npm:0.0.3"
@@ -2538,7 +2547,7 @@ __metadata:
   resolution: "@files-engine/gateway-module@workspace:files/service/gateway-module"
   dependencies:
     "@atls/files-rpc-client": "workspace:*"
-    "@atls/protobuf-rpc": "npm:0.0.5"
+    "@atls/protobuf-rpc": "npm:0.0.6"
     "@bufbuild/protobuf": "npm:1.10.0"
     "@nestjs/common": "npm:10.4.15"
     "@nestjs/core": "npm:10.4.15"
@@ -2631,7 +2640,7 @@ __metadata:
   dependencies:
     "@apollo/server": "npm:4.12.0"
     "@atls/nestjs-logger": "npm:0.2.41"
-    "@atls/protobuf-rpc": "npm:0.0.5"
+    "@atls/protobuf-rpc": "npm:0.0.6"
     "@bufbuild/protobuf": "npm:1.10.0"
     "@faker-js/faker": "npm:9.6.0"
     "@files-engine/gateway-module": "workspace:*"
@@ -2672,7 +2681,7 @@ __metadata:
     "@atls/nestjs-grpc-reflection": "npm:1.0.6"
     "@atls/nestjs-logger": "npm:0.2.41"
     "@atls/nestjs-microservices-registry": "npm:0.0.1"
-    "@atls/protobuf-rpc": "npm:0.0.5"
+    "@atls/protobuf-rpc": "npm:0.0.6"
     "@bufbuild/protobuf": "npm:1.10.0"
     "@connectrpc/connect": "npm:1.6.1"
     "@connectrpc/connect-node": "npm:1.6.1"
