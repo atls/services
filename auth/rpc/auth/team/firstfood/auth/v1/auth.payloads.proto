@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package team.firstfood.auth.v1;
+
+// ======== Login ========
+
+message LoginUserByEmailRequest {
+  string email = 1;
+  string password = 2;
+  optional string authProcessId = 3;
+}
+
+message LoginUserByEmailResponse {
+  string sessionToken = 1;
+}
+
+message LoginUserByPhoneRequest {
+  string phone = 1;
+}
+
+message LoginUserByPhoneResponse {
+  string authProcessId = 1;
+}
+
+message ConfirmLoginCodeRequest {
+  string authProcessId = 1;
+  string code = 2;
+  string identifier = 3;
+}
+
+message ConfirmLoginCodeResponse {
+  string sessionToken = 1;
+}
+
+// ======== Registration ========
+
+message RegisterUserByEmailRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterUserByEmailResponse {
+  string authProcessId = 1;
+  string sessionToken = 2;
+  string accountId = 3;
+}
+
+message RegisterUserByPhoneRequest {
+  string phone = 1;
+}
+
+message RegisterUserByPhoneResponse {
+  string authProcessId = 1;
+  string sessionToken = 2;
+  string accountId = 3;
+}
+
+// ======== Recovery ========
+
+message SendRecoveryCodeRequest {
+  string email = 1;
+}
+
+message SendRecoveryCodeResponse {
+  string authProcessId = 1;
+}
+
+message ConfirmRecoveryCodeRequest {
+  string authProcessId = 1;
+  string code = 2;
+}
+
+message ConfirmRecoveryCodeResponse {
+  string sessionToken = 1;
+}
+
+// ======== Verification ========
+
+message SendVerificationCodeRequest {
+  string email = 1;
+}
+
+message SendVerificationCodeResponse {
+  string authProcessId = 1;
+}
+
+message ConfirmVerificationCodeRequest {
+  string authProcessId = 1;
+  string code = 2;
+}
+
+message ConfirmVerificationCodeResponse {
+  bool success = 1;
+}
+
+// ======== Settings  ========
+
+message UpdateUserEmailRequest {
+  string email = 1;
+  string sessionToken = 2;
+}
+
+message UpdateUserEmailResponse {
+  string authProcessId = 1;
+}
+
+message UpdateUserPasswordRequest {
+  string password = 1;
+  string sessionToken = 2;
+}
+
+message UpdateUserPasswordResponse {
+  bool success = 1;
+}
+
+message DeleteUserAccountRequest {
+  string accountId = 1;
+}
+
+message DeleteUserAccountResponse {
+  bool success = 1;
+}
+
+message GetUserAccountRequest {
+  string sessionToken = 1;
+}
+
+message GetUserAccountResponse {
+  string id = 1;
+  optional string email = 2;
+  optional string phone = 3;
+}
+
+// ======== Native SSO (OIDC) ========
+
+enum ProviderType {
+  PROVIDER_TYPE_UNSPECIFIED = 0;
+  PROVIDER_TYPE_GOOGLE = 1;
+  PROVIDER_TYPE_APPLE = 2;
+}
+
+message LoginUserByProviderRequest {
+  ProviderType provider = 1;
+  string idToken = 2;
+  string nonce = 3;
+}
+
+message LoginUserByProviderResponse {
+  optional string sessionToken = 1;
+  optional string accountId = 2;
+  optional string authProcessId = 3;
+}

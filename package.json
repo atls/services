@@ -4,6 +4,7 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "workspaces": [
+    "auth/**/*",
     "files/**/*",
     "gateway/**/*"
   ],

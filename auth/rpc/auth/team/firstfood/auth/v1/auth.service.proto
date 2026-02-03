@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package team.firstfood.auth.v1;
+
+import "team/firstfood/auth/v1/auth.payloads.proto";
+
+service AuthService {
+  rpc LoginUserByEmail(LoginUserByEmailRequest) returns (LoginUserByEmailResponse);
+  rpc LoginUserByPhone(LoginUserByPhoneRequest) returns (LoginUserByPhoneResponse);
+  rpc ConfirmLoginCode(ConfirmLoginCodeRequest) returns (ConfirmLoginCodeResponse);
+
+  rpc RegisterUserByEmail(RegisterUserByEmailRequest) returns (RegisterUserByEmailResponse);
+  rpc RegisterUserByPhone(RegisterUserByPhoneRequest) returns (RegisterUserByPhoneResponse);
+  
+  rpc SendRecoveryCode(SendRecoveryCodeRequest) returns (SendRecoveryCodeResponse);
+  rpc ConfirmRecoveryCode(ConfirmRecoveryCodeRequest) returns (ConfirmRecoveryCodeResponse);
+
+  rpc SendVerificationCode(SendVerificationCodeRequest) returns (SendVerificationCodeResponse);
+  rpc ConfirmVerificationCode(ConfirmVerificationCodeRequest) returns (ConfirmVerificationCodeResponse);
+  
+  rpc UpdateUserEmail(UpdateUserEmailRequest) returns (UpdateUserEmailResponse);
+  rpc UpdateUserPassword(UpdateUserPasswordRequest) returns (UpdateUserPasswordResponse);
+  rpc DeleteUserAccount(DeleteUserAccountRequest) returns (DeleteUserAccountResponse);
+  rpc GetUserAccount(GetUserAccountRequest) returns (GetUserAccountResponse);
+
+  rpc LoginUserByProvider(LoginUserByProviderRequest) returns (LoginUserByProviderResponse);
+}
