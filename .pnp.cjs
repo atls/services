@@ -15,7 +15,7 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:."\
     },\
     {\
-      "name": "@alts/auth-rpc",\
+      "name": "@atls/auth-rpc",\
       "reference": "workspace:auth/rpc/auth"\
     },\
     {\
@@ -78,7 +78,7 @@ const RAW_RUNTIME_STATE =
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
-    ["@alts/auth-rpc", ["virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth", "workspace:auth/rpc/auth"]],\
+    ["@atls/auth-rpc", ["virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth", "workspace:auth/rpc/auth"]],\
     ["@atls/files-rpc", ["virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#workspace:files/rpc/files-rpc", "workspace:files/rpc/files-rpc"]],\
     ["@atls/files-rpc-client", ["workspace:files/rpc/files-rpc-client"]],\
     ["@atls/files-rpc-client-module", ["workspace:files/rpc/files-rpc-client-module"]],\
@@ -121,43 +121,6 @@ const RAW_RUNTIME_STATE =
           ["safe-buffer", "npm:5.1.2"]\
         ],\
         "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@alts/auth-rpc", [\
-      ["virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth", {\
-        "packageLocation": "./.yarn/__virtual__/@alts-auth-rpc-virtual-577445531d/1/auth/rpc/auth/",\
-        "packageDependencies": [\
-          ["@alts/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
-          ["@atls/protoc-gen-abstractions", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3"],\
-          ["@atls/protoc-gen-config", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.2"],\
-          ["@atls/protoc-gen-interfaces", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7"],\
-          ["@bufbuild/buf", "npm:1.50.1"],\
-          ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1"],\
-          ["@types/bufbuild__protobuf", null],\
-          ["@types/node", "npm:22.10.2"]\
-        ],\
-        "packagePeers": [\
-          "@bufbuild/protobuf",\
-          "@types/bufbuild__protobuf"\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["workspace:auth/rpc/auth", {\
-        "packageLocation": "./auth/rpc/auth/",\
-        "packageDependencies": [\
-          ["@alts/auth-rpc", "workspace:auth/rpc/auth"],\
-          ["@atls/protoc-gen-abstractions", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3"],\
-          ["@atls/protoc-gen-config", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.2"],\
-          ["@atls/protoc-gen-interfaces", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7"],\
-          ["@bufbuild/buf", "npm:1.50.1"],\
-          ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1"],\
-          ["@types/node", "npm:22.10.2"]\
-        ],\
-        "linkType": "SOFT"\
       }]\
     ]],\
     ["@ampproject/remapping", [\
@@ -810,6 +773,43 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@atls/auth-rpc", [\
+      ["virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-auth-rpc-virtual-91970798f9/1/auth/rpc/auth/",\
+        "packageDependencies": [\
+          ["@atls/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
+          ["@atls/protoc-gen-abstractions", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3"],\
+          ["@atls/protoc-gen-config", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.2"],\
+          ["@atls/protoc-gen-interfaces", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7"],\
+          ["@bufbuild/buf", "npm:1.50.1"],\
+          ["@bufbuild/protobuf", "npm:1.10.0"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1"],\
+          ["@types/bufbuild__protobuf", null],\
+          ["@types/node", "npm:22.10.2"]\
+        ],\
+        "packagePeers": [\
+          "@bufbuild/protobuf",\
+          "@types/bufbuild__protobuf"\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["workspace:auth/rpc/auth", {\
+        "packageLocation": "./auth/rpc/auth/",\
+        "packageDependencies": [\
+          ["@atls/auth-rpc", "workspace:auth/rpc/auth"],\
+          ["@atls/protoc-gen-abstractions", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3"],\
+          ["@atls/protoc-gen-config", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.2"],\
+          ["@atls/protoc-gen-interfaces", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7"],\
+          ["@bufbuild/buf", "npm:1.50.1"],\
+          ["@bufbuild/protobuf", "npm:1.10.0"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1"],\
+          ["@types/node", "npm:22.10.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["@atls/base-types", [\
       ["npm:0.0.1", {\
         "packageLocation": "../.yarn/berry/cache/@atls-base-types-npm-0.0.1-d9c8cf0cfa-10.zip/node_modules/@atls/base-types/",\
@@ -913,12 +913,12 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@atls-files-rpc-virtual-e9f7b0fa3e/1/files/rpc/files-rpc/",\
         "packageDependencies": [\
           ["@atls/files-rpc", "virtual:dcad5415cbb2626d969f7991ee44a5a8463938f177ba023ae9ff4d86be05249e706bd90a09e5aa8bc0a52fc8a8314cd26a58f89d61edc5fcd4939c0069ae623a#workspace:files/rpc/files-rpc"],\
-          ["@atls/protoc-gen-abstractions", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3"],\
-          ["@atls/protoc-gen-interfaces", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7"],\
+          ["@atls/protoc-gen-abstractions", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3"],\
+          ["@atls/protoc-gen-interfaces", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7"],\
           ["@bufbuild/buf", "npm:1.50.1"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1"],\
           ["@types/bufbuild__protobuf", null],\
           ["@types/node", "npm:22.13.10"]\
         ],\
@@ -932,12 +932,12 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./files/rpc/files-rpc/",\
         "packageDependencies": [\
           ["@atls/files-rpc", "workspace:files/rpc/files-rpc"],\
-          ["@atls/protoc-gen-abstractions", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3"],\
-          ["@atls/protoc-gen-interfaces", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7"],\
+          ["@atls/protoc-gen-abstractions", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3"],\
+          ["@atls/protoc-gen-interfaces", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7"],\
           ["@bufbuild/buf", "npm:1.50.1"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1"],\
           ["@types/node", "npm:22.13.10"]\
         ],\
         "linkType": "SOFT"\
@@ -2535,10 +2535,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3", {\
-        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-abstractions-virtual-a6ce93be13/2/.yarn/berry/cache/@atls-protoc-gen-abstractions-npm-0.0.3-21258ac8c7-10.zip/node_modules/@atls/protoc-gen-abstractions/",\
+      ["virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-abstractions-virtual-d1fb0f17cb/2/.yarn/berry/cache/@atls-protoc-gen-abstractions-npm-0.0.3-21258ac8c7-10.zip/node_modules/@atls/protoc-gen-abstractions/",\
         "packageDependencies": [\
-          ["@atls/protoc-gen-abstractions", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.3"],\
+          ["@atls/protoc-gen-abstractions", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.3"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoplugin", "npm:1.10.0"],\
           ["@types/bufbuild__protobuf", null]\
@@ -2558,10 +2558,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.2", {\
-        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-config-virtual-3b74688140/2/.yarn/berry/cache/@atls-protoc-gen-config-npm-0.0.2-e7457e0f36-10.zip/node_modules/@atls/protoc-gen-config/",\
+      ["virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.2", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-config-virtual-4ba236ebd6/2/.yarn/berry/cache/@atls-protoc-gen-config-npm-0.0.2-e7457e0f36-10.zip/node_modules/@atls/protoc-gen-config/",\
         "packageDependencies": [\
-          ["@atls/protoc-gen-config", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.2"],\
+          ["@atls/protoc-gen-config", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.2"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoplugin", "npm:1.10.0"],\
           ["@types/bufbuild__protobuf", null]\
@@ -2581,10 +2581,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7", {\
-        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-interfaces-virtual-b9e0109584/2/.yarn/berry/cache/@atls-protoc-gen-interfaces-npm-0.0.7-483227ec19-10.zip/node_modules/@atls/protoc-gen-interfaces/",\
+      ["virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-protoc-gen-interfaces-virtual-a49af656de/2/.yarn/berry/cache/@atls-protoc-gen-interfaces-npm-0.0.7-483227ec19-10.zip/node_modules/@atls/protoc-gen-interfaces/",\
         "packageDependencies": [\
-          ["@atls/protoc-gen-interfaces", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:0.0.7"],\
+          ["@atls/protoc-gen-interfaces", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:0.0.7"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoplugin", "npm:1.10.0"],\
           ["@types/bufbuild__protobuf", null]\
@@ -2842,7 +2842,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@auth-infrastructure-module-virtual-b00c7713c7/1/auth/service/infrastructure-module/",\
         "packageDependencies": [\
           ["@auth/infrastructure-module", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#workspace:auth/service/infrastructure-module"],\
-          ["@alts/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
+          ["@atls/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
           ["@atls/core-errors", "npm:0.0.4"],\
           ["@atls/nestjs-connectrpc", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:0.0.4"],\
           ["@atls/nestjs-connectrpc-errors", "virtual:b00c7713c7e5ef7524c56cd32e91790a276d2b1040866933cdcb899d6ebc8aeac3bb27d107cf22378c80d7caf3bebdac061f5aca8bd0c00bae1b5e8eee6c3ac5#npm:0.0.2"],\
@@ -2859,7 +2859,7 @@ const RAW_RUNTIME_STATE =
           ["@nestjs/cqrs", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:11.0.3"],\
           ["@nestjs/microservices", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:11.1.5"],\
           ["@ory/kratos-client", "npm:1.3.8"],\
-          ["@types/alts__auth-rpc", null],\
+          ["@types/atls__auth-rpc", null],\
           ["@types/atls__nestjs-connectrpc", null],\
           ["@types/atls__nestjs-microservices-registry", null],\
           ["@types/auth__application-module", null],\
@@ -2884,7 +2884,7 @@ const RAW_RUNTIME_STATE =
           ["rxjs", "npm:7.8.2"]\
         ],\
         "packagePeers": [\
-          "@alts/auth-rpc",\
+          "@atls/auth-rpc",\
           "@atls/nestjs-connectrpc",\
           "@atls/nestjs-microservices-registry",\
           "@auth/application-module",\
@@ -2896,7 +2896,7 @@ const RAW_RUNTIME_STATE =
           "@nestjs/core",\
           "@nestjs/cqrs",\
           "@nestjs/microservices",\
-          "@types/alts__auth-rpc",\
+          "@types/atls__auth-rpc",\
           "@types/atls__nestjs-connectrpc",\
           "@types/atls__nestjs-microservices-registry",\
           "@types/auth__application-module",\
@@ -2923,7 +2923,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./auth/service/infrastructure-module/",\
         "packageDependencies": [\
           ["@auth/infrastructure-module", "workspace:auth/service/infrastructure-module"],\
-          ["@alts/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
+          ["@atls/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
           ["@atls/core-errors", "npm:0.0.4"],\
           ["@atls/nestjs-connectrpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#npm:0.0.4"],\
           ["@atls/nestjs-connectrpc-errors", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#npm:0.0.2"],\
@@ -2956,7 +2956,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./auth/service/service-entrypoint/",\
         "packageDependencies": [\
           ["@auth/service-entrypoint", "workspace:auth/service/service-entrypoint"],\
-          ["@alts/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
+          ["@atls/auth-rpc", "virtual:bc7df49367cce80fcf18c02fb35c2701ec1e7918c0d64f6ef01ee0ca55c6fe737a9f71c038feeb83d773243b2a309f54f4fc5f3ea0c0069c5aa3014f6834908e#workspace:auth/rpc/auth"],\
           ["@atls/nestjs-connectrpc", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:0.0.4"],\
           ["@atls/nestjs-logger", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:0.2.41"],\
           ["@atls/nestjs-microservices-registry", "virtual:28522b933cb7bf26709051feaf82c0cad6d8435f3258538e6b9fdb25ba961a7c6a3011f1ca137bbebf75a7e6221f68a8b611168933f61a11e717de3f6dd753a2#npm:0.0.1"],\
@@ -4535,16 +4535,16 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["@bufbuild/protoc-gen-es", [\
       ["npm:1.10.0", {\
-        "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-d026a2eb23/node_modules/@bufbuild/protoc-gen-es/",\
+        "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-5cd89a807b/node_modules/@bufbuild/protoc-gen-es/",\
         "packageDependencies": [\
           ["@bufbuild/protoc-gen-es", "npm:1.10.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0", {\
-        "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-d026a2eb23/node_modules/@bufbuild/protoc-gen-es/",\
+      ["virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0", {\
+        "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-5cd89a807b/node_modules/@bufbuild/protoc-gen-es/",\
         "packageDependencies": [\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
           ["@bufbuild/protoplugin", "npm:1.10.0"],\
           ["@types/bufbuild__protobuf", null]\
@@ -4619,18 +4619,18 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["@connectrpc/protoc-gen-connect-es", [\
       ["npm:1.6.1", {\
-        "packageLocation": "./.yarn/unplugged/@connectrpc-protoc-gen-connect-es-virtual-1c43238f58/node_modules/@connectrpc/protoc-gen-connect-es/",\
+        "packageLocation": "./.yarn/unplugged/@connectrpc-protoc-gen-connect-es-virtual-80e20874b7/node_modules/@connectrpc/protoc-gen-connect-es/",\
         "packageDependencies": [\
           ["@connectrpc/protoc-gen-connect-es", "npm:1.6.1"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1", {\
-        "packageLocation": "./.yarn/unplugged/@connectrpc-protoc-gen-connect-es-virtual-1c43238f58/node_modules/@connectrpc/protoc-gen-connect-es/",\
+      ["virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1", {\
+        "packageLocation": "./.yarn/unplugged/@connectrpc-protoc-gen-connect-es-virtual-80e20874b7/node_modules/@connectrpc/protoc-gen-connect-es/",\
         "packageDependencies": [\
-          ["@connectrpc/protoc-gen-connect-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.6.1"],\
+          ["@connectrpc/protoc-gen-connect-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.6.1"],\
           ["@bufbuild/protobuf", "npm:1.10.0"],\
-          ["@bufbuild/protoc-gen-es", "virtual:3cdf0789ad9f2e55f96a6df90e85decb764d2864b742120f46a478a8a92579cf9763121ee1c445670b5645c5f10cfd9953ef4a6fc1e85812c3b3be102bdce9e8#npm:1.10.0"],\
+          ["@bufbuild/protoc-gen-es", "virtual:e4723db8cf3ee109d9574102fa7436ec15f7698bc7e165b0243e9d645caaec5fe131b092dedd32712438c8767c5ad5b64fce2809b3e04afb4e1aa95d3e62a8db#npm:1.10.0"],\
           ["@bufbuild/protoplugin", "npm:1.10.0"],\
           ["@connectrpc/connect", null],\
           ["@types/bufbuild__protoc-gen-es", null],\

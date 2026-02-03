@@ -18,7 +18,7 @@
     "graphql-request": "7.2.0"
   },
   "devDependencies": {
-    "@alts/auth-rpc": "workspace:*",
+    "@atls/auth-rpc": "workspace:*",
     "@atls/nestjs-connectrpc": "0.0.4",
     "@atls/nestjs-microservices-registry": "0.0.1",
     "@auth/application-module": "workspace:*",
@@ -36,7 +36,7 @@
     "rxjs": "7.8.2"
   },
   "peerDependencies": {
-    "@alts/auth-rpc": "workspace:*",
+    "@atls/auth-rpc": "workspace:*",
     "@atls/nestjs-connectrpc": "*",
     "@atls/nestjs-microservices-registry": "*",
     "@auth/application-module": "workspace:*",
