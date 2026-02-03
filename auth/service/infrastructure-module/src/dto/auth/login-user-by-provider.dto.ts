@@ -2,8 +2,8 @@ import { IsEnum }                          from 'class-validator'
 import { IsNotEmpty }                      from 'class-validator'
 import { IsString }                        from 'class-validator'
 
-import { ProviderType as RpcProviderType } from '@alts/auth-rpc/abstractions'
-import { ProviderType as ProviderTypeDto } from '@alts/auth-rpc/interfaces'
+import { ProviderType as RpcProviderType } from '@atls/auth-rpc/abstractions'
+import { ProviderType as ProviderTypeDto } from '@atls/auth-rpc/interfaces'
 
 export class LoginUserByProviderDto {
   @IsEnum(RpcProviderType)

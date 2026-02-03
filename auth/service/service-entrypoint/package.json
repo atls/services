@@ -15,7 +15,7 @@
     "start": "yarn node dist/index.js"
   },
   "devDependencies": {
-    "@alts/auth-rpc": "workspace:*",
+    "@atls/auth-rpc": "workspace:*",
     "@atls/nestjs-connectrpc": "0.0.4",
     "@atls/nestjs-logger": "0.2.41",
     "@atls/nestjs-microservices-registry": "0.0.1",

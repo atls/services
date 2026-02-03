@@ -5,8 +5,8 @@
   "type": "module",
   "exports": {
     "./abstractions": "./src/gen/abstractions/index.ts",
-    "./interfaces": "./src/gen/interfaces/index.ts",
     "./connect": "./src/gen/connect/index.ts",
+    "./interfaces": "./src/gen/interfaces/index.ts",
     ".": "./src/index.ts"
   },
   "scripts": {

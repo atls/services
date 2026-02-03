@@ -16,23 +16,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alts/auth-rpc@workspace:*, @alts/auth-rpc@workspace:auth/rpc/auth":
-  version: 0.0.0-use.local
-  resolution: "@alts/auth-rpc@workspace:auth/rpc/auth"
-  dependencies:
-    "@atls/protoc-gen-abstractions": "npm:0.0.3"
-    "@atls/protoc-gen-config": "npm:0.0.2"
-    "@atls/protoc-gen-interfaces": "npm:0.0.7"
-    "@bufbuild/buf": "npm:1.50.1"
-    "@bufbuild/protobuf": "npm:1.10.0"
-    "@bufbuild/protoc-gen-es": "npm:1.10.0"
-    "@connectrpc/protoc-gen-connect-es": "npm:1.6.1"
-    "@types/node": "npm:22.10.2"
-  peerDependencies:
-    "@bufbuild/protobuf": "*"
-  languageName: unknown
-  linkType: soft
-
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
@@ -438,6 +421,23 @@ __metadata:
   checksum: 10/5e19faf4cee84bbcbb7941e3c802db75a0818e06d8789dfd1472d0136c0d9ad5e7fdc5d3d1a566af887a1889b17c3dca8ccf8ea50da617a37ffdacad53172586
   languageName: node
   linkType: hard
+
+"@atls/auth-rpc@workspace:*, @atls/auth-rpc@workspace:auth/rpc/auth":
+  version: 0.0.0-use.local
+  resolution: "@atls/auth-rpc@workspace:auth/rpc/auth"
+  dependencies:
+    "@atls/protoc-gen-abstractions": "npm:0.0.3"
+    "@atls/protoc-gen-config": "npm:0.0.2"
+    "@atls/protoc-gen-interfaces": "npm:0.0.7"
+    "@bufbuild/buf": "npm:1.50.1"
+    "@bufbuild/protobuf": "npm:1.10.0"
+    "@bufbuild/protoc-gen-es": "npm:1.10.0"
+    "@connectrpc/protoc-gen-connect-es": "npm:1.6.1"
+    "@types/node": "npm:22.10.2"
+  peerDependencies:
+    "@bufbuild/protobuf": "*"
+  languageName: unknown
+  linkType: soft
 
 "@atls/base-types@npm:0.0.1":
   version: 0.0.1
@@ -1048,7 +1048,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@auth/infrastructure-module@workspace:auth/service/infrastructure-module"
   dependencies:
-    "@alts/auth-rpc": "workspace:*"
+    "@atls/auth-rpc": "workspace:*"
     "@atls/core-errors": "npm:0.0.4"
     "@atls/nestjs-connectrpc": "npm:0.0.4"
     "@atls/nestjs-connectrpc-errors": "npm:0.0.2"
@@ -1073,7 +1073,7 @@ __metadata:
     reflect-metadata: "npm:0.2.2"
     rxjs: "npm:7.8.2"
   peerDependencies:
-    "@alts/auth-rpc": "workspace:*"
+    "@atls/auth-rpc": "workspace:*"
     "@atls/nestjs-connectrpc": "*"
     "@atls/nestjs-microservices-registry": "*"
     "@auth/application-module": "workspace:*"
@@ -1096,7 +1096,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@auth/service-entrypoint@workspace:auth/service/service-entrypoint"
   dependencies:
-    "@alts/auth-rpc": "workspace:*"
+    "@atls/auth-rpc": "workspace:*"
     "@atls/nestjs-connectrpc": "npm:0.0.4"
     "@atls/nestjs-logger": "npm:0.2.41"
     "@atls/nestjs-microservices-registry": "npm:0.0.1"
