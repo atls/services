@@ -1,0 +1,27 @@
+{
+  "name": "@auth/domain-module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "BSD 3-Clause",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "zod": "4.0.5"
+  },
+  "devDependencies": {
+    "@nestjs/common": "11.1.5",
+    "@nestjs/core": "11.1.5",
+    "@nestjs/cqrs": "11.0.3",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/cqrs": "*",
+    "reflect-metadata": "*",
+    "rxjs": "*"
+  }
+}
