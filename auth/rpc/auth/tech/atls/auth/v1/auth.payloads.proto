@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package team.firstfood.auth.v1;
+package tech.atls.auth.v1;
 
 // ======== Login ========
 
