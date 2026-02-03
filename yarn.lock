@@ -427,7 +427,7 @@ __metadata:
   resolution: "@atls/auth-rpc@workspace:auth/rpc/auth"
   dependencies:
     "@atls/protoc-gen-abstractions": "npm:0.0.3"
-    "@atls/protoc-gen-config": "npm:0.0.2"
+    "@atls/protoc-gen-config": "npm:0.0.3"
     "@atls/protoc-gen-interfaces": "npm:0.0.7"
     "@bufbuild/buf": "npm:1.50.1"
     "@bufbuild/protobuf": "npm:1.10.0"
@@ -939,16 +939,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/protoc-gen-config@npm:0.0.2":
-  version: 0.0.2
-  resolution: "@atls/protoc-gen-config@npm:0.0.2"
+"@atls/protoc-gen-config@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@atls/protoc-gen-config@npm:0.0.3"
   dependencies:
     "@bufbuild/protoplugin": "npm:1.10.0"
   peerDependencies:
     "@bufbuild/protobuf": ^1
   bin:
     protoc-gen-config: bin/protoc-gen-config
-  checksum: 10/1a90ae3c9dee48c62d3814ef89b4840bb828056ec979b396bb478f74ac438b8c3b03104e6db779715277291e73a87ab2331d317110d933a871c65758268b46df
+  checksum: 10/7412f5e4e3ab998ef2a7b3d5317000b2d3fd081daf5b63f593c44b76ef06c5696da3dd34bd9e4f0374f820df9aa8f3abbbf44f56a9197cebf0ec0fae27ea5741
   languageName: node
   linkType: hard
 
