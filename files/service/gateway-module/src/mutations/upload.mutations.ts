@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
 import type { ValidationError }       from '@atls/protobuf-rpc'
 
 import { Mutation }                   from '@nestjs/graphql'

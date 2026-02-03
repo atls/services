@@ -54,7 +54,6 @@ export class EnvFilesBucketsAdapterImpl extends FilesBucketsAdapter {
     const min = Number(this.getValueFromEnv(scope, 'conditions', 'size', 'min'))
     const max = Number(this.getValueFromEnv(scope, 'conditions', 'size', 'max'))
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return FilesBucketConditions.create(type!, FilesBucketSizeConditions.create(min, max))
   }
 
@@ -66,7 +65,6 @@ export class EnvFilesBucketsAdapterImpl extends FilesBucketsAdapter {
     const bucket = this.getValueFromEnv(scope, 'bucket')
     const path = this.getValueFromEnv(scope, 'path') || '/'
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return FilesBucket.create(type, scope, bucket!, path, this.getBucketConditions(scope))
   }
 

@@ -157,7 +157,7 @@ export class Upload extends AggregateRoot {
   @Guard()
   confirm(
     @(Against('ownerId').NotUUID(4)) ownerId: string,
-    @(Against('metadadta').Optional.NotInstance(StorageFileMetadata)) metadata: StorageFileMetadata
+    @(Against('metadadta').Optional.NotInstance(StorageFileMetadata)) metadata?: StorageFileMetadata
   ): File {
     if (this.confirmed) {
       throw new UploadAlreadyConfirmedError()

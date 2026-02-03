@@ -25,9 +25,9 @@ const bootstrap = async (): Promise<void> => {
 
   await app.listen(LISTEN_PORT)
 
-  if (module?.hot) {
-    module?.hot.accept()
-    module?.hot.dispose((): void => {
+  if (module.hot) {
+    module.hot.accept()
+    module.hot.dispose((): void => {
       app.close()
     })
   }

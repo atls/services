@@ -159,7 +159,6 @@ describe('files-service rpc s3', () => {
           size: 206,
         })
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const response = await fetch(upload!.url, {
           body: createReadStream(
             join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/test.png')
@@ -224,8 +223,8 @@ describe('files-service rpc s3', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
       })
 
@@ -251,15 +250,15 @@ describe('files-service rpc s3', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
 
         await assert.rejects(
           async () =>
             client.confirmUpload({
-              id: upload?.id,
-              ownerId: upload?.ownerId,
+              id: upload.id,
+              ownerId: upload.ownerId,
             }),
           (error) => {
             assert.ok(error instanceof ConnectError)

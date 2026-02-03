@@ -224,8 +224,8 @@ describe('files-service rpc gcs', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
       })
 
@@ -251,15 +251,15 @@ describe('files-service rpc gcs', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
 
         await assert.rejects(
           async () =>
             client.confirmUpload({
-              id: upload?.id,
-              ownerId: upload?.ownerId,
+              id: upload.id,
+              ownerId: upload.ownerId,
             }),
           (error) => {
             assert.ok(error instanceof ConnectError)
