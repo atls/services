@@ -43,7 +43,7 @@ describe('files-service rpc common', () => {
   let client: Client<typeof FilesEngine>
 
   before(async () => {
-    kafka = await new KafkaContainer().withExposedPorts(9093).start()
+    kafka = await new KafkaContainer('confluentinc/cp-kafka:7.3.2').withExposedPorts(9093).start()
 
     postgres = await new GenericContainer('bitnami/postgresql')
       .withWaitStrategy(Wait.forLogMessage('database system is ready to accept connections'))
