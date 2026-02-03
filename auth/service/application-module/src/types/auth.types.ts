@@ -1,0 +1,10 @@
+export type AuthEmail = string
+export type AuthPhone = string
+export type AuthIdentifier = string
+export type AuthPassword = string
+export type AuthToken = string
+export type AuthCode = string
+export type AuthReturnTo = string
+export type AuthProvider = 'google' | 'apple'
+export type AuthRedirectUrl = string
+export type AuthExchangeCode = string

@@ -45,7 +45,7 @@ describe('files-service rpc s3', () => {
   let client: Client<typeof FilesEngine>
 
   before(async () => {
-    kafka = await new KafkaContainer().withExposedPorts(9093).start()
+    kafka = await new KafkaContainer('confluentinc/cp-kafka:7.3.2').withExposedPorts(9093).start()
 
     postgres = await new GenericContainer('bitnami/postgresql')
       .withWaitStrategy(Wait.forLogMessage('database system is ready to accept connections'))
@@ -159,7 +159,6 @@ describe('files-service rpc s3', () => {
           size: 206,
         })
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const response = await fetch(upload!.url, {
           body: createReadStream(
             join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/test.png')
@@ -224,8 +223,8 @@ describe('files-service rpc s3', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
       })
 
@@ -251,15 +250,15 @@ describe('files-service rpc s3', () => {
         })
 
         await client.confirmUpload({
-          id: upload?.id,
-          ownerId: upload?.ownerId,
+          id: upload.id,
+          ownerId: upload.ownerId,
         })
 
         await assert.rejects(
           async () =>
             client.confirmUpload({
-              id: upload?.id,
-              ownerId: upload?.ownerId,
+              id: upload.id,
+              ownerId: upload.ownerId,
             }),
           (error) => {
             assert.ok(error instanceof ConnectError)

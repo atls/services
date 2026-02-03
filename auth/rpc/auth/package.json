@@ -1,0 +1,34 @@
+{
+  "name": "@alts/auth-rpc",
+  "version": "0.0.1",
+  "private": true,
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    "./abstractions": "./src/gen/abstractions/index.ts",
+    "./interfaces": "./src/gen/interfaces/index.ts",
+    "./connect": "./src/gen/connect/index.ts",
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "buf:generate": "buf generate",
+    "buf:lint": "buf lint proto",
+    "buf:update": "buf mod update proto",
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@atls/protoc-gen-abstractions": "0.0.3",
+    "@atls/protoc-gen-config": "0.0.2",
+    "@atls/protoc-gen-interfaces": "0.0.7",
+    "@bufbuild/buf": "1.50.1",
+    "@bufbuild/protobuf": "1.10.0",
+    "@bufbuild/protoc-gen-es": "1.10.0",
+    "@connectrpc/protoc-gen-connect-es": "1.6.1",
+    "@types/node": "22.10.2"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "*"
+  }
+}
