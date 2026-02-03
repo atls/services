@@ -14,6 +14,7 @@ const bootstrap = async (): Promise<void> => {
 
   app
     .get<typeof MicroservisesRegistry>(MicroservisesRegistry, { strict: false })
+    // @ts-expect-error different versions of nest
     .connect(app, { inheritAppConfig: true })
 
   await app.startAllMicroservices()
