@@ -51,6 +51,7 @@ package.tgz
 .idea
 *.iml
 .vscode
+/.yarn/sdks/
 
 .data
 schema.gql
