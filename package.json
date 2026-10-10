@@ -9,19 +9,21 @@
     "gateway/**/*"
   ],
   "resolutions": {
-    "pg": "8.10.0"
+    "@atls/nestjs-kafka": "0.1.1",
+    "@graphql-tools/utils": "8.13.1",
+    "apollo-link@npm:^1.2.14": "patch:apollo-link@npm%3A1.2.14#~/.yarn/patches/apollo-link-npm-1.2.14-74f0ba01f9.patch",
+    "pg": "8.23.1",
+    "rxjs": "7.8.2"
   },
   "devDependencies": {
-    "@atls/code-runtime": "2.1.16",
+    "@atls/raijin": "latest",
+    "@js-temporal/polyfill": "0.5.1",
     "@types/eslint": "9.6.1",
-    "@types/node": "22.13.10",
+    "@types/node": "24.19.1",
     "eslint": "9.17.0",
-    "typescript": "5.5.4"
+    "typescript": "5.9.3"
   },
-  "packageManager": "yarn@4.12.0",
-  "formatterIgnorePatterns": [
-    "**/*/CHANGELOG.md"
-  ],
+  "packageManager": "yarn@4.18.0",
   "tools": {
     "schematic": {
       "collection": "@atls/schematics",
@@ -29,6 +31,5 @@
       "type": "libraries",
       "migration": "1643131477515"
     }
-  },
-  "typecheckSkipLibCheck": true
+  }
 }

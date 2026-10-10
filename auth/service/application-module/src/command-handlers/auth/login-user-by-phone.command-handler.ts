@@ -8,9 +8,10 @@ import { LoginUserByPhoneCommand } from '../../commands/index.js'
 import { LoginUserByPhoneUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(LoginUserByPhoneCommand)
-export class LoginUserByPhoneCommandHandler
-  implements ICommandHandler<LoginUserByPhoneCommand, AuthProcess>
-{
+export class LoginUserByPhoneCommandHandler implements ICommandHandler<
+  LoginUserByPhoneCommand,
+  AuthProcess
+> {
   private readonly logger = new Logger(LoginUserByPhoneCommandHandler.name)
 
   constructor(private readonly useCase: LoginUserByPhoneUseCase) {}

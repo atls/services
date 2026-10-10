@@ -8,9 +8,10 @@ import { SendVerificationCodeCommand } from '../../commands/index.js'
 import { SendVerificationCodeUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(SendVerificationCodeCommand)
-export class SendVerificationCodeCommandHandler
-  implements ICommandHandler<SendVerificationCodeCommand, AuthProcess>
-{
+export class SendVerificationCodeCommandHandler implements ICommandHandler<
+  SendVerificationCodeCommand,
+  AuthProcess
+> {
   private readonly logger = new Logger(SendVerificationCodeCommandHandler.name)
 
   constructor(private readonly useCase: SendVerificationCodeUseCase) {}

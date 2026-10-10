@@ -8,9 +8,10 @@ import { SendRecoveryCodeCommand } from '../../commands/index.js'
 import { SendRecoveryCodeUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(SendRecoveryCodeCommand)
-export class SendRecoveryCodeCommandHandler
-  implements ICommandHandler<SendRecoveryCodeCommand, AuthProcess>
-{
+export class SendRecoveryCodeCommandHandler implements ICommandHandler<
+  SendRecoveryCodeCommand,
+  AuthProcess
+> {
   private readonly logger = new Logger(SendRecoveryCodeCommandHandler.name)
 
   constructor(private readonly useCase: SendRecoveryCodeUseCase) {}

@@ -5,7 +5,6 @@ import * as entities             from './entities/index.js'
 import * as migrations           from './migrations/index.js'
 
 export default MikroORMConfigBuilder.build({
-  type: 'postgresql',
   driver: PostgreSqlDriver,
   entities: Object.values(entities),
   migrations: {

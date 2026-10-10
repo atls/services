@@ -9,9 +9,10 @@ import { LoginUserByProviderCommand } from '../../commands/index.js'
 import { LoginUserByProviderUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(LoginUserByProviderCommand)
-export class LoginUserByProviderCommandHandler
-  implements ICommandHandler<LoginUserByProviderCommand, AuthSsoLoginResponse>
-{
+export class LoginUserByProviderCommandHandler implements ICommandHandler<
+  LoginUserByProviderCommand,
+  AuthSsoLoginResponse
+> {
   private readonly logger = new Logger(LoginUserByProviderCommandHandler.name)
 
   constructor(private readonly useCase: LoginUserByProviderUseCase) {}

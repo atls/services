@@ -8,9 +8,10 @@ import { ConfirmRecoveryCodeCommand } from '../../commands/index.js'
 import { ConfirmRecoveryCodeUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(ConfirmRecoveryCodeCommand)
-export class ConfirmRecoveryCodeCommandHandler
-  implements ICommandHandler<ConfirmRecoveryCodeCommand, UserSession>
-{
+export class ConfirmRecoveryCodeCommandHandler implements ICommandHandler<
+  ConfirmRecoveryCodeCommand,
+  UserSession
+> {
   private readonly logger = new Logger(ConfirmRecoveryCodeCommandHandler.name)
 
   constructor(private readonly useCase: ConfirmRecoveryCodeUseCase) {}
