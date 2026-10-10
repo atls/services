@@ -8,9 +8,10 @@ import { LoginUserByEmailCommand } from '../../commands/index.js'
 import { LoginUserByEmailUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(LoginUserByEmailCommand)
-export class LoginUserByEmailCommandHandler
-  implements ICommandHandler<LoginUserByEmailCommand, UserSession>
-{
+export class LoginUserByEmailCommandHandler implements ICommandHandler<
+  LoginUserByEmailCommand,
+  UserSession
+> {
   private readonly logger = new Logger(LoginUserByEmailCommandHandler.name)
 
   constructor(private readonly useCase: LoginUserByEmailUseCase) {}

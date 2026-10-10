@@ -1,13 +1,13 @@
-import { Entity }          from '@mikro-orm/core'
-import { Property }        from '@mikro-orm/core'
-import { PrimaryKey }      from '@mikro-orm/core'
-import { Enum }            from '@mikro-orm/core'
 import { BaseEntity }      from '@mikro-orm/core'
+import { Entity }          from '@mikro-orm/decorators/legacy'
+import { Property }        from '@mikro-orm/decorators/legacy'
+import { PrimaryKey }      from '@mikro-orm/decorators/legacy'
+import { Enum }            from '@mikro-orm/decorators/legacy'
 
 import { FilesBucketType } from '@files-engine/domain-module'
 
 @Entity({ tableName: 'files' })
-export class FileEntity extends BaseEntity<FileEntity, 'id'> {
+export class FileEntity extends BaseEntity {
   @PrimaryKey({ type: 'uuid' })
   id!: string
 

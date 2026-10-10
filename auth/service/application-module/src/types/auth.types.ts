@@ -5,6 +5,6 @@ export type AuthPassword = string
 export type AuthToken = string
 export type AuthCode = string
 export type AuthReturnTo = string
-export type AuthProvider = 'google' | 'apple'
+export type AuthProvider = 'apple' | 'google'
 export type AuthRedirectUrl = string
 export type AuthExchangeCode = string
