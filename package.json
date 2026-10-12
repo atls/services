@@ -8,6 +8,13 @@
     "files/**/*",
     "gateway/**/*"
   ],
+  "lint-staged": {
+    "*.{js,mjs,jsx,ts,tsx}": [
+      "yarn format",
+      "yarn lint"
+    ],
+    "*.{json,yaml,yml,md}": "yarn format"
+  },
   "resolutions": {
     "@atls/nestjs-kafka": "0.1.1",
     "@graphql-tools/utils": "8.13.1",
@@ -23,13 +30,5 @@
     "eslint": "9.17.0",
     "typescript": "5.9.3"
   },
-  "packageManager": "yarn@4.18.0",
-  "tools": {
-    "schematic": {
-      "collection": "@atls/schematics",
-      "schematic": "project",
-      "type": "libraries",
-      "migration": "1643131477515"
-    }
-  }
+  "packageManager": "yarn@4.18.0"
 }
