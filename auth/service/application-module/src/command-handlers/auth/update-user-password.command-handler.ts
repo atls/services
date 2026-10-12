@@ -7,9 +7,10 @@ import { UpdateUserPasswordCommand } from '../../commands/index.js'
 import { UpdateUserPasswordUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(UpdateUserPasswordCommand)
-export class UpdateUserPasswordCommandHandler
-  implements ICommandHandler<UpdateUserPasswordCommand, void>
-{
+export class UpdateUserPasswordCommandHandler implements ICommandHandler<
+  UpdateUserPasswordCommand,
+  void
+> {
   private readonly logger = new Logger(UpdateUserPasswordCommandHandler.name)
 
   constructor(private readonly useCase: UpdateUserPasswordUseCase) {}

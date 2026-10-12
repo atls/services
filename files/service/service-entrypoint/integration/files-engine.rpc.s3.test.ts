@@ -56,7 +56,7 @@ describe('files-service rpc s3', () => {
       .withExposedPorts(5432)
       .start()
 
-    storage = await new GenericContainer('minio/minio')
+    storage = await new GenericContainer('pgsty/minio:RELEASE.2026-08-04T00-00-00Z')
       .withCopyContentToContainer([
         {
           content: '1',
@@ -82,13 +82,14 @@ describe('files-service rpc s3', () => {
       .useValue({
         storage: 's3',
         db: {
+          host: postgres.getHost(),
           port: postgres.getMappedPort(5432),
         },
         events: {
           brokers: [`${kafka.getHost()}:${kafka.getMappedPort(9093)}`],
         },
         s3: {
-          endpoint: `http://localhost:${storage.getMappedPort(9000)}`,
+          endpoint: `http://${storage.getHost()}:${storage.getMappedPort(9000)}`,
           region: 'eu-central-1',
           credentials: {
             accessKeyId: 'accesskey',

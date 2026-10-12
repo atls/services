@@ -9,9 +9,10 @@ import { ConfirmLoginCodeCommand } from '../../commands/index.js'
 import { ConfirmLoginCodeUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(ConfirmLoginCodeCommand)
-export class ConfirmLoginCodeCommandHandler
-  implements ICommandHandler<ConfirmLoginCodeCommand, UserSession>
-{
+export class ConfirmLoginCodeCommandHandler implements ICommandHandler<
+  ConfirmLoginCodeCommand,
+  UserSession
+> {
   private readonly logger = new Logger(ConfirmLoginCodeCommandHandler.name)
 
   constructor(private readonly useCase: ConfirmLoginCodeUseCase) {}

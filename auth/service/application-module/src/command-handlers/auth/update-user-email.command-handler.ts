@@ -8,9 +8,10 @@ import { UpdateUserEmailCommand } from '../../commands/index.js'
 import { UpdateUserEmailUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(UpdateUserEmailCommand)
-export class UpdateUserEmailCommandHandler
-  implements ICommandHandler<UpdateUserEmailCommand, AuthProcess>
-{
+export class UpdateUserEmailCommandHandler implements ICommandHandler<
+  UpdateUserEmailCommand,
+  AuthProcess
+> {
   private readonly logger = new Logger(UpdateUserEmailCommandHandler.name)
 
   constructor(private readonly useCase: UpdateUserEmailUseCase) {}

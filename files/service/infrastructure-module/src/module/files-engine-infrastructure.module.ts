@@ -117,15 +117,18 @@ export class FilesEngineInfrastructureModule implements OnModuleInit {
           inject: [MikroORMConfig, FilesEngineInfrastructureModuleConfig],
         }),
         CqrsKafkaEventsModule.registerAsync({
+          imports: [],
           useFactory: (config: FilesEngineInfrastructureModuleConfig) => config.events,
           inject: [FilesEngineInfrastructureModuleConfig],
         }),
         GcsClientModule.registerAsync({
-          useFactory: (config: FilesEngineInfrastructureModuleConfig) => config.gcs,
+          imports: [],
+          useFactory: (config: unknown) => (config as FilesEngineInfrastructureModuleConfig).gcs,
           inject: [FilesEngineInfrastructureModuleConfig],
         }),
         S3ClientModule.registerAsync({
-          useFactory: (config: FilesEngineInfrastructureModuleConfig) => config.s3,
+          imports: [],
+          useFactory: (config: unknown) => (config as FilesEngineInfrastructureModuleConfig).s3,
           inject: [FilesEngineInfrastructureModuleConfig],
         }),
       ],
@@ -135,6 +138,6 @@ export class FilesEngineInfrastructureModule implements OnModuleInit {
   }
 
   async onModuleInit(): Promise<void> {
-    await this.orm.getMigrator().up()
+    await this.orm.migrator.up()
   }
 }

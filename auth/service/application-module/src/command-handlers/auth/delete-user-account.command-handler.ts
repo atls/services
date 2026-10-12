@@ -7,9 +7,10 @@ import { DeleteUserAccountCommand } from '../../commands/index.js'
 import { DeleteUserAccountUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(DeleteUserAccountCommand)
-export class DeleteUserAccountCommandHandler
-  implements ICommandHandler<DeleteUserAccountCommand, void>
-{
+export class DeleteUserAccountCommandHandler implements ICommandHandler<
+  DeleteUserAccountCommand,
+  void
+> {
   private readonly logger = new Logger(DeleteUserAccountCommandHandler.name)
 
   constructor(private readonly useCase: DeleteUserAccountUseCase) {}

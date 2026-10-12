@@ -1,1 +1,1 @@
-export * from './auth.types.js'
+export type * from './auth.types.js'

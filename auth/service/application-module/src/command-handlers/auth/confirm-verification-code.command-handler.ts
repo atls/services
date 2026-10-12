@@ -7,9 +7,10 @@ import { ConfirmVerificationCodeCommand } from '../../commands/index.js'
 import { ConfirmVerificationCodeUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(ConfirmVerificationCodeCommand)
-export class ConfirmVerificationCodeCommandHandler
-  implements ICommandHandler<ConfirmVerificationCodeCommand, void>
-{
+export class ConfirmVerificationCodeCommandHandler implements ICommandHandler<
+  ConfirmVerificationCodeCommand,
+  void
+> {
   private readonly logger = new Logger(ConfirmVerificationCodeCommandHandler.name)
 
   constructor(private readonly useCase: ConfirmVerificationCodeUseCase) {}

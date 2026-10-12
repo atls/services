@@ -8,9 +8,10 @@ import { AuthRegistrationResponse }   from '../../ports/index.js'
 import { RegisterUserByEmailUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(RegisterUserByEmailCommand)
-export class RegisterUserByEmailCommandHandler
-  implements ICommandHandler<RegisterUserByEmailCommand, AuthRegistrationResponse>
-{
+export class RegisterUserByEmailCommandHandler implements ICommandHandler<
+  RegisterUserByEmailCommand,
+  AuthRegistrationResponse
+> {
   private readonly logger = new Logger(RegisterUserByEmailCommandHandler.name)
 
   constructor(private readonly registerUserByEmailUseCase: RegisterUserByEmailUseCase) {}

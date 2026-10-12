@@ -1,4 +1,3 @@
-import type { RecordMetadata }                      from '@atls/nestjs-cqrs-kafka-events'
 import type { File }                                from '@files-engine/domain-module'
 import type { FindFilesByQueryResult }              from '@files-engine/domain-module'
 import type { FindFilesByQuery }                    from '@files-engine/domain-module'
@@ -42,9 +41,7 @@ export class FileRepositoryImpl extends FileRepository {
       em.persist(this.mapper.toPersistence(aggregate, exists))
 
       if (aggregate.getUncommittedEvents().length > 0) {
-        await this.eventBus.publishAll<IEvent, Promise<Array<RecordMetadata>>>(
-          aggregate.getUncommittedEvents()
-        )
+        await this.eventBus.publishAll<IEvent>(aggregate.getUncommittedEvents())
       }
 
       aggregate.commit()

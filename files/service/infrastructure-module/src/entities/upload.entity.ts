@@ -1,12 +1,12 @@
 import type { FilesBucket } from '@files-engine/domain-module'
 
-import { Entity }           from '@mikro-orm/core'
-import { Property }         from '@mikro-orm/core'
-import { PrimaryKey }       from '@mikro-orm/core'
 import { BaseEntity }       from '@mikro-orm/core'
+import { Entity }           from '@mikro-orm/decorators/legacy'
+import { Property }         from '@mikro-orm/decorators/legacy'
+import { PrimaryKey }       from '@mikro-orm/decorators/legacy'
 
 @Entity({ tableName: 'uploads' })
-export class UploadEntity extends BaseEntity<UploadEntity, 'id'> {
+export class UploadEntity extends BaseEntity {
   @PrimaryKey({ type: 'uuid' })
   id!: string
 

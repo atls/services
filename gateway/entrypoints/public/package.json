@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@atls/nestjs-gateway": "0.0.9",
-    "@atls/nestjs-logger": "0.2.41",
+    "@atls/nestjs-logger": "0.3.0",
     "@grpc/grpc-js": "1.12.5",
     "@grpc/proto-loader": "0.7.13",
     "@nestjs/common": "10.4.15",
@@ -41,6 +41,5 @@
     "@types/body-parser": "1.19.5",
     "@types/express": "4.17.21",
     "@types/ws": "8.5.13"
-  },
-  "typecheckSkipLibCheck": true
+  }
 }

@@ -60,7 +60,12 @@ describe('files-service rpc gcs', () => {
 
     storage = await new GenericContainer('fsouza/fake-gcs-server')
       .withWaitStrategy(Wait.forLogMessage('server started at'))
-      .withCommand(['-scheme', 'http', '-external-url', `http://localhost:${storagePort}`])
+      .withCommand([
+        '-scheme',
+        'http',
+        '-external-url',
+        `http://${process.env.TESTCONTAINERS_HOST_OVERRIDE || 'localhost'}:${storagePort}`,
+      ])
       .withCopyContentToContainer([
         {
           content: 'bucket mock',
@@ -82,13 +87,14 @@ describe('files-service rpc gcs', () => {
       .useValue({
         storage: 'gcs',
         db: {
+          host: postgres.getHost(),
           port: postgres.getMappedPort(5432),
         },
         events: {
           brokers: [`${kafka.getHost()}:${kafka.getMappedPort(9093)}`],
         },
         gcs: {
-          apiEndpoint: `http://127.0.0.1:${storage.getMappedPort(4443)}`,
+          apiEndpoint: `http://${storage.getHost()}:${storage.getMappedPort(4443)}`,
           keyFilename: join(
             fileURLToPath(new URL('.', import.meta.url)),
             'fixtures/fake-google-credentials.json'

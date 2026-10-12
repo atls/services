@@ -151,7 +151,7 @@ describe('files-engine domain aggregates upload', () => {
         .prepare(faker.image.url())
 
       assert.throws(() => {
-        upload.confirm(upload.ownerId, undefined as never as StorageFileMetadata)
+        upload.confirm(upload.ownerId, undefined)
       }, FileNotUploadedError)
     })
 

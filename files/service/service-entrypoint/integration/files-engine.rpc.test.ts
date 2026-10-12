@@ -54,7 +54,7 @@ describe('files-service rpc common', () => {
       .withExposedPorts(5432)
       .start()
 
-    storage = await new GenericContainer('minio/minio')
+    storage = await new GenericContainer('pgsty/minio:RELEASE.2026-08-04T00-00-00Z')
       .withCopyContentToContainer([
         {
           content: '1',
@@ -79,6 +79,7 @@ describe('files-service rpc common', () => {
       .overrideProvider(FILES_ENGINE_INFRASTRUCTURE_MODULE_OPTIONS)
       .useValue({
         db: {
+          host: postgres.getHost(),
           port: postgres.getMappedPort(5432),
         },
         events: {

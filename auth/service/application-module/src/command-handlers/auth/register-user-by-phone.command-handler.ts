@@ -8,9 +8,10 @@ import { AuthRegistrationResponse }   from '../../ports/index.js'
 import { RegisterUserByPhoneUseCase } from '../../use-cases/index.js'
 
 @CommandHandler(RegisterUserByPhoneCommand)
-export class RegisterUserByPhoneCommandHandler
-  implements ICommandHandler<RegisterUserByPhoneCommand, AuthRegistrationResponse>
-{
+export class RegisterUserByPhoneCommandHandler implements ICommandHandler<
+  RegisterUserByPhoneCommand,
+  AuthRegistrationResponse
+> {
   private readonly logger = new Logger(RegisterUserByPhoneCommandHandler.name)
 
   constructor(private readonly registerUserByPhoneUseCase: RegisterUserByPhoneUseCase) {}

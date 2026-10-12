@@ -10,13 +10,10 @@ import { POSTGRESQL_USER_FALLBACK }     from '@auth/infrastructure-module'
 
 const POSTGRESQL_PORT = Number(process.env.POSTGRESQL_PORT)
 
-export const databaseConfig = registerAs(
-  'database',
-  (): DatabaseOptions => ({
-    port: Number.isNaN(POSTGRESQL_PORT) ? POSTGRESQL_PORT_FALLBACK : POSTGRESQL_PORT,
-    host: process.env.POSTGRESQL_HOST ?? POSTGRESQL_HOST_FALLBACK,
-    name: process.env.POSTGRESQL_DATABASE ?? POSTGRESQL_DATABASE_FALLBACK,
-    user: process.env.POSTGRESQL_USER ?? POSTGRESQL_USER_FALLBACK,
-    password: process.env.POSTGRESQL_PASSWORD ?? POSTGRESQL_PASSWORD_FALLBACK,
-  })
-)
+export const databaseConfig = registerAs('database', (): DatabaseOptions => ({
+  port: Number.isNaN(POSTGRESQL_PORT) ? POSTGRESQL_PORT_FALLBACK : POSTGRESQL_PORT,
+  host: process.env.POSTGRESQL_HOST ?? POSTGRESQL_HOST_FALLBACK,
+  name: process.env.POSTGRESQL_DATABASE ?? POSTGRESQL_DATABASE_FALLBACK,
+  user: process.env.POSTGRESQL_USER ?? POSTGRESQL_USER_FALLBACK,
+  password: process.env.POSTGRESQL_PASSWORD ?? POSTGRESQL_PASSWORD_FALLBACK,
+}))
