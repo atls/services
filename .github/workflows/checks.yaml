@@ -26,3 +26,4 @@ jobs:
     permissions: write-all
     with:
       installPlaywright: false
+      build-images: true
