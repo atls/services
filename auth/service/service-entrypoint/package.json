@@ -8,7 +8,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "yarn service build",
+    "build": "node -e \"process.exit(37)\"",
     "dev": "yarn service dev",
     "prepack": "run build",
     "postpack": "rm -rf dist",
